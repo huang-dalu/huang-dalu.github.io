@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>UX Caff</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2020-12-06T06:56:02.823Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>huangdalu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2020/12/06/hello-world/"/>
+    <id>http://example.com/2020/12/06/hello-world/</id>
+    <published>2020-12-06T06:56:02.822Z</published>
+    <updated>2020-12-06T06:56:02.823Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么我们要工作</title>
+    <link href="http://example.com/2020/04/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E5%B7%A5%E4%BD%9C/"/>
+    <id>http://example.com/2020/04/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E5%B7%A5%E4%BD%9C/</id>
+    <published>2020-04-11T13:10:10.000Z</published>
+    <updated>2020-12-06T08:28:26.603Z</updated>
+    
+    <content type="html"><![CDATA[<p>每天早上不厌其烦日复一日地工作，是为了什么？</p><a id="more"></a><p>在一般现实环境中，得到的答案都是“为了钱”。或者说是为了某些心理感觉，成就感、责任感或个人荣誉感等等。但同样一份工作，有人有这种感觉，有人却没有。所以，是什么原因造成这种情况？上面的回答好像也没有说得特别清楚。</p><p>抽离出来思考这个问题，想到日常某些工作，在我看来非常单调、没有意义，消耗灵魂和意志。例如高速收费员、停车场管理员、地铁站引导人员这类。并不是说他们工作没有带来价值。而是有时候假设自己处于那样的工作环境，单调重复，究竟是为了什么，这种岗位人员寻找什么理由让自己日复一日转动。</p><p>偶然情况下，我看到心理学教授 Brry Schwartz 解释了这个问题，提供了一个宏观视角。</p><p>他说是因为一种「思维技术」，也可以说是一种「思维模式」。是因为一些科学家或者科研领袖创造了一种模式（或者说是创造了不同人性），于是某一类人群就选择了某一种模式。这种模式不会被淘汰，会随着时间不断调优，满足意识形态需要。</p><p>亚当斯密带来了市场经济，所以我们现在通过买卖市场用钱换取生活所需。通用公司带来了流水线分工，所以才有劳动密集型产业的固定生产模式。工业革命会带来一套生产制度和生活方式，科技革命同样也会带来另外一套生产制度和生活方式。而被裹挟其中的个体就在这个模式下生活。各种大的小的模式，带来了不一样的选择。</p><p>亚当斯密说，在流水线工作的人，会变得很愚蠢，愚蠢到人类的极点。并不是说人一开始就愚蠢，而是在思维上去适应这套模式，逐渐变得愚蠢。是流水线模式要求人变得愚蠢，这样才能在流水线环境中突出。</p><p>另外还有一些对品性和事物本质的理解不同，比如说贫穷。有人认为贫穷是上帝给予，所以信奉上帝，按照上帝旨意生活。有人坚信人定胜天，通过个人努力可以改变，所以进行革命。有人觉得无力改变，选择妥协。<br>所以是使用不同「思维模式」在过不同生活。工作只是不同生活分类的一些事情任务而已。</p><p>和物理技术不同，差劲的「思维模式」并不会被淘汰，而是当运用的人越来越多后，在社会大环境就会合理存在。</p><p>基于这套理论还是带来了一些启发。个体需要去不停汲取不同「思维模式」，去了解类似词源或者说是根本性词语的理解，例如善良、贫穷、正义、恶毒。基于对这类词语不同理解，基于对宏观微观环境的了解。寻找适合个人的「思维模式」。</p><p>附上 Brry Schwartz 演讲链接：<a href="http://open.163.com/newview/movie/free?pid=MB2A0K1HE&mid=MB2K9TTQG">网易公开课</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;每天早上不厌其烦日复一日地工作，是为了什么？&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>管理职能型团队的一些总结</title>
+    <link href="http://example.com/2019/04/25/%E7%AE%A1%E7%90%86%E8%81%8C%E8%83%BD%E5%9E%8B%E5%9B%A2%E9%98%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2019/04/25/%E7%AE%A1%E7%90%86%E8%81%8C%E8%83%BD%E5%9E%8B%E5%9B%A2%E9%98%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</id>
+    <published>2019-04-25T13:10:10.000Z</published>
+    <updated>2020-12-06T08:31:04.903Z</updated>
+    
+    <content type="html"><![CDATA[<p>从管理个人到管理他人，必然面临工作内容变化。在适应阶段，新晋管理者遇到各种各样问题也很常见。整体团队来看，管理者工作能力直接决定团队战斗力。下面主要根据《领导梯队 全面打造领导力驱动型公司》这本书中说明的一线管理者职责，详细聊聊我觉得实际工作中比较重要的部分。</p><a id="more"></a><p>详细工作内容：<br><img src="https://cdn.brambling.cn/uxcaff/management.png"></p><p>来源：《领导梯队 全面打造领导力驱动型公司》</p><p>这本书中，对职能型团队管理者的工作职责已经有了详细描述，本篇文章就不再逐个展开说明（有兴趣可以阅读，非常有实操性）。</p><p>主要就书中提到的几点单拎出来，包括：目标制定、工作设计、绩效考核和教练辅导，结合个人工作经验，做一些总结和讨论。</p><p>首先围绕目标聊一聊。一般会根据目标来制定月度、季度或者年度目标。这里所说的目标无外乎来自于两种形式：一类是自上而下，来自于主管；还有一类是自下而上探索得出（业务团队一些目标往往是这样）。自下而上这里不讨论，没什么说的，团队自己探索得出，在团队内部肯定是达成共识，一般问题不大。</p><p>主要阐述「目标来于自上而下」这种类型。一线管理者一定要理解目标。理解为什么要制定这个目标。理解之后一定要认可这个目标，然后再同步到团队成员，让团队成员理解和认可这个目标。不然拿着目标上来就是干，再加上 KPI 导向，很容易偏离组织预期。万丈高楼，这是第一步。理解之后再来拆解目标。拆目标是硬技能，主管拆解目标的能力基本决定了目标兑现程度。拆解目标就是定位具体问题，这个在后续文章展开讨论。拆解目标分配任务后，管理者要做的就是在整个任务流程中管理目标，保证成员做事不出现偏移，保证结果符合预期。</p><p>另外一个知易行难的职责，是工作设计。工作设计有 3 个影响因素，第一是目标拆解维度，决定了具体任务。其次是团队成员个人能力。最后是主管所期望团队协作流程方式。这 3 点决定了工作设计，也决定了团队输出。</p><p>首先是目标拆解维度，比如：完成销售额业绩目标，可以考虑提升付费用户数或者客单价。如果是考虑客单价，团队需要考虑给用户带来更多价值；考虑付费用户数，就需要有更好更多渠道拉新。这些拆解的任务会填满团队成员的日常工作内容。其次是团队成员个人能力是不是能做好主管拆解出来的任务。实际工作中，会听到一些主管抱怨团队成员不给力，但仔细想想，究竟是团队成员不够优秀还是拆解任务不合理？这种现象值得深究。所以在这里，需要平衡好个人能力和组织任务的关系。任务需要有一些刻意设计，团队成员要能胜任拆解的任务，任务还要有挑战性，这样成员个人能力才能得到提升。最后还有团队协作流程，团队项目非正式信息处理方式、项目正式信息处理方式，跨团队、跨项目协作方式。这些事情都填满了团队成员的日常时间。我觉得需要根据各个分类制定好一些规则。梳理好这些流程规则，会提升不少团队效率和氛围。</p><p>再说说绩效考核。这是一个看结果的事情，但是也不能全看结果。首先，绩效考核不能太“虚”，有些绩效考核表（包括网上流传的部分绩效考核内容）都是通用、空洞的考核内容，没有实际参考价值，我甚至觉得这是对团队成员日常努力工作的敷衍。实际工作中，考核内容必须要与岗位通用技能和公司业务相结合，再加上考核周期限定（一般来说建议是季度考核，3 个月足够带来一些改变）。这样整个团队项目有了里程碑节点，也遵循了 SMART 原则。再考虑成员个人工作输出质量和整体目标结果，考核内容各个重点基本上都已经考虑到位，同时考虑到了个人业务目标、个人成长目标、团队目标。根据我几年验证，这样的绩效考核确实能带来团队目标感和成员个人成长提升。</p><p>关于团队辅导，刚晋升的管理人是做不到“因材施教”，前期都是按照自己擅长的方式和固定思维，要求成员按照自己习惯方式执行。但随着时间累积，还是要尽量根据成员能力做出不同判断，成员能力稍弱需要减少一些问题变量，还是以提升销售额为例。面对能力过硬的成员，你的问题可以是：如何提升销售额？但是稍弱一些的，你的问题可能是：针对提升销售额，我们目前的想法是提升客单价，那么，你有哪些提升客单价的方案？</p><p>另外，需要把一些通用性解决问题的思路沉淀下来，输出文档，给团队提供初步指导。例如：如何衡量一个新功能是否要做？类似这些通用性问题。这样既保证了团队能力下限，也为团队文化带来了向上的能量。</p><p>还想说明的是，不要把自己当成一位主管。而只需要理解为：在某个公司体系内，角色不同。其实是否有这种想法，其实在日常沟通都能体现出来。这是融入团队的前提条件。</p><p>责任担当也是必不可少，团队成员的技能成长、日常任务、薪资都和一线主管息息相关。在互联网公司，都是 20 多岁，鲜衣怒马青年时。不是一个个“资源”，不是单纯人员数字而已，而是切切实实的人生经历。</p><p>最后。保持真诚与正直，以我有限的职业经历理解，说这个品格能决定职业生涯上限也不为过。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;从管理个人到管理他人，必然面临工作内容变化。在适应阶段，新晋管理者遇到各种各样问题也很常见。整体团队来看，管理者工作能力直接决定团队战斗力。下面主要根据《领导梯队 全面打造领导力驱动型公司》这本书中说明的一线管理者职责，详细聊聊我觉得实际工作中比较重要的部分。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Management" scheme="http://example.com/tags/Management/"/>
+    
+  </entry>
+  
+</feed>
