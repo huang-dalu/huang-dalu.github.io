@@ -6,7 +6,6 @@
   }
 
   Even.prototype.setup = function() {
-    var leancloud = this.config.leancloud;
 
     this.navbar();
     this.responsiveTable();
@@ -18,8 +17,8 @@
     if (this.config.fancybox) {
       this.fancybox();
     }
-    if (leancloud.app_id && leancloud.app_key) {
-      this.recordReadings();
+    if (this.config.pjax) {
+      this.pjax();
     }
     if(this.config.latex) {
       this.renderLaTeX();
@@ -70,42 +69,38 @@
 
     if ($toc.length) {
       var minScrollTop = $toc.offset().top - SPACING;
-      $(window).scroll(function () {
-        var tocState = {
-          start: {
-            'position': 'absolute',
-            'top': minScrollTop
-          },
-          process: {
-            'position': 'fixed',
-            'top': SPACING
-          }
+      var maxScrollTop = $footer.offset().top - $toc.height() - SPACING;
+
+      var tocState = {
+        start: {
+          'position': 'absolute',
+          'top': minScrollTop
+        },
+        process: {
+          'position': 'fixed',
+          'top': SPACING
+        },
+        end: {
+          'position': 'absolute',
+          'top': maxScrollTop
         }
+      }
+
+      $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
+
         if (scrollTop < minScrollTop) {
           $toc.css(tocState.start);
+        } else if (scrollTop > maxScrollTop) {
+          $toc.css(tocState.end);
         } else {
           $toc.css(tocState.process);
-          
-          if($(".post-toc").css("display") != "none"){
-            var maxTocTop = $footer.offset().top - $toc.height() - SPACING;
-            var tocCenterThreshold = document.documentElement.scrollTop + window.innerHeight / 2;
-            if ($(".toc-link.active").offset() != undefined && $(".toc-link.active").offset().top > tocCenterThreshold) {
-              var distanceBetween = $(".post-toc").offset().top - $(".toc-link.active").offset().top;
-              $(".post-toc").offset({
-                  top: Math.min(maxTocTop, tocCenterThreshold + distanceBetween),
-              });
-            }
-            if (maxTocTop < $(".post-toc").offset().top) {
-              $(".post-toc").offset({ top: maxTocTop });
-            }
-          }
         }
       })
     }
   };
 
-  Even.prototype.tocFollow = function () {
+  /*Even.prototype.tocFollow = function () {
     var HEADERFIX = 30;
     var $toclink = $('.toc-link'),
       $headerlink = $('.headerlink');
@@ -128,6 +123,82 @@
         }
       }
     });
+  };*/
+  
+  Even._initToc = function() {
+    const SPACING = 20;
+    const $toc = $('.post-toc');
+    const $footer = $('.post-footer');
+  
+    if ($toc.length) {
+      const minScrollTop = $toc.offset().top - SPACING;
+      const maxScrollTop = $footer.offset().top - $toc.height() - SPACING;
+  
+      const tocState = {
+        start: {
+          'position': 'absolute',
+          'top': minScrollTop,
+        },
+        process: {
+          'position': 'fixed',
+          'top': SPACING,
+        },
+        end: {
+          'position': 'absolute',
+          'top': maxScrollTop,
+        },
+      };
+  
+      $(window).scroll(function() {
+        const scrollTop = $(window).scrollTop();
+  
+        if (scrollTop < minScrollTop) {
+          $toc.css(tocState.start);
+        } else if (scrollTop > maxScrollTop) {
+          $toc.css(tocState.end);
+        } else {
+          $toc.css(tocState.process);
+        }
+      });
+    }
+  
+    const HEADERFIX = 30;
+    const $toclink = $('.toc-link');
+    const $headerlink = $('.headerlink');
+    const $tocLinkLis = $('.post-toc-content li');
+  
+    const headerlinkTop = $.map($headerlink, function(link) {
+      return $(link).offset().top;
+    });
+  
+    const headerLinksOffsetForSearch = $.map(headerlinkTop, function(offset) {
+      return offset - HEADERFIX;
+    });
+  
+    const searchActiveTocIndex = function(array, target) {
+      for (let i = 0; i < array.length - 1; i++) {
+        if (target > array[i] && target <= array[i + 1]) return i;
+      }
+      if (target > array[array.length - 1]) return array.length - 1;
+      return -1;
+    };
+  
+    $(window).scroll(function() {
+      const scrollTop = $(window).scrollTop();
+      const activeTocIndex = searchActiveTocIndex(headerLinksOffsetForSearch, scrollTop);
+  
+      $($toclink).removeClass('active');
+      $($tocLinkLis).removeClass('has-active');
+  
+      if (activeTocIndex !== -1) {
+        $($toclink[activeTocIndex]).addClass('active');
+        let ancestor = $toclink[activeTocIndex].parentNode;
+        while (ancestor.tagName !== 'NAV') {
+          $(ancestor).addClass('has-active');
+          ancestor = ancestor.parentNode.parentNode;
+        }
+      }
+    });
   };
 
   Even.prototype.fancybox = function () {
@@ -147,85 +218,25 @@
     }
   };
 
-  Even.prototype.recordReadings = function () {
-    if (typeof AV !== 'object') return;
+  Even.prototype.pjax = function () {
+    if (location.hostname === 'localhost' || this.hasPjax) return;
+    this.hasPjax = true;
+    this._fancybox = $.fancybox;
+    this._fancyboxProto = $.prototype.fancybox;
 
-    var $visits = $('.post-visits');
-    var Counter = AV.Object.extend('Counter');
-    if ($visits.length === 1) {
-      addCounter(Counter);
-    } else {
-      showTime(Counter);
-    }
-
-    function updateVisits(dom, time) {
-      var readText = dom.text().replace(/(\d+)/i, time)
-      dom.text(readText);
-    }
-
-    function addCounter(Counter) {
-      var query = new AV.Query(Counter);
-
-      var url = $visits.data('url').trim();
-      var title = $visits.data('title').trim();
-
-      query.equalTo('url', url);
-      query.find().then(function (results) {
-        if (results.length > 0) {
-          var counter = results[0];
-          counter.save(null, {
-            fetchWhenSave: true
-          }).then(function (counter) {
-            counter.increment('time', 1);
-            return counter.save();
-          }).then(function (counter) {
-            updateVisits($visits, counter.get('time'));
-          });
-        } else {
-          var newcounter = new Counter();
-          newcounter.set('title', title);
-          newcounter.set('url', url);
-          newcounter.set('time', 1);
-
-          var acl = new AV.ACL();
-          acl.setWriteAccess('*', true)
-          acl.setReadAccess('*', true)
-          newcounter.setACL(acl)
-
-          newcounter.save().then(function () {
-            updateVisits($visits, newcounter.get('time'));
-          });
-        }
-      }, function (error) {
-        // eslint-disable-next-line
-        console.log('Error:' + error.code + ' ' + error.message);
-      });
-    }
-
-    function showTime(Counter) {
-      let index = 0;
-      $visits.each(function () {
-        var $this = $(this);
-        setTimeout(
-          function() {
-            var query = new AV.Query(Counter);
-            var url = $this.data('url').trim();
-    
-            query.equalTo('url', url);
-            query.find().then(function (results) {
-              if (results.length === 0) {
-                updateVisits($this, 0);
-              } else {
-                var counter = results[0];
-                updateVisits($this, counter.get('time'));
-              }
-            }, function (error) {
-              // eslint-disable-next-line
-              console.log('Error:' + error.code + ' ' + error.message);
-            });
-          }, 100*(index++));     
-      })
-    }
+    var that = this;
+    $(document).pjax('a', 'body', { fragment: 'body' });
+    $(document).on('pjax:send', function () {
+      NProgress.start();
+      $('body').addClass('hide-top');
+    });
+    $(document).on('pjax:complete', function () {
+      NProgress.done();
+      $('body').removeClass('hide-top');
+      $.fancybox = that._fancybox;
+      $.prototype.fancybox = that._fancyboxProto;
+      that.setup();
+    });
   };
 
   Even.prototype.backToTop = function () {

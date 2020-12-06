@@ -1,10 +1,26 @@
 @charset "UTF-8";
+/*
+// Font family: Chancery
 @font-face {
   font-family: 'Chancery';
-  src: url("../fonts/chancery/apple-chancery-webfont.eot");
-  src: local("Apple Chancery"), url("../fonts/chancery/apple-chancery-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/chancery/apple-chancery-webfont.woff2") format("woff2"), url("../fonts/chancery/apple-chancery-webfont.woff") format("woff"), url("../fonts/chancery/apple-chancery-webfont.ttf") format("truetype"), url("../fonts/chancery/apple-chancery-webfont.svg#apple-chancery") format("svg");
+  src: url('../fonts/chancery/apple-chancery-webfont.eot');
+  src: local('Apple Chancery'), url('../fonts/chancery/apple-chancery-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/chancery/apple-chancery-webfont.woff2') format('woff2'),
+  url('../fonts/chancery/apple-chancery-webfont.woff') format('woff'),
+  url('../fonts/chancery/apple-chancery-webfont.ttf') format('truetype'),
+  url('../fonts/chancery/apple-chancery-webfont.svg#apple-chancery') format('svg');
   font-weight: lighter;
-  font-style: normal; }
+  font-style: normal;
+}
+*/
+@font-face {
+  font-family: 'techstack';
+  src: url("../fonts/techstack/techstack.eot") format("embedded-opentype");
+  /* IE9 */
+  src: url("../fonts/techstack/techstack.eot?#iefix") format("embedded-opentype"), url("../fonts/techstack/techstack.woff") format("woff"), url("../fonts/techstack/techstack.ttf") format("truetype"), url("../fonts/techstack/techstack.svg#techstack") format("svg");
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal; }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -461,8 +477,8 @@ h6 {
   .header .logo-wrapper {
     float: left; }
     .header .logo-wrapper .logo {
-      font-size: 48px;
-      font-family: "Chancery", cursive, LiSu, sans-serif; }
+      font-size: 36px;
+      font-family: "techstack", cursive, LiSu, sans-serif; }
   @media screen and (max-width: 800px) {
     .header .logo-wrapper {
       display: none; } }
@@ -565,11 +581,17 @@ h6 {
           color: #8a8a8a !important; }
         .post .post-header .post-meta .post-category a:hover {
           color: #c05b4d; }
-    .post .post-header .post-meta .post-visits {
+    .post .post-header .post-meta .leancloud-visitors {
       display: inline-block;
       font-size: 14px;
       color: #8a8a8a; }
-      .post .post-header .post-meta .post-visits::before {
+      .post .post-header .post-meta .leancloud-visitors::before {
+        content: '·'; }
+    .post .post-header .post-meta .post-count {
+      display: inline-block;
+      font-size: 14px;
+      color: #8a8a8a; }
+      .post .post-header .post-meta .post-count::before {
         content: '·'; }
   .post .post-toc {
     position: absolute;
@@ -581,7 +603,28 @@ h6 {
     background: rgba(248, 245, 236, 0.6);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
     word-wrap: break-word;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    /*.post-toc-content {
+    font-size: $post-toc-content;
+
+    .toc,
+    .toc-child {
+      list-style: $post-toc-list-style;
+    }
+
+    .toc {
+      margin: 10px 0;
+      padding-left: 20px;
+
+      .toc-child {
+        padding-left: 15px;
+      }
+    }
+
+    .toc-link.active {
+      color: $theme-color;
+    }
+  }*/ }
     .post .post-toc .post-toc-title {
       margin: 0 10px;
       font-size: 20px;
@@ -589,14 +632,18 @@ h6 {
       text-transform: uppercase; }
     .post .post-toc .post-toc-content {
       font-size: 15px; }
-      .post .post-toc .post-toc-content .toc,
-      .post .post-toc .post-toc-content .toc-child {
+      .post .post-toc .post-toc-content.always-active ul {
+        display: block; }
+      .post .post-toc .post-toc-content > nav > ul {
+        margin: 10px 0; }
+      .post .post-toc .post-toc-content ul {
+        padding-left: 20px;
         list-style: square; }
-      .post .post-toc .post-toc-content .toc {
-        margin: 10px 0;
-        padding-left: 20px; }
-        .post .post-toc .post-toc-content .toc .toc-child {
-          padding-left: 15px; }
+        .post .post-toc .post-toc-content ul ul {
+          padding-left: 15px;
+          display: none; }
+        .post .post-toc .post-toc-content ul .has-active > ul {
+          display: block; }
       .post .post-toc .post-toc-content .toc-link.active {
         color: #c05b4d; }
   @media screen and (max-width: 1185px) {
@@ -670,10 +717,7 @@ h6 {
   .post .post-content code {
     padding: 3px 5px;
     border-radius: 4px;
-    color: #c7254e;
-    word-break: normal;
-    white-space: pre-warp;
-    word-wrap: break-word; }
+    color: #c7254e; }
   .post .post-content .highlight {
     margin: 1em 0;
     border-radius: 5px;
@@ -820,12 +864,6 @@ h6 {
       content: " · Go"; }
     .post .post-content .highlight.go figcaption + table::after {
       display: none; }
-    .post .post-content .highlight.kotlin > table::after {
-      content: "Kotlin"; }
-    .post .post-content .highlight.kotlin > figcaption > span::after {
-      content: " · Kotlin"; }
-    .post .post-content .highlight.kotlin figcaption + table::after {
-      display: none; }
     .post .post-content .highlight figcaption {
       position: absolute;
       top: 0;
@@ -913,10 +951,7 @@ h6 {
     padding-top: 10px;
     border-top: 1px dashed #e6e6e6; }
     .post .post-copyright .copyright-item {
-      margin: 5px 0;
-      word-break: normal;
-      white-space: pre-warp;
-      word-wrap: break-word; }
+      margin: 5px 0; }
       .post .post-copyright .copyright-item a {
         color: #c05b4d; }
   .post .post-reward {
@@ -1157,8 +1192,8 @@ h6 {
 @font-face {
   font-family: 'iconfont';
   /* project id 96542 */
-  src: url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.eot");
-  src: url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.woff") format("woff"), url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.ttf") format("truetype"), url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.svg#iconfont") format("svg"); }
+  src: url("../fonts/iconfont/font_96542_ixz9jngnf1sb57b9.eot");
+  src: url("../fonts/iconfont/font_96542_ixz9jngnf1sb57b9.eot?#iefix") format("embedded-opentype"), url("../fonts/iconfont/font_96542_ixz9jngnf1sb57b9.woff") format("woff"), url("../fonts/iconfont/font_96542_ixz9jngnf1sb57b9.ttf") format("truetype"), url("../fonts/iconfont/font_96542_ixz9jngnf1sb57b9.svg#iconfont") format("svg"); }
 
 .iconfont {
   font-family: "iconfont" !important;
@@ -1293,7 +1328,7 @@ h6 {
     .mobile-navbar .mobile-header-logo .logo {
       font-size: 22px;
       line-height: 50px;
-      font-family: "Chancery", cursive, LiSu, sans-serif; }
+      font-family: "techstack", cursive, LiSu, sans-serif; }
   .mobile-navbar .mobile-navbar-icon {
     color: #c05b4d;
     height: 50px;
@@ -1411,6 +1446,17 @@ h6 {
 @media screen and (max-width: 800px) {
   .back-to-top {
     display: none !important; } }
+
+#nprogress .bar {
+  background: #c05b4d;
+  height: 3px; }
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #c05b4d, 0 0 5px #c05b4d; }
+
+#nprogress .spinner-icon {
+  border-top-color: #c05b4d;
+  border-left-color: #c05b4d; }
 
 .mjx-chtml:focus {
   padding: 1px 0;
