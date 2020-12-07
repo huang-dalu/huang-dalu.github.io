@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="产品续费率的思考"/><meta name="keywords" content="User Growth, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/05/09/关于产品续费率的思考/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>产品续费率的思考 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">产品续费率的思考
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-05-09
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>很多常见的 C 端付费产品（工具类偏多，如 iOS 上很多付费订阅应用）和 SaaS 软件，日常重点关注的就是产品续费情况。所以接下来主要围绕续费率展开思考，希望能带来一些启发。</p>
+<a id="more"></a>
+
+<p><strong>续费率 = 到期后续订用户数 / 付费订阅到期用户数</strong></p>
+<p>主要分为 2 步说明：</p>
+<ol>
+<li><strong>什么时候开始「提升续费率」这项任务？</strong></li>
+<li><strong>如何找到提升续费率的关键点？</strong></li>
+</ol>
+<p>在开始想如何提升续费率之前，一定要弄清楚，「提升续费率」这项任务，是不是一定要做，以及什么阶段开始做。因为「续费率」看似是一个很容易决策需要提升的指标。但其实是否要立马去做还需要进一步论证，避免最后造成资源浪费和用户干扰。</p>
+<p>在开始「提升续费率」这项任务之前，需要论证，负责的应用续费率，在行业中是属于什么水准。一方面是避免资源投入产出低，另外也可以在做这个任务之前，预计到应用续费率天花板，这样能提前预判，方便续费率目标制定。</p>
+<p>判断应用续费率参考依据可以先看行业标杆产品的续费情况（从这项依据判断会比较困难，同行数据并不是很容易就能知道；另外一种情况，就是自己负责的，本身就是行业 TOP 应用）。其次是找到未续费流失用户，定义不符合产品定位的目标群体。将这部分用户剔除，就是理论续费用户上限。</p>
+<p>举例：一款共享汽车应用，付费订阅到期用户数 1000 人，到期后未续订用户数 500 人，当前续费率 50%，这 500 人中，其中有 300 人未绑定驾照，并且用户属性是18岁以下。可以简单得出结论：</p>
+<p>续费率最高能做到： （500-300）/ 1000 + 50% = 70%<br><em>注明：用户属性 18 岁以下不用考虑。因为这部分人群和产品定位不符，18 岁以下用户还在上学，不会用到共享汽车，以及考虑到驾照问题。所以与产品定位不符。</em></p>
+<p>这样在开始阶段，就能有预判，产品续费率最多只能到 70%，目标续费率能带来多少用户数与销售额，需要投入多少资源，以及提升难度。</p>
+<p>接下来探讨<strong>如何找到提升续费率的关键点。</strong></p>
+<p>续费率指标本身涉及到影响因素太多，包括：产品业务场景、功能体验、性能、流量渠道、价格等等。可以先进行用户分群，通过共性来寻找原因。未续费用户群体可以分为以下几类群体：</p>
+<ul>
+<li>版本降级用户群体（部分产品会有多个版本，例如：免费版/付费版或者基础版/专业版）；</li>
+<li>非产品目标人群体；</li>
+<li>新用户未续费（订阅 1 次）；</li>
+<li>老用户未续费（订阅 2 次及以上）。</li>
+</ul>
+<p>清楚每个群体的用户数以及占比，然后根据每个细分群体用户数以及占比权重，结合当前可利用的资源，排出优先级，判断优先处理哪一部分群体哪一类问题。</p>
+<p>这里还需要说明：为什么划分出新用户和老用户未续费群体？而不是其他划分方式？一方面，根据经验得出，新用户和老用户群体。他们的行为能直接体现出流量渠道以及产品功能上手程度。所以这样划分更快速发现问题。</p>
+<p>而且这里所说的新用户和老用户，是以「订阅次数」来定义，直接就是续费行为，能直接体现到续费率指标上。</p>
+<p>当然这里也有其他一些划分维度，把「订阅次数」作为用户行为指标之一，这部分可以根据负责的业务来判断如何划分合适，不影响整体思考流程，最终还是殊途同归。</p>
+<p>划分出用户群体之后，再拿到新用户和老用户基础数据和行为数据。到这一步就会有部分结论输出：</p>
+<ol>
+<li>每种群体用户数分别占比多少；</li>
+<li>根据占比权重、产品定位、操作难度确定优先做哪一拨人群；</li>
+<li>开始针对具体人群出对应解决方案。</li>
+</ol>
+<p>接下来针对每类人群，展开讨论。</p>
+<p>版本降级这类人群比较直观，如果占比很高，说明付费版本没有留住用户，低于用户期望。出现这种情况的原因只能是产品定位问题，产品上没有抓到业务场景。产品没有帮助用户解决问题。</p>
+<p>非产品目标人群占比很高本质上是流量渠道问题（可以时间拉长，分2 - 3个周期对比分析，验证结论）。针对这种情况可以有几种方式：</p>
+<ol>
+<li>找更精准流量渠道。这是解决方案之一，但是实际情况是：有些应用主要流量渠道本身就很少，推广方式单一。比如：产品只在在 App Store 上架，只有市场自然流量。其他渠道成本很高或者干脆就没有开辟新渠道。如果是这种情况就得寻找其他方式；</li>
+<li>如果是新上线产品。可以尝试根据这部分用户共性特征修正产品定位，把产品方向偏到这类群体上。</li>
+</ol>
+<p>关于未续费新老用户群体，用户在订阅周期内也许就已经没用产品功能，没有再次订阅只不过是一层表象。这类用户可以理解为流失用户。也就是问题转化为：<strong>如何挽回流失用户？</strong></p>
+<p>首先，根据产品特性，需要定义好流失用户。再来收集产品内部信息、外部信息。将当前情况进行梳理之后。明确流失原因和严重程度。</p>
+<p><strong>流失用户的定义是在一段时间内未进行关键操作行为的用户（时间长度和关键操作行为和产品有关）。</strong></p>
+<p>接下来以下相关信息需要整理过一遍：</p>
+<blockquote>
+<ol>
+<li>产品内部信息 :<ol>
+<li>产品流失率以及近一段时间内流失率的变化 ；</li>
+<li>流失用户类型。通过后台数据分析初步确定流失用户主要是新用户还是老用户 ；</li>
+<li>流失用户特点。通过后台数据判断用户是否有明显的共性 ；</li>
+<li>流失率的变化是否有规律和明显的时间节点，是否和产品版本更新有关 ；</li>
+<li>通过产品、客服、第三方平台等各个渠道收集到的用户反馈 。</li>
+</ol>
+</li>
+<li>外部环境信息 ：<ol>
+<li>政策变化。一些外部政策变化可能会对产品有影响，例如关税新政对跨境电商平台的影响，版权规范政策对音乐、阅读、漫画等平台的影响 ；</li>
+<li>竞品动态。包括竞品近期的运营活动、新功能上线等动态 。</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<p>然后根据上面划分的新用户和老用户归类汇总问题，针对性解决。常见的一般性问题：</p>
+<blockquote>
+<ol>
+<li>新用户<ol>
+<li>用户上手难度大，缺少指引</li>
+<li>感受不到与竞品差别</li>
+<li>产品设计缺陷</li>
+<li>新版本更新的影响</li>
+<li>…</li>
+</ol>
+</li>
+<li>老用户（用户逐渐丧失对产品的使用欲望，关键的使用行为逐渐减少）<ol>
+<li>产品核心内容单一</li>
+<li>缺乏不同用户的生存空间</li>
+<li>产品设计缺陷</li>
+<li>…</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<p>针对流失用户可以重点检查一项数据，即用户是否有走完产品核心流程。根据经验来看，多数业务用户流失就是因为产品核心流程，用户没有深度参与。</p>
+<p>对流失用户排查之后，明确流失用户具体原因，然后针对流失原因给出对应方案，再根据结论完善流失预警机制和挽回流失用户方案。</p>
+<p>以上是对产品续费率的理论层面分析，后续有机会再对每个问题和对应方案进行研究说明。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/User-Growth/">User Growth</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/06/01/%E4%BA%A7%E5%93%81%E4%B8%8A%E7%BA%BF%E5%90%8E%E7%9A%84%E6%95%88%E6%9E%9C%E8%AF%84%E4%BC%B0/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">产品上线后的效果评估</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/04/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E5%B7%A5%E4%BD%9C/">
+        <span class="next-text nav-default">为什么我们要工作</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
