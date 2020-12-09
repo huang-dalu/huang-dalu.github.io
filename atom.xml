@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-06T15:02:05.984Z</updated>
+  <updated>2020-12-09T03:03:36.257Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,19 +17,64 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2020/12/06/hello-world/"/>
-    <id>http://example.com/2020/12/06/hello-world/</id>
-    <published>2020-12-06T06:56:02.822Z</published>
-    <updated>2020-12-06T15:02:05.984Z</updated>
+    <title>LTV指标的理解</title>
+    <link href="http://example.com/2020/11/03/LTV%E6%8C%87%E6%A0%87%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>http://example.com/2020/11/03/LTV%E6%8C%87%E6%A0%87%E7%9A%84%E7%90%86%E8%A7%A3/</id>
+    <published>2020-11-03T13:10:10.000Z</published>
+    <updated>2020-12-09T03:03:36.257Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<h4 id="LTV-概念"><a href="#LTV-概念" class="headerlink" title="LTV 概念"></a>LTV 概念</h4><p>LTV(Life Time Value)生命周期总价值，是指用户终身价值，是公司从用户所有的互动中所得到的全部经济收益的总和。一个用户从注册到卸载，整个生命周期为你带来的全部收益。</p><a id="more"></a><p>LTV通常情况下会和 CAC 指标进行对比，比较投入产出。CAC（Customer Acquisition Cost）是指用户获取成本，即花多少钱获取一个客户。</p><p>这里注意的一点是，比较投入产出用 LTV/CAC，而不是用户首次订购费用。但是在一些行业和部分商业模式下。确实会把直接把首次订购费用和 CAC 对比。比如：SaaS 类订阅应用、一次订购 1 年课程的在线教育，这也无可厚非。</p><p>另外，看到一个说法：LTV/CAC = 3 的时候是最健康发展的（小于 3 说明转化效率低，大于 3 说明在市场拓展上还太保守）。个人觉得不能一概而论，这个比例还是要根据行业特性、渠道情况、上下游情况综合来看。</p><p>LTV 的公式：<br>$$LTV= LT * ARPU$$</p><p>ARPU(Average Revenue Per User)即每用户平均收入。这里也是分行业理解。比如：</p><ul><li>电商行业，每用户平均收入就是常说的客单价。每用户平均收入 =  用户购买总金额 / 用户购买总数量；</li><li>采取订阅模式付月费的产品，往往我计算的是月客单价，就是平均 1 个用户，每个月的产生的收益（先说概念，公式写在下面）。</li></ul><p>ARPU 还好说，比较难测算的是 LT。LT（Life Time）为用户的平均生命周期，是指一个用户从第一次到最后一次使用产品之间的时间段。</p><h4 id="LTV-计算"><a href="#LTV-计算" class="headerlink" title="LTV 计算"></a>LTV 计算</h4><p>看到网上给出的 LTV 的计算公式，有各种算法。难点在于计算 LT（因为产品处于成长期，有些也用到了一元线性回归），ARPU 因为行业不同也各不相同。本来想找一个科学的方法，看完之后还是决定继续使用自己的方法。</p><p>先说前提，项目是订阅模式付月费的产品。粗略计算作为参考还是比较容易的。我的方式为：</p><ol><li>LT 的计算：拉付费用户数的历史订购数据，例如使用 3 年（也就是 36 个月的用户）内：</li></ol><p>$$平均生命周期（单位：月）= \frac{用户总留存月份}{总用户数} $$</p><ol start="2"><li>ARPU 的计算：</li></ol><p><img src="https://cdn.brambling.cn/uxcaff/ltv.svg" alt="imag"></p><p>LT 公式解释：LT 公式的业务逻辑是拿到 3 年内所有用户订购月份周期，比如有的用户订购 1 个月就历史，有的用户订购了 12 个月又续订了 6 个月。那就计算出用户平均订购了几个月。时间限制在 3 年内是纯粹的经验判断，用户基本最多使用 3 年以上就流失了。这个可以根据自己应用情况来。</p><p>ARPU的公式解释：一目了然，就是将所有的销售额分摊在单个月份下面。因为“30.00/月” 和 “50.00/季度”对于摊到每个月的费用是不同的。</p><p>按照 LTV 的定义，显然还有些场景没有考虑到，不过也不过多纠结了。因为这样计算已经够用，我的理解是：</p><ol><li>LTV 最常用的场景是用来看趋势。只要每次计算定义一样，这样计算已经能说明问题；</li><li>看 LTV 数据值本身，还是需要回到产品。比如运营人员认为带来销售额就算有价值，但产品经理认为用户分享裂变拉新也有价值。那就额外再核算就可以，不影响上面 LTV 定义；</li><li>LTV 这种业务指标，一定要是业务逻辑能直接说清楚。</li></ol><h4 id="LTV-总结"><a href="#LTV-总结" class="headerlink" title="LTV 总结"></a>LTV 总结</h4><p>ARPU 等指标本身只能显示用户在一段时间内的价值。通过将 ARPU 和用户生命周期（或者说留存用户）相结合，LTV 能为经营者建立一个大致的模型来预测用户未来的价值。这个指标能让经营者看到那些长期内能带来高于平均收入的用户，提高他们获取高价值用户的概率。</p><p>对于刚起步（或者成长期）产品，最多看用户的年度收益也行。</p><p>另外，LTV 指标本身也有局限。Bill Gurley 的<a href="https://abovethecrowd.com/2012/09/04/the-dangerous-seduction-of-the-lifetime-value-ltv-formula/">一篇文章</a>提到不应该盲目推崇 LTV 的10 大理由，我是赞同的。下面提供链接。</p><p>有人翻译了这篇文章：<a href="https://mp.weixin.qq.com/s?__biz=MzI1MTQ0OTg1NQ==&mid=2247484468&idx=1&sn=7838bb6839a80e21a4cbf7dee78928bf&chksm=e9f39ca4de8415b22fda9558aec6220761f473824a71c0474fd285ec610b39b3bd9d7ea40dfa#rd">LTV 的危险诱惑</a></p>]]></content>
     
     
+    <summary type="html">&lt;h4 id=&quot;LTV-概念&quot;&gt;&lt;a href=&quot;#LTV-概念&quot; class=&quot;headerlink&quot; title=&quot;LTV 概念&quot;&gt;&lt;/a&gt;LTV 概念&lt;/h4&gt;&lt;p&gt;LTV(Life Time Value)生命周期总价值，是指用户终身价值，是公司从用户所有的互动中所得到的全部经济收益的总和。一个用户从注册到卸载，整个生命周期为你带来的全部收益。&lt;/p&gt;</summary>
     
+    
+    
+    
+    <category term="User Growth" scheme="http://example.com/tags/User-Growth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验碎片（第 6 期）</title>
+    <link href="http://example.com/2020/11/02/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%206%20%E6%9C%9F%EF%BC%89/"/>
+    <id>http://example.com/2020/11/02/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%206%20%E6%9C%9F%EF%BC%89/</id>
+    <published>2020-11-02T13:10:10.000Z</published>
+    <updated>2020-12-09T02:44:10.197Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p><p>内容涉及：商业模式和产品设计讨论，以及对部分大众产品的功能期待，最后会推荐不错的文章。以共飨之。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><h4 id="1-「Listener」App-将播客内容一键转为文本"><a href="#1-「Listener」App-将播客内容一键转为文本" class="headerlink" title="1. 「Listener」App 将播客内容一键转为文本"></a>1. <a href="https://listener-app.com/">「Listener」App</a> 将播客内容一键转为文本</h4><p>在体验碎片（第 3 期），有写到一个产品期待是：</p><blockquote><p>现在有很多播客节目比较不错，有时需要有一些笔记。现在我的处理方式是听到关键部分再自己记录，这样往往比较麻烦。但是我看市面上并没有类似产品支持语音转文本的功能，还有一些录音转文本的功能需要有源文件，而且收费高，转换慢。所以期待有类似功能出现，当然，也需要解决好版权问题。</p></blockquote><p>当时其实已经研究「讯飞语记」、「喜马拉雅」几款应用，发现几乎都没有支持语音转文本这种功能，而且技术上也不太好实现。所以才有了这个产品期待。</p><p>近期发现了这款应用。看了产品描述和之前的期待基本吻合，但是是支持英文，并且在美区。</p><blockquote><p>收听者是最佳播客收听体验！播客中有很多信息，但是记住所有信息并不容易。使用Listener，您可以点击一个按钮，节省时间，然后将刚刚听到的内容转换为文本！</p><p>充分利用您的时间收听播客！保留您发现有趣，有趣的所有内容的集合，或者只是添加标签以供以后收听。侦听器是播客一直在等待的应用程序！</p></blockquote><p>借这款产品简单聊聊播客。今年播客的用户 + 内容都是大幅增长，是行业公认。随之而来的，是一些工具的补充和完善。例如现在出现了一些播客主创作者工具，也有一些泛用性平台客户端（小宇宙App、快手的皮艇App、轻芒的播客建站服务）。</p><p>所以，在基本的场景满足后。一些细化的场景需求，就像刚刚提的，语音内容转文本，我做过一些局部调研，判断有一定市场。所以这块还是保持期待。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603788957438-4ac3b106-2327-411d-a906-b93fc45cc39f.png#align=left&display=inline&height=546&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1089&originWidth=503&size=321253&status=done&style=none&width=252" alt="image.png"></p><h4 id="2-飞书文档"><a href="#2-飞书文档" class="headerlink" title="2. 飞书文档"></a>2. 飞书文档</h4><p>之前弃用了 Notion，目前在使用语雀。弃用原因在<strong>体验碎片（第 3 期）有说过。</strong>最近飞书文档出了独立应用，开了发布会，好不风光，于是上手开始体验。准备工作用语雀，个人文档用飞书。</p><p>飞书文档的编辑场景在向 Notion 看齐，文档的发布、更新、协作一定程度上也比语雀好。但是在细节上还有很多功能要补。飞书文档 + 另外一款独立的「飞书多维表格」加起来可能才有竞争力。</p><p>具体功能细节上的事不多说，说说整体产品设计理念上。在产品设计上，看到很多人称赞飞书的创新能力，于是我去追本溯源看了看背后的故事。飞书的很多设计，以及产品前身，都有国外一些协作应用、文档应用的影子，包括 Notion，slack 等等。</p><p>所以，视野上还要足够广，才能有新的灵感。另外，这不能定义为「抄袭」，因为看起来飞书文档会做很多本土化需求。长期来看，在国内的发展一定会比 Notion 要好。</p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><h4 id="1-「网易严选」App-换购设计"><a href="#1-「网易严选」App-换购设计" class="headerlink" title="1. 「网易严选」App 换购设计"></a>1. 「网易严选」App 换购设计</h4><p>换购的场景是当消费者下单结算之前，商家根据下单的订单数或者订单金额，追加促销的一种方式。根据了解的数据，这种方式在目前，如果使用得当。站在平台和商家角度，确实是会提升整体销售额。</p><p>但是，营销方式最好有度量，像拼多多的百亿补贴，简单直接。但是看下图网易严选的换购流程，占了购物车一半的面积，而且换购的方式还不只一种。密密麻麻几乎看不清重点。</p><p>优化设计方案：区分换购和购物车内容；换购内容减少，最好只有一种方式。如果一定要 2 种，可以留入口，跳转到另外页面。</p><p>常见的反驳是：多一次跳转就多一些流失。那可以这样：进行 A/B Test，并且设定指标衡量。衡量指标可以是：销售额 + 用户满意度 + 用户复购率。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603679001867-c41d8c5c-c469-442b-b355-a7f74e47f272.png#align=left&display=inline&height=742&margin=%5Bobject%20Object%5D&name=image.png&originHeight=989&originWidth=484&size=195315&status=done&style=none&width=363" alt="image.png"><br><em>网易严选购物车页面（图来自网上）</em></p><h4 id="2-内容制造者的隔阂手段"><a href="#2-内容制造者的隔阂手段" class="headerlink" title="2. 内容制造者的隔阂手段"></a>2. 内容制造者的隔阂手段</h4><p>在说这个话题之前，先分享 2 张图片。第 1 张是一位亲属去医院诊所开的中医药房。亲属把药方发给我，说让我帮忙看看具体药物内容。拿到后我不知所措。<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604164453250-993eadff-2e67-47ef-b8c5-0ba28ddcc133.png#align=left&display=inline&height=387&margin=%5Bobject%20Object%5D&name=image.png&originHeight=774&originWidth=668&size=660598&status=done&style=none&width=334" alt="image.png"><br><em>医生药方</em></p><p>另一张图片是中国移动的一张所谓“单位授权书”证明，拿到这个证明后，同样也手足无措，不知道该怎么填。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604164723126-ad871602-214f-4b85-bb91-a08d0d8ed1b8.png#align=left&display=inline&height=469&margin=%5Bobject%20Object%5D&name=image.png&originHeight=938&originWidth=1396&size=1491630&status=done&style=none&width=698" alt="image.png"><br><em>中国移动端的“单位授权书”</em></p><p>这种情况想必读者在日常生活中也时有遇到。一开始这种情况我理解为是无意为之，属于个别现象。后面经常出现后，我在想，是否是这些内容制造者的故意手段，用来达到某种目的。比如中国移动端的一些套餐费用叠加，线上取消困难，要求消费者去线下营业厅处理。并且给出一系列繁琐流程，目的就是想让消费者放弃折腾？</p><p>制造这些内容，不是让消费内容的人读懂，而是求助于内容制造者。</p><p>真是奇怪的现象。还是拿中国移动案例来说，为了让一些业务办理必须在线下，而去额外增加一些线下业务人员。这样的投入产出是否划算？这是一个长期发展的思路吗？</p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><p>iOS Widget 的上线，出现了一批比较有意思的应用，关于图片、内容信息展示的趣味玩法。目前更多的 Widget 是作为辅助小屏在展示重要内容。由此延伸出来，Widget 能不能作为一个场景的主要展示区，值得思考。比如：Widget 直接就是家人的图像，点击直接拨打电话？或者说是一个虚拟宠物，实时更新状态（类似以前电脑桌面端的 QQ 宠物）？或者直接可以占满整屏的图片形式（2 到 3 个 Widget 拼凑一起）？</p><p>看起来，有很多玩法可以尝试。App Store 也有 Widget 专辑应用介绍。期待耳目一新的玩法。</p><h3 id="推荐内容"><a href="#推荐内容" class="headerlink" title="推荐内容"></a>推荐内容</h3><h4 id="The-Information"><a href="#The-Information" class="headerlink" title="The Information"></a>The Information</h4><p>今天推荐一个 Newsletter 。<a href="https://www.theinformation.com/china?utm_campaign=%5Bchina%5D_China_Newsle&utm_content=565191&utm_medium=email&utm_source=cio&utm_term=197199"><strong>The Information</strong></a> **会在每周发布一封中美互联网行业的深度文章。比如在 10/14 期的一篇文章，让我们知道了，无人驾驶可能离我们还比较远。</p><p>文章中提到，为什么无人驾驶这么难？</p><blockquote><p>无人车行业有一个被称为 90-90 的法则，这句话是时任 Waymo 感知软件负责人 Sacha Arnoud 在麻省理工学院的一次演讲所说。他的原话是 “When you are 90% done you still have 90% to go” ——意思是，在自动驾驶行业，前 90% 的工作仅需花费 10% 的时间，而剩下的 10% 则需要用 90% 的精力和时间才能完成。</p><p>在天气好的情况下，让改装车在没有干扰的路况上做演示仅仅是个开始，剩下的工作对自动驾驶团队的能力和耐心提出了更高的要求。Arnoud 在演讲中提到，为了解决最后 10% 的技术问题，团队需要将技术能力提高十倍、将团队规模扩大十倍，其中包括找到更有效的方法让更多的工程师和研究人员合作。需要将传感器的功能提高十倍，还要从根本上将系统的整体质量和测试方法提高十倍。</p><p>The Information 今年年初报道过，至 2019 年年底，全球 30 家无人车公司（不含自动驾驶卡车、用于货物运输的无人车公司以及 Tesla) 已经投入 160 亿美元。在这 30 家公司中，前三家——Waymo、Cruise 和 Uber——占了总投入的一半。其中，Waymo 对自动驾驶的已有投入是 Uber 的 2 倍，今年年初 Waymo 刚从外部投资人处融资 30 亿美元。</p><p>这些钱都花在了哪里？</p><p>我们可以做一个粗略估算：工程师的薪资、改装车的路测、地图数据搜集以及安全员的薪资是一部分。除此之外，内部用来训练算法的软、硬件以及用来模拟真实运行的车辆模拟系统。这部分的成本有多高？举个简单的例子，仅仅是生产一辆改装车的成本就在 25 万美元到 50 万美元不等（Waymo 有 600 辆，Cruise 有 200 辆）。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。&lt;/p&gt;
+&lt;p&gt;内容涉及：商业模式和产品设计讨论，以及对部分大众产品的功能期待，最后会推荐不错的文章。以共飨之。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>王慧文清华产品课-笔记</title>
+    <link href="http://example.com/2020/11/01/%E7%8E%8B%E6%85%A7%E6%96%87%E6%B8%85%E5%8D%8E%E4%BA%A7%E5%93%81%E8%AF%BE-%E7%AC%94%E8%AE%B0/"/>
+    <id>http://example.com/2020/11/01/%E7%8E%8B%E6%85%A7%E6%96%87%E6%B8%85%E5%8D%8E%E4%BA%A7%E5%93%81%E8%AF%BE-%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-11-01T13:10:10.000Z</published>
+    <updated>2020-12-08T23:49:43.329Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="具体的知识点没那么重要，重要的是核心思想。"><a href="#具体的知识点没那么重要，重要的是核心思想。" class="headerlink" title="具体的知识点没那么重要，重要的是核心思想。"></a>具体的知识点没那么重要，重要的是核心思想。</h4><a id="more"></a><p><strong>具体的知识点没那么重要，重要的是核心思想。</strong>认同这个观点。具体的知识点，方法论，是前人的总结。但新事物没有现成方法论。比如目前在 5G 上，没有爆款应用出现。按照之前做 App 的思路可能行不通。没有现成的“知识点”可以参考。</p><p>所以要掌握的是拆解问题的思维。这里联想到<strong>第一性原理</strong>。</p><p>第一性原理思维和追本溯源思维不同，一个是从问题出发，推演出根本原因；一个是从原理出发，推演出解决方法。</p><p>如果用追本溯源思维，从问题出发，那么它能一步步发现子路径1→路径1→第一性原理；但是它很难发现路径2、路径3、路径4，因为这种思维方式是要从问题开始推演的。而新路径（创新）恰恰隐藏在路径2、路径3、路径4之中。这就是用第一性原理思维常常能带来颠覆式创新的根本原因。</p><p><img src="https://cdn.brambling.cn/uxcaff/dyx1.png"></p><p><a href="https://www.bilibili.com/video/av89772653/">马斯克诠释第一性原理</a></p><h4 id="先发优势与后发优势"><a href="#先发优势与后发优势" class="headerlink" title="先发优势与后发优势"></a>先发优势与后发优势</h4><p>王慧文说到后发者的 3 个优势：</p><blockquote><ol><li>你不需要去说服很多人了，大众和市场能明白你做的事情；</li><li>知道这个事情一定能实现了。先搞原子弹和后搞原子 弹遇到的困难是完全不一样的。二者面临的不确定性是完全不一样的；</li><li>后发者通常是一个比较正常的人，而创新者通常是不 太正常的，通常导致创新者不太关心大众的需求。先发者的用户需求，商业模式都还处于摸索阶段。</li></ol></blockquote><p>后发的 3 个优势表示理解，还有 2 点想说明。第 1 点是在确定性比较强的行业，后发者可以直接通过资金加码超越前者。就像课程笔记中提到的蔚来电动车李斌非常激进地烧钱，因为他已经知道这条路是对的。假设特斯拉资金跟不上，疯狂补贴的那个会不会从跟进者成为领跑者？第 2 点，残酷的是，一些行业压根不允许后发存在，晚了就是晚了。市场越封闭，越明显。具体的例子可以参考国内电商 SaaS 行业。</p><h4 id="定价决定产品"><a href="#定价决定产品" class="headerlink" title="定价决定产品"></a>定价决定产品</h4><p>课程笔记中说：</p><blockquote><p>首先是定价决定产品，而不是反过来，这两者的关系就类似 Targeting 和 Positioning 的关系，类似供给和需求的关系，总的来说，在规模化生产的行业里需求比供给重要，定价影响需求，而产品是供给。</p></blockquote><p>定价决定产品比较好理解。一千块以下还可以在线上卖，超过一千块至少要配电销或者社群服务了。超过 2 万块就要有地面团队和实施团队。拿美妆行业举例，美妆行业毛利高到离谱，这其中的利润必须用来提升用户关注（营销广告）、使用体验（产品本身）、心理体验（各类服务设计）、商品包装等。</p><p>不同区间价格的产品，产品做法是完全不一样。价格是筛选器和分类器。</p><h4 id="在互联网产品里，衡量增量存量市场的标准是获客成本"><a href="#在互联网产品里，衡量增量存量市场的标准是获客成本" class="headerlink" title="在互联网产品里，衡量增量存量市场的标准是获客成本"></a>在互联网产品里，衡量增量存量市场的标准是获客成本</h4><p>这里有 2 点。第 1 是目前做一个纯互联网产品，已经越来越难。几乎想到的任何 idea，都有不错的产品。每次有一个想法，然后搜索微信小程序。基本都能搜得到，先是欣喜，然后就是挫败感。第 2，实际工作中，其实并没有明确的二分增量市场和存量市场。王慧文说增量和存量市场的获客成本的差别起码是 10 倍，大概也是一个通用说法，每个行业还得另看。</p><p>实际是，即使发现一条赛道有很多竞争对手，但是由于团队资源和团队的技能擅长方向，决策者还是会满怀信心的走下去。所以增量和存量现状不重要，有对策才能走到最后。</p><p>王慧文清华产品课有很多宏观战略的内容，值得时不时读一读。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;具体的知识点没那么重要，重要的是核心思想。&quot;&gt;&lt;a href=&quot;#具体的知识点没那么重要，重要的是核心思想。&quot; class=&quot;headerlink&quot; title=&quot;具体的知识点没那么重要，重要的是核心思想。&quot;&gt;&lt;/a&gt;具体的知识点没那么重要，重要的是核心思想。&lt;/h4&gt;</summary>
+    
+    
+    
+    
+    <category term="Notes" scheme="http://example.com/tags/Notes/"/>
+    
+    <category term="Business" scheme="http://example.com/tags/Business/"/>
     
   </entry>
   
@@ -38,200 +83,340 @@
     <link href="http://example.com/2020/10/30/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BD%8E%E6%95%88%E9%98%85%E8%AF%BB/"/>
     <id>http://example.com/2020/10/30/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BD%8E%E6%95%88%E9%98%85%E8%AF%BB/</id>
     <published>2020-10-30T13:10:10.000Z</published>
-    <updated>2020-12-07T14:42:15.582Z</updated>
+    <updated>2020-12-08T08:26:32.743Z</updated>
     
-    <content type="html"><![CDATA[<p>先说网上这么一段：</p><blockquote><p>–  我对之前读的书都没有什么印象。是不是白读了？<br>–  不是的，你不要焦虑。你读过的书，走过的路。他们就像吃饭一样。它们存在你的血液里，举手投足，为人处事，都会体现。</p></blockquote><p>以前也深以为然，但是几年体会下来。我的判断是这样：如果是读非虚拟性读物，或者一些报告，一定要做笔记。除非是虚拟类读物，或者一些散文。不然基本是浪费时间（忽略娱乐性质）。</p><p>上面的那个回答，是一种敷衍。</p><a id="more"></a><p>好了，说回到低效阅读这件事上。低效阅读体现在  3 个关键词上，分别是：<strong>碎片化阅读、精准推荐、热点推送。</strong></p><h4 id="碎片化阅读"><a href="#碎片化阅读" class="headerlink" title="碎片化阅读**"></a>碎片化阅读**</h4><p>订阅号阅读是碎片化阅读的重灾区。不是说碎片化时间不能阅读，它的低效体现在：</p><ol><li>妄图通过碎片化阅读获得大量知识。可以回想一下，每天花了多少时间在碎片化阅读（订阅号阅读、点赞、收藏；新闻资讯类App；行业资讯等），又收获了多少。可以自己算算投入产出比；</li><li>碎片化时间来不及深度思考。压根不能作为学习、读书的主要状态。</li></ol><h4 id="精准推荐"><a href="#精准推荐" class="headerlink" title="精准推荐"></a>精准推荐</h4><p>现在算法已经作为“内容”产品必不可少的一部分。</p><blockquote><p>TikTok不仅仅在美国非常流行，它在印度和中东的流行程度也同样令人难以置信，而且这些国家的文化和语言对于中国字节跳动产品团队来说都是完全陌生的。想象一下，一个非常聪明的算法能够把另一个陌生市场和文化当作一个黑盒子。那个国家的人们喜欢什么？不，更好的提问方式是，每个国家的每个人都喜欢什么？而字节跳动不需要弄明白这些，算法会处理这个问题。</p><p>算法什么都知道。</p><p>————_Eugene Wei_《TikTok与分院帽》</p></blockquote><p>算法除了不择手段方式拿到隐私数据外，还会营造信息茧房。这是它阴暗的一面。</p><p>阅读益处之一就是拓展视野，精准推荐显然是相悖而驰。</p><h4 id="热点推送"><a href="#热点推送" class="headerlink" title="热点推送"></a>热点推送</h4><p>热点推送除了分散个人注意力之外，还会带来焦虑。这点其实很多人都知道，但是又怕错过重大事件、信息。其实大可不必。没有什么信息是一定要知道的，如果对你非常重要，你早晚也会知道。</p><h4 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h4><p>接下来聊下具体的实践方案。</p><blockquote><p>越来越多人懂得健康饮食：少吃垃圾食品，少摄入糖分，多吃蔬菜水果和五谷杂粮；其实，我们也应该用心打造自己的媒体食谱——摄入均衡、充分的信息营养，摒弃低质的信源。读什么，你就是什么。</p><p>—— 方可成</p></blockquote><p>所以：</p><ul><li>主动订阅信息源，屏蔽一切推送。信息源可以分类：速读/深度思考；可以使用 RSS 工具；</li><li>如开篇所说，主动做记录、整理。知识具有框架性，零散的只是信息；</li><li>对碎片化阅读树立正确价值观念，不该指望在这段时间获得太多。碎片时间可以作为阅读的一个环节，比如：发现好内容、整理小知识点。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>先说网上这么一段：</p><a id="more"></a><blockquote><p>–  我对之前读的书都没有什么印象。是不是白读了？<br>–  不是的，你不要焦虑。你读过的书，走过的路。他们就像吃饭一样。它们存在你的血液里，举手投足，为人处事，都会体现。</p></blockquote><p>以前也深以为然，但是几年体会下来。我的判断是这样：如果是读非虚拟性读物，或者一些报告，一定要做笔记。除非是虚拟类读物，或者一些散文。不然基本是浪费时间（忽略娱乐性质）。</p><p>上面的那个回答，是一种敷衍。</p><p>好了，说回到低效阅读这件事上。低效阅读体现在  3 个关键词上，分别是：<strong>碎片化阅读、精准推荐、热点推送。</strong></p><h4 id="碎片化阅读"><a href="#碎片化阅读" class="headerlink" title="碎片化阅读"></a>碎片化阅读</h4><p>订阅号阅读是碎片化阅读的重灾区。不是说碎片化时间不能阅读，它的低效体现在：</p><ol><li>妄图通过碎片化阅读获得大量知识。可以回想一下，每天花了多少时间在碎片化阅读（订阅号阅读、点赞、收藏；新闻资讯类App；行业资讯等），又收获了多少。可以自己算算投入产出比；</li><li>碎片化时间来不及深度思考。压根不能作为学习、读书的主要状态。</li></ol><h4 id="精准推荐"><a href="#精准推荐" class="headerlink" title="精准推荐"></a>精准推荐</h4><p>现在算法已经作为“内容”产品必不可少的一部分。</p><blockquote><p>TikTok不仅仅在美国非常流行，它在印度和中东的流行程度也同样令人难以置信，而且这些国家的文化和语言对于中国字节跳动产品团队来说都是完全陌生的。想象一下，一个非常聪明的算法能够把另一个陌生市场和文化当作一个黑盒子。那个国家的人们喜欢什么？不，更好的提问方式是，每个国家的每个人都喜欢什么？而字节跳动不需要弄明白这些，算法会处理这个问题。</p><p>算法什么都知道。</p><p>—— Eugene Wei《TikTok与分院帽》</p></blockquote><p>算法除了不择手段方式拿到隐私数据外，还会营造信息茧房。这是它阴暗的一面。</p><p>阅读益处之一就是拓展视野，精准推荐显然是相悖而驰。</p><h4 id="热点推送"><a href="#热点推送" class="headerlink" title="热点推送"></a>热点推送</h4><p>热点推送除了分散个人注意力之外，还会带来焦虑。这点其实很多人都知道，但是又怕错过重大事件、信息。其实大可不必。没有什么信息是一定要知道的，如果对你非常重要，你早晚也会知道。</p><h4 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h4><p>接下来聊下具体的实践方案。</p><blockquote><p>越来越多人懂得健康饮食：少吃垃圾食品，少摄入糖分，多吃蔬菜水果和五谷杂粮；其实，我们也应该用心打造自己的媒体食谱——摄入均衡、充分的信息营养，摒弃低质的信源。读什么，你就是什么。</p><p>—— 方可成</p></blockquote><p>所以：</p><ul><li>主动订阅信息源，屏蔽一切推送。信息源可以分类：速读/深度思考；可以使用 RSS 工具；</li><li>如开篇所说，主动做记录、整理。知识具有框架性，零散的只是信息；</li><li>对碎片化阅读树立正确价值观念，不该指望在这段时间获得太多。碎片时间可以作为阅读的一个环节，比如：发现好内容、整理小知识点。</li></ul>]]></content>
     
     
-    <summary type="html">&lt;p&gt;先说网上这么一段：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;–  我对之前读的书都没有什么印象。是不是白读了？&lt;br&gt;–  不是的，你不要焦虑。你读过的书，走过的路。他们就像吃饭一样。它们存在你的血液里，举手投足，为人处事，都会体现。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;以前也深以为然，但是几年体会下来。我的判断是这样：如果是读非虚拟性读物，或者一些报告，一定要做笔记。除非是虚拟类读物，或者一些散文。不然基本是浪费时间（忽略娱乐性质）。&lt;/p&gt;
-&lt;p&gt;上面的那个回答，是一种敷衍。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;先说网上这么一段：&lt;/p&gt;</summary>
     
     
     
     
     <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验碎片（第 5 期）</title>
+    <link href="http://example.com/2020/10/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%205%20%E6%9C%9F%EF%BC%89/"/>
+    <id>http://example.com/2020/10/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%205%20%E6%9C%9F%EF%BC%89/</id>
+    <published>2020-10-25T13:10:10.000Z</published>
+    <updated>2020-12-09T02:40:06.205Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><h4 id="1-「微信读书」支持全局（书籍标题-书籍内容）搜素"><a href="#1-「微信读书」支持全局（书籍标题-书籍内容）搜素" class="headerlink" title="1. 「微信读书」支持全局（书籍标题 + 书籍内容）搜素"></a>1. 「微信读书」支持全局（书籍标题 + 书籍内容）搜素</h4><p>「微信读书」App 和「得到」App一样，可以做到全局搜素书籍标题和书籍内容，比如搜索“卡方检验”，会出来所有书籍中关于“卡方检验”的关键字内容。</p><p>起初是「得到」上线了该功能，最近不经意间发现「微信读书」也有了，总之是非常方便了。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602726719681-60b98865-fc95-464a-bdae-f4767b20d13e.png#align=left&display=inline&height=753&margin=%5Bobject%20Object%5D&name=image.png&originHeight=3007&originWidth=1642&size=2128486&status=done&style=none&width=411" alt="image.png"></p><h4 id="2-猫咪瓶盖让三得利关注度暴涨"><a href="#2-猫咪瓶盖让三得利关注度暴涨" class="headerlink" title="2. 猫咪瓶盖让三得利关注度暴涨"></a>2. 猫咪瓶盖让三得利关注度暴涨</h4><p>这是看到网上的<a href="https://mp.weixin.qq.com/s?__biz=MzA3ODEzMjg5Mg==&mid=2651716260&idx=1&sn=1182bceccded9bab8e339ec34810a2f6&chksm=84be3957b3c9b041a49428db09075dc5c493461035e4a84d3c56fae13c04d06312ffcfbec028#rd">一篇资讯</a>，觉得很有意思。带来了一些思考点。先介绍下这个设计细节。</p><p>2019年的猫之日，三得利公司借势发布了一款猫咪形状瓶盖，在常规矿泉水圆形瓶盖的基础上加上两只“猫耳朵”。</p><blockquote><p>当年10月，三得利又一次性推出8款升级版“猫咪瓶盖”，让瓶盖兼具药盒、存钱罐、按摩器等多种功能。引起了网友们的热烈讨论，三得利官方推特中，当条推文点赞数达到21.6万，而三得利日常推文的点赞数只在400左右。可以说，这一次“瓶盖创意”，让三得利品牌的关注度暴涨500倍！</p></blockquote><p>设计当然出彩。但这里我在想的是。这些案例中，有一些只能作为营销活动存在，有一些可以作为真正的产品线存在。</p><p>比如拿文章中的具体案例来说，「存钱罐瓶盖」个人判断是可以作为一个营销活动而传播，但是有必要作为一个固定产品线吗？我觉得是没必须要的，需求场景太弱。</p><p>如果做活动策划，那应该考虑的关键词是：品牌、短期产品数据、用户口碑。如果是当成一款固定产品线来考虑，要考虑的就是：使用场景、市场大小、成本。</p><p>由于没有做过这种消费品类公司。想得比较浅显。不确定具体公司中这类情况的决策依据是什么。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603604641122-4b97d7e7-078c-4522-a37d-8b23e2dbbb82.png#align=left&display=inline&height=540&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1080&originWidth=1080&size=1826818&status=done&style=none&width=540" alt="image.png"></p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><h4 id="1-共享单车的变速器"><a href="#1-共享单车的变速器" class="headerlink" title="1. 共享单车的变速器"></a>1. 共享单车的变速器</h4><p>在家楼下骑共享单车，发现还有加了变速器的共享单车。尝试骑了下，体验确实是不错。但是想了想，站在公司运营的角度，其实是没有必要给单车加上变速器的。在骑行单价没有变高的情况下，增加少数场景下使用的功能，无疑是加重成本负担。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602748078095-df53180b-f52d-42fc-8c1f-3b1f10f0734f.png#align=left&display=inline&height=500&margin=%5Bobject%20Object%5D&name=D0F8B6FB-FA37-4350-89DD-2962F27A99CD.png&originHeight=2000&originWidth=1500&size=2819532&status=done&style=none&width=375" alt="D0F8B6FB-FA37-4350-89DD-2962F27A99CD.png"></p><h4 id="2-某些内容资讯网站"><a href="#2-某些内容资讯网站" class="headerlink" title="2. 某些内容资讯网站"></a>2. 某些内容资讯网站</h4><p>有一些电商内容卖课网站日活跃几万个 UV，靠代理电商工具、电商培训课程赚钱。搞流量的方式是：</p><ol><li>通过百度搜索找到电商热门关键词</li><li>导出关键词，找到小县城的宝妈资源，让宝妈根据关键词拼凑文章，一篇文章3.00-5.00元</li><li>坚持 1 年以上（创始人期间还不断和我强调要坚持，打持久战）</li></ol><p>这样人工的方式，目标群体能通过关键词进入网站；百度爬虫也喜欢这种内容。</p><p>这些内容垃圾充满整个网站。并且还在宣扬所谓的“坚持”“长期主义”，这是典型的聪明和态度用错了地方。</p><p>另外我发现，「生财有术」中很多来钱的方式，和这个性质差不多。</p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><h4 id="1-期望微信订阅号可以把内容一键生成博客"><a href="#1-期望微信订阅号可以把内容一键生成博客" class="headerlink" title="1. 期望微信订阅号可以把内容一键生成博客"></a>1. 期望微信订阅号可以把内容一键生成博客</h4><p>这个需求的出发点是：很多订阅号作者的文章是有体系的，结构化的知识。但是手机上订阅号的分类目录并没有网页上直观；另外，越是优秀的订阅号写作者，内容的半衰期越长，内容越好，需要做笔记、记录等。在电脑上会更方便。</p><p>我个人是非常希望有这种功能，不知道读者有没有这种需求。</p><h4 id="2-「轻芒杂志」App-订阅一切"><a href="#2-「轻芒杂志」App-订阅一切" class="headerlink" title="2. 「轻芒杂志」App 订阅一切"></a>2. 「轻芒杂志」App 订阅一切</h4><p>「轻芒杂志」App 最近终于上线了，记得在体验碎片（第 2 期）有说过一个产品的期望，那时候写的是：</p><blockquote><p>期望一款产品拥有：</p><ul><li>聚合播客、博客、主流资讯网站、B站、主流网文网站、知乎专栏、微信订阅号（有的话就超出预期）。视频类；</li><li>信息及时；</li><li>不会有内容周期限制，根据个人喜好保存；</li><li>附带笔记应用部分功能（分类、划线、编辑、收藏等）；</li><li>Web 端/客户端体验。</li></ul></blockquote><p>所以，「轻芒杂志」出现了，填补了「即刻」App （订阅信息版本）的空缺。如今还想有的功能：</p><ul><li>Web/ 电脑客户端的体验（据说网页版轻芒团队有在计划）</li><li>语言翻译相关（加分项）</li></ul><p>总之，未来可期，期望的产品总会有人在做。如果你意识到目前接触信息的重要性，想主动订阅而不是被推送，可以体验看看。</p><h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><ul><li><a href="https://mp.weixin.qq.com/s/GEJjJVSv6fAxtfyJE0GIeQ">《对话陆奇：做一件长期有价值的事，不被人理解是必然的》</a></li><li><a href="https://mp.weixin.qq.com/s/jeeG0YD_LIAl287p7UGJ8Q">《陆奇如何解构一家企业？》</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拼多多平台商家情况分析（2020年）</title>
+    <link href="http://example.com/2020/10/16/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%95%86%E5%AE%B6%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90%EF%BC%882020%E5%B9%B4%EF%BC%89/"/>
+    <id>http://example.com/2020/10/16/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%95%86%E5%AE%B6%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90%EF%BC%882020%E5%B9%B4%EF%BC%89/</id>
+    <published>2020-10-16T13:10:10.000Z</published>
+    <updated>2020-12-08T08:23:20.578Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="商家量和基本属性"><a href="#商家量和基本属性" class="headerlink" title="商家量和基本属性"></a>商家量和基本属性</h4><p>拼多多官方并没有公布过商家数量，倒是最近在一篇报告中有描述：</p><a id="more"></a><blockquote><p>中国农业大学智慧电商研究院发布的《2020中国农村电商人才现状与发展报告》数据显示，拼多多在不到五年时间里，以裂变等方式获得6.28亿年度活跃消费者，并吸引510万活跃商户。</p></blockquote><p>但是这篇报告并没有说明“活跃商户”的定义。根据网上平台的商家量数据对比，以及拼多多平台的商家订单量作为对比，日活跃商家（或者日成交订单商家），估计 200 万不到。</p><p>另外，因为拼多多一直施行“0佣金”和“0平台服务年费”的政策。相较其他线上渠道针对每笔订单收取 5% 左右的交易佣金，2019年，拼多多仅“0佣金”政策，就帮助商家节省了500亿元左右的资金成本，此外商家也不需要缴纳任何平台年费。由于这个规则，拼多多平台上的多店铺商家，以及店群经营模式商家，远高于淘宝平台。</p><p>通过目前已知的数据来看，拼多多平台商家数量增长，更多是同商户的多店铺增长。并且平台暂时不可能对拼多多商家有收费计划，重点仍旧放在扩大商家用户规模。所以，这种情况目前还是会一直存在。</p><h4 id="经营模式"><a href="#经营模式" class="headerlink" title="经营模式"></a>经营模式</h4><p><strong>拼多多商家运营模式分类：单品爆款商家、全品类品牌商家、多子类目店群商家。</strong></p><p>拼多多商家单品爆款的商家占比非常高，包括服饰类目。基于淘宝服饰类目店铺的分析，上新量高的店主风和网红风店铺未形成，对于商品管理的需求还在萌芽阶段。而且商家客单低，订单量大，主流商家的日均订单几乎是淘宝的两倍。</p><p><strong>单品爆款商家</strong>通常是淘宝等其它平台一些老卖家，对于流量玩法非常清晰，通过直通车迅速打造类目 TOP。这类用户店铺内通常只有 3 个商品以下，无商品管理需求。仅需数据分析、成本利润等。</p><p><strong>全品类品牌商家</strong>通常是天猫/JD品牌商家，在其它平台销量和品牌知名度都取的较好成绩。这类商家通常店铺内商品数量较多（有类目差异），有商品管理、数据分析需求。其它需求均可通过商家后台或 ERP 系统实现。</p><p><strong>多叶子类目店群商家</strong>（占比90%以上）是拼多多独有的商家形态。店铺数多，流量分散，订单分散；这类商家需要商品搬家、多店铺打单、成本利润等。</p><p>另外，相较于其他平台，拼多多商家更在意客服回复速度、发货速度。很简单，因为平台方针对这几个指标和惩罚机制。商品活动报名也会有权重倾斜。</p><p>以上，是拼多多商家在当前情况的一些速记。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;商家量和基本属性&quot;&gt;&lt;a href=&quot;#商家量和基本属性&quot; class=&quot;headerlink&quot; title=&quot;商家量和基本属性&quot;&gt;&lt;/a&gt;商家量和基本属性&lt;/h4&gt;&lt;p&gt;拼多多官方并没有公布过商家数量，倒是最近在一篇报告中有描述：&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+    <category term="拼多多" scheme="http://example.com/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pip版本升级问题解决方案</title>
+    <link href="http://example.com/2020/10/04/pip%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://example.com/2020/10/04/pip%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</id>
+    <published>2020-10-04T13:10:10.000Z</published>
+    <updated>2020-12-09T00:45:24.954Z</updated>
+    
+    <content type="html"><![CDATA[<p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。目前如果你在 python.org 下载最新版本的安装包，则是已经自带了该工具。</p><a id="more"></a><p>Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。你可以通过以下命令来判断是否已安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 --version    <span class="comment"># Python3.x 版本命令</span></span><br></pre></td></tr></table></figure><p>接下来说的是 pip 提示升级的警告信息。</p><h4 id="pip-提示升级的警告信息"><a href="#pip-提示升级的警告信息" class="headerlink" title="pip 提示升级的警告信息"></a>pip 提示升级的警告信息</h4><p>在使用 pip 安装/升级/卸载一些库的时候，时不时会遇见 pip 版本需要升级的提示信息。如下图所示：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WARNING: You are using pip version 20.2.2; however, version 20.2.3 is available.</span><br><span class="line">You should consider upgrading via the <span class="string">&#x27;/Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8 -m pip install --upgrade pip&#x27;</span> <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure><p><img src="https://cdn.brambling.cn/uxcaff/pip.png" alt="image.png"></p><p>其实不更新也能照常使用，不过时间长了后。不可避免的会遇见一些其他问题，所以建议还是更新下。</p><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h4><ol><li>命令行输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --user --upgrade pip</span><br></pre></td></tr></table></figure></li></ol><ol start="2"><li>输入之后的安装进度<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Collecting pip</span><br><span class="line">  Downloading pip-20.2.3-py2.py3-none-any.whl (1.5 MB)</span><br><span class="line">     |████████████████████████████████| 1.5 MB 13.8 MB/s </span><br><span class="line">Installing collected packages: pip</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li>提示安装完成<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Successfully installed pip-20.2.3</span><br></pre></td></tr></table></figure></li></ol><p>提示：如果安装速度过慢，这里的安装也可以使用镜像安装。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。目前如果你在 python.org 下载最新版本的安装包，则是已经自带了该工具。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验碎片（第 4 期）</title>
+    <link href="http://example.com/2020/09/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%204%20%E6%9C%9F%EF%BC%89/"/>
+    <id>http://example.com/2020/09/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%204%20%E6%9C%9F%EF%BC%89/</id>
+    <published>2020-09-25T13:10:10.000Z</published>
+    <updated>2020-12-09T02:29:38.333Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><h4 id="1-高德应用的家人地图"><a href="#1-高德应用的家人地图" class="headerlink" title="1. 高德应用的家人地图"></a>1. 高德应用的家人地图</h4><p>家人地图试图解决的问题：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600270958968-418a823c-988f-48e6-9f2b-472e493ed204.png#align=left&display=inline&height=799&margin=%5Bobject%20Object%5D&name=image.png&originHeight=3191&originWidth=1242&size=2918691&status=done&style=none&width=311" alt="image.png"><br><em>家人地图介绍</em><br>个人想法：</p><ul><li>好处：共享家人安全，确实不错；这类场景打车软件也可以做；</li><li>重点：第一，个人隐私在平台是否可以得到保障，这类功能，需要说明的是对隐私环节处理；第二，功能对于家人定义和界定，功能是否会被用到其他场景，如果被用到其他犯罪场景，平台是否能识别，是否有治理方案。</li></ul><h4 id="2-iOS-14-更新后银行-App-更新内容"><a href="#2-iOS-14-更新后银行-App-更新内容" class="headerlink" title="2. iOS 14 更新后银行 App 更新内容"></a>2. iOS 14 更新后银行 App 更新内容</h4><p>在 iOS 14 推送前后两天，我一直在关注一些应用变化。因为我一直相信，第一时间应对变化的对策，是最能看出一个人/团队水准。</p><p>巧合的是，我看到了两款非常鲜明对比。招商银行在iOS 14 推送当天，完成系统适配。而建设银行也推送了一版更新，但是我也不清楚一款银行 App 做这些意图是什么。如下图。</p><p>在第 1 期，我吐槽过的 U 盾，实际上就是建设银行产品。实际上，无论 App 体验、线下体验，招商银行都远胜建行。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600848885077-e1c929c4-b926-42a5-92dc-bc84afc87bdb.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1218&originWidth=1772&size=952379&status=done&style=none&width=443" alt="image.png"><br><em>招商银行更新截图</em></p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600848898124-38007964-72ea-403a-a8fc-050ffd3c27c2.png#align=left&display=inline&height=246&margin=%5Bobject%20Object%5D&name=image.png&originHeight=982&originWidth=2362&size=880704&status=done&style=none&width=591" alt="image.png"><br><em>建设银行更新截图</em></p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><h4 id="1-马桶上的大小按钮"><a href="#1-马桶上的大小按钮" class="headerlink" title="1. 马桶上的大小按钮"></a>1. 马桶上的大小按钮</h4><p>如图，马桶上大小按钮作用，我不确定有多少人在正确使用。我统计了下身边数据，几乎没有正确使用这两个按钮。</p><p>正确使用方式是：大按钮水比较多，冲水量更大；小按钮水是只有一半，冲水量较小。设计初衷是用在不同场景，同时也节约水资源。</p><p>所以，你使用对了吗？</p><p><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/613759/1600268041727-d7547ec6-f0aa-4302-8c97-e0fe67c6220c.jpeg#align=left&display=inline&height=255&margin=%5Bobject%20Object%5D&name=a456e67e63253da9deb41050391d4a37_720w.jpg&originHeight=255&originWidth=480&size=14255&status=done&style=none&width=480" alt="a456e67e63253da9deb41050391d4a37_720w.jpg"><br><em>马桶按钮</em></p><h4 id="2-“粉丝收割”文案"><a href="#2-“粉丝收割”文案" class="headerlink" title="2. “粉丝收割”文案"></a>2. “粉丝收割”文案</h4><p>在淘宝商家后台看到如下“粉丝收割”文案。近两年，一些做流量的商业手法，特别多这类词语出现，比如生财有术中各种案例、可能是最懂流量的一些公司 Slogan 等等。</p><p>这些文案让人极其反感。一是几乎看不到对消费者任何尊重，二是抱有这类操作手法的模式，绝大多数对用户都没有产生真正价值，无非是赚规则、政策、信息差的钱。</p><p>这是要引起注意，特别是产品经理。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600847173158-4538b49c-9318-4b15-8974-94a6d53a7332.png#align=left&display=inline&height=240&margin=%5Bobject%20Object%5D&name=IMG_3332.PNG&originHeight=240&originWidth=435&size=34659&status=done&style=none&width=435" alt="IMG_3332.PNG"><br><em>淘宝卖家中心截图</em></p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><h4 id="1-支付宝做好一款记账工具"><a href="#1-支付宝做好一款记账工具" class="headerlink" title="1. 支付宝做好一款记账工具"></a>1. 支付宝做好一款记账工具</h4><p>记账工具估计有数百万用户量，支付宝应用内有相对简单记账功能。但是用起来非常粗糙。支付宝完全可以做到顺便把记账工具这块市场全部吃掉。</p><p>好吧，看在提升日活跃的份上，期望后续出这么一款工具，类似 MoneyWiz App 是最好不过了。</p><h4 id="2-一款强大的阅读器"><a href="#2-一款强大的阅读器" class="headerlink" title="2. 一款强大的阅读器"></a>2. 一款强大的阅读器</h4><p>如果一款阅读工具有：</p><ul><li>超全书库；</li><li>水墨屏；</li><li>两个窗口，一个主窗口，显示当前正在阅读的书页，一个辅助窗口，显示当前读者就当前书页之内容最可能查询任何相关信息，比如生词，专有名词，维基词条，地图，图片，图解，当前图书其他相关部分（比如注释和引用）；</li><li>辅助窗口内容随翻页而自动产生，产生算法除考虑该页内容外，也考虑读者的阅读和操作历史，辅助内容按查询可能性排序。类似于一个及时注释和延伸内容。</li></ul><p>这款产品对内容要求比较高，期望以后有这类产品出现。</p><h3 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h3><ul><li><a href="">《以自由看待教育》</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TOP淘宝客公司业务介绍</title>
+    <link href="http://example.com/2020/09/03/TOP%20%E6%B7%98%E5%AE%9D%E5%AE%A2%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://example.com/2020/09/03/TOP%20%E6%B7%98%E5%AE%9D%E5%AE%A2%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E4%BB%8B%E7%BB%8D/</id>
+    <published>2020-09-03T13:10:10.000Z</published>
+    <updated>2020-12-08T08:28:33.868Z</updated>
+    
+    <content type="html"><![CDATA[<p>淘宝客就是 CPS 广告，淘宝商家基本都很清楚玩法。在阿里妈妈的定向佣金推广，除了小淘宝客，还有一类专门的淘宝客公司。这类公司靠手里流量存活，大的公司掌握的渠道非常之多，令人倾佩。</p><a id="more"></a><p>最近和一家 TOP 级打过交道，很涨见识，这类流量来源包括：</p><ul><li>团长。身份可能是KOL、KOC</li><li>宝妈类型</li><li>App 社交电商片，如云集、花生日记</li><li>线下各类可以获取用户信息的公司，如体重秤、KTV屏幕广告信息等。</li></ul><p>这里为什么会有体重秤？路边常见的体重秤需要关注公众号。所以关注后续就会来推商品信息。这些商品来源在和 TOP 淘宝客公司在合作。可以见这类公司渠道之广。</p><p>下面介绍下这种大型的淘宝客公司，和商家的招商流程。帮助感兴趣朋友或者从事电商产品经理了解下这个行业。</p><p>TOP 淘宝客公司和商家的沟通环节，主要分为：选品方向——沟通确认——文案相关——推广跟单——对账回款。</p><h3 id="选品方向"><a href="#选品方向" class="headerlink" title="选品方向"></a>选品方向</h3><ul><li>性价比高。做淘客推广的商品，因为是需要让利部分给到推广者和中间服务的，所以要求性价比高。</li><li>质量好。很多团长都是在微信群、社区进行推广曝光和销售。如果出现售后问题处理麻烦，并且非常影响信用。比如：在微信群，会出现倒戈辱骂团长等情况。所以质量尽量要做到图文一致。</li></ul><h3 id="沟通确认"><a href="#沟通确认" class="headerlink" title="沟通确认"></a>沟通确认</h3><p>和商家需要沟通的几点内容：</p><ol><li>确认买家的需求量。主要是确认买家想要卖出的库存，避免出现超卖或者商家预期过高；</li><li>如果买家的需求量非常大。需要查看同行竞品的推广方案和出单量，收集渠道端的意见，给商家建议方案，让商家去做决策，决策内容包括推广单价、推广销量；</li><li>寄样验货：验货是为了看商品的质量和拍摄实拍视频。以及作为后期的推广素材；</li></ol><p>在这里，一些渠道能力较强的渠道团长，需要有小样进行验货。除了需要看到产品品质外，他们也需要给自己下面的二级分销商准备素材。</p><p>这里附上和商家常用的一张登记表格</p><table><thead><tr><th align="center"><strong>字段</strong></th><th align="center"><strong>备注</strong></th></tr></thead><tbody><tr><td align="center">链接</td><td align="center">商品短链接（且推广期间链接不能出现拼链接）</td></tr><tr><td align="center">名称</td><td align="center">SKU标注要清楚+规格</td></tr><tr><td align="center">方案</td><td align="center">券额度+券后价+佣金+有无活动（有活动写具体开始到结束的时间）+有无赠品+有无拍立减</td></tr><tr><td align="center">时间</td><td align="center">只需写开始跑的时间</td></tr><tr><td align="center">单量</td><td align="center">实际需求（多少现货库存？日均产量？调货时间是多久？能否保证三天内发货，打包材料有多少？）</td></tr><tr><td align="center">服务费</td><td align="center">线上按照百分标注~线下按照金额标注</td></tr><tr><td align="center">特殊说明</td><td align="center">是否全国包邮，新疆西藏是否包邮（发单量多少）</td></tr><tr><td align="center">发什么快递</td><td align="center"></td></tr><tr><td align="center">亮点</td><td align="center">尽量精简，最好是能说出和市面同类商品不一样的地方</td></tr><tr><td align="center">到量计划</td><td align="center"></td></tr><tr><td align="center">仓库日发货量</td><td align="center">如果日推广量超出日发货量，怎么处理</td></tr><tr><td align="center">商品包装</td><td align="center"></td></tr><tr><td align="center">重要备注</td><td align="center">停券前务必要和业务员沟通，不能说停就停，停券半小时前通知</td></tr><tr><td align="center">日期</td><td align="center">食品确认生产日期及保质期，衣服确认棉的含量</td></tr></tbody></table><p>如果推广的单品是水果生鲜类产品，则更需要注意：</p><ul><li>水果-生鲜确认信息（目前更多的是重点推广存放时间长，不怕挤压、磕碰类水果，例：柚子，百香果等）；</li><li>产品是否属于容易损坏，如猕猴桃（发的货不能全熟，运输会坏）；</li><li>品质。会不会坏充好，品种会不会不一样；</li><li>实际重量，包厢重量（包裹 + 实物重量）要确认；</li><li>包装是否靠谱，易坏的水果需要比较靠谱的包装，如猕猴桃只有一个纸盒是不够的，需要加泡沫，还需要厚一些的纸盒；</li><li>售后处理方式。坏果超过 50% 承诺全赔；</li><li>坏果率超过5%，或者就是消费者群里反馈非常差，如产品差，物流差，客服态度差，需要赔款一定金额。</li></ul><h3 id="文案相关"><a href="#文案相关" class="headerlink" title="文案相关"></a>文案相关</h3><ul><li>提前做好主图、文案、营销图。并且是针对各个不同的渠道，需要看看是否需要准备不同的素材和文案；</li><li>提前开好平台定向计划。</li></ul><h3 id="推广跟单"><a href="#推广跟单" class="headerlink" title="推广跟单"></a>推广跟单</h3><p>负责人需要及时更新相关数据。如：领券截图，附领券量，出单量，转化率，还能跑多少单，至少需要渠道完成多少单等。一般是固定时间，一天同步 2-3 次信息。</p><h3 id="对账回款"><a href="#对账回款" class="headerlink" title="对账回款"></a>对账回款</h3><ul><li>线上结算：推广结束后第 2 天拿数据对账；</li><li>线下结算：推广完 3 天内拿数据对账，对账后7天内必须回款（没跑起来的订单，商家联系不上或者不结算的进行销账处理）</li></ul><p>以上只是基本流程，如果感兴趣，可以找机会体验下相关流程，相信这类公司玩流量的方式可以让你大开眼界。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;淘宝客就是 CPS 广告，淘宝商家基本都很清楚玩法。在阿里妈妈的定向佣金推广，除了小淘宝客，还有一类专门的淘宝客公司。这类公司靠手里流量存活，大的公司掌握的渠道非常之多，令人倾佩。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>企业真正的竞争壁垒是什么</title>
+    <link href="http://example.com/2020/09/03/%E4%BC%81%E4%B8%9A%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%AB%9E%E4%BA%89%E5%A3%81%E5%9E%92%E6%98%AF%E4%BB%80%E4%B9%88/"/>
+    <id>http://example.com/2020/09/03/%E4%BC%81%E4%B8%9A%E7%9C%9F%E6%AD%A3%E7%9A%84%E7%AB%9E%E4%BA%89%E5%A3%81%E5%9E%92%E6%98%AF%E4%BB%80%E4%B9%88/</id>
+    <published>2020-09-03T13:10:10.000Z</published>
+    <updated>2020-12-08T11:25:36.245Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>篇外：在创业初期，做一些有难度的事情，会帮助你获得机会窗口。但是想要有长期的护城河，那是另一码事，持久的优秀在于好的商业模式、好的企业文化（团队）。</em></p><a id="more"></a><p><em>本文分为两部分：</em></p><ul><li><em>第一部分，是一篇来自 Alex Crompton 写的文章，他原文的标题是《“难”不是真正的竞争壁垒》。文章内容详细说明了哪些事情即使门槛很高，但是这些都不是企业的竞争壁垒。文章链接可以「阅读原文」查看。</em></li></ul><ul><li><em>第二部分，是一篇来自「基石资本」的一篇文章，文章内容根据 Bruce Greenwald 企业竞争壁垒框架展开，关于竞争壁垒的几个关键指标定义详细说明。文章链接直接在底部可见。</em></li></ul><p><em>这两篇文章结合来看，刚好回答了竞争壁垒相关的问题。</em></p><p><em>下面先是第 1 篇文章。</em></p><p><em>本文针对做的事情有难度的方式，分为 2 种难度：一种是类似数学模式，发现难，复制简单；另外一种是发现简单，坚持做下来很难。</em></p><p><em>下面是原文翻译：</em></p><hr><p>在初创企业中，壁垒意味着一旦你领先，竞争对手就追赶不上了。这是成功的科技公司的一个重要特征，所以当你试图融资时，投资者经常会问起这个问题。</p><p><em>篇外：对于大公司，通常问题是：公司的护城河是什么？道理是一样的，要说明的是自己的核心竞争力。</em></p><p>壁垒问题听起来像是“一旦你强大了，你将如何继续保持强大”，“一旦你赢了，你怎么能一直赢下去？”或者是略带误导性的“是什么阻止了其他人复制你的产品? ”</p><p>创始人往往认为一个好的答案可能是“我们做的事情很难做”。他们把“难”和“壁垒”混为一谈。但“难”并不是“壁垒”。</p><p>为什么？难有两种: 数学难——解决问题的难度；健身难——做某些事情的固有难度。两者都可以为你争取时间，但远远不够。</p><p><img src="https://cdn.brambling.cn/uxcaff/business.jpg"></p><h2 id="数学难（类似于数学研究一样的难法）"><a href="#数学难（类似于数学研究一样的难法）" class="headerlink" title="数学难（类似于数学研究一样的难法）"></a><strong>数学难（类似于数学研究一样的难法）</strong></h2><p>解决新问题是很难的，但这并不意味着问题的解决方案很难做。那些很难想出但是很容易复制的东西，就是“数学难”。</p><p>许多数学问题需要很长时间才能解决。但是，一旦你有了一个方法，通常答案可以很快被验证，而且方法很容易掌握。毕达哥拉斯需要很聪明才能发明他的定理，但现在孩子们在学校里就能学会了。其他类似数学难的东西包括食谱、设计和新想法等。</p><p><em>篇外：App 的功能设计、交互设计；电影海报，都是重灾区。</em></p><p>除非毕达哥拉斯可以保守他的方法的秘密，而这是很难做到的，他的定理不会帮助他建立一个有壁垒的公司。甚至连小学生也能抄袭它。</p><p>这就像创业者对一种新的用户体验或界面的想法一样——它们很难理解，很难保密(特别是如果你的用户体验到了秘密) ，而很容易复制。</p><p>但是如果你能保守这个秘密呢？毕竟，如果你小心的话，“商业秘密”可以保持一段时间。</p><p>问题是，你的秘密越成功，其他人就会付出越多的精力去发现它。你可能非常聪明，非常努力，但是有很多聪明的人会努力工作以获得成功。认为你会有一个完全独特的洞察是不现实的。更何况别人如果真的想不出来，也是不可能的。</p><p>如果这种洞察力是创建一家成功公司所必需的壁垒标准，那么按理说几乎没有人会创建一家成功公司。无论你的发明有多巧妙，你最终都会在其他维度上进行竞争。</p><p>数学难——想出解决方案的难度—— 最多只能为你争取到时间。有多少时间呢？不幸的是，有些时间与你的成功程度成反比。你的秘密越有价值，你剩下的时间就越少。</p><h2 id="健身难（类似于坚持健身一样的难法）"><a href="#健身难（类似于坚持健身一样的难法）" class="headerlink" title="健身难（类似于坚持健身一样的难法）"></a><strong>健身难（类似于坚持健身一样的难法）</strong></h2><p>另一种难是做某些事情的内在难度。有些事情很难做，即使每个人都知道如何去做。这是健身的难题。</p><p>无论有多少营养补充建议，获得一个健美运动员的体格并不复杂。你需要经常进行重量锻炼；坚持吃富含蛋白质的饮食。既不是秘密，也不难以理解。大多数人，不管身材如何，都知道这些东西。问题是，做这些事情本质上是困难的。它需要剧烈的运动，这比和朋友喝啤酒吃汉堡要无趣得多。</p><p>大多数有价值的成就都是类似健身这种内在难度。比如：学习一项新技能、变得富有、成为一个好的合作伙伴——所有这些都需要努力。实际上，每个人或多或少都知道如何实现这些目标，但很少有人真正做到。这就是为什么每个行业都有一些所谓的捷径。</p><p>以“健身难”作为壁垒的创业公司无处不在。按需服务，市场，电子商务——他们是 Rocket Internet 投资组合的骨干。他们没有毕达哥拉斯式的秘密。这些企业经营起来很繁琐，需要成千上万人的协调和复杂的运营。</p><p>显然要打败其他人是很困难的。但是如果你只做到很好的话，健身在经济上是不能自给自足的: 你需要成为最好的。尽管有细微的差别，仍然是赢家通吃。</p><p>因此，健美中类固醇和技巧泛滥，以竭力维持微小的优势。健身创业公司也不例外，只不过他们的类固醇是现金、经验和成千上万受过创伤的前银行家和咨询师。</p><p>你通过努力健身获得的成功越多，就会有越多的人愿意尝试做同样的事情。如果这是一个值得开始的创业公司，那么最终的回报必须超过艰难。一旦确定这一点，你的竞争对手就会带来类固醇。</p><p>健身难，就像数学难，为你赢得时间。多长时间？再说一次，有些时间与你取得的成功成反比。事情进展得越顺利，你剩下的时间就越少。</p><p><em>篇外：这类商业模式需要做好长期投入的准备。教育、企业服务都是。</em></p><h2 id="从困难开始"><a href="#从困难开始" class="headerlink" title="从困难开始"></a><strong>从困难开始</strong></h2><p>这两种类型的难都是开始的好方法。做一些艰难的事可以为你赢得成功的机会窗口。但是，一旦你做大成长起来了，就得有其他的东西来支撑你。</p><p>壁垒并不意味着长期的艰难，即使艰难在开始时是有用的。对于最好的公司来说，在经历了艰难的部分之后，事情会变得更容易。</p><p>他们的长期优势不需要新的洞见或持续的努力：一旦风险足够高，像这样的竞争就太难了。它们的优势在于独特的资源积累——像谷歌的数据集或苹果的品牌，或者规模化的产品差异化——像 Uber 的流动性或亚马逊的物流基础设施。你需要滚雪球。</p><p>做一些艰难的事情可以让你在竞争中领先，但是艰难并不能让你保持领先。</p><hr><p><em>篇外：接下来是第 2 篇文章。</em> </p><p>这里我先直接说下，企业真正的竞争壁垒，会在哪些方面：</p><ul><li><em>供给端：专利技术、品牌，或者进入某个行业的准入许可证等。这些都是企业的无形资产；或者成本优势，以某种方式可以持续地以低于竞争对手的价格出售你的产品或服务；</em></li><li><em>需求端：消费者心理习惯、切换/搜索成本、客户粘性等；</em></li><li><em>规模效应：产品具有规模效应。</em></li></ul><p><em>详细指标定义和说明，可以查看下面这篇文章。</em></p><p><a href="https://mp.weixin.qq.com/s/bxuOxXziSV6aKfTWzI-u9g">存量时代的竞争法则，从local champion做起</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;em&gt;篇外：在创业初期，做一些有难度的事情，会帮助你获得机会窗口。但是想要有长期的护城河，那是另一码事，持久的优秀在于好的商业模式、好的企业文化（团队）。&lt;/em&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Business" scheme="http://example.com/tags/Business/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验碎片（第 3 期）</title>
+    <link href="http://example.com/2020/09/01/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%203%20%E6%9C%9F%EF%BC%89/"/>
+    <id>http://example.com/2020/09/01/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%203%20%E6%9C%9F%EF%BC%89/</id>
+    <published>2020-09-01T13:10:10.000Z</published>
+    <updated>2020-12-09T01:40:55.239Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p><p>内容涉及：商业模式和产品设计评论，以及对部分行业通用产品的期待。最后有部分不错的文章，以共飨之。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><h4 id="1-虎哥回收垃圾流程"><a href="#1-虎哥回收垃圾流程" class="headerlink" title="1. 虎哥回收垃圾流程"></a>1. 虎哥回收垃圾流程</h4><p>最近在家门口发现了下图中虎哥回收塑料袋，发现是一个比较创新的做法，在这里分享下。</p><ul><li>常规情况下的垃圾回收流程：我个人收集纸箱、易拉罐 – 回收人员随机来到小区 – 我主动联系回收；</li><li>虎哥回收流程：将回收物品放到塑料袋 – 有一定量之后公众号提醒回收人员 – 回收人员上门收取。</li></ul><p>细想下，通过回收塑料袋，解决了哪些痛点：我作为用户不再零散的去处理回收物品，因为在一开始回收方就已经参与进来。并且不用在关注回收人员来小区的时间，只需要根据自己情况线上提醒回收人员即可。</p><p>对于回收方来说，让每个去小区的回收人员效率提高，每次回收量有预期；最关键的是，如果可以线上可以了解到每个小区住户的回收情况，这些数据拿来就能干很多事了，例如：根据各个小区的回收情况调整回收人员人数占比、调整价格；在公众号内容推广垂直行业相关产品，做电商变现；和区、街道管理者合作，推送公共消息等。</p><p>这样一来，通过回收塑料袋，把一个传统生意线上化了。效率提升的同时，还可以做数据化经营。模式令人耳目一新。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598865576094-58ddfd0b-aa3e-42d8-8415-03453088fe5c.png#align=left&display=inline&height=422&margin=%5Bobject%20Object%5D&name=image.png&originHeight=844&originWidth=594&size=974124&status=done&style=shadow&width=297" alt="image.png"><br><em>图：「虎哥回收」提供的回收袋</em></p><h4 id="2-微信读书在阅读书籍中搜索书籍"><a href="#2-微信读书在阅读书籍中搜索书籍" class="headerlink" title="2. 微信读书在阅读书籍中搜索书籍"></a>2. 微信读书在阅读书籍中搜索书籍</h4><p>微信读书支持在书籍中搜索书籍，这个功能应该在 3 个月之前就已经上线了，我是近期才发现。为什么现在提这个功能呢，其实是想借这个更新说说微信读书和豆瓣读书。</p><p>这个功能很好，能为书籍流量带来新的入口。要知道，不少书籍都是寻着喜欢的作者发现的。所以这个功能非常符合阅读场景。好了，关于这个亮点就说到这里，接下来说说微信读书和豆瓣读书。我相信很多人会和我有同样的想法：微信读书的评分体系，能不能直接调豆瓣的 API，不要自己做了；豆瓣读书能不能像电影介绍一样，在书籍介绍页面，介绍哪些平台有电子版（目前实现可能需要双方合作，目前通过浏览器插件可以实现）。</p><p>如果真能这样，对于用户来说，真是一件美好的事情。当然，这和之前说过的 RSS 一样遥遥无期。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598871447830-68765d1d-6cfc-450d-91f1-e4a4fc4b3386.png#align=left&display=inline&height=563&margin=%5Bobject%20Object%5D&name=image.png&originHeight=750&originWidth=448&size=154552&status=done&style=shadow&width=336" alt="image.png"><br><em>图：「微信读书」在阅读书籍中搜索书籍</em></p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><h4 id="1-拼多多投放的开屏弹窗广告"><a href="#1-拼多多投放的开屏弹窗广告" class="headerlink" title="1. 拼多多投放的开屏弹窗广告"></a>1. 拼多多投放的<strong>开屏弹窗广告</strong></h4><p>在多款 App 的开屏页上，我都注意到拼多多这个开屏弹窗样式的广告，引诱用户点击。能大面积投放，想必这种形式的图点击率不错。但确实让人喜欢不起来。现在对拼多多的态度大概是这样：</p><ul><li>一方面，我会让公司运营同学去体验拼多多，去研究拼多多的很多产品设计、活动设计。这方面确实拼多多团队玩得登峰造极，花样繁多（比如：截图自带二维码）。当然，这里面也有非常优秀的设计，并不是都是引诱、打扰用户的形式；</li><li>另一方面，拼多多的部分诱导通知推送、产品内的部分弹窗，实在让人心生厌恶。</li></ul><p>好吧，我们暂且过一段时间再看看。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598879068606-77a364f4-b286-43d7-a020-8fe9f32f858f.png#align=left&display=inline&height=553&margin=%5Bobject%20Object%5D&name=image.png&originHeight=2208&originWidth=1242&size=1488215&status=done&style=shadow&width=311" alt="image.png"></p><h4 id="2-Notion-糟糕的中文写作体验"><a href="#2-Notion-糟糕的中文写作体验" class="headerlink" title="2. Notion 糟糕的中文写作体验"></a>2. Notion 糟糕的中文写作体验</h4><p>先说结论，在现阶段，热爱中文写作的人，可以直接忽视 Notion。尽管媒体在大肆宣扬它是未来替代 Office 的办公产品，以及粉丝群体一直在鼓吹。</p><p>Notion 有非常惊艳的 block 设计，也很方便协作。但是在现阶段在 Notion 上进行长时间中文写作非常不方便：段落样式编排、目录使用、整体排版等等，比在语雀、Bear 上要繁琐很多。这也是我只把 Notion 用来做简单的信息记录的主要原因。其他的网速缓慢、文件上传缓慢，移动端使用不流畅、服务器不在中国等等，都是次要因素。</p><p>如果注意看，Notion 的追捧者，做得更多的是例如：个人页面展示、各类信息管理、ToDoList 等等。</p><p>不管怎样，还是希望 Notion 后续的优化，可以让中文排版更加给力。</p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><h4 id="1-期待-DeepL-翻译器支持浏览器插件"><a href="#1-期待-DeepL-翻译器支持浏览器插件" class="headerlink" title="1. 期待 DeepL 翻译器支持浏览器插件"></a>1. 期待 DeepL 翻译器支持浏览器插件</h4><p>如果足够关注行业新产品，你一定会听过 DeepL翻译器（<a href="https://www.deepl.com/home">https://www.deepl.com/</a>）。在这款产品刚诞生时，这家公司号称使用的人工智能翻译技术，已经超越 Google 翻译等一些大厂软件。我对比使用了 3 个月 Google 翻译、腾讯翻译、网易有道翻译后。觉得 DeepL 翻译器确实已经做到了行业 TOP 1。</p><p>现在比较期待：</p><ol><li>期望 DeepL 翻译器支持浏览器插件，在看一些外文网页内容时，替代 Google 翻译，更加方便；</li><li>支持付费，目前在国内还无法付费，希望可以付费支持。</li></ol><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598864684997-c8366d61-4adb-45e6-87e1-8dbfc12776f2.png#align=left&display=inline&height=720&margin=%5Bobject%20Object%5D&name=image.png&originHeight=720&originWidth=1102&size=55975&status=done&style=none&width=1102" alt="image.png"></p><h4 id="2-期待播客产品有语音转文本功能"><a href="#2-期待播客产品有语音转文本功能" class="headerlink" title="2. 期待播客产品有语音转文本功能"></a>2. 期待播客产品有语音转文本功能</h4><p>现在有很多播客节目比较不错，有时需要有一些笔记。现在我的处理方式是听到关键部分再自己记录，这样往往比较麻烦。但是我看市面上并没有类似产品支持语音转文本的功能，还有一些录音转文本的功能需要有源文件，而且收费高，转换慢。所以期待有类似功能出现，当然，也需要解决好版权问题。</p><h3 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h3><ul><li><a href="https://mp.weixin.qq.com/s/X1b0O6BBj31nGlkksfFFWQ">《浅谈“双标”》</a></li><li><a href="https://mp.weixin.qq.com/s/z4J2KI8LjcfOIZLhGbi_QQ">《对话霍炬 | 互联网之子 Aaron Swarts 想要看到的世界》</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。&lt;/p&gt;
+&lt;p&gt;内容涉及：商业模式和产品设计评论，以及对部分行业通用产品的期待。最后有部分不错的文章，以共飨之。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验碎片（第 2 期）</title>
+    <link href="http://example.com/2020/08/31/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%202%20%E6%9C%9F%EF%BC%89/"/>
+    <id>http://example.com/2020/08/31/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%202%20%E6%9C%9F%EF%BC%89/</id>
+    <published>2020-08-31T13:10:10.000Z</published>
+    <updated>2020-12-09T01:37:24.405Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>为了不局限于技术，更加深刻理解用户侧需求，提升产品体验敏感度。所以会把「体验碎片」系列作为零碎信息专辑，为系统知识构建提供内容。后续会不定期发布。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><p><strong>「即刻」App 给自己动态点赞，在顶部导航会给一个坏笑emoji，以及图像效果</strong></p><p>即刻重新上线，对社区内容我不太会花时间经营和阅读。但是对之前信息追踪，包括微博追踪、淘宝店铺上新追踪很有兴趣。不过目前已经没有这些追踪功能。将持续关注后续产品方向。不过发现在给自己发布的动态点赞时，会显示一个坏笑emoji。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1593784914317-5c732b83-25fe-4326-9c70-d05575c0f6f9.png#align=left&display=inline&height=362&margin=%5Bobject%20Object%5D&name=WX20200703-220126%402x.png&originHeight=1448&originWidth=1662&size=618626&status=done&style=shadow&width=416" alt="WX20200703-220126@2x.png"></p><p>以及图像移动动效 + 抖动触感（手机会震动）。这些恶趣味，可以成为社区内容独有特性。</p><p>嗯，微信也在 06/17 上线了“拍一拍”功能。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/gif/613759/1591778936566-42d1056c-e556-4d06-954b-6236834f25b2.gif#align=left&display=inline&height=503&margin=%5Bobject%20Object%5D&name=IMB_R3dv8k.gif&originHeight=671&originWidth=388&size=2452959&status=done&style=shadow&width=291" alt="IMB_R3dv8k.gif"></p><p><strong>「小宇宙」App 播客内容导入优先级，以及根据时间段评论的产品设计</strong></p><p>小宇宙 App 也是即刻团队在 2020/03 上架的一款播客产品，目前应该还在测试阶段（注册还需要邀请码）。因为页面简洁、没有广告。所以最近一直和喜马拉雅交替使用（部分播客内容，小宇宙上并没有）。在这款 App 上，发现有 3 点很有意思。</p><p>第 1 点是前期内测版本，没有以小程序为载体。我想除了团队并不缺少研发费用之外，更重要的是播客场景验证、以及播客产品核心价值明确。说直接点，主要还是看内容质量和数量。有了不输于行业内容，再把交互体验做好，很容易脱颖而出。</p><p>这点也和小宇宙产品经理有讨论，他认为目前在微信消费播客内容并不是最自然的，用户心智还没有建立。这是一个偏感性的结论，不过我也找到相关数据可以支撑这个结论（下图数据确实可以看到，内容音频这种偏小众，也不能算音乐），确实这种音频内容消费本就不是大众产品，外加小程序体验比不上 App（比如：在小程序内做倍数播放功能，技术实现就比客户端复杂） ，再加上即刻恢复上线，本身就有社区推广渠道。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1592038657152-d3340f22-9803-47f3-afce-db6790d355d6.png#align=left&display=inline&height=932&margin=%5Bobject%20Object%5D&name=image.png&originHeight=932&originWidth=1948&size=1249235&status=done&style=shadow&width=1948" alt="image.png"></p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1592038829987-ef7eaae9-1604-4e89-b07d-648dc5afa292.png#align=left&display=inline&height=954&margin=%5Bobject%20Object%5D&name=image.png&originHeight=954&originWidth=1922&size=1242295&status=done&style=shadow&width=1922" alt="image.png"></p><p>第 2 点是播客内容生产环节，放弃自己录音，现阶段完全靠其他平台导入。和网易云音乐在前期导入用户歌单如出一撤。内容平台前期，通过这种方式引导内容主过来，平台负责灌流量。这种方式不仅出现在 C 端产品，在电商平台上，新兴平台/小平台商家一直是用这种方式去采集淘宝等大平台商品，去平台分发商品信息。这种设计投入产出高，可谓四两拨千斤。</p><p><strong><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1591792254439-c8f7b9c0-2070-4da6-9a10-6de329f91778.png#align=left&display=inline&height=553&margin=%5Bobject%20Object%5D&name=IMG_2964.PNG&originHeight=2208&originWidth=1242&size=230273&status=done&style=shadow&width=311" alt="IMG_2964.PNG"></strong></p><p>第 3 点是评论交互细节。可以根据听到某一刻时间节点进行评论。阅读评论点击时间点，播客内容会跳转到对应节点。默认不选中。这个设计抓的场景是“你听他这段，说得很有道理”，可以快速定位到重点位置。</p><p><strong><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1591792995083-64f53c72-d851-49fe-ad5a-83c9c0a27ff7.png#align=left&display=inline&height=553&margin=%5Bobject%20Object%5D&name=IMG_2962.PNG&originHeight=2208&originWidth=1242&size=532574&status=done&style=shadow&width=311" alt="IMG_2962.PNG"></strong></p><p>在小宇宙 App 中还有几个细节的产品设计，例如听到嗨处可以点赞形成音浪等细节，也很有意思。</p><p>关于播客产品细节设计，少数派有一期邀请王俊煜的节目（_一派·Podcast：024 竖起时间线，原来播客也是可以看的_）。里面有提到轻芒团队播客产品（轻芒团队有做一款类似播客 WordPress 的产品）会有一个设计，就是截取部分音频内容，自动生成带字幕的视频内容，方便用户传播分享。个人觉得这个设计会非常惊艳（已经内测可以体验）。</p><p><strong>支付宝语音收钱机盒的切入点</strong></p><p>经常有机会看到有线下小商铺不是使用支付宝/微信官方二维码贴纸或者塑料牌，而是使用一种电子屏幕显示的二维码，看起来基本没什么区别。由于好奇，于是去问小卖部阿姨，她的理由是：不用打开支付宝，声音大。</p><p>回来在网上查了下这种产品，主打功能就是大喇叭，价格在50.00-100.00 元，月销量也还行。商品详情页宣传的功能点主要是声音：</p><blockquote><ol><li>老板不在店里，也能播报:添加店员收款通知即可，店员只负责接收通知，付款到老板账户，老板在外还可实时监控收款数据；</li><li>支持多处扫码:拥挤的地方二维码除了贴在收款器上面，也可以贴在其他地方，多处扫码，都能播报；</li><li>专业收款提示芯片：无延迟、声音大、音质清晰。</li></ol></blockquote><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1591767990533-11a16ee3-3cd0-461d-b5f3-ec86a504d511.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=409&size=149537&status=done&style=shadow&width=409" alt="image.png"></p><p>了解下来还是非常震撼。即使支付宝也做了语音播报。但还是有一个细分市场，在不需要打开支付宝情况下，有宏亮的语音播报，就可以支撑一款 100.00 元的产品。</p><p><strong>「抖音」和「快手」视频切换设计逻辑</strong></p><p>先分别说下下快手 App 和抖音 App 用户评论时的交互流程。快手双列瀑布流，点击视频直接下拉就是评论区，而刷下一个视频需要退出 + 点击下一个视频两步，并且在视频播放时，“关注”和“分享”的按钮仍在引导。抖音直接下滑就刷新视频，再点击评论，多出 2 步操作。</p><p>透过这个设计，来与各自平台出现的现象交叉验证：</p><ol><li>快手以创作者为中心，流量分配规则会照顾个人（相对有人文情怀）；目前全球最大视频库（2019年视频数量 70 亿）；粉丝质量高，黏性高，带货能力强；</li><li>抖音以内容为中心，按照热度和喜好精准推荐；内容生产者粉丝差距大，粉丝集中在大 V。</li></ol><p>抖音也知道有黏性的粉丝和活跃的社交互动有价值。但它选消费内容的效率。</p><p>所以，疯投圈播客在聊快手 App 时，说到快手社交互动是抖音 3 倍（社交互动定义：（评论数 + 私信）/ 视频播放总量），我是能理解的。</p><p>说到以内容为中心还是以创作者，想起订阅号信息列表改版和最近信息列表顺序改动。之前改版目的是提升阅读效率。站在我的角度，这些改动弱化了创作者，强调了内容。最后反倒是打乱了阅读优先级。对我个人来说适得其反。</p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><p><strong>「拼多多」App 评价自动跳转拍摄的设计</strong></p><p>现在拼多多 App 上，用户点击“确认收货”，直接 Toast 提示用户“已确认收货，前往评价拍摄”然后调系统拍摄。让人反感的设计。</p><p>让商品有更多有质量的评价，是拼多多建立产品信任度的一种方式。无论是在商家侧还是用户侧，官方都在强调评价的重要性（拼多多在商家侧，在官方各种活动报名、流量分发规则中，都对商品评价有要求）。对比淘宝翻看了一些快销品类，商品评价中“有图评价”数量比例，拼多多商品占比几乎和淘宝相当。这还是在拼多多没有微淘、买家秀这些内容产品情况下。所以 C 端这种设计，数据肯定是好看。</p><p>但是拼多多 App，包括拼多多小程序内各种弹窗活动、游戏的过多设计。感觉就像是：在超市逛，刚要弯腰看商品，被一个导购急冲冲拦住塞各种营销卡片。</p><p><strong><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1592029018057-035c6cfd-5113-464b-8ae8-c16d308eb2c7.png#align=left&display=inline&height=316&margin=%5Bobject%20Object%5D&name=image.png&originHeight=421&originWidth=414&size=199261&status=done&style=shadow&width=311" alt="image.png"></strong></p><p><strong>新功能，或者针对新功能的遮照引导</strong></p><p>这两年遮照 + 高亮按钮的引导风格渐渐少了些。但还是时不时会碰到个别应用在使用。这种方式存续这么久，说实在的。多数原因是因为做这个项目的业务人员没有看转化数据，或者没找办法去量化引导的价值。单就走完引导流程来说，几年前我分别通过几个方法验证过（用户访谈、观察用户实际操作、真实转化数据），效果很差。特别是图中这种活动流程的引导设计，效果更差（因为这种项目往往是短周期，需求 + 研发都比较仓促，所以做成这种引导开发成本相对较低）。</p><p>建议引导用符号标记或者符号 + 提示标记就行。</p><p><strong><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1592032114487-b174c0a2-ec7d-403f-966c-0ca1bcd1ceb3.png#align=left&display=inline&height=553&margin=%5Bobject%20Object%5D&name=IMG_2974.PNG&originHeight=2208&originWidth=1242&size=2965744&status=done&style=shadow&width=311" alt="IMG_2974.PNG"></strong></p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><p><strong>希望针对公共区域洗手间的坐便器，都能附上一次性马桶垫</strong></p><p>每次使用马桶，就会和《爱情公寓》曾小贤一样，使用卫生纸擦干净接触面并且做好隔离。于是冒出了希望有一次性纸垫的想法。于是顺手淘宝搜索了下，果不其然是有这种产品。现在的做法只能个人备好，还是期望能公共场所能统一采购规划。</p><p>看到一些场所（上海和义乌车站）洗手间已经有单个洗手间是否为空电子屏显示了，但是我觉得这种马桶垫反而对用户价值更大。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/613759/1591954282241-0f1773cc-50c3-4a8e-9241-b291137545aa.jpeg#align=left&display=inline&height=569&margin=%5Bobject%20Object%5D&name=O1CN01fjohwA1wf1F48tbDL_%21%213605376334.jpg&originHeight=1138&originWidth=790&size=155578&status=done&style=shadow&width=395" alt="O1CN01fjohwA1wf1F48tbDL_!!3605376334.jpg"></p><p><strong>希望互联网上能出现一款好的、长期的 RSS 产品</strong></p><p>即刻 App 重新上线，但是以前 RSS 订阅功能全部砍掉，有些失望。每天信息都是排山倒海过来，做好聚合和选择太重要了。我已经换了很多类似产品，用过的产品包括 WeReadr、微广场、己思、微信读书（订阅公众号，但是 Web 上不显示）、Feedly，Inoreader，不是倒闭了就是加载太慢，并且还缺少 RSS 源。目前解决方案是：使用 Reeder + WeRss + RSSHub，使用一些开源服务，然后花钱买一些 RSS 源。目前还能凑合用。</p><p>其实很多人都对 RSS 订阅有需求，但是受限于商业因素，目前这种产品只能是灰产一样存在。期望大厂合作出一款 RSS 产品，虽然目前基本看不到希望。</p><p>期望一款产品拥有：</p><ul><li>聚合播客、博客、主流资讯网站、B站、主流网文网站、知乎专栏、微信订阅号（有的话就超出预期）。视频类；</li><li>信息及时；</li><li>不会有内容周期限制，根据个人喜好保存；</li><li>附带笔记应用部分功能（分类、划线、编辑、收藏等）；</li><li>Web 端/客户端体验。</li></ul><p>其实，更多的是体验上。</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;为了不局限于技术，更加深刻理解用户侧需求，提升产品体验敏感度。所以会把「体验碎片」系列作为零碎信息专辑，为系统知识构建提供内容。后续会不定期发布。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么有互联网杠精</title>
+    <link href="http://example.com/2020/08/02/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E4%BA%92%E8%81%94%E7%BD%91%E6%9D%A0%E7%B2%BE/"/>
+    <id>http://example.com/2020/08/02/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E4%BA%92%E8%81%94%E7%BD%91%E6%9D%A0%E7%B2%BE/</id>
+    <published>2020-08-02T13:10:10.000Z</published>
+    <updated>2020-12-09T00:04:33.850Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天看到<a href="https://dradambell.com/why-people-become-internet-trolls/">一篇有趣的文章</a>来自 Doctor Adam（一位心理学专家）。主要讲了为什么会产生互联网杠精以及如何管理内心的杠精。</p><a id="more"></a><p>作者在文章最后一段提到了一个很有趣的产品叫 <a href="https://www.kialo.com/">Kialo</a>。这段没有翻译，因为我并不觉得这款产品能解决实际问题。</p><p>它用了一个非常类似在线辩论的形式来讨论那些极具争议的话题，任何一个论点都可以再被分成支持和反对两派继续讨论，从而形成一个逻辑树。我觉得这不太现实，过于理想。这种产品可以作为一种辩论工具存在，但不可能成为解决杠精的方案。如果是一个在网上足够自律的人，不需要这样的产品。如果是一个有杠精倾向的人，也不会用这样的产品。</p><p>以下是文章内容翻译。</p><hr><p>依靠互联网产品自身的机制来解决 trolling 的问题是不现实的。任何一个平台，只要它还允许用户发言，就一定会出现 trolling 的情况。我刚刚开始在网上写作的时候（当时还叫 blog），还会被一些评论气到到处找人说理，但现在已经对这样的行为可以泰然处之。社区永远都需要爱护和建设，不然很容易变成人人嫌弃的垃圾场。</p><p><img src="https://cdn.brambling.cn/uxcaff/gj.png" alt="image.png"></p><p>当我 10 第一次接触到互联网时，聊天室是我迄今为止最喜欢的东西。与来自世界各地的人随意交谈，谈论任何你想要的东西–一个无聊的孩子还能要求什么呢？</p><p>我会在这些聊天室里呆上几个小时，问我的新朋友们多大了，他们早餐吃什么，他们的父母给了他们多少零花钱。我把这段经历分享给了一个朋友，他没有电脑，也从来没有用过网络。</p><p>他问我能不能让他去试试。”当然可以！” 我说，很高兴他能体验到网络的神奇。他毫不犹豫地开始输入他能想到的最糟糕的侮辱和脏话。我惊恐自己唤醒了一股黑暗而恶毒的力量，害怕他永远毁了我和 strawberry88 的友谊，于是我关闭了电脑，没有再邀请他上网。</p><p>直到今天，我仍然对这种行为感到莫名其妙。面对网络的无限可能，我这个青梅竹马的朋友第一反应就是辱骂陌生人。这个天真无邪的10岁孩子，竟然成了一个巨魔。</p><h4 id="悲哀的冲动"><a href="#悲哀的冲动" class="headerlink" title="悲哀的冲动"></a>悲哀的冲动</h4><p><img src="https://cdn.brambling.cn/uxcaff/gj1.png" alt="image.png"></p><p>约翰-奥利弗曾将互联网描述为 “人类最悲惨冲动的黑暗狂欢节”。是这些可悲的冲动吞噬了我的童年朋友吗？</p><p>像钓鱼一样，把诱饵悬挂在移动的船上。杠精把他的诱饵（攻击性评论）投进互联网的水里。一条毫无戒备的鱼（目标用户）看到了诱饵，觉得自己必须要上钩（防御性评论）。很快，他们就上钩了，并毫不留情地被卷了进去。但与钓鱼不同的是，钓鱼能带来明确的、可食用的奖励，而钓客的奖励并不完全明确。</p><p>钓饵是一个很难界定的概念，因为钓饵的方法多种多样，堕落的程度也不尽相同。有些是令人憎恶的，比如 “自杀诱饵”，杠精鼓励脆弱的用户自杀，或者 “RIP杠精 “破坏最近去世的 Facebook 纪念网站。但还有一些人，比如 “悲情杠精”，他们玩网络游戏时故意扰乱其他玩家的生活，更多的是一种骚扰。</p><p>这些杠精是谁，又是什么驱使他们这样做？</p><h4 id="暗黑四重奏"><a href="#暗黑四重奏" class="headerlink" title="暗黑四重奏"></a>暗黑四重奏</h4><p>心理学家发现杠精行为与一组被称为 “黑暗四重奏 “的人格特征之间存在联系。</p><p><img src="https://cdn.brambling.cn/uxcaff/gj2.png" alt="image.png"></p><p>黑暗四部曲包括：</p><ul><li>虐待狂—-从他人的痛苦中获得快乐；</li><li>精神病 – – 同理心和悔恨心受损；</li><li>马基雅维利主义–操纵性和情感上的 “冷 “行为</li><li>自恋 – 自我参与和对钦佩的需求</li></ul><p><img src="https://cdn.brambling.cn/uxcaff/gj3.png"><br>补充关于“马基雅维利主义”特征解释</p><p>在最近的一项研究中，杠精与黑暗四重奏特质中的三种正相关，自恋是最奇葩的一种。他们发现杠精具有操纵性，缺乏同情心，喜欢伤害他人。男性比女性更普遍地表现出这些特征，并且更有可能成为杠精。当存在马基雅维利主义或心理变态时，孤独感也是预测杠精的一个重要因素。</p><p>大多数关于杠精的研究都使用网络调查来收集数据，这是有问题的。我们真的能相信杠精能准确地完成调查吗？这种方法也可能无法解释那些不认为自己的行为是杠精行为的人，或者不知道自己的杠精行为的人。</p><p>在《杠精狩猎》一书中，记者金吉娅-戈尔曼花了数年时间与她能找到的最糟糕的杠精建立关系，试图了解驱动他们的内在原因。令她惊讶的是，杠精并非是没有受过教育的迷失灵魂，或者他们缺乏社交技巧，住在母亲的地下室里种种。这些杠精有伴侣、孩子和全职工作。他们作为大型杠精团队的指挥官，展现了领导能力。他们社交能力很强，能够精准地找出用户的弱点，非常恶毒。但他们的动力是什么呢？</p><p>许多人将杠精攻击视为一种爱好–娱乐或消遣的东西。有些人则是出于意识形态的驱动，攻击任何反对他们信仰体系的人。但这两种类型的杠精都倾向于与威胁他们信仰或自我意识的用户接触。</p><p>部分杠精表现出共同特征。在这些杠精身上，她看到了一个共同的模式–在11岁至16岁之间过度使用互联网，几乎没有父母的监督。但有些杠精并不符合暗黑四特征的人格类型。当她直接与这些杠精接触时，这些杠精是愉快的、友好的、富有同情心的。为什么这些杠精在网上表现得如此反社会，但在线下却显得像典型的社会成员一样运作？</p><h4 id="同理心缺失"><a href="#同理心缺失" class="headerlink" title="同理心缺失"></a>同理心缺失</h4><p>人类的大脑主要是为面对面的交流而设计的。它还没来得及适应互联网上的交流。</p><p>非语言沟通–面部表情、手势和声音质量–提供了精确的互动社会背景。虽然 93% 的沟通是非语言沟通的说法是不准确的，但它确实是我们沟通方式的重要组成部分。单纯的语言只能走到这一步。即使我们使用了英语中目前使用的全部 17 万个单词，我们仍然无法传达一张富有表情的脸或一个暗示性的声音所能表达的内容。</p><p>大多数网络讨论只允许使用文字。好吧，文字和表情符号、GIF 和贴纸以及所有其他为取代非语言线索而创造的替代品。</p><p>如果你当着我的面说一些刻薄的话，让我哭泣，你可能会开始感到不舒服。除非你特别刻薄或精神变态，否则我的苦恼会引发你的共情反应，导致你心生怜悯。如果你在微博上发了一些刻薄的东西，让我哭了，再多的表情符号也无法传达一个成年男子哭泣的景象所能表达的意思。如果没有社交线索引起你的共情反应，你可能会继续你的刻薄谩骂。</p><p>非语言反馈的缺失导致了 “同理心缺失”，而这正是反社会者的痛苦所在。</p><h4 id="毒性抑制"><a href="#毒性抑制" class="headerlink" title="毒性抑制"></a>毒性抑制</h4><p>当你把同理心缺失与网络互动的匿名性结合起来，就会变成 “毒性抑制”，这不仅仅是喝完第五杯龙舌兰酒后对酒吧工作人员无礼的现象。</p><p>匿名会导致 “去个性化”–一个人身份的暂时丧失，导致与自己性格不一致的行为。这解释了为什么文明人群体会参与骚乱。它也解释了杠精的原因。如果说缺乏非语言线索是让我们脱离对方的痛苦，那么去独立化就是让我们脱离对自己不当行为的认识。</p><p>真正的匿名性为我们提供了保护，使我们免受现实世界的社会影响，这对人类的行为有着深远的影响。当行为没有现实世界的后果时，就会把人一生的社会抑制行为中解放出来。社会不鼓励反社会行为，鼓励顺社会行为，所以寻求解放的是反社会行为。</p><p>我们是一个微妙的平衡，在友善社会人类和反社会人类之间。当社会无法强制执行人类的友善行为时，反社会的灵长类动物可能会重新上位。于是，杠精就这样产生了。</p><h4 id="杠精传染性"><a href="#杠精传染性" class="headerlink" title="杠精传染性"></a>杠精传染性</h4><p>斯坦福大学和康奈尔大学的研究人员对 CNN.com 上从 2012 年 12 月到 2013 年 8 月的 1600 多万条评论进行了大规模的数据分析，发现每 4 个被标记为辱骂的帖子中，就有 1 个来自之前没有杠精行为记录的用户。这表明杠精并不是一个全职职业，人们可能会偶尔地沉溺其中。</p><p>研究人员可以根据讨论中其他评论的性质和用户的情绪来预测杠精行为的可能性。如果之前的评论是负面的，那么吐槽的倾向性就会更大。就像心情不好一样，吐槽也是会传染的。只需要另一个用户的杠精式评论和坏心情，就能创造一个环境，让我们内心的杠精倾向开花结果。</p><h4 id="内心的杠精"><a href="#内心的杠精" class="headerlink" title="内心的杠精"></a>内心的杠精</h4><p>将杠精视为烂苹果比将其视为我们每个人内心的东西，等待合适的环境来释放，来得更容易。但当我们把杠精谴责为天生的恶意个体时，我们就限制了我们对这些行为的理解。</p><p>有人能免于有毒的抑制吗？很少有人会用 “对不起，我真的不想无礼，但如果可以的话，我能否请你尊重我的意见，因为这些原因…… “来回应一条冒犯他们的推特。虽然不经意的一句话看似无伤大雅，但我们的网络互动越是缺乏同理心，我们成为杠精的风险就越大。不礼貌的推文所泛起的温柔涟漪可能会变成不羁仇恨的毒浪。</p><h4 id="如何管理自己内心杠精？"><a href="#如何管理自己内心杠精？" class="headerlink" title="如何管理自己内心杠精？"></a>如何管理自己内心杠精？</h4><p>我们对自己的行为越负责任，我们成为杠精的可能性就越小。采用较少的匿名性可能会有帮助，但这会引起许多人对隐私的关注。匿名也可以是一件好事。良性抑制–是指用户自由地与其他用户讨论他们最深层的不安全感和担忧。这可以是非常有治疗作用的，不应该被阻止。但是通过只在必要的情况下使用匿名。</p><p>同理心不会自然而然地出现在基于互联网的互动中，所以我们必须有意识地培养它。如果我们记住在线评论是在没有任何非语言提示的情况下收到的，我们就能更好地确保我们的话不会被误解。这将转化为更少的机会煽动其他用户的恶意。</p><p>我们可以花点时间考虑一下这个人可能并不是有意要表达粗鲁的意思，而不是只看表面价值而接受另一个用户的粗鲁评论。如果是这样，也许他们今天过得很糟糕，他们的态度也反映了这一点，而不是任何个人原因。恻隐之心可以限制一个态度恶劣的评论所能造成的伤害。</p><p>意识到我们如何回应令人厌恶的评论，可以在我们和自己的行为之间创造空间。在这个空间里，我们可能会有意识地决定网络改变不是我们想要的。我们也可以认识到自己脆弱的时候。例如，在经历了糟糕的一天工作后，我们的在线评论可能会变得不礼貌，不那么符合我们的真实身份。了解是什么原因导致了反社会人格的行为，是管理它的关键–我们都可能犯的最大错误就是否认它的存在。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天看到&lt;a href=&quot;https://dradambell.com/why-people-become-internet-trolls/&quot;&gt;一篇有趣的文章&lt;/a&gt;来自 Doctor Adam（一位心理学专家）。主要讲了为什么会产生互联网杠精以及如何管理内心的杠精。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>直播电商的一些看法（二）</title>
+    <link href="http://example.com/2020/07/30/%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://example.com/2020/07/30/%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
+    <published>2020-07-30T13:10:10.000Z</published>
+    <updated>2020-12-08T23:32:01.667Z</updated>
+    
+    <content type="html"><![CDATA[<p>今年电商直播是风口，几乎所有电商从业者都在想自己可以做些什么。我自己也有做直播相关的一些业务，所有对直播电商有些研究。接下来谈谈自己的一些看法。</p><a id="more"></a><h4 id="电商直播和短视频平台直播的区别"><a href="#电商直播和短视频平台直播的区别" class="headerlink" title="电商直播和短视频平台直播的区别"></a>电商直播和短视频平台直播的区别</h4><p>淘宝、京东的直播，主要还是围绕“店铺”，以店播为主。而快手、抖音是是以红人为中心。</p><p>淘宝直播的数据，70%的是商家自播，30%才是达人直播。根据公开的数据，京东平台商家自播的占比相比淘宝更高。对于电商平台来说，直播带来很重要的一点是“商业场”的升级。商品特点由图文描述变为直播（包括短视频）是趋势，特别是后续 5G 的发展。在 2019 年天猫旗舰店 2.0 发布会上，淘宝总裁蒋凡有过关于商品详情介绍的描述，整个淘宝商品介绍，未来都会视频化。</p><p>“商业场”的升级，还会带来电商行业非标商品渗透，例如以前家具类、珠宝等商品，在直播场景下，会比图文引导传递的商品信息量更大、更立体。</p><p>以店铺为主体运营，商家最终在意的还是为店铺带来多少粉丝、多少订单、多少售后问题。消费者信用平台。而红人直播其实更在意是自己本身的商品分佣、货源、粉丝。消费和信用红人。</p><p>另外，因为目前短视频平台的电商基础设施（包括交易、物流、电商工具、信用等等）并不完善，所以围绕电商平台和短视频平台的上下游也不同。围绕电商平台更多的是代播机构、代运营流量；而在短视频平台，更多的是货源平台，内容运营、流量运营服务。</p><p>然后，即使是自家电商平台，也会有一些区别，比较明显是淘宝平台（to C）和1688平台（to B）。</p><h4 id="淘宝直播和1688平台直播的区别"><a href="#淘宝直播和1688平台直播的区别" class="headerlink" title="淘宝直播和1688平台直播的区别"></a>淘宝直播和1688平台直播的区别</h4><p>淘宝直播的内容，还是属于营销驱动。在满足消费者上，主要还是靠各种营销玩法、营销价格。无论怎样创新性展示商品，也无论是请网红直播亦或是店铺素人直播。营销属性的权重始终是最高。所以在淘宝直播商家后台，目前还是需要以各类营销玩法为主。</p><p>1688 平台直播主要强调信息效率。主要是两方面信息。一类是商品图文信息，以及商品背后的库存供应链。通过视频展示效率更高。而是客情维护信息维护，关系的拉近。B 端单个买家采购量、销售额是远高于淘宝直播的。而以往档口商家是很少两者兼顾的，关系主要是靠客户去档口的次数来维护（目前三四线城市的很多批发市场仍然还是这样）。</p><p>在买家在意的痛点上，按照刚刚所说。淘宝直播的转化场景是网红、低价、和营销玩法（网红主播类似于团长开团；店铺主播介绍商品、处理售后）。而 1688 平台直播的转化场景是商品特质、履约能力和供应链能力，1688 买家也是商家属性，所以直播评论更集中在商业采购环节，不像淘宝直播更偏向趣味性营销。</p><p>所以在买家场景上淘宝直播更多是考虑消费者层面。围绕可用性、实用性、感性指标（口感、味觉等）解说。1688 平台直播场景包含户外原产地直播、进口展会直播、工厂流水线直播、商品深度检测直播以及档口直播等场景，均为 B 类场景。比如：主播可以直接在工厂采购环节，直接对买家进行在线调研。对商品 SKU 的兴趣度和对应数量核实，然后工厂开始生产发货。根据直播场景来看，1688 平台直播商品退款率，肯定要低于淘宝平台。<br>在主播人选上，淘宝直播可以选择网红直播、外包素人直播、店铺人员直播。1688 平台直播商家更多会配置对产品和工厂熟悉度较高的人员来负责，考虑专业性问题，因为采购者问题往往都很专业。所以主播角色很多是工厂负责人、店铺老板、运营人员等专业人员，这样才能真正在生意层面做到对直播间问题的有效回应。这点和快手平台有些类似，快手平台部分主播同样属于行业主播。</p><p>另外，1688 平台商家也不太好采取请明星单品定特价走量的方式。因为对于档口来说，每个顾客根据质量、数量等各种原因，都是不同价格。纯靠明星走量会影响新老客户关系，也会破坏商品价格体系。</p><p>还有一点，1688 平台直播更容易影响一个产业带。因为中国一些产业都是聚集性产业带，例如：服装、皮革、水晶、小商品等等。一个头部商家直播容易带动一批人商家直播，一批相同类目商家在线上直播，对前来采购的买家体感也不一样。</p><p>最后再聊聊站在局外互联网公司的角度，能在这个风口做些什么。</p><h4 id="入局直播风口，在当前有哪些方向"><a href="#入局直播风口，在当前有哪些方向" class="headerlink" title="入局直播风口，在当前有哪些方向"></a>入局直播风口，在当前有哪些方向</h4><ol><li>在快手、抖音等以达人为主，或者淘宝大 KA 商家的平台，撮合货源和达人、撮合电商商家和达人。刚刚说过，其实快手抖音上的很多达人，缺乏高佣金、高契合度的商品。这块快手官方自己有做“快接单”这样的撮合平台，但是目前还没看到有实力的玩家出现，是一个机会。目前很多淘宝客公司已经在转型做这块业务。</li><li>视频制作、编辑。这条赛道已经是一片红海，官方也有做部分。就看有没有视频编辑 + 丰富的视频素材模版 + 图文素材模版 + 数据分析的好应用给到运营者。</li><li>做 MCN 机构达人管理工具，目前市面上围绕主播服务的，少说也有几万家（还不包括一些代运营公司和客服外包新加入进来），这种类似企业管理工具，包含主播绩效、人员管理等等。但是这类工具的难点是由于目前属于直播行业初期，很多公司的服务不是非标品。很难做到通用，另外，平台数据不开放也是瓶颈；</li><li>做类似西瓜数据的数据服务，但是早晚会被官方干掉，只能长期以灰产存在；</li><li>在以淘宝为主的电商平台，专注做店播的效率工具。接下来 1 年内一款能做到 500 万销售额算非常优秀；这部分空间有限；</li><li>培养素人成为达人、搞优质货源池。但这不是互联网公司干的事，而且多数互联网公司也不具备这个能力。</li></ol><p>可能随着直播发展，还是衍生出一些新的方向，或者其他一些我不太清楚的方向，可以邮件讨论。</p><p>另外我看到最近关于直播的负面评价也已经出现，也属于行业发展的一部分。但不管怎样，直播可以为电商带来增量市场，会成为电商平台标配也是事实。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今年电商直播是风口，几乎所有电商从业者都在想自己可以做些什么。我自己也有做直播相关的一些业务，所有对直播电商有些研究。接下来谈谈自己的一些看法。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="直播短视频" scheme="http://example.com/tags/%E7%9B%B4%E6%92%AD%E7%9F%AD%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Alex Zhu (TikTok) interview notes by Blake Robbins</title>
+    <link href="http://example.com/2020/07/06/Alex%20Zhu%20(TikTok)%20interview%20notes%20by%20Blake%20Robbins/"/>
+    <id>http://example.com/2020/07/06/Alex%20Zhu%20(TikTok)%20interview%20notes%20by%20Blake%20Robbins/</id>
+    <published>2020-07-06T13:10:10.000Z</published>
+    <updated>2020-12-08T08:16:48.961Z</updated>
+    
+    <content type="html"><![CDATA[<p>周末发现一个视频采访。是 Musical.ly 被 ByteDance 收购之前接受的一个采访节目。采访内容对如何理解社区产品、如何做工具产品都有说明，非常有意思。</p><a id="more"></a><p>另外，我们现在只知道抖音发展迅猛，殊不知在抖音发展初期，在产品、运营的诸多打法上，抖音都有参考过 Musical.ly。</p><p>以下是根据采访内容整理翻译内容。采访视频和内容可以「阅读原文」查看。</p><p>（注：视频内容在YouTube）</p><p><strong>说明：引用部分为我引入的背景介绍和想法。</strong></p><hr><h4 id="Alex-Zhu-TikTok-interview-notes-by-Blake-Robbins"><a href="#Alex-Zhu-TikTok-interview-notes-by-Blake-Robbins" class="headerlink" title="Alex Zhu (TikTok) interview notes by Blake Robbins"></a>Alex Zhu (TikTok) interview notes by Blake Robbins</h4><p><em>采访背景：</em></p><p>2016 年接受采访时，Josh Elman 是 Greylock 的普通合伙人和 Musical.ly 的董事会观察员。Josh 正在采访 Musical.ly 的联合创始人兼联合 CEO Alex Zhu。在这次采访上传近 1 年后，ByteDance 收购了Musical.ly，并将其并入 TikTok。这最终导致 TikTok 被引入美国市场。Alex 在 Musical.ly 收购后成为TikTok 负责人，现在是 ByteDance 产品副总裁。</p><blockquote><p><em>事件背景注明：</em><br>1.2014 年 musical.ly 上线；<br><em>2. 字节跳动在 2016 年 9 月上线抖音，从产品到运营策略，和 musical.ly 都极为相似 ；</em><br><em>3. 2017 年 11 月，字节跳动宣布 10 亿美元收购 musical.ly；</em><br><em>4. TikTok 和 musical.ly 合并为 TikTok 时，musical.ly联合创始人表明 musical.ly 月活跃用户数已经过亿；</em></p></blockquote><p>这是我对 Josh Elman 采访 Alex Zhu 的简略笔记。一切都是从 Alex Zhu 的角度出发。</p><p><code>0:35</code>2015年9月，Josh Elman 联系到了Alex Zhu。得知 Alex 和 Musical.ly 的总部在中国上海，他感到非常震惊。</p><p><code>1:45</code>在做 Musical.ly 之前，Alex 的大部分职业生涯都在做企业软件（SAP）。Alex 对消费者业务一直充满激情：<strong>用消费者的方法来处理企业设计</strong>。</p><blockquote><p>这里比较有意思，因为在国内，做企业软件（SAP）和做消费者，也就是我们常说的 C 端业务。在产品设计、产品推广上差异其实是比较大的。这里其实说明的主要还是：以用户为中心的设计。</p></blockquote><p><code>2:15</code>2013年，Alex 在 SAP 做教育的未来学家（或者说未来主义者）。尝试着做了一些关于教育行业如何利用新技术进行转型的研究。<strong>这促使 Alex 成立了一家教育领域的公司。Alex 和他的联合创始人提出了一个 “10亿美元 “的创业想法，将 Coursera + Twitter 结合成一个新的产品来改变教育。当时的愿景是让教育内容成为优先针对移动端设备设计的、碎片化消费的内容</strong>，结果是 “彻底失败”。</p><p><code>3:35</code>这次失败的教训是什么？Alex 又是如何最终决定做 Musical.ly 的？</p><p><strong>失败的主要教训：</strong></p><ol><li><strong>如果你想建立一个新的用户生成的内容平台或社交网络，那么内容必须是轻量级的。内容的创造和消费需要在几秒钟内发生，而不是几分钟内发生</strong>。</li><li><strong>教育有点违背人性</strong>。如果你看看人们是如何使用手机的，大多数人都是用手机来交流和娱乐（玩游戏、使用社交媒体或发信息）。</li><li>对于一个新的创业者来说，<strong>想改变人性是相当困难的。顺应人性比对抗人性要好</strong>。</li><li><strong>一个新的社交平台要想起飞，你的早期采用者必须是年轻人</strong>。特别是美国的青少年–为什么？他们有很多时间，他们有创造力。他们已经是数字化的原住民。如果你的产品能吸引一小批这样的用户，他们就会在学校和社交媒体上谈论它–你就不需要花那么多钱去做推广。这就是零成本的推广。</li></ol><p><code>6:00</code>你是如何从零用户走到今天的？你是如何开始发展你的社区的？</p><p>Musical.ly 推出了 “很多黑客”。— App Store 曾经让你把你的 App Store 名字写得很长。App Store上的搜索引擎曾经对应用名与定义的关键词给予更多的权重。所以……他们把一个非常长的应用名和所有的关键词放在一起。这导致他们最初在 App Store 上有机地增长。</p><p>最初，Musical.ly  一开始专注于实用性。在你拥有一定量的用户之前，你必须专注于实用性。然后一旦你有足够的用户，你就可以开始围绕它建立一个社区。</p><p><strong>比如以 Instagram 为例：</strong></p><p>Instagram 1. 0的初期用户并不是为了 feeds 或者点赞或者评论而使用 Instagram 的. 他们使用Instagram 是为了在其他社交媒体上发布惊人的媒体消息。</p><p><strong>Come for the utility, stay for the community.</strong></p><p><strong>为实用而来，为社区而留。</strong></p><blockquote><p>「即刻」 、「小红书」、「快手」以及很多 C 端应用也是类似场景，从最初的工具应用，再转型为社区应用。</p></blockquote><p><code>7:37</code>你在不断地和你的用户（高中生和青少年）聊天。你是如何能够与他们保持紧密联系的？这对你们的成长至关重要。</p><p>我们必须真正贴近用户。我们称之为参与式设计（participatory design）。我们在微信上不断与数百名用户交流。每天都会进行讨论。不仅是关于产品，还要了解他们的想法和他们喜欢的流行文化。我们需要沉浸在美国青少年文化中。总是在进行任何功能开发之前与这些用户分享我们的产品原型图。</p><p><code>10:15</code>Musical.ly 影响者社区。</p><p>建立一个影响者社区与从零开始建立一个新的国家（经济）非常相似。在早期阶段，从零开始建立社区很像发现新的土地。</p><p>想象一下，你刚刚发现了新的土地。比如就叫美国。现在你想建立一个经济。你想增加人口，你想让人们移民到你的国家。</p><p><strong>我们用一个比喻。Musical.ly 是美国，而 YouTube/Instagram 则是欧洲。 你如何说服来自欧洲的创作者？你如何说服其他地区(社交平台)的创作者迁移到美国(Musical.ly)？</strong></p><ul><li>欧洲（YouTube &amp; Instagram）的问题是，社会阶层已经很成熟。欧洲的普通公民在社会阶层中向上发展的机会几乎为零。我们看到了利用这点的一个机会。我们将为欧洲的普通公民打造一些东西。</li><li>在<strong>这片新的土地上，你必须在早期建立一个集中经济。这意味着在你的土地上，财富分配是累积在一小部分人身上的。你要确保他们成功地建立起观众和财富。这使得他们成为国家（和平台）的榜样。你有效地创造了美国梦。欧洲（Instagram）的人将开始意识到这个 “正常 “的人去了美国（Musical.ly）并成为超级富翁。也许我也可以这样做？这将导致很多人移民到你的国家（平台）。</strong></li><li>然而，你必须同时下放经济。有一个美国梦是好的，但如果它只是一个梦–人们终究会醒来。你需要给普通人机会。你必须下放你的流量模式。给所有用户创造内容的满足感，创造一个中产阶级。</li></ul><blockquote><p>这个比喻非常精彩。发现一个特点，许多社区应用做得比较成功的应用，都会把社区比喻成国家、城市治理。并且很多社区产品设计者，都提到了一本书，就是《美国大城市的死与生》。</p></blockquote><p><code>14:00</code>在中国移动生态中，你看到了哪些有趣的事情？</p><p>中国的技术生态系统比较有趣。大部分的创新都是围绕服务和商业，而不是技术。</p><p><strong>比如以微信为例：</strong></p><p>春节期间，中国有一个传统，那就是发红包加钱作为礼物。所以……他们在微信上做了这样一个红包功能，用户可以通过短信发送装有零钱的红包。在那段时间里，这款游戏成了超级流行的游戏，于是人们开始将自己的银行账户与短信账户关联起来。这使得微信的零售支持更容易被采用。</p><p><strong>比如以生活直播为例</strong>：</p><p>他们在货币化方面做得如此出色。每年有超过 10 亿美元的虚拟礼物支出。</p><p><code>17:05</code>Musical.ly 是如何考虑商业化的？以广告为主？</p><p>广告业务确实不错。一旦你有了一定规模的用户，基于用户偏好数据整合广告–是最好的模式。</p><p>Musical.ly（以及现在的 TikTok ）的关键是我们对文化的影响力。我们需要建立一个商业化的生态系统来奖励我们的创作者和影响者。YouTube 之所以如此成功，是因为他们的合作计划。我们的很多用户仍然在 YouTube 上制作内容，因为他们在那里赚钱。</p><p><strong>用户加入社交媒体平台时，首先寻求的是名气。然而，一旦他们有了名气–这还不够。他们需要商业化。如果这个平台是一个能够为影响者带来最大收益的平台，那么他们就会坚持下去</strong>。</p><p><code>19:20</code>作为合作伙伴，Musical.ly（TikTok）是如何看待音乐产业的？</p><p>与Spotify等其他流媒体平台相比，Musical.ly（TikTok）有其独特之处：</p><p><strong>Musical.ly将音乐作为编辑元素（背景音乐的意思，和文字、表情一样的地位）。音乐不是最终产品。它是一种原材料。相比之下，Spotify、Pandora等平台上的最终产品是音乐</strong>。</p><p>使用音乐作为元素的好处是，我们不与其他收入来源的出版商竞争。人们仍然会继续使用。我们没有伤害以此为收入的艺术家。</p><p>在 Musical.ly (TikTok)上发布音乐，实际上可以帮助他们创造更多的收入。举个例子，Jason Derulo 在Musical.ly 上发布了他的音乐–我们为他做了一个活动。在4天内，我们的用户为该声音片段创造了超过 1M 的视频。在那首歌还没有发布之前，我们已经为那首歌创造了数百万的印象。那首歌最后变得非常流行。</p><p>又比如，我们平台上有一个叫 Jacob Sartorius 的歌星。他在 Musical.ly 上发布了他的第一首歌曲，这首歌在 iTunes 上排名第七。这就是 Musical.ly的传播力量—-我们正在做越来越多的这种传播，不仅是为音乐，也是为品牌。</p><p><a href="https://www.notion.so/Alex-Zhu-TikTok-4631f80fdcc4423a845e145e807d8e2b">采访的原文链接。</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;周末发现一个视频采访。是 Musical.ly 被 ByteDance 收购之前接受的一个采访节目。采访内容对如何理解社区产品、如何做工具产品都有说明，非常有意思。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Notes" scheme="http://example.com/tags/Notes/"/>
+    
+    <category term="直播短视频" scheme="http://example.com/tags/%E7%9B%B4%E6%92%AD%E7%9F%AD%E8%A7%86%E9%A2%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验碎片（第 1 期）</title>
+    <link href="http://example.com/2020/06/19/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%201%20%E6%9C%9F%EF%BC%89/"/>
+    <id>http://example.com/2020/06/19/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%201%20%E6%9C%9F%EF%BC%89/</id>
+    <published>2020-06-19T13:10:10.000Z</published>
+    <updated>2020-12-09T01:30:57.285Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>为了保持对产品的感觉，更加深刻理解用户侧需求，同时也希望提升产品体验敏感度。所以会把「体验碎片」系列作为零碎信息专辑，为系统知识构建提供内容。后续会不定期发布。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><p><strong>「语雀」新建文档，提供模版的交互</strong></p><p>语雀在新建空白文档页面，会给出“项目计划”“工作周报”等文档模版。也就是在设计上，会默认多数用户新建空白文档，再给出模版选择。<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1591415149066-6d648ea2-cd37-4646-bd23-69fc7ff51701.png#align=left&display=inline&height=211&margin=%5Bobject%20Object%5D&name=image.png&originHeight=211&originWidth=791&size=26481&status=done&style=shadow&width=791" alt="image.png"></p><p><strong>「白码」产品的简短思考</strong></p><p><a href="https://www.bnocode.com/">白码应用</a>是近期阅读资讯发现的一款产品，近期正在寻求 A 轮融资。主要场景如下：</p><blockquote><p>在白码平台，用户可通过无代码的方式快速搭建一个适合企业或个人的应用软件，且不局限于进销存、ERP和CRM等管理系统，在这里可以展开想象力，搭建出完全适合自己用的系统。</p></blockquote><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1591420083270-d1d84132-c7b9-4fa7-87f4-e4416ea54dec.png#align=left&display=inline&height=387&margin=%5Bobject%20Object%5D&name=image.png&originHeight=387&originWidth=700&size=31845&status=done&style=shadow&width=700" alt="image.png"></p><p>体验整个流程后，单纯从产品维度判断，要想获得用户，还需要调整产品方向，要深入到某一个行业领域。目前的产品形态还没有获得市场认可，主要原因是：</p><ol><li>目标企业需要有数字化经营管理意识；</li><li>企业如果没有开发资源可以选择第三方应用、外包。如果投入过多，也可以内部开发。使用白码投入成本超过前者情况（不管是定制还是全面定制），那几乎没有竞争力；</li><li>最主要的是，目前切入的点太泛，没有深入到某个垂直行业，要知道某行业的 ERP，CRM 都有场景差异，在初始阶段大而全就意味着多而不精；</li></ol><p>某个维度来说，白码的竞争对手应该是有赞。有赞的 Paas 模式明显是一个更好的选择，无论是从价格、使用成本、开发成本上。</p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><p><strong>「支付宝」首页“全部”页面应用下，居然有优酷视频的入口</strong></p><p>其他的入口我都能理解，但优酷视频摆在这里，实在是在像支付宝体验设计团队挑衅。另外，倒是很好奇这个入口的数据。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1591418223983-ac09f770-68cd-4d6a-b300-52a4865f7219.png#align=left&display=inline&height=353&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1208&originWidth=4242&size=298943&status=done&style=shadow&width=111" alt="image.png"></p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><p><strong>希望不再填写邮政编码</strong></p><p>所有填个人信息（收发货地址等）需要填入邮编时，都应该做一个根据地址自动检测然后填充。最好不需要用户填写邮编的流程。</p><p>现在市场上还有很多应用需要用户填写地址时，添加邮政编码。导致用户填写时还需要查询。是时候改变了。</p><p><strong>所有商业银行的 U 盾产品，都值得被取代</strong></p><p>用过了银行的 U 盾产品后。几乎是用一次怕一次。体验差到令人发指。</p><p><strong>期望「微信读书」有客户端产品</strong></p><p>作为微信读书重度用户，希望微信读书能出客户端产品。支持笔记、笔记导出/整理、全局搜索、分类、等更多图书管理、图书/出版社/作者等书籍数据和行为数据功能。当然，最好也需要支持订阅微信公众号。</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;为了保持对产品的感觉，更加深刻理解用户侧需求，同时也希望提升产品体验敏感度。所以会把「体验碎片」系列作为零碎信息专辑，为系统知识构建提供内容。后续会不定期发布。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>述职报告的一些建议</title>
+    <link href="http://example.com/2020/06/07/%E8%BF%B0%E8%81%8C%E6%8A%A5%E5%91%8A%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE/"/>
+    <id>http://example.com/2020/06/07/%E8%BF%B0%E8%81%8C%E6%8A%A5%E5%91%8A%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE/</id>
+    <published>2020-06-07T13:10:10.000Z</published>
+    <updated>2020-12-08T07:45:53.320Z</updated>
+    
+    <content type="html"><![CDATA[<p>述职报告存在很多公司人事流程中。类似于公司内部面试，充当晋升的一条路径。最近也是大公司人员晋升周期。我根据个人经验，给一些建议作为参考，希望你如愿通过。</p><a id="more"></a><p>首先说明，部分公司的述职报告并没有太大意义，浪费候选者和预晋升者时间。一个公开的晋升述职报告流程，最大的意义可能是让大家觉得拥有同等晋升权？一方面晋升早已内部达成共识，和述职表现没关系，述职报告流于形式。另一方面，晋升不是单纯个人能力比拼，还要看公司岗位梯队需求。所以心态放正。个人能力并不会因为一场述职报告来决定高低。即使能力到了晋升没过，岗位 Title 也不会限制个人能力发挥。所以还是在漫长岁月里做好自己该做的事，让美好的事情自然发生。</p><p>说完了对「述职报告」应该拥有的心态，下面再详细说明报告内容注意事项。</p><p>第一点，需要先了解述职对象，再来准备内容，不是根据个人擅长内容来准备。这一点能意识到，相信针对不同对象角色准备不同内容也不是问题。</p><p>第二点，不要流水账似的介绍岗位职责，只需要重点按照职能维度（例如产品经理选择用户研究、产品设计等几个维度分别选择一个案例介绍），描述好做了什么、为什么做、做的效果就行。</p><p>第三点，从头到尾不要都是捡正面的描述，这不现实，真实一点。</p><p>第四点，自信。不要过于浮夸，展望愿景，说一些过于遥远的假大空话。浪费时间，有害无益。不要过于低调，把个人关键贡献一笔带过，或者强调团队、外部机遇等等，这都是大忌。在规划上，我个人会倾向于阐述未来一年的规划，已明确要做或者大概率要做的事情。在个人贡献上，按照优先级说清楚自己认可的任务价值，做到尽可能量化。</p><p>第五点，述职报告整个流程，建议根据自己的表达能力提前练几遍，控制好讲话节奏、时间、内容。可以当作一场演讲来进行，也算是收获演讲的经验。互联网人员很少有这种演讲机会。具体的演讲技能可以学一学，不求做到面面俱到，学一些速成临场窍门，也是非常不错的。</p><p>第六点，PPT 稍微花点时间，我发现技术人员相对不太在乎。PPT 设计要专业正式。不要套模版、不要设计其他卡通、手绘等这类风格。在字体、动效、布局上有一些推敲。</p><p>我自己在正式场合的使用，供参考：</p><blockquote><ul><li>主题；黑色主题、活动要求主题色；颜色不要过于绚丽。颜色不超过 3 种；</li><li>字体：圆体-简（圆体在 PPT 上看起来圆润优雅）。字体大小；字体大小不小于 30 号，大小尽量不做太多样式；</li><li>动效：不用动效，要用也是根据适用特性（例如有一个体现iPad“薄”的动效果）。不使用转场动效；</li><li>内容：可视化、重点文案。</li></ul></blockquote><p>总之，整个述职过程做到重点突出，逻辑清楚就行。如果不理解“重点突出，逻辑清楚”，这里有个通用性流程，可以试下。</p><p><em>述职过程（30分钟内）：</em></p><ol><li><em>负责内容简要介绍；</em></li><li><em>关键业绩简要说明，清单列举；</em></li><li><em>针对关键业绩价值，按照个人岗位技能树，分维度选择大家认可、印象深刻的案例进行阐述（说明逻辑：做到了什么——结果数据、为什么做——价值、怎么在做——决策判断）；</em></li><li><em>问题于规划，描述当前问题与后续规划；</em></li><li><em>总结述职报告内容，提炼重点，增加印象。</em></li></ol><p>enjoy it.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;述职报告存在很多公司人事流程中。类似于公司内部面试，充当晋升的一条路径。最近也是大公司人员晋升周期。我根据个人经验，给一些建议作为参考，希望你如愿通过。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Management" scheme="http://example.com/tags/Management/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SaaS服务的简单介绍</title>
+    <link href="http://example.com/2020/06/02/SaaS%20%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://example.com/2020/06/02/SaaS%20%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</id>
+    <published>2020-06-02T13:10:10.000Z</published>
+    <updated>2020-12-08T23:40:37.527Z</updated>
+    
+    <content type="html"><![CDATA[<p>SaaS，软件即服务。企业无需任何技术支持，直接支付费用订购即可。企业级常用的 SaaS 服务包括不限于：CRM、ERP、合同管理、财务管理。还包括各种行业应用，如餐饮行业的二维火。</p><a id="more"></a><p>多说一句， ERP 分为销售型 ERP 和生产型 ERP，生产型 ERP 非常复杂，一般是生产型工厂使用。销售型 ERP 主要是围绕采购、销售、库存管理来延伸企业协作场景。市面上主流 ERP 其实都是属于销售型 ERP。</p><p>另外，行业外经常有人在问 IaaS、PaaS、SaaS 的区别，下图分别有几个举例，具体区别描述可以阅读阮一峰博客的一篇介绍（_阮一峰：IaaS，PaaS，SaaS 的区别_），这里不再赘述。</p><p><img src="https://cdn.brambling.cn/uxcaff/saas1.png"></p><h4 id="SaaS-服务特点"><a href="#SaaS-服务特点" class="headerlink" title="SaaS 服务特点"></a>SaaS 服务特点</h4><p>关于用户层面，真正用户是一线员工，但是使用的决策权在于老板。是比较典型的需要先服务好“客户”，再服务好“用户”的场景。“客户”决策周期长，往往需要专人去帮助它完成决策。房产经纪人、保险销售、医美顾问都在顾问模式下延伸产出的角色。</p><p>另外，数据存储在云端。数据标准化，需求通用化。标准化和通用化主要是强调对企业内部的数据在线化、数据统一。以及行业需求的通用性，这样 SaaS 公司可以服务更多企业。</p><p>收费模式往往不像 C 端应用一次性付费。往往是根据具体业务场景选择合适的收费模式。常规的收费模式有：</p><ul><li>按月/季度/年度使用付费；</li><li>提供多种版本，不同的价格段不同费用；</li><li>提供免费基础功能，然后增值服务收费。如：钉钉；</li><li>按实际使用人数付费。如：电商客服工具，Teambition 协作工具；</li><li>计量型。如：根据订单量设置阈值。</li></ul><p>从销售人群来看，也可以分为两种情况，一种是传统的自上而下，面向决策人推销，老板决策买单，向下强推。这种比较常见；一种是自下而上，下面员工自主选型，内部流行，“倒逼”老板掏钱。比如最近开始收费的「蓝湖」设计工具，甚至出了一版文案教设计师如何向公司申请费用购买应用。</p><h4 id="SaaS-服务难点"><a href="#SaaS-服务难点" class="headerlink" title="SaaS 服务难点"></a>SaaS 服务难点</h4><p>由于线下环境和用户和一般线上 C 端应用的差异，所以 SaaS 服务的难点主要体现在以下方面。</p><p>数据层面，目前数据几乎都是上“云”的，企业会担心客户信息泄漏，数据安全问题。所以有很多企业，特别是国企、外企，要求本地化部署。</p><p>另外，使用信息化的 SaaS 服务，对企业人员，是有一定要求的。需要有信息化、数据化思维，目前一线操作人员，由于文化程度等等，培训一线人员使用成本。</p><p>在具体使用场景中，中国企业内部管理是“灵活”大于“流程”。在具体的内部协作中，会经常用“关系”代替“流程”。比如大家经常听到“我们内部帮你问问”，“我优先帮你处理下”这种对话。要求“灵活”，就不符合流程和规范化管理，所以在推广阶段，部分一线用户也会反对使用。这是属于中国特色，很难改变。</p><p>运营上，SaaS 是重服务，轻软件。SaaS 服务一定是偏行业化，通常都是一对一销售、技术支持，这样就造成除了研发费用，SaaS 服务的费用都会投入到渠道销售上。所以在前期 ROI 非常低。就有赞来说，有赞已经属于行业标杆，但是 2019 年仍然高达 9.96 亿亏损。</p><p><img src="https://cdn.brambling.cn/uxcaff/saas2.jpeg"><br><em>数据来源：有赞财报</em></p><p>最后，大部分 SaaS 产品，是提效而不是开源。但是在实际推广中，由于人员知识结构不同，让一线人员学习软件的成本，甚至比他们人工沟通成本还高。并且对于一些企业决策者，提效并不是他们所在意的，开源才是。如果能给企业带来新的客户，决策者可以有非常明显的感知。</p><h4 id="SaaS-服务优势"><a href="#SaaS-服务优势" class="headerlink" title="SaaS 服务优势"></a>SaaS 服务优势</h4><p>对于已经使用上 SaaS 服务的用户来说，切换成本高，所以产品续费率非常高，往往在 70% 以上。单纯的低价竞争，用户往往不为所动。</p><p>另外，只要企业协作在线化，客户信息化，对于企业来说，就有了足够的数据沉淀，然后可以进行数据化经营，比如：客户分析、销售分析、留存分析等。对企业经营价值巨大。</p><p>所以，SaaS 服务的切入点，是需要透传给决策者，SaaS 服务能帮助企业全员优化流程运作和提升经营意识，也就是在强调数据的能力。比如 CRM 系统。在没有 CRM 系统前，业务人员都是自己记录自己的客户。如果销售人员给企业决策者透传的是业务人员使用 CRM 系统可以提升效率，高效管理客户之类的痛点，这类话术是没有吸引力的。销售人员需要阐述的是如果不用 SaaS 服务，客户都在业务人员手里，一旦业务人员离职，客户变成了业务人员资产。另外，决策者是否知道每一个业务人员的转化情况，业务人员做得不好是什么原因，做得好的方法论是否能沉淀下来，给到新入职的员工借鉴。包括沉淀的客户，也可以拿来作为绩效考核，同时间接也帮助企业开源了。如果是这种思维，对于企业决策者来说，吸引力更大。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;SaaS，软件即服务。企业无需任何技术支持，直接支付费用订购即可。企业级常用的 SaaS 服务包括不限于：CRM、ERP、合同管理、财务管理。还包括各种行业应用，如餐饮行业的二维火。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="SaaS" scheme="http://example.com/tags/SaaS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>直播电商一些看法（一）</title>
+    <link href="http://example.com/2020/04/25/%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://example.com/2020/04/25/%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <published>2020-04-25T13:10:10.000Z</published>
+    <updated>2020-12-08T12:02:34.895Z</updated>
+    
+    <content type="html"><![CDATA[<p>普适定义上的直播电商，是指 KOL 通过视频直播、也包括短视频等形式推荐卖货并最终成交的电商形式。</p><a id="more"></a><p>当下，直播电商显然已经成长为一种新经济体。单淘宝直播，2019 全年，GMV 突破 2000 亿，连续 3 年成交增速超过 150%。在直播电商行业本身蓬勃发展情况下，疫情更是成为了行业催化剂。最新数据可以看到，2020 年 2 月以来，淘宝直播 2 月份 成交金额同比翻倍，订单量每周环比增长 20%，增长幅度令人咂舌。</p><p>回过头想想，现在已经看不到电商直播刚上线时，吐槽直播像电视购物的文章了。为什么电视购物没有起来，我觉得有以下几点：</p><ol><li>流量不精准。电视购物是属于“货找人”，但是对电视前的受众画像了解很少，最多只能根据收看频道、时间段等做一些基础判断；</li></ol><ol start="2"><li>政策监管问题。90 年代国内电视直销公司达到 1000 家，但在 2004 年，广电总局为了规范市场，只颁发了 11 张电视购物牌照，给整个行业造成毁灭性打击；</li></ol><ol start="3"><li>购物流程缺少互动、缺乏趣味性。并且当时选品客单价高（可能是考虑到当时物流等原因），下图是快手电商直播中用户购买商品动力因素、以及商品客单价分布区间。购买动力主要源于视频内容趣味性、性价比以及可以和直播互动（互动会产生联系以及信赖）。客单价主要在80.00元以内；</li></ol><ol start="4"><li>目前直播电商能提供的购买方式、支付、售后等流程也是电视购物时代不能企及。虽然时代不同，不能简单对比，但购物体验的确存在差距。</li></ol><p><img src="https://cdn.brambling.cn/uxcaff/zb1.png" alt="image.png"></p><p><em>数据来源：光大证券研究所</em></p><p>回到直播电商话题，2019 年整个直播电商行业总规模在 4400 亿以上，除了淘宝直播占据半壁江山，第一梯队还有快手、抖音。在 2019 年快手电商直播 GMV 应该是高于抖音（光大证券预计 2019 年抖音电商直播有 400 亿GMV，快手平台订单加上主播引导到微信下单的量合计预估在 1000 亿以上）。从各方面数据来看，目前快手电商生态相比抖音健康，主要体现在电商主播流量偏重长尾（抖音直播电商流量 80% 以上集中头部带货网红），以及行业 KOL 带货复购率较高。</p><p>除了第一梯队，还有不止 10 家直播公司在直播电商领域，并且在今年，应该有越来越多的 UGC App 进入到直播带货领域。</p><p>以上是直播电商的主要玩家。下面就自己理解，说下直播电商带来的变化。</p><p>在商品端来看。由于直播电商属性，会带来电商行业非标商品渗透，例如以前家具类、珠宝等商品，在直播场景下，会比图文引导传递的商品信息量更大、更立体。所以后续会带来一系列连锁效应，例如：一些家具行业自建电商平台，由于直播基础设施不够完善，用户被淘宝或者其他主流电商平台抢走。非标品行业可能需要新建直播电商平台作为流量渠道。</p><p>另外，商品特点由图文描述变为直播（包括短视频）是趋势，特别是后续 5G 的发展。在 2019 年天猫旗舰店 2.0 发布会上，淘宝总裁蒋凡有过关于商品详情介绍的描述，整个淘宝商品介绍，未来都会视频化。所以，目前还在专注做商品详情页设计、套版的产品需要关注，在后续一些机会点和模式的选择上可能要谨慎斟酌。</p><p>从用户端来看，电商直播更加凸显了另外一种非计划性购物需求。直白一点说明就是：我本来没准备买，但是听主播介绍商品后感觉还行，于是下单完成购买。在食品以及日常消费品类尤其突出。以下是光大证券提供的一份电商直播非计划性需求数据。</p><blockquote><p>电商平台社交化内容化有利于激活用户非计划性购物。根据尼尔森数据，大量非计划性购物需求通过社交场景得到满足：61%的消费者曾经被周围好 友推荐购买了原本没有计划的商品；30%以上消费者经社交平台 KOL“种草”产生了非计划性的购物需求。</p></blockquote><p><img src="https://cdn.brambling.cn/uxcaff/zb2.png" alt="image.png"></p><p>用户端另外一个特点，就是直播电商用户群体覆盖了下沉市场更多群体，根据淘宝直播最新数据，六线城市用户直播比例最高。</p><p><img src="https://cdn.brambling.cn/uxcaff/zb3.png" alt="image.png"></p><p><em>数据来源:淘宝内容电商事业部、淘榜单</em></p><p>直播覆盖更多下沉市场，这对淘宝来说无疑是个好势头，在淘宝直播市场规模已经占据 50% 情况下，抖音和快手平台目前同样也在给淘宝商品导流。淘宝利用电商直播有了新的流量增量。</p><p>从产业链上，直播电商加快了供给端产品开发速度，比如服饰行业的试款、上新速度都比传统模式提高几倍。</p><p><img src="https://cdn.brambling.cn/uxcaff/zb4.png" alt="image.png"></p><p>从在平台收益分配上，也有几点变化。对于淘宝来说，淘宝直播的发展必定会影响直通车、钻展等广告业务。部分商家的付费流量推广预算，会用来做直播。这块是此消彼长的关系。</p><p>对于快手、抖音平台，目前结算分佣都是以 CPS 结算。因为平台掌握流量，所以第一梯队直播电商平台，在行业上下游掌握主导权。以后如果分成收入上，平台想提高多拿一些，商家和MCN机构也没有办法。</p><p>从直播电商中的角色来看，快手、抖音后续会不会自己做电商平台，仍然值得期待，特别是字节跳动这家公司，其实之前已经做了「值点电商」，现在看起来这个项目是暂缓状态。但不排除后续发力。</p><p>在目前直播电商发展态势来看，短期内不会存在替代者，随着整个直播电商生态完善，行业在近 3-5 年具备长期成长性。但是行业还是会有一些风险存在，我觉得主要有两点。</p><p>第一，政策监管。和电视直播一样，不排除政策会颁发一些规则，做一些限制、制约；</p><p>第二，售后风险。和明星代言一样，KOL 主播带货如果产品质量出现问题，对粉丝、平台影响巨大。特别是抖音这种头部 KOL 带货占比 80% 以上平台。</p><p>说明了整体行业的一些情况，再看看直播电商行业上下游角色，第三方科技公司可以做些什么。</p><p>在淘宝直播最新发布的报告上，MCN 机构已经突破 1000 家。MCN机构其实是一个笼统概念，基本上代指：直播代运营、网红签约、内容分发、平台合作。MCN 机构在直播电商行业有着承上启下的作用。</p><p><img src="https://cdn.brambling.cn/uxcaff/zb5.png" alt="image.png"></p><p><em>来源：光大证券研究所</em></p><p>正因为 MCN 机构说法比较笼统，行业资产主要是主播，所以其行业门槛也比较底。准备摄影设备，招几个电商主播，就可以找小商家代运营直播卖货。之前有了解到杭州一个快递网点（快递网点加盟商最近几年活得非常艰难已是行业共识），将网点部分区域改造成直播间，投资 200 万购买设备和招聘主播，2019 年跑下来已经活得不错。但估计从 2020 年开始，将会有大批公司进入这个行业。竞争加剧后，我相信笑到最后的一定是那些本身就做明星包装传媒公司。电商代运营公司可能只会去做 MCN 机构中细分代运营直播业务。</p><p>在 MCN 机构猛增情况下，电商主播需求也会激增，有兴趣可以爬下招聘网站电商主播招聘量数据验证结论。</p><p>目前主流直播电商平台，并没有很多直播相关 API 对外开放，加上主流平台直播设施已经比较完善，所以其他工具型科技公司能做得并不多。目前市场上有一批公司绕开官方正常数据渠道在做电商直播数据。各类围绕商品、达人的销售数据、粉丝数据。这类数据产品风险就在于官方直播平台对数据安全的管控力度。</p><p>目前真正可以涉及，就是视频编辑领域，制作一款视频，按照各个平台规则，分发到各个平台。原有长视频、短视频、图片编辑等领域佼佼者，相信都会关注直播电商领域。</p><p>其他各类提升直播效率的小工具，属于对直播流程辅助性边缘场景，目前很难产生千万营收量级应用。</p><p>但随着行业发展和主流平台完善、以及其他小平台进入赛道，肯定会衍生不同的内容和场景，可以继续保持关注。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;普适定义上的直播电商，是指 KOL 通过视频直播、也包括短视频等形式推荐卖货并最终成交的电商形式。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="直播短视频" scheme="http://example.com/tags/%E7%9B%B4%E6%92%AD%E7%9F%AD%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
     
   </entry>
   
   <entry>
     <title>霍桑实验带来的启发</title>
-    <link href="http://example.com/2020/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/"/>
-    <id>http://example.com/2020/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/</id>
-    <published>2020-10-27T13:10:10.000Z</published>
-    <updated>2020-12-07T14:41:24.791Z</updated>
+    <link href="http://example.com/2019/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/"/>
+    <id>http://example.com/2019/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/</id>
+    <published>2019-10-27T13:10:10.000Z</published>
+    <updated>2020-12-09T03:04:48.246Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="霍桑实验"><a href="#霍桑实验" class="headerlink" title="霍桑实验"></a>霍桑实验</h4><p>霍桑实验是一组实验，不只一个。网上有每个实验的详细介绍可以阅读。</p><a id="more"></a><p>另外跳出来说下，觉得做社会科研很有趣。最近了解的李银河、范飙和霍桑实验的梅奥，看他们的研究都是基于社会研究。比如范飙研究温州地区，就直接在温州生活几年，唯一不同的是：研究者是上帝视角、旁观者。</p><p>研究人的生活，很酷。</p><p>回到霍桑实验，这里说有代表性的场景：</p><blockquote><p>梅奥教授当时研究了一个缠绕线圈的工作小组，小组里有 9 名绕线工、3 名电焊工，电焊工是给绕线工打下手的，这 12 个人是一线的生产人员。此外，还有 1 名监工和 2 名质量检查员。</p><p>这些人中谁的权力最大？按照道理讲，权力最大的应该是监工，其次是检查员。但梅奥发现：真正在工作现场有影响力的是绕线工，权力关系完全是反的。这是为什么呢？因为绕线工在生产过程中扮演了关键的角色。什么时候开窗透气，什么时候关上窗户，全由绕线工说了算。绕线工就是通过决定这些工作之外的小事来显示他们的地位和优越感。</p><p>梅奥也发现，中午跑腿取饭的总是电焊工，因为他们要给绕线工打下手，所以，他们总是像徒弟一样，按照指令按照时间乖乖地去拿食物。但电焊工也有情绪要发泄，他们发泄的对象就是搬运工。搬运工不是工作小组的固定成员，所以工作中常常会受到嘲弄。比如，电焊工焊完之后，会在完工的接线柱上吐唾沫，而搬运工进来的时候，电焊工之间便会心一笑。</p><p>梅奥还发现，在这个组织里，围绕着绕线工这个关键的员工，还会成立一些小集团。成立小集团的目的是为了保证大家的利益，共同抵抗监工的管理。参加小集团也得有条件，首先不能表现得太突出，也不能太差，因为太差人家看不上你，懒得吸收你进入他们的非正式组织。</p><p>加入小集团，就要以小集团中其他人的利益为先，所以你也不能有太多的表现。同时，也不能和监工关系太好，更不能跑到监工那里去打别人的小报告。</p></blockquote><h4 id="霍桑实验的结论和启发"><a href="#霍桑实验的结论和启发" class="headerlink" title="霍桑实验的结论和启发"></a>霍桑实验的结论和启发</h4><p>非正式组织的共同利益，才是决定生产效率最核心的东西，而不是每个人的能力和组织事先定下的目标。这里有两个关键词：“共同利益”和“非正式组织”。</p><p>粗浅理解是公司利益和个人利益一致，才能共处。超过 200 人的企业为什么会开始宣传企业文化、价值观、远景，就是要明确公司思想，员工再来思想匹配。相互认可才能长远。</p><p>关于非正式组织，管理者应该要把握的是度。比如：有一个员工在公司内几乎没有自己的圈子，行不行？另外一个员工长期和另外一个项目组成员泡在一起，可不可以？</p><p>我个人的判断是员工要有自己的圈子，但最好不要太私人；主管判断和员工的关系（上下级关系除外）的度：当员工工作不爽第一选择向你抱怨。而不是闷头不说或者到处传播。</p><p>另外，霍桑实验证明人是“社会人”，是复杂的社会关系的成员，因此，要调动人的生产积极性，还必须从社会、心理方面去努力。这也是为什么有的大公司会给员工子女打造幼儿园，会做一些“家庭日”的原因。因为薪资激励只是其中的一部分，大部分的需要是感情上的慰藉、安全感、和谐、归属感。</p><p>关注到员工关系、员工心理的研究是在霍桑实验之后，霍桑实验在 100 年以前。</p><p>100 年后的今天，又有多少公司做到了呢？</p>]]></content>
+    <content type="html"><![CDATA[<p>霍桑实验是一组实验，不只一个。网上有每个实验的详细介绍可以阅读。</p><a id="more"></a><p>另外跳出来说下，觉得做社会科研很有趣。最近了解的李银河、范飙和霍桑实验的梅奥，看他们的研究都是基于社会研究。比如范飙研究温州地区，就直接在温州生活几年，唯一不同的是：研究者是上帝视角、旁观者。</p><p>研究人的生活，很酷。</p><p>回到霍桑实验，这里说有代表性的场景：</p><blockquote><p>梅奥教授当时研究了一个缠绕线圈的工作小组，小组里有 9 名绕线工、3 名电焊工，电焊工是给绕线工打下手的，这 12 个人是一线的生产人员。此外，还有 1 名监工和 2 名质量检查员。</p><p>这些人中谁的权力最大？按照道理讲，权力最大的应该是监工，其次是检查员。但梅奥发现：真正在工作现场有影响力的是绕线工，权力关系完全是反的。这是为什么呢？因为绕线工在生产过程中扮演了关键的角色。什么时候开窗透气，什么时候关上窗户，全由绕线工说了算。绕线工就是通过决定这些工作之外的小事来显示他们的地位和优越感。</p><p>梅奥也发现，中午跑腿取饭的总是电焊工，因为他们要给绕线工打下手，所以，他们总是像徒弟一样，按照指令按照时间乖乖地去拿食物。但电焊工也有情绪要发泄，他们发泄的对象就是搬运工。搬运工不是工作小组的固定成员，所以工作中常常会受到嘲弄。比如，电焊工焊完之后，会在完工的接线柱上吐唾沫，而搬运工进来的时候，电焊工之间便会心一笑。</p><p>梅奥还发现，在这个组织里，围绕着绕线工这个关键的员工，还会成立一些小集团。成立小集团的目的是为了保证大家的利益，共同抵抗监工的管理。参加小集团也得有条件，首先不能表现得太突出，也不能太差，因为太差人家看不上你，懒得吸收你进入他们的非正式组织。</p><p>加入小集团，就要以小集团中其他人的利益为先，所以你也不能有太多的表现。同时，也不能和监工关系太好，更不能跑到监工那里去打别人的小报告。</p></blockquote><h4 id="霍桑实验的结论和启发"><a href="#霍桑实验的结论和启发" class="headerlink" title="霍桑实验的结论和启发"></a>霍桑实验的结论和启发</h4><p>非正式组织的共同利益，才是决定生产效率最核心的东西，而不是每个人的能力和组织事先定下的目标。这里有两个关键词：“共同利益”和“非正式组织”。</p><p>粗浅理解是公司利益和个人利益一致，才能共处。超过 200 人的企业为什么会开始宣传企业文化、价值观、远景，就是要明确公司思想，员工再来思想匹配。相互认可才能长远。</p><p>关于非正式组织，管理者应该要把握的是度。比如：有一个员工在公司内几乎没有自己的圈子，行不行？另外一个员工长期和另外一个项目组成员泡在一起，可不可以？</p><p>我个人的判断是员工要有自己的圈子，但最好不要太私人；主管判断和员工的关系（上下级关系除外）的度：当员工工作不爽第一选择向你抱怨。而不是闷头不说或者到处传播。</p><p>另外，霍桑实验证明人是“社会人”，是复杂的社会关系的成员，因此，要调动人的生产积极性，还必须从社会、心理方面去努力。这也是为什么有的大公司会给员工子女打造幼儿园，会做一些“家庭日”的原因。因为薪资激励只是其中的一部分，大部分的需要是感情上的慰藉、安全感、和谐、归属感。</p><p>关注到员工关系、员工心理的研究是在霍桑实验之后，霍桑实验在 100 年以前。</p><p>100 年后的今天，又有多少公司做到了呢？</p>]]></content>
     
     
-    <summary type="html">&lt;h4 id=&quot;霍桑实验&quot;&gt;&lt;a href=&quot;#霍桑实验&quot; class=&quot;headerlink&quot; title=&quot;霍桑实验&quot;&gt;&lt;/a&gt;霍桑实验&lt;/h4&gt;&lt;p&gt;霍桑实验是一组实验，不只一个。网上有每个实验的详细介绍可以阅读。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;霍桑实验是一组实验，不只一个。网上有每个实验的详细介绍可以阅读。&lt;/p&gt;</summary>
     
     
     
     
     <category term="Management" scheme="http://example.com/tags/Management/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分销体系方法论</title>
-    <link href="http://example.com/2020/07/28/%E5%88%86%E9%94%80%E4%BD%93%E7%B3%BB%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
-    <id>http://example.com/2020/07/28/%E5%88%86%E9%94%80%E4%BD%93%E7%B3%BB%E6%96%B9%E6%B3%95%E8%AE%BA/</id>
-    <published>2020-07-28T13:10:10.000Z</published>
-    <updated>2020-12-07T14:20:47.253Z</updated>
-    
-    <content type="html"><![CDATA[<p>产品的分销体系，已经成为一款高客单价产品必备选择。目前市面上的裂变海报或者各类熟人推广，几乎都是分销体系的一种，本篇文章尝试对之前做过的一些分销产品进行梳理。</p><a id="more"></a><h4 id="建立分销体系前提"><a href="#建立分销体系前提" class="headerlink" title="建立分销体系前提"></a>建立分销体系前提</h4><p>不是所有产品都适合建立分销体系，需要结合渠道特性和产品特性一起考虑。另外，有的分销形式是用户分享传播，但分销肯定不等于口碑传播。拿钱办事和自发传播是两回事。</p><p>所以，开始分销的产品应用，常规上是处于成长期、成熟期阶段，产品内用户模型已经打磨好，也就是：</p><ul><li>功能上，应用内部核心流程已经走通；主次任务流已经划分清楚；</li><li>数据上，新用户留存、日活跃用户、产品续费率都不错。</li></ul><p>对于 B 端应用来说，产品续费率至少到  60% 以上才会考虑分销。当然，这取决于分销成本，这里是需要核算分销渠道的新用户单价成本。用户在第几次续费可以赚回来。根据经验判断，订阅时间周期类应用，至少要在第 2 次就要有盈利。</p><p>接下来说活目前市场能看见的分销模式。</p><h4 id="分销体系的-3-种模式"><a href="#分销体系的-3-种模式" class="headerlink" title="分销体系的 3 种模式"></a>分销体系的 3 种模式</h4><p><strong>C2C 模式</strong>。这种模式就是常见的朋友圈海报裂变、分享有礼的方式。特点是分销者和订购和都是用户，低客单价应用也可以使用；</p><p><strong>B2C 模式。</strong>这种模式需要追溯目标用户上下游。比如：贝壳找房连接了几十万的经纪人。这些经纪人每天都在社区里活动，经常接触到业主和客户。经纪人在为客户提供房屋租赁买卖咨询服务的同时。很自然会将贝壳找房APP推荐给这些用户；</p><p><strong>渠道资源互推。</strong>寻找资源互推。比如：电商培训、代运营、刷单服务公司这些可以连接到电商卖家。所以如果目标用户是电商卖家，这类渠道也可以考虑。</p><p>其实无论模式如何变化，本质上就是用户在哪里，就在哪里推广。</p><h4 id="分销模式的选择"><a href="#分销模式的选择" class="headerlink" title="分销模式的选择"></a>分销模式的选择</h4><p>选择怎样的分销模式，影响因素有很多。比如：预算、渠道资源、团队能力等等。但放在第一优先级考虑的，应该是用户的决策方式（或者决策成本）。很简单，你不可能通过朋友圈裂变拉来一个 ERP 用户。</p><p>决策方式常规来说分为 3 种：</p><ol><li>目标用户个体就有决策权，决策时间快，周期短。C 端/客单价较低的应用属于这种；</li><li>需要开会决定，或者主管决定。小团队协作工具比如： Tower；</li><li>决策周期比较长，需要财务审批、走内部工单流程等等。比如：进销存ERP。</li></ol><p>需要优先考虑这些决策方式，其次再根据决策方式选择分销模式。</p><h4 id="分销体系的支撑"><a href="#分销体系的支撑" class="headerlink" title="分销体系的支撑"></a>分销体系的支撑</h4><p>确定分销模式后先人工跑起来，有一定量后，考虑分销系统支撑。在设计分销系统前，先确定 2 点原则：</p><ul><li>以分销商利益为准。这个很容易理解，因为整个体系的运转，分销商是关键角色，在这个系统中优于产品用户；</li><li>分销流程是核心，尽量不要让内部财务流程、对接排班等等让分销流程变得繁琐。这个点的反例市场上有一堆。一方面是因为对内部的业务人员对公司财务妥协。另一方面是确实不了解分销细节流程导致。</li></ul><p>在开始设计分销系统时，需要了解：</p><ul><li>分销渠道线上还是线下，还是都有。如果都有，需要考虑是否需要分开作为两个系统，因为线上/线下流程，往往天差地别；</li><li>分销系统在未来是否会计划接入多款应用（出于成本考虑）。如果接入，不同应用的分销规则是否一致，需要考虑不一致的情况。</li></ul><p>把这些先提前考虑清楚后，再来着手设计分销体系。下面列举一些分销体系包含的要素。</p><p>以分销商为主体，会包含分销商的选择和入驻、分销商规则、分销商的专属标记。</p><p>分销商的选择和入驻：分销商的入驻，最好是有门槛（无论是完成任务还是金额门槛等等）。这里主要是考虑到分销商的质量、和竞对情况；</p><p>分销商规则。因为每个应用规则可能不一样（微信分销等级超过 3 级属于传销，所以分销最多设置 2 级），这里不展开说。但这个环节非常关键，分别体现在 2 点：</p><ul><li>因为不同渠道的分销商规则可能不一样，所以在渠道上，一定要内外部信息同步好，避免渠道 A 和渠道 B 相互通气，最终相看两厌；</li></ul><ul><li>因为规则的不同，产品经理需要和技术提前约定。哪些地方可能会有改动，哪些地方需要设置。比如：佣金是订购金额的 30%，这个 30% 是固定写死还是说可设置。</li></ul><p>如果渠道较多、应用较多，这里会比较复杂，这个环节相当考验产品设计能力、沟通能力。</p><p>分销商的专属标记。固定好分销商的专属链接/二维码，方便后期效果统计。这里需要根据渠道来考虑。比如：1 家培训多个人推广你的应用，是开多个账号，还是 1 个账号多个专属链接，还是 1 个链接？</p><p>在分销商这部分的产品设计上，如果分销商的结果能及时显示，以及分销商等级要求。那分销商粘性会强很多（其实这块可以参考花生日记这类社交电商应用）</p><p>在消费者维度，需要考虑是不是 C2C 模式，如果是，就需要有分销商申请的入口露出。</p><p>最后是佣金/权益。佣金和权益做到实时，不能做到实时，最好要及时，能日结就不要月结。</p><p>以上，是关于分销体系的一些总结，</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;产品的分销体系，已经成为一款高客单价产品必备选择。目前市面上的裂变海报或者各类熟人推广，几乎都是分销体系的一种，本篇文章尝试对之前做过的一些分销产品进行梳理。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="User Growth" scheme="http://example.com/tags/User-Growth/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>产品上线后的效果评估</title>
-    <link href="http://example.com/2020/06/01/%E4%BA%A7%E5%93%81%E4%B8%8A%E7%BA%BF%E5%90%8E%E7%9A%84%E6%95%88%E6%9E%9C%E8%AF%84%E4%BC%B0/"/>
-    <id>http://example.com/2020/06/01/%E4%BA%A7%E5%93%81%E4%B8%8A%E7%BA%BF%E5%90%8E%E7%9A%84%E6%95%88%E6%9E%9C%E8%AF%84%E4%BC%B0/</id>
-    <published>2020-06-01T13:10:10.000Z</published>
-    <updated>2020-12-07T14:27:40.696Z</updated>
-    
-    <content type="html"><![CDATA[<p>实际工作中，不管是来自主管还是其他部门，相信产品经理的需求都会受到一些合理质疑，主要质疑是：做了这个需求，能有什么效果？我看到部分产品经理在面对类似情况的反应不是一时语塞，就是回复“符合产品定位”“上线之后产品体验更好”等等较为无力、空泛的回答，做不到让所有人信服。</p><p>本文旨在针对上述问题，提出以下思路，来做到对产品常规需求有效衡量。</p><a id="more"></a><p>首先在需求层面，将需要衡量的需求划分为 4 类。分别为：</p><ul><li>完整新功能；</li><li>线上已有功能优化需求（已有业务需求）；</li><li>产品交互需求；</li><li>产品性能优化。</li></ul><p>其中比较好衡量「完整新功能上线」和「产品性能优化」这两类。对于完整新功能，这部分没什么可说，找到衡量新功能“北极星”指标（用户完整走完核心流程），在需求文档中定义注明需要打点数据字段，在上线后观察数据，并且同步团队。</p><p>产品性能层面的优化，根据具体性能优化目的，来决定是直接通过日志打点的单一方式还是日志打点加上用户反馈验证。用户反馈收集按照一定的方法论收集就可以做到。这部分不是难事。主要是部分需要日志打点的方式，需要在前期和技术沟通好。这类需求最好是和技术一起主导，既能增加技术人员参与感，也能在细节验证环节提供专业建议。</p><p>另外两类，可以统称为「功能优化」，具体细分为业务功能优化和产品交互优化。这两类可以根据需求优化目的来来决定衡量方式。如果是为提升核心流程转化率，那就看优化前后转化漏斗数据；如果是为提升用户效率，那就寻找“时间维度”数据，例如：用户走完核心流程页面跳转数、用户页面停留时间、用户完成核心流程时间等。另外这两类衡量方式也可以使用用户回访工具，根据用户反馈作出定量结论。</p><p>按照这个思路，常规需求都可以得到量化验证。但是现实情况往往复杂很多，这里通过极端举例再延伸说明：</p><p><strong>如何验证产品经理修改功能文案的效果？</strong></p><p>例子比较极端，但是是合理的，因为产品经理每个决策都需要付出成本。回到这个问题，目前我认为理想思路是不要直接去想文案需求的衡量标准，而是把它作为 OKR 某个 Task，把时间周期拉长，小任务对应到大目标，例如把文案修改效果归属到大目标某个功能转化率目标上。</p><p>所以方法论上，通过单一任务效果衡量方法加上把时间周期拉长，小任务对应到大目标的方法，不仅可以回答“做了这个需求，能有什么效果？”，还能回答“为什么要在现阶段来做这个需求？”。</p><p>方法论部分并不难，难得是实际运用并且形成一套固定模式。要真正做好我觉得还需要具备 2 个条件：要有效果验证意识和有的放矢。</p><p>有效果验证意识才能提前准备数据埋点，毕竟效果验证是一个量化过程，需要前期数据收集。尽量避免临时需要数据验证，然后发现没有数据的情况。</p><p>要有的放矢。并不是每个需求都需要去对应到一个效果结论，把握项目重点，团队认可就行。下面给出一个范例：</p><ol><li>新/大项目，需要产品经理在项目开始阶段的需求原型中准备好需要的数据打点。一般情况下，在新项目上线一周后，项目数据同步到项目组成员，并且给出结论，当前数据表现好坏。（如何定义大项目：超过 4 人开发团队，开发时间 3 周及以上）；</li><li>非细节优化需求，需要项目经理认可（专家判断）。</li></ol><p>以上，是对衡量产品需求效果的思考。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;实际工作中，不管是来自主管还是其他部门，相信产品经理的需求都会受到一些合理质疑，主要质疑是：做了这个需求，能有什么效果？我看到部分产品经理在面对类似情况的反应不是一时语塞，就是回复“符合产品定位”“上线之后产品体验更好”等等较为无力、空泛的回答，做不到让所有人信服。&lt;/p&gt;
-&lt;p&gt;本文旨在针对上述问题，提出以下思路，来做到对产品常规需求有效衡量。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="User Growth" scheme="http://example.com/tags/User-Growth/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>产品续费率的思考</title>
-    <link href="http://example.com/2020/05/09/%E5%85%B3%E4%BA%8E%E4%BA%A7%E5%93%81%E7%BB%AD%E8%B4%B9%E7%8E%87%E7%9A%84%E6%80%9D%E8%80%83/"/>
-    <id>http://example.com/2020/05/09/%E5%85%B3%E4%BA%8E%E4%BA%A7%E5%93%81%E7%BB%AD%E8%B4%B9%E7%8E%87%E7%9A%84%E6%80%9D%E8%80%83/</id>
-    <published>2020-05-09T14:10:10.000Z</published>
-    <updated>2020-12-07T13:35:36.443Z</updated>
-    
-    <content type="html"><![CDATA[<p>很多常见的 C 端付费产品（工具类偏多，如 iOS 上很多付费订阅应用）和 SaaS 软件，日常重点关注的就是产品续费情况。所以接下来主要围绕续费率展开思考，希望能带来一些启发。</p><a id="more"></a><p><strong>续费率 = 到期后续订用户数 / 付费订阅到期用户数</strong></p><p>主要分为 2 步说明：</p><ol><li><strong>什么时候开始「提升续费率」这项任务？</strong></li><li><strong>如何找到提升续费率的关键点？</strong></li></ol><p>在开始想如何提升续费率之前，一定要弄清楚，「提升续费率」这项任务，是不是一定要做，以及什么阶段开始做。因为「续费率」看似是一个很容易决策需要提升的指标。但其实是否要立马去做还需要进一步论证，避免最后造成资源浪费和用户干扰。</p><p>在开始「提升续费率」这项任务之前，需要论证，负责的应用续费率，在行业中是属于什么水准。一方面是避免资源投入产出低，另外也可以在做这个任务之前，预计到应用续费率天花板，这样能提前预判，方便续费率目标制定。</p><p>判断应用续费率参考依据可以先看行业标杆产品的续费情况（从这项依据判断会比较困难，同行数据并不是很容易就能知道；另外一种情况，就是自己负责的，本身就是行业 TOP 应用）。其次是找到未续费流失用户，定义不符合产品定位的目标群体。将这部分用户剔除，就是理论续费用户上限。</p><p>举例：一款共享汽车应用，付费订阅到期用户数 1000 人，到期后未续订用户数 500 人，当前续费率 50%，这 500 人中，其中有 300 人未绑定驾照，并且用户属性是18岁以下。可以简单得出结论：</p><p>续费率最高能做到： （500-300）/ 1000 + 50% = 70%<br><em>注明：用户属性 18 岁以下不用考虑。因为这部分人群和产品定位不符，18 岁以下用户还在上学，不会用到共享汽车，以及考虑到驾照问题。所以与产品定位不符。</em></p><p>这样在开始阶段，就能有预判，产品续费率最多只能到 70%，目标续费率能带来多少用户数与销售额，需要投入多少资源，以及提升难度。</p><p>接下来探讨<strong>如何找到提升续费率的关键点。</strong></p><p>续费率指标本身涉及到影响因素太多，包括：产品业务场景、功能体验、性能、流量渠道、价格等等。可以先进行用户分群，通过共性来寻找原因。未续费用户群体可以分为以下几类群体：</p><ul><li>版本降级用户群体（部分产品会有多个版本，例如：免费版/付费版或者基础版/专业版）；</li><li>非产品目标人群体；</li><li>新用户未续费（订阅 1 次）；</li><li>老用户未续费（订阅 2 次及以上）。</li></ul><p>清楚每个群体的用户数以及占比，然后根据每个细分群体用户数以及占比权重，结合当前可利用的资源，排出优先级，判断优先处理哪一部分群体哪一类问题。</p><p>这里还需要说明：为什么划分出新用户和老用户未续费群体？而不是其他划分方式？一方面，根据经验得出，新用户和老用户群体。他们的行为能直接体现出流量渠道以及产品功能上手程度。所以这样划分更快速发现问题。</p><p>而且这里所说的新用户和老用户，是以「订阅次数」来定义，直接就是续费行为，能直接体现到续费率指标上。</p><p>当然这里也有其他一些划分维度，把「订阅次数」作为用户行为指标之一，这部分可以根据负责的业务来判断如何划分合适，不影响整体思考流程，最终还是殊途同归。</p><p>划分出用户群体之后，再拿到新用户和老用户基础数据和行为数据。到这一步就会有部分结论输出：</p><ol><li>每种群体用户数分别占比多少；</li><li>根据占比权重、产品定位、操作难度确定优先做哪一拨人群；</li><li>开始针对具体人群出对应解决方案。</li></ol><p>接下来针对每类人群，展开讨论。</p><p>版本降级这类人群比较直观，如果占比很高，说明付费版本没有留住用户，低于用户期望。出现这种情况的原因只能是产品定位问题，产品上没有抓到业务场景。产品没有帮助用户解决问题。</p><p>非产品目标人群占比很高本质上是流量渠道问题（可以时间拉长，分2 - 3个周期对比分析，验证结论）。针对这种情况可以有几种方式：</p><ol><li>找更精准流量渠道。这是解决方案之一，但是实际情况是：有些应用主要流量渠道本身就很少，推广方式单一。比如：产品只在在 App Store 上架，只有市场自然流量。其他渠道成本很高或者干脆就没有开辟新渠道。如果是这种情况就得寻找其他方式；</li><li>如果是新上线产品。可以尝试根据这部分用户共性特征修正产品定位，把产品方向偏到这类群体上。</li></ol><p>关于未续费新老用户群体，用户在订阅周期内也许就已经没用产品功能，没有再次订阅只不过是一层表象。这类用户可以理解为流失用户。也就是问题转化为：<strong>如何挽回流失用户？</strong></p><p>首先，根据产品特性，需要定义好流失用户。再来收集产品内部信息、外部信息。将当前情况进行梳理之后。明确流失原因和严重程度。</p><p><strong>流失用户的定义是在一段时间内未进行关键操作行为的用户（时间长度和关键操作行为和产品有关）。</strong></p><p>接下来以下相关信息需要整理过一遍：</p><blockquote><ol><li>产品内部信息 :<ol><li>产品流失率以及近一段时间内流失率的变化 ；</li><li>流失用户类型。通过后台数据分析初步确定流失用户主要是新用户还是老用户 ；</li><li>流失用户特点。通过后台数据判断用户是否有明显的共性 ；</li><li>流失率的变化是否有规律和明显的时间节点，是否和产品版本更新有关 ；</li><li>通过产品、客服、第三方平台等各个渠道收集到的用户反馈 。</li></ol></li><li>外部环境信息 ：<ol><li>政策变化。一些外部政策变化可能会对产品有影响，例如关税新政对跨境电商平台的影响，版权规范政策对音乐、阅读、漫画等平台的影响 ；</li><li>竞品动态。包括竞品近期的运营活动、新功能上线等动态 。</li></ol></li></ol></blockquote><p>然后根据上面划分的新用户和老用户归类汇总问题，针对性解决。常见的一般性问题：</p><blockquote><ol><li>新用户<ol><li>用户上手难度大，缺少指引</li><li>感受不到与竞品差别</li><li>产品设计缺陷</li><li>新版本更新的影响</li><li>…</li></ol></li><li>老用户（用户逐渐丧失对产品的使用欲望，关键的使用行为逐渐减少）<ol><li>产品核心内容单一</li><li>缺乏不同用户的生存空间</li><li>产品设计缺陷</li><li>…</li></ol></li></ol></blockquote><p>针对流失用户可以重点检查一项数据，即用户是否有走完产品核心流程。根据经验来看，多数业务用户流失就是因为产品核心流程，用户没有深度参与。</p><p>对流失用户排查之后，明确流失用户具体原因，然后针对流失原因给出对应方案，再根据结论完善流失预警机制和挽回流失用户方案。</p><p>以上是对产品续费率的理论层面分析，后续有机会再对每个问题和对应方案进行研究说明。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;很多常见的 C 端付费产品（工具类偏多，如 iOS 上很多付费订阅应用）和 SaaS 软件，日常重点关注的就是产品续费情况。所以接下来主要围绕续费率展开思考，希望能带来一些启发。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="User Growth" scheme="http://example.com/tags/User-Growth/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为什么我们要工作</title>
-    <link href="http://example.com/2020/04/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E5%B7%A5%E4%BD%9C/"/>
-    <id>http://example.com/2020/04/11/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E5%B7%A5%E4%BD%9C/</id>
-    <published>2020-04-11T13:10:10.000Z</published>
-    <updated>2020-12-07T14:22:35.975Z</updated>
-    
-    <content type="html"><![CDATA[<p>不厌其烦日复一日地工作，是为了什么？</p><a id="more"></a><p>在一般现实环境中，得到的答案都是“为了钱”。或者说是为了某些心理感觉，成就感、责任感或个人荣誉感等等。但同样一份工作，有人有这种感觉，有人却没有。所以，是什么原因造成这种情况？上面的回答好像也没有说得特别清楚。</p><p>抽离出来思考这个问题，想到日常某些工作，在我看来非常单调、没有意义，消耗灵魂和意志。例如高速收费员、停车场管理员、地铁站引导人员这类。并不是说他们工作没有带来价值。而是有时候假设自己处于那样的工作环境，单调重复，究竟是为了什么，这种岗位人员寻找什么理由让自己日复一日转动。</p><p>偶然情况下，我看到心理学教授 Brry Schwartz 解释了这个问题，提供了一个宏观视角。</p><p>他说是因为一种「思维技术」，也可以说是一种「思维模式」。是因为一些科学家或者科研领袖创造了一种模式（或者说是创造了不同人性），于是某一类人群就选择了某一种模式。这种模式不会被淘汰，会随着时间不断调优，满足意识形态需要。</p><p>亚当斯密带来了市场经济，所以我们现在通过买卖市场用钱换取生活所需。通用公司带来了流水线分工，所以才有劳动密集型产业的固定生产模式。工业革命会带来一套生产制度和生活方式，科技革命同样也会带来另外一套生产制度和生活方式。而被裹挟其中的个体就在这个模式下生活。各种大的小的模式，带来了不一样的选择。</p><p>亚当斯密说，在流水线工作的人，会变得很愚蠢，愚蠢到人类的极点。并不是说人一开始就愚蠢，而是在思维上去适应这套模式，逐渐变得愚蠢。是流水线模式要求人变得愚蠢，这样才能在流水线环境中突出。</p><p>另外还有一些对品性和事物本质的理解不同，比如说贫穷。有人认为贫穷是上帝给予，所以信奉上帝，按照上帝旨意生活。有人坚信人定胜天，通过个人努力可以改变，所以进行革命。有人觉得无力改变，选择妥协。<br>所以是使用不同「思维模式」在过不同生活。工作只是不同生活分类的一些事情任务而已。</p><p>和物理技术不同，差劲的「思维模式」并不会被淘汰，而是当运用的人越来越多后，在社会大环境就会合理存在。</p><p>基于这套理论还是带来了一些启发。个体需要去不停汲取不同「思维模式」，去了解类似词源或者说是根本性词语的理解，例如善良、贫穷、正义、恶毒。基于对这类词语不同理解，基于对宏观微观环境的了解。寻找适合个人的「思维模式」。</p><p>附上 Brry Schwartz 演讲链接：<a href="http://open.163.com/newview/movie/free?pid=MB2A0K1HE&mid=MB2K9TTQG">网易公开课</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;不厌其烦日复一日地工作，是为了什么？&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重视需求评审</title>
-    <link href="http://example.com/2020/01/22/%E9%87%8D%E8%A7%86%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1/"/>
-    <id>http://example.com/2020/01/22/%E9%87%8D%E8%A7%86%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1/</id>
-    <published>2020-01-22T13:10:10.000Z</published>
-    <updated>2020-12-07T14:22:10.095Z</updated>
-    
-    <content type="html"><![CDATA[<p>需求评审作为产品经理最重要的会议之一，可以展开聊聊。</p><a id="more"></a><h3 id="需求评审重要性"><a href="#需求评审重要性" class="headerlink" title="需求评审重要性"></a>需求评审重要性</h3><p>需求评审是项目流程重要环节。从团队角度来看，这是团队成员（特别是产品经理和技术）第一次正式就业务需求进行全方位地专业讨论。经验上来说，这次会议质量直接决定后续需求变更频度。原因一般是产品经理没考虑完整或者部分细节需求技术可行性存在一定问题。</p><p>从另外产品经理角色来看，评审会是体现个人能力的绝佳场地，当然也是暴露自己缺点的高光舞台。需求评审会是产品经理的炼金石。在我个人职业生涯初期，每次需求评审之前都像如临大敌，私下会花费大量时间进行排查和演练，以确保顺利通过，甚至还会定下目标，力求需求评审一次通过。</p><h3 id="需求评审内容"><a href="#需求评审内容" class="headerlink" title="需求评审内容"></a>需求评审内容</h3><p>需求评审具体内容可以划分 3 部分，分别为需求项目背景以及项目目标/价值、项目功能、具体每个功能模版的任务评审。下面具体展开进行说明。</p><p>在需求评审上说清楚项目背景以及项目目标的好处在于：让项目组成员了解项目为什么来，将去向哪里。既为后续需求开发优先级提供判断依据，还可以提高各个角色参与感。另外，在会上与上级老板在目标上再次确认，确认对整体方案框架的认可情况，也有利于后续项目推动。</p><p>具体评审项目功能是需求评审的重头戏。这部分内容是要讲解清楚具体功能模块前后端流程、逻辑以及确认需求优先级，评估出技术难度、投入产出情况等。这部分评审需要各个部门负责人（类似技术主管、测试主管等）参与，给出具体评估情况。</p><p>另外具体每个功能模版任务评审，需要对应到具体各个开发人员。这部分是对具体细节任务开发评估，通过评估这部分内容得到详细项目时间周期。</p><h3 id="需求评审流程"><a href="#需求评审流程" class="headerlink" title="需求评审流程"></a>需求评审流程</h3><p>在整个评审流程中，各个环节常规流程就不展开讨论，主要阐述一些注意事项。</p><p>需求评审之前，可以单独找核心技术人员以一种非正式沟通的方式核对一遍需求，避免技术可行性或者产品方向问题（特别是不懂技术的产品经理或者刚加入团队的新人产品经理）。</p><p>评审会议中，产品经理一定要主导，引导各个角色往下走。保证不要偏题，不要拘泥于细节前端样式。并且控制好会议时间，建议不要超过 1 小时。大功能可以拆分为小模块，通过分阶段评审来保证参会人员精神状态。在其他角色质疑产品经理需求价值时，产品经理需要拿出理论、案例、数据任何一项论证方式进行支撑说明，凡是含糊其辞或者顾左右而言他都是令人失望的表现。一定要直面问题。</p><p>会议结束需要整理好会议输出。输出内容可以按照需求是否确认划分为两部分：已确认需求的开发周期、排期时间等、对应负责角色人员；未确认需求的确认时间、确认形式等。这部分做起来并不难，但还是提一下，力求做到事事有回应。</p><p>整个需求评审会议，可以尝试在团队内部建立标准流程，包含：评审资料、项目干系人、评审角色职责分配、会议步骤、评审通过条件等等。这样更有效率。这里额外说下「评审通过条件」，建议项目干系人可以提前列好各自评审标准，避免遗漏。评审标准可以针对 4 个方面重点评估，分别是：正确性、完整性、可行性、质量 。例如：</p><blockquote><ul><li>考核需求正确性<ol><li>是否有需求与其他需求相互冲突或者重复？</li><li>是否清晰、简洁、无二义地表达了每个需求？</li></ol></li><li>考核需求完整性<ol><li>是否包含了每个需求实现优先级？</li><li>是否定义了功能说明内在算法?</li></ol></li><li>考核需求质量<ol><li>各个任务/子任务交互是否合理？</li><li>各个页面文案是否合理/统一？</li></ol></li><li>考核可行性<ol><li>各个字段是否可以获取？</li></ol></li></ul></blockquote><p>综合来看，一个好的产品经理可以保证需求评审会议不会太差，但需求评审会议质量更高取决于一个优秀的团队。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;需求评审作为产品经理最重要的会议之一，可以展开聊聊。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="需求" scheme="http://example.com/tags/%E9%9C%80%E6%B1%82/"/>
-    
-    <category term="Management" scheme="http://example.com/tags/Management/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《上瘾》读书笔记</title>
-    <link href="http://example.com/2019/06/25/%E3%80%8A%E4%B8%8A%E7%98%BE%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    <id>http://example.com/2019/06/25/%E3%80%8A%E4%B8%8A%E7%98%BE%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</id>
-    <published>2019-06-25T13:10:10.000Z</published>
-    <updated>2020-12-07T14:33:11.933Z</updated>
-    
-    <content type="html"><![CDATA[<p>上瘾模型的对应到互联网产品的通俗意义是：如何提升产品粘性？</p><a id="more"></a><p>书中描述的上瘾模型分为 4 个阶段：触发、行动、多变的酬赏、投入。</p><p><a name="d6c6e029"></a></p><h3 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h3><p>触发在阐述的就是如何让用户知道你的产品。形式分为两种：外部触发和内部触发。</p><p>外部触发：通过发出行动召唤来暗示用户，是打造习惯养成的第一步。外部触发通常都潜藏在信息中，这些信息会告诉用户接下来该做些什么。</p><blockquote><p>外部触发的 4 种类型：</p><ol><li>付费型触发：做广告或是通过搜索引擎做推广都属于常见的付费型触发，企业借助这种途径来吸引用户的眼球并触发他们的下一步行动。付费型触发能够有效地拉拢用户，但是代价不菲。</li><li>回馈型触发不需要花钱，因为它靠的不是钱，而是在公关和媒体领域所花费的时间与精力。正面的媒体报道，以及应用商店的重点推介，这些都是让产品获取用户关注的有效手段。熟人之间的口碑相传，这些来自朋友或家人的推荐往往是科技传播的核心推动力。</li><li>人际型触发可以引发企业经营者和投资人所渴望的“病毒式增长”，有时是因为人们总是愿意把自己心仪的产品和大家分享。</li><li>自主型触发在用户的生活中确确实实占有一席之地。只要用户自己乐意，手机屏幕上的应用程序图标、订阅的新闻简报，或者是应用更新通知等就会出现在他们眼前。只要他们同意接收，这些触发的源头公司就有可能获得用户的关注。</li></ol></blockquote><p>付费型触发、回馈型触发以及人际型触发都是以争取新用户为主要目标，而自主型触发以驱动用户重复某种行为作为重点，目的是让用户逐渐形成习惯。如若没有自主型触发，不能在用户默许的前提下获得他们的关注，产品就很难以足够高的出现频率渗透进用户的使用习惯里。</p><p>通俗地说，外部触发就是产品拉新手段。在本书中这块知识犹如隔靴搔痒，只是提供了说明，并没有提供具体方式以及优劣。当然，本书侧重点也不再于此，可以理解。</p><p>按照目前互联网环境，简单的花钱推广显然已经行不通。能够看到的各个行业，在拉新上已经做到非常精细化。通用的方式为：</p><ol><li>在产品 0-1 冷启动阶段，尽量避免付费推广，这个阶段应该是根据产品特性，来做草根推广（这个阶段的真实问题是：如何根据产品特性找到对应用户群来进行草根推广）；</li><li>在产品快速增长阶段，开始要根据团队情况、产品情况判断：<ul><li>目前哪些渠道新用户质量较好？</li><li>目前哪些渠道用户较多？</li><li>目前是否要进行付费推广？</li></ul></li></ol><p>内部触发：当某个产品与情感或是原本已有的常规活动发生密切关联时，那一定是内部触发在起作用。负面情绪，正面情绪都能内部触发用户，联想到使用产品内部触发是要做到占领用户心智，如：老白金、茅台等。</p><p>归根到底，是一种品牌认知。能做到内部触发，一般是处于成熟期产品，我们可以联想下移动互联网时代前五需求（社交、新闻、购物、视频、音乐），脑中出现的应用。</p><p><a name="eb92090f"></a></p><h3 id="行动"><a href="#行动" class="headerlink" title="行动"></a>行动</h3><p>触发提醒你采取行动，而动机则决定你是否愿意采取行动。</p><blockquote><p>福格总结了简洁性所包含的 6 个元素，即影响任务难易程度的 6 个要素，它们是：时间——完成这项活动所需的时间。金钱——从事这项活动所需的经济投入。体力——完成这项活动所需消耗的体力。脑力——从事这项活动所需消耗的脑力。社会偏差——他人对该项活动的接受度。非常规性——按照福格的定义，“该项活动与常规活动之间的匹配程度或矛盾程度”。另外，牢记并分享行动是上瘾模型的第二个阶段。行动是人们在期待酬赏时最直接的反应。根据福格博士建立的行为模型：要促成某种行为，触发、动机和能力这三者缺一不可。要增加预想行为的发生率，触发要显而易见，行为要易于实施，动机要合乎常理。人类行为不外乎受三种核动机的影响：追求快乐，逃避痛苦；追求希望，逃避恐惧；追求同逃避排斥。时间、金钱、体力、脑力、社会偏差、非常规性等六个因素会对用户的能力产生影响。能力还会因人因地而异。</p></blockquote><p>这段主要在阐述如何让用户打开并使用你的应用。用户是否有动机使用产品对应的是产品所要解决的问题，动机的频次与强弱取决与需求强弱；用户是否有能力使用产品对应的是产品经理是否有考虑到实际目标群体，根据实际场景在设计需求。</p><p>所以归根到底，还是回到产品需求、产品设计。</p><p><a name="68a9982e"></a></p><h3 id="多变的酬赏"><a href="#多变的酬赏" class="headerlink" title="多变的酬赏"></a>多变的酬赏</h3><p>多变的酬赏主要表现为三种形式：社交酬赏，猎物酬赏，自我酬赏。</p><blockquote><p>社交酬赏：人类是社会化的物种，彼此依存。社交酬赏，抑或说部落酬赏，源自我们和他人之间的互动关系。为了让自己觉得被接纳、被认同、受重视、受喜爱，我们的大脑会自动调试以获得酬赏。猎物酬赏：对具体物品——比如食物和生活必备品——的需求，是人类最基本的需求之一。只不过在现代社会，有钱就能买到食物，更甚者，信息也能转化为钱，所以食物不再是我们猎取的目标，取而代之的是其他一些东西。自我酬赏：在目标驱动下，我们会去克服障碍，即便仅仅是因为这个过程能带来满足感。很多时候，完成任务的强烈渴望是促使人们继续某种行为的主要因素。最后，人们从产品中体验到的操控感、成就感和终结感。</p></blockquote><p>在我理解，多变的酬赏主要取决于产品设计与运营策略。运营策略需要贴合产品心智，然后根据产品特性、公司资源来设计运营方案。说实话，这样的描述非常空洞，是“正确的废话”。但是，这样的思路确实是提供了方法论依据。争取在后续文章中，以实际案例来说明。</p><p><a name="079fdd0d"></a></p><h3 id="投入"><a href="#投入" class="headerlink" title="投入"></a>投入</h3><blockquote><p>行动阶段使用户即时获得满足，而投入阶段主要与用户对未来酬赏的期待有关。对产品的投入会令用户形成偏好，因为我们往往会高估自己的劳动成果，尽力和自己过去的行为保持一致，避免认知失调。用户对产品的投入不仅可改进产品服务质量，增加用户再次使用产品的可能性，还能令储存价值以内容、数据资料、关注者、信誉或技能等形式自然增长。用户投入可通过加载下一个触发的方式令用户重新开始上瘾循环，从而增加了用户反复进入上瘾循环的可能性。</p></blockquote><p>在产品设计实际操作上，需要尽可能的让用户产生数据，增大迁移成本。例如：网易云音乐的歌单、ERP 产品的商品数据等。</p><p>通篇下来，本书提供了“如何提高产品粘性”的框架。在这个框架下，产品经理可以根据自己负责的产品特性来思考具体方法。</p><p>就我个人而言，还是偏好较为实际和具体的方法论加案例说明。这本书更偏理论指导。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;上瘾模型的对应到互联网产品的通俗意义是：如何提升产品粘性？&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="User Growth" scheme="http://example.com/tags/User-Growth/"/>
-    
-    <category term="Notes" scheme="http://example.com/tags/Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>管理职能型团队的一些总结</title>
-    <link href="http://example.com/2019/04/25/%E7%AE%A1%E7%90%86%E8%81%8C%E8%83%BD%E5%9E%8B%E5%9B%A2%E9%98%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2019/04/25/%E7%AE%A1%E7%90%86%E8%81%8C%E8%83%BD%E5%9E%8B%E5%9B%A2%E9%98%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</id>
-    <published>2019-04-25T13:10:10.000Z</published>
-    <updated>2020-12-07T13:25:17.129Z</updated>
-    
-    <content type="html"><![CDATA[<p>从管理个人到管理他人，必然面临工作内容变化。在适应阶段，新晋管理者遇到各种各样问题也很常见。整体团队来看，管理者工作能力直接决定团队战斗力。下面主要根据《领导梯队 全面打造领导力驱动型公司》这本书中说明的一线管理者职责，详细聊聊我觉得实际工作中比较重要的部分。</p><a id="more"></a><p>详细工作内容：<br><img src="https://cdn.brambling.cn/uxcaff/management.png"></p><p>来源：《领导梯队 全面打造领导力驱动型公司》</p><p>这本书中，对职能型团队管理者的工作职责已经有了详细描述，本篇文章就不再逐个展开说明（有兴趣可以阅读，非常有实操性）。</p><p>主要就书中提到的几点单拎出来，包括：目标制定、工作设计、绩效考核和教练辅导，结合个人工作经验，做一些总结和讨论。</p><p>首先围绕目标聊一聊。一般会根据目标来制定月度、季度或者年度目标。这里所说的目标无外乎来自于两种形式：一类是自上而下，来自于主管；还有一类是自下而上探索得出（业务团队一些目标往往是这样）。自下而上这里不讨论，没什么说的，团队自己探索得出，在团队内部肯定是达成共识，一般问题不大。</p><p>主要阐述「目标来于自上而下」这种类型。一线管理者一定要理解目标。理解为什么要制定这个目标。理解之后一定要认可这个目标，然后再同步到团队成员，让团队成员理解和认可这个目标。不然拿着目标上来就是干，再加上 KPI 导向，很容易偏离组织预期。万丈高楼，这是第一步。理解之后再来拆解目标。拆目标是硬技能，主管拆解目标的能力基本决定了目标兑现程度。拆解目标就是定位具体问题，这个在后续文章展开讨论。拆解目标分配任务后，管理者要做的就是在整个任务流程中管理目标，保证成员做事不出现偏移，保证结果符合预期。</p><p>另外一个知易行难的职责，是工作设计。工作设计有 3 个影响因素，第一是目标拆解维度，决定了具体任务。其次是团队成员个人能力。最后是主管所期望团队协作流程方式。这 3 点决定了工作设计，也决定了团队输出。</p><p>首先是目标拆解维度，比如：完成销售额业绩目标，可以考虑提升付费用户数或者客单价。如果是考虑客单价，团队需要考虑给用户带来更多价值；考虑付费用户数，就需要有更好更多渠道拉新。这些拆解的任务会填满团队成员的日常工作内容。其次是团队成员个人能力是不是能做好主管拆解出来的任务。实际工作中，会听到一些主管抱怨团队成员不给力，但仔细想想，究竟是团队成员不够优秀还是拆解任务不合理？这种现象值得深究。所以在这里，需要平衡好个人能力和组织任务的关系。任务需要有一些刻意设计，团队成员要能胜任拆解的任务，任务还要有挑战性，这样成员个人能力才能得到提升。最后还有团队协作流程，团队项目非正式信息处理方式、项目正式信息处理方式，跨团队、跨项目协作方式。这些事情都填满了团队成员的日常时间。我觉得需要根据各个分类制定好一些规则。梳理好这些流程规则，会提升不少团队效率和氛围。</p><p>再说说绩效考核。这是一个看结果的事情，但是也不能全看结果。首先，绩效考核不能太“虚”，有些绩效考核表（包括网上流传的部分绩效考核内容）都是通用、空洞的考核内容，没有实际参考价值，我甚至觉得这是对团队成员日常努力工作的敷衍。实际工作中，考核内容必须要与岗位通用技能和公司业务相结合，再加上考核周期限定（一般来说建议是季度考核，3 个月足够带来一些改变）。这样整个团队项目有了里程碑节点，也遵循了 SMART 原则。再考虑成员个人工作输出质量和整体目标结果，考核内容各个重点基本上都已经考虑到位，同时考虑到了个人业务目标、个人成长目标、团队目标。根据我几年验证，这样的绩效考核确实能带来团队目标感和成员个人成长提升。</p><p>关于团队辅导，刚晋升的管理人是做不到“因材施教”，前期都是按照自己擅长的方式和固定思维，要求成员按照自己习惯方式执行。但随着时间累积，还是要尽量根据成员能力做出不同判断，成员能力稍弱需要减少一些问题变量，还是以提升销售额为例。面对能力过硬的成员，你的问题可以是：如何提升销售额？但是稍弱一些的，你的问题可能是：针对提升销售额，我们目前的想法是提升客单价，那么，你有哪些提升客单价的方案？</p><p>另外，需要把一些通用性解决问题的思路沉淀下来，输出文档，给团队提供初步指导。例如：如何衡量一个新功能是否要做？类似这些通用性问题。这样既保证了团队能力下限，也为团队文化带来了向上的能量。</p><p>还想说明的是，不要把自己当成一位主管。而只需要理解为：在某个公司体系内，角色不同。其实是否有这种想法，其实在日常沟通都能体现出来。这是融入团队的前提条件。</p><p>责任担当也是必不可少，团队成员的技能成长、日常任务、薪资都和一线主管息息相关。在互联网公司，都是 20 多岁，鲜衣怒马青年时。不是一个个“资源”，不是单纯人员数字而已，而是切切实实的人生经历。</p><p>最后。保持真诚与正直，以我有限的职业经历理解，说这个品格能决定职业生涯上限也不为过。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;从管理个人到管理他人，必然面临工作内容变化。在适应阶段，新晋管理者遇到各种各样问题也很常见。整体团队来看，管理者工作能力直接决定团队战斗力。下面主要根据《领导梯队 全面打造领导力驱动型公司》这本书中说明的一线管理者职责，详细聊聊我觉得实际工作中比较重要的部分。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Notes" scheme="http://example.com/tags/Notes/"/>
-    
-    <category term="Management" scheme="http://example.com/tags/Management/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>判断需求优先级的 5 个维度</title>
-    <link href="http://example.com/2017/04/25/%E5%88%A4%E6%96%AD%E9%9C%80%E6%B1%82%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%205%20%E4%B8%AA%E7%BB%B4%E5%BA%A6/"/>
-    <id>http://example.com/2017/04/25/%E5%88%A4%E6%96%AD%E9%9C%80%E6%B1%82%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%205%20%E4%B8%AA%E7%BB%B4%E5%BA%A6/</id>
-    <published>2017-04-25T13:10:10.000Z</published>
-    <updated>2020-12-06T15:04:53.294Z</updated>
-    
-    <content type="html"><![CDATA[<p>产品经理需求无外乎来自于外部、内部、自身。每天面临的问题就是需求是否要做、需求优先级排列。下面简单说下筛选需求做不做、以及重要性的几个维度。</p><a id="more"></a><p>以下是几个判断维度。</p><h4 id="产品定位"><a href="#产品定位" class="headerlink" title="产品定位"></a>产品定位</h4><p>产品经理需要考虑：这个场景是否满足自身产品定位以及公司商业目标。比如微信桌面客户端。用微信用来营销，作为生产工具的公司，在微信桌面版上，是希望增加例如批量群发（移动端已有）等一堆这类功能的。但微信作为通用移动通信工具，肯定不会在桌面端做这类需求，这是由自身产品定位决定。</p><p>所以产品经理拿到需求首先需要搞清楚产品定位，不是说看见什么好抄什么，抄来抄去四不像。</p><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p>分析用户用户提出意见的使用场景，是不是合乎实际，是不是符合我们的主流用户。</p><p>例如用户希望在客户端加一个“夜晚模式”保护眼睛，因为经常半夜使用，但仔细想想你的大部分用户是不是经常晚上使用你的产品？也许只是个别用户私人习惯。</p><h4 id="目标用户"><a href="#目标用户" class="headerlink" title="目标用户"></a>目标用户</h4><p>在产品 0 - 1 阶段，有常规的用户属性数据，拿到基本的用户画像是比较容易判断，等用户量到了一定阶段，比如到了 100 万，就需要在去划分一些不同角色、不同群体的用户占比。再来把需求拿过来匹配用户群体，优先选择占比相对较高的群体。</p><p>使用场景和目标用户相关。这也是考验产品经理对自己产品把握程度。</p><h4 id="用户目标"><a href="#用户目标" class="headerlink" title="用户目标"></a>用户目标</h4><p>了解用户目标就是真正理解用户动机。<br>例如用户说需要在列表翻页组件上面加上数字，100/200/300选项等等，用户是希望每一页能看能多得内容。这里需要去了解目前的产品形态，技术上能做的做好的展现方式是什么，而不是单纯的加上用户直接要的翻页需求。</p><h4 id="项目资源"><a href="#项目资源" class="headerlink" title="项目资源"></a>项目资源</h4><p>资源永远是紧缺的。比如只有一周技术资源，产品经理需要判断需求优先级。找出当前最项目目标最好、用户需求最强需求。</p><p>5 个维度，权重不同，偏向用户侧的权重自然高，但是在实际工作中，这部分判断，其实没有确定性的量化指标，全凭产品经理衡量。</p><p>道理都很浅显。我在职业生涯初期一直在刻意练习，形成习惯。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;产品经理需求无外乎来自于外部、内部、自身。每天面临的问题就是需求是否要做、需求优先级排列。下面简单说下筛选需求做不做、以及重要性的几个维度。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="需求" scheme="http://example.com/tags/%E9%9C%80%E6%B1%82/"/>
     
   </entry>
   

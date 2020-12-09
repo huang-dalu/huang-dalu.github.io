@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="LTV指标的理解"/><meta name="keywords" content="User Growth, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/11/03/LTV指标的理解/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>LTV指标的理解 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">LTV指标的理解
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-11-03
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#LTV-%E6%A6%82%E5%BF%B5"><span class="toc-text">LTV 概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LTV-%E8%AE%A1%E7%AE%97"><span class="toc-text">LTV 计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LTV-%E6%80%BB%E7%BB%93"><span class="toc-text">LTV 总结</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h4 id="LTV-概念"><a href="#LTV-概念" class="headerlink" title="LTV 概念"></a>LTV 概念</h4><p>LTV(Life Time Value)生命周期总价值，是指用户终身价值，是公司从用户所有的互动中所得到的全部经济收益的总和。一个用户从注册到卸载，整个生命周期为你带来的全部收益。</p>
+<a id="more"></a>
+
+<p>LTV通常情况下会和 CAC 指标进行对比，比较投入产出。CAC（Customer Acquisition Cost）是指用户获取成本，即花多少钱获取一个客户。</p>
+<p>这里注意的一点是，比较投入产出用 LTV/CAC，而不是用户首次订购费用。但是在一些行业和部分商业模式下。确实会把直接把首次订购费用和 CAC 对比。比如：SaaS 类订阅应用、一次订购 1 年课程的在线教育，这也无可厚非。</p>
+<p>另外，看到一个说法：LTV/CAC = 3 的时候是最健康发展的（小于 3 说明转化效率低，大于 3 说明在市场拓展上还太保守）。个人觉得不能一概而论，这个比例还是要根据行业特性、渠道情况、上下游情况综合来看。</p>
+<p>LTV 的公式：<br>$$LTV= LT * ARPU$$</p>
+<p>ARPU(Average Revenue Per User)即每用户平均收入。这里也是分行业理解。比如：</p>
+<ul>
+<li>电商行业，每用户平均收入就是常说的客单价。每用户平均收入 =  用户购买总金额 / 用户购买总数量；</li>
+<li>采取订阅模式付月费的产品，往往我计算的是月客单价，就是平均 1 个用户，每个月的产生的收益（先说概念，公式写在下面）。</li>
+</ul>
+<p>ARPU 还好说，比较难测算的是 LT。LT（Life Time）为用户的平均生命周期，是指一个用户从第一次到最后一次使用产品之间的时间段。</p>
+<h4 id="LTV-计算"><a href="#LTV-计算" class="headerlink" title="LTV 计算"></a>LTV 计算</h4><p>看到网上给出的 LTV 的计算公式，有各种算法。难点在于计算 LT（因为产品处于成长期，有些也用到了一元线性回归），ARPU 因为行业不同也各不相同。本来想找一个科学的方法，看完之后还是决定继续使用自己的方法。</p>
+<p>先说前提，项目是订阅模式付月费的产品。粗略计算作为参考还是比较容易的。我的方式为：</p>
+<ol>
+<li>LT 的计算：拉付费用户数的历史订购数据，例如使用 3 年（也就是 36 个月的用户）内：</li>
+</ol>
+<p>$$平均生命周期（单位：月）= \frac{用户总留存月份}{总用户数} $$</p>
+<ol start="2">
+<li>ARPU 的计算：</li>
+</ol>
+<p><img src="https://cdn.brambling.cn/uxcaff/ltv.svg" alt="imag"></p>
+<p>LT 公式解释：LT 公式的业务逻辑是拿到 3 年内所有用户订购月份周期，比如有的用户订购 1 个月就历史，有的用户订购了 12 个月又续订了 6 个月。那就计算出用户平均订购了几个月。时间限制在 3 年内是纯粹的经验判断，用户基本最多使用 3 年以上就流失了。这个可以根据自己应用情况来。</p>
+<p>ARPU的公式解释：一目了然，就是将所有的销售额分摊在单个月份下面。因为“30.00/月” 和 “50.00/季度”对于摊到每个月的费用是不同的。</p>
+<p>按照 LTV 的定义，显然还有些场景没有考虑到，不过也不过多纠结了。因为这样计算已经够用，我的理解是：</p>
+<ol>
+<li>LTV 最常用的场景是用来看趋势。只要每次计算定义一样，这样计算已经能说明问题；</li>
+<li>看 LTV 数据值本身，还是需要回到产品。比如运营人员认为带来销售额就算有价值，但产品经理认为用户分享裂变拉新也有价值。那就额外再核算就可以，不影响上面 LTV 定义；</li>
+<li>LTV 这种业务指标，一定要是业务逻辑能直接说清楚。</li>
+</ol>
+<h4 id="LTV-总结"><a href="#LTV-总结" class="headerlink" title="LTV 总结"></a>LTV 总结</h4><p>ARPU 等指标本身只能显示用户在一段时间内的价值。通过将 ARPU 和用户生命周期（或者说留存用户）相结合，LTV 能为经营者建立一个大致的模型来预测用户未来的价值。这个指标能让经营者看到那些长期内能带来高于平均收入的用户，提高他们获取高价值用户的概率。</p>
+<p>对于刚起步（或者成长期）产品，最多看用户的年度收益也行。</p>
+<p>另外，LTV 指标本身也有局限。Bill Gurley 的<a target="_blank" rel="noopener" href="https://abovethecrowd.com/2012/09/04/the-dangerous-seduction-of-the-lifetime-value-ltv-formula/">一篇文章</a>提到不应该盲目推崇 LTV 的10 大理由，我是赞同的。下面提供链接。</p>
+<p>有人翻译了这篇文章：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI1MTQ0OTg1NQ==&mid=2247484468&idx=1&sn=7838bb6839a80e21a4cbf7dee78928bf&chksm=e9f39ca4de8415b22fda9558aec6220761f473824a71c0474fd285ec610b39b3bd9d7ea40dfa#rd">LTV 的危险诱惑</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/User-Growth/">User Growth</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2020/11/02/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%206%20%E6%9C%9F%EF%BC%89/">
+        <span class="next-text nav-default">体验碎片（第 6 期）</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
