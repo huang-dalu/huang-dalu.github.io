@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/archives/2018/"/>
+<meta name="description" content="一次线上项目故障"/><meta name="keywords" content="Design, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/12/10/一次线上项目故障/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,8 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>Archives - UX Caff
-  </title>
+    <title>一次线上项目故障 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -88,35 +87,53 @@
 
       <main id="main" class="main">
         <div class="content-wrapper">
-          <div id="content" class="content"><section id="archive" class="archive"><div class="archive-title">
-          <span class="archive-post-counter">
-            45 Posts In Total
-          </span>
-        </div>
-      <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
-          </div>
-        <div class="archive-post">
-        <span class="archive-post-time">
-          06-25
-          </span>
-        <span class="archive-post-title">
-          <a href="/2018/06/25/%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E6%98%AF%E5%90%A6%E5%90%88%E7%90%86/" class="archive-post-link">
-            如何判断页面布局是否合理？
-          </a>
-        </span>
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">一次线上项目故障
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-12-10
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>最近发生了一起线上事故，导致团队半夜 3 点就赶到公司搞了一天。觉得还是需要复盘一下。这次不是技术故障，更多是因为产品设计而导致。商家因此损失接近 100 万。</p>
+<a id="more"></a>
+
+<p>事故原因是一位商家，出入点主要是：</p>
+<ul>
+<li>商家的理解是：消费者下单后，才能用这张消费券；</li>
+<li>产品逻辑是：产品本身的场景，确实是引导消费者下单后，才能用这张消费券。但是由于这个优惠券不支持判断消费者 ID 和订单信息，技术上没办法实现。所以产品上只做了文案提醒商家。</li>
+</ul>
+<p>最终的结果就是被羊毛党注意到，2 小时传播了 10000 多张。商家损失惨重。最后复盘内容，有几点想法，这里分享下。</p>
+<ol>
+<li>文案上。不要用文案取代产品流程；重要提醒要产品化，避免加大加粗加红粗暴提醒文案；</li>
+<li>如果关键点（比如：接口支持、技术实现）和核心流程有冲突，产品方案的设计，一定要考虑极端情况。特别是交易类产品；</li>
+<li>如果项目涉及多个部门，最好在上线后，开一个同步会。事无巨细，同步清楚。出问题能找到责任人。</li>
+</ol>
+<p>最后这个事故，解决方案是：</p>
+<ol>
+<li>临时方案先将文案产品化，提醒内容需要用户确认；</li>
+<li>开始核对关键接口，如果长期技术实现不了，考虑下掉该功能。</li>
+</ol>
+
       </div>
-    <div class="archive-post">
-        <span class="archive-post-time">
-          06-25
-          </span>
-        <span class="archive-post-title">
-          <a href="/2018/06/25/%E6%9D%8E%E7%AC%91%E6%9D%A5%E8%AF%BB%E4%B9%A6%E5%88%86%E4%BA%AB/" class="archive-post-link">
-            李笑来读书分享
-          </a>
-        </span>
-      </div>
-    </section><nav class="pagination"></nav></div></div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Design/">Design</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2020/11/03/LTV%E6%8C%87%E6%A0%87%E7%9A%84%E7%90%86%E8%A7%A3/">
+        <span class="next-text nav-default">LTV指标的理解</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
@@ -135,7 +152,21 @@
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
   <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
 </body>
