@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-16T14:55:02.270Z</updated>
+  <updated>2020-12-18T00:13:04.897Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人知识管理之flomo工具</title>
+    <link href="http://example.com/2020/12/17/%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E4%B9%8Bflomo%E5%B7%A5%E5%85%B7/"/>
+    <id>http://example.com/2020/12/17/%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E4%B9%8Bflomo%E5%B7%A5%E5%85%B7/</id>
+    <published>2020-12-17T14:45:11.565Z</published>
+    <updated>2020-12-18T00:13:04.897Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇不只是介绍工具，还会聊聊我自己的信息–知识处理流程。PKM（个人知识管理）内容比较私人，有不同想法也正常，可以讨论。</p><a id="more"></a><h4 id="2-个认知前提"><a href="#2-个认知前提" class="headerlink" title="2 个认知前提"></a>2 个认知前提</h4><p>首先有两个我的认知前提。第 1 是之前有说明的<a href="https://uxcaff.com/2020/10/30/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BD%8E%E6%95%88%E9%98%85%E8%AF%BB/">如何避免低效阅读</a>。就是好的内容，一定要做笔记。不然只是变成「已读」状态而已。第 2 是知识和信息的理解。信息有有半衰期长和短的区别，比如：实时资讯就是短半衰期，练字就是长半衰期。长期摄入短半衰期的信息，会丢失深度思考能力，被掏干的灵魂只剩下二元论。非黑即白，少了五彩斑斓。之前方可成有说过一句对输入信息非常形象的描述：</p><blockquote><p>越来越多人懂得健康饮食：少吃垃圾食品，少摄入糖分，多吃蔬菜水果和五谷杂粮；其实，我们也应该用心打造自己的媒体食谱——摄入均衡、充分的信息营养，摒弃低质的信源。读什么，你就是什么。</p></blockquote><p>而长半衰期的信息积攒，慢慢会连成线，帮忙拆解一个个具体问题。这就是知识。</p><p>至于长半衰期信息的获取，以前是书籍。现在呢，根据信息的传播效率，书影音都行。这个观点，李如一在<a href="https://mp.weixin.qq.com/s/QLWP56zL_hQdyAH8l1ETxg">《明日世界生存指南》中的这篇文章</a>说得很清楚。</p><h4 id="PKM-流程"><a href="#PKM-流程" class="headerlink" title="PKM 流程"></a>PKM 流程</h4><p>有了这 2 个认知前提，再来说说具体的 PKM 流程。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/613759/1608212925725-c315bb68-ed22-47b3-8f63-5831e3bb52f2.jpeg#align=left&display=inline&height=70&margin=%5Bobject%20Object%5D&name=yuque_diagram.jpg&originHeight=139&originWidth=1032&size=14374&status=done&style=none&width=516" alt="yuque_diagram.jpg"></p><p>对应这些流程，目前的辅助工具分别是：</p><ul><li>信息收集：轻芒杂志、Reeder（配合 RSSHub 使用）；</li></ul><ul><li>信息过滤：flomo，Cubox（类似 Pocket 的稍后阅读工具）；</li></ul><ul><li>内化知识：各类写作工具，比如：typora</li></ul><p>使用 RSS 订阅可以主动选择信息源，是目前获取信息最有效率的方式。好的信息使用 Cubox 稍后阅读。然后有启发的内容，放进 flomo，整理成知识卡片，日常回顾，最后进行输出。</p><p>再详细说明下。其中，Cubox 这款工具还在体验阶段，因为觉得一些细节交互没那么好。其次是关于信息源的选择，我目前是遵循 2 个策略：选我熟悉的领域，可以有小范围的延伸；尽量读经过时间验证的内容，或者看看厉害的人在读什么。这样在能保证内容质量的同时，有一些延伸，不至于限于自己专业。然后是对知识卡片的理解。这部分的理解，可以搜索了解卢曼-知识卡片，和参考阳志平的<a href="https://www.yangzhiping.com/psy/happy-new-year-faq3.html">跨年答疑（3）：卡片十二问</a>。最后是知识输出。保持输出既能锻炼清晰表达自己观点的能力，存档过程还能看到自己的认知演变。</p><p>好了，再来说说 flomo。</p><h4 id="flomo-的应用"><a href="#flomo-的应用" class="headerlink" title="flomo 的应用"></a>flomo 的应用</h4><p>flomo 不是一款写作工具，属于 PKM 一环。关于这款工具的设计，可以看看<a href="https://mp.weixin.qq.com/s/ftygGrDBsXUVK0meLs8qDg">flomo weekly vol.000 - flomo 浮墨笔记的源起 </a>这篇文章。目前我使用 flomo 的场景：</p><ul><li>即时灵感记录：使用 flomo 服务号和快捷指令；</li></ul><ul><li>文章摘录，内化文章内容后的二次创造；</li></ul><ul><li>时不时当作“稍后阅读”工具；</li></ul><ul><li>小段文章内容的创作（有时候写着写着就变成了一篇文章，这也是一种激发）；</li></ul><ul><li>知识卡片。用标签划分好知识领域，日常回顾。</li></ul><p>为什么说是 PKM 的一环，是因为根据上述使用场景。紧接着就会把这些信息转化为知识卡片。然后每个标签积攒成多后，就是一个个点状的 MEMO（flomo 对知识卡片或者灵感的叫法），后续就可以解决某一个问题，形成一篇文章、一个观点。</p><p>在 flomo 出现之前，一直使用 Mac 系统备忘录（其实在这之前来回使用了很多工具，最后回到极简的备忘录）。但备忘录并不是完全针对个人知识卡片而设计。flomo 这类工具，第 1 优先级就是激发灵感、想法。让用户有意愿记录。其次是提升记录内容的处理效率（记录、查找、二次创造、回顾）。flomo 会提供很多记录知识的解法，引导使用。不然，它就会变成备忘录、树洞或者其它。所以， flomo 的出现就是针对灵感和知识卡片记录。和我的 PKM 完全契合。</p><p>对于具体功能上，目前 flomo 看起来比较好的支持了文字，期待后续可以支持图片和文字的排版。因为有的文字会配以图片说明。至于排版，无须交给用户操作，flomo调试好一个不错的固定版式（类似图片大小、是否居中、边框、图文间距）就可以了。如果有 Mac 端，会非常欣喜。因为之前使用的是系统备忘录，整体比网页体验要好。</p><h4 id="关于-flomo-的延伸想法"><a href="#关于-flomo-的延伸想法" class="headerlink" title="关于 flomo 的延伸想法"></a>关于 flomo 的延伸想法</h4><p>好了，另外跳出来再说 2 个和 PKM 无关，但和 flomo 有关的想法。第 1 个，对于 flomo 这款产品来说，怎样才算做得好呢，如何来衡量它的价值？我目前想的是「MEMO利用率」。只是记录得多，和「收藏」没有区别，需要看的是：把 MEMO 转化成「输出」的次数，输出指的是：</p><ul><li>应用成文章的次数。比如：我上面引用方可成那段对输入信息的描述。之前的文章也有引用；</li></ul><ul><li>应用到音视频、交谈中的次数。</li></ul><p>除了对外的影响，还有对内影响个人认知的次数。当然，这个没办法精确衡量。</p><p>第 2 个，是关于 flomo 团队的 @少楠 和 @lightory。给人感觉非常真诚（而且刚好我也了解卢曼知识卡片方法和阳志平老师博客）。像这类工具，一般情况下，会选择有保证的公司。 毕竟这些属于个人数据（flomo 会做数据导出）。flomo 虽然是小团队，但有真诚背书。另外是关于 flomo 冷启动的方式，非常典型，我觉得类似的工具完全可以照搬学习这套方式。</p><p>如果日常有很多想法奔涌，如果你也了解卢曼的知识卡片。 相信你会有共鸣。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;这篇不只是介绍工具，还会聊聊我自己的信息–知识处理流程。PKM（个人知识管理）内容比较私人，有不同想法也正常，可以讨论。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac上使用npm安装报错</title>
@@ -389,25 +408,6 @@
     <category term="Notes" scheme="http://example.com/tags/Notes/"/>
     
     <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TOP淘宝客公司业务介绍</title>
-    <link href="http://example.com/2020/09/03/TOP%20%E6%B7%98%E5%AE%9D%E5%AE%A2%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://example.com/2020/09/03/TOP%20%E6%B7%98%E5%AE%9D%E5%AE%A2%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E4%BB%8B%E7%BB%8D/</id>
-    <published>2020-09-03T13:10:10.000Z</published>
-    <updated>2020-12-08T08:28:33.868Z</updated>
-    
-    <content type="html"><![CDATA[<p>淘宝客就是 CPS 广告，淘宝商家基本都很清楚玩法。在阿里妈妈的定向佣金推广，除了小淘宝客，还有一类专门的淘宝客公司。这类公司靠手里流量存活，大的公司掌握的渠道非常之多，令人倾佩。</p><a id="more"></a><p>最近和一家 TOP 级打过交道，很涨见识，这类流量来源包括：</p><ul><li>团长。身份可能是KOL、KOC</li><li>宝妈类型</li><li>App 社交电商片，如云集、花生日记</li><li>线下各类可以获取用户信息的公司，如体重秤、KTV屏幕广告信息等。</li></ul><p>这里为什么会有体重秤？路边常见的体重秤需要关注公众号。所以关注后续就会来推商品信息。这些商品来源在和 TOP 淘宝客公司在合作。可以见这类公司渠道之广。</p><p>下面介绍下这种大型的淘宝客公司，和商家的招商流程。帮助感兴趣朋友或者从事电商产品经理了解下这个行业。</p><p>TOP 淘宝客公司和商家的沟通环节，主要分为：选品方向——沟通确认——文案相关——推广跟单——对账回款。</p><h3 id="选品方向"><a href="#选品方向" class="headerlink" title="选品方向"></a>选品方向</h3><ul><li>性价比高。做淘客推广的商品，因为是需要让利部分给到推广者和中间服务的，所以要求性价比高。</li><li>质量好。很多团长都是在微信群、社区进行推广曝光和销售。如果出现售后问题处理麻烦，并且非常影响信用。比如：在微信群，会出现倒戈辱骂团长等情况。所以质量尽量要做到图文一致。</li></ul><h3 id="沟通确认"><a href="#沟通确认" class="headerlink" title="沟通确认"></a>沟通确认</h3><p>和商家需要沟通的几点内容：</p><ol><li>确认买家的需求量。主要是确认买家想要卖出的库存，避免出现超卖或者商家预期过高；</li><li>如果买家的需求量非常大。需要查看同行竞品的推广方案和出单量，收集渠道端的意见，给商家建议方案，让商家去做决策，决策内容包括推广单价、推广销量；</li><li>寄样验货：验货是为了看商品的质量和拍摄实拍视频。以及作为后期的推广素材；</li></ol><p>在这里，一些渠道能力较强的渠道团长，需要有小样进行验货。除了需要看到产品品质外，他们也需要给自己下面的二级分销商准备素材。</p><p>这里附上和商家常用的一张登记表格</p><table><thead><tr><th align="center"><strong>字段</strong></th><th align="center"><strong>备注</strong></th></tr></thead><tbody><tr><td align="center">链接</td><td align="center">商品短链接（且推广期间链接不能出现拼链接）</td></tr><tr><td align="center">名称</td><td align="center">SKU标注要清楚+规格</td></tr><tr><td align="center">方案</td><td align="center">券额度+券后价+佣金+有无活动（有活动写具体开始到结束的时间）+有无赠品+有无拍立减</td></tr><tr><td align="center">时间</td><td align="center">只需写开始跑的时间</td></tr><tr><td align="center">单量</td><td align="center">实际需求（多少现货库存？日均产量？调货时间是多久？能否保证三天内发货，打包材料有多少？）</td></tr><tr><td align="center">服务费</td><td align="center">线上按照百分标注~线下按照金额标注</td></tr><tr><td align="center">特殊说明</td><td align="center">是否全国包邮，新疆西藏是否包邮（发单量多少）</td></tr><tr><td align="center">发什么快递</td><td align="center"></td></tr><tr><td align="center">亮点</td><td align="center">尽量精简，最好是能说出和市面同类商品不一样的地方</td></tr><tr><td align="center">到量计划</td><td align="center"></td></tr><tr><td align="center">仓库日发货量</td><td align="center">如果日推广量超出日发货量，怎么处理</td></tr><tr><td align="center">商品包装</td><td align="center"></td></tr><tr><td align="center">重要备注</td><td align="center">停券前务必要和业务员沟通，不能说停就停，停券半小时前通知</td></tr><tr><td align="center">日期</td><td align="center">食品确认生产日期及保质期，衣服确认棉的含量</td></tr></tbody></table><p>如果推广的单品是水果生鲜类产品，则更需要注意：</p><ul><li>水果-生鲜确认信息（目前更多的是重点推广存放时间长，不怕挤压、磕碰类水果，例：柚子，百香果等）；</li><li>产品是否属于容易损坏，如猕猴桃（发的货不能全熟，运输会坏）；</li><li>品质。会不会坏充好，品种会不会不一样；</li><li>实际重量，包厢重量（包裹 + 实物重量）要确认；</li><li>包装是否靠谱，易坏的水果需要比较靠谱的包装，如猕猴桃只有一个纸盒是不够的，需要加泡沫，还需要厚一些的纸盒；</li><li>售后处理方式。坏果超过 50% 承诺全赔；</li><li>坏果率超过5%，或者就是消费者群里反馈非常差，如产品差，物流差，客服态度差，需要赔款一定金额。</li></ul><h3 id="文案相关"><a href="#文案相关" class="headerlink" title="文案相关"></a>文案相关</h3><ul><li>提前做好主图、文案、营销图。并且是针对各个不同的渠道，需要看看是否需要准备不同的素材和文案；</li><li>提前开好平台定向计划。</li></ul><h3 id="推广跟单"><a href="#推广跟单" class="headerlink" title="推广跟单"></a>推广跟单</h3><p>负责人需要及时更新相关数据。如：领券截图，附领券量，出单量，转化率，还能跑多少单，至少需要渠道完成多少单等。一般是固定时间，一天同步 2-3 次信息。</p><h3 id="对账回款"><a href="#对账回款" class="headerlink" title="对账回款"></a>对账回款</h3><ul><li>线上结算：推广结束后第 2 天拿数据对账；</li><li>线下结算：推广完 3 天内拿数据对账，对账后7天内必须回款（没跑起来的订单，商家联系不上或者不结算的进行销账处理）</li></ul><p>以上只是基本流程，如果感兴趣，可以找机会体验下相关流程，相信这类公司玩流量的方式可以让你大开眼界。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;淘宝客就是 CPS 广告，淘宝商家基本都很清楚玩法。在阿里妈妈的定向佣金推广，除了小淘宝客，还有一类专门的淘宝客公司。这类公司靠手里流量存活，大的公司掌握的渠道非常之多，令人倾佩。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
     
   </entry>
   
