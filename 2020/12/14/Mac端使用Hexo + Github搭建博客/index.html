@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="Mac端使用Hexo + Github搭建个人博客"/><meta name="keywords" content="Hexo, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2020/12/14/Mac端使用Hexo + Github搭建个人博客/"/>
+<meta name="description" content="Mac端使用Hexo + Github搭建博客"/><meta name="keywords" content="Hexo, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/12/14/Mac端使用Hexo + Github搭建博客/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>Mac端使用Hexo + Github搭建个人博客 - UX Caff</title>
+    <title>Mac端使用Hexo + Github搭建博客 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -89,7 +89,7 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">Mac端使用Hexo + Github搭建个人博客
+      <h1 class="post-title">Mac端使用Hexo + Github搭建博客
         </h1>
 
       <div class="post-meta">
@@ -103,13 +103,13 @@
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C%E5%8F%8A%E4%BB%93%E5%BA%93%E5%88%9B%E5%BB%BA"><span class="toc-text">Github 账号注册及仓库创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85node-js"><span class="toc-text">安装node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="toc-text">安装 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH-Key"><span class="toc-text">配置SSH Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0-GitHub-%E4%BB%93%E5%BA%93"><span class="toc-text">博客关联到 GitHub 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-text">博客操作方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%BB%E9%A2%98%E9%80%89%E6%8B%A9"><span class="toc-text">博客的主题选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D"><span class="toc-text">绑定个人域名</span></a></li></ol>
     </div>
-  </div><div class="post-content"><p>最近用了了下 Hexo。虽然网上已经有了很多类似教程，但是能让非技术人员跟着做下来的很少，所以还是整理下。</p>
+  </div><div class="post-content"><p>最近用了下 Hexo。虽然网上已经有了很多类似教程，但是能让非技术人员跟着做下来的很少，所以还是整理下。</p>
 <a id="more"></a>
 <p>Hexo 的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官网</a>介绍：</p>
 <blockquote>
 <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 </blockquote>
-<p>记下来开始开始一步步说明。</p>
+<p>接下来开始开始一步步说明。</p>
 <h3 id="Github-账号注册及仓库创建"><a href="#Github-账号注册及仓库创建" class="headerlink" title="Github 账号注册及仓库创建"></a>Github 账号注册及仓库创建</h3><ul>
 <li>如果还没有 Github 账号，那么需要先创建 GIthub 账号（因为网页和博客数据是托管在 GitHub 上）。进入 <a target="_blank" rel="noopener" href="https://github.com/">GitHub官网</a>，注册账号成功后，创建一个新的仓库。创建仓库的名字必须为username.github.io，这里的 username 就是注册 GitHub 时的用户名，需要一致。如果不一致，后续会显示 404。</li>
 </ul>
