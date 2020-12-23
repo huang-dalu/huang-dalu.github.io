@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-20T13:15:29.770Z</updated>
+  <updated>2020-12-23T03:51:32.972Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每周总结/2020/51</title>
+    <link href="http://example.com/2020/12/23/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%93:2020:51/"/>
+    <id>http://example.com/2020/12/23/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%93:2020:51/</id>
+    <published>2020-12-23T03:44:04.850Z</published>
+    <updated>2020-12-23T03:51:32.972Z</updated>
+    
+    <content type="html"><![CDATA[<p>极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。</p><a id="more"></a><p>所以，还是继续写一篇。</p><h3 id="每周数据"><a href="#每周数据" class="headerlink" title="每周数据"></a>每周数据</h3><ul><li>目标：番茄数 84， 专注时间 35 小时。</li><li>实际：番茄数 93，专注时间 38 小时 25 分钟。</li></ul><p><img src="https://cdn.brambling.cn/uxcaff/WX20201223-114451.png" alt="image-20201223113546639"></p><p>按照数据统计，本周环比上周，专注时间增加了 4 个半小时。可以统计的效果已经显现。</p><h3 id="每周总结"><a href="#每周总结" class="headerlink" title="每周总结"></a>每周总结</h3><p>这周主要完成的几件事情：</p><ol><li>本周完成了 4 篇文章写作；</li><li>周六参加了有赞大数据技术沙龙；</li><li>完成「体验碎片」转型构思。</li><li>锻炼 2 次的计划未完成。</li></ol><p>下周计划</p><ol><li>计划整理完遗留的的所有事情，开始继续 Python 数据挖掘的学习；</li><li>有赞大数据技术沙龙的体验说明</li></ol><p>另外，这种流水账式终结。这样的记录毫无意义。权当是测试 Blog 样式吧。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Life" scheme="http://example.com/tags/Life/"/>
+    
+  </entry>
   
   <entry>
     <title>拼多多和淘宝的几个细节差异（2020年）</title>
@@ -215,7 +234,7 @@
     <link href="http://example.com/2020/12/09/%E5%85%B3%E4%BA%8E%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%82%E7%82%B9/"/>
     <id>http://example.com/2020/12/09/%E5%85%B3%E4%BA%8E%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%82%E7%82%B9/</id>
     <published>2020-12-09T06:49:10.024Z</published>
-    <updated>2020-12-20T13:22:49.407Z</updated>
+    <updated>2020-12-20T14:09:29.984Z</updated>
     
     <content type="html"><![CDATA[<p>关于拼多多起来的部分原因，为什么做电子面单，以及为什么淘宝的的围追堵截没有拦住拼多多的几个观点。</p><a id="more"></a><h3 id="拼多多（Costco-Disney模式）起来的部分原因："><a href="#拼多多（Costco-Disney模式）起来的部分原因：" class="headerlink" title="拼多多（Costco + Disney模式）起来的部分原因："></a>拼多多（Costco + Disney模式）起来的部分原因：</h3><ul><li>拼多多通过“<strong>电商+游戏</strong>”等精细化运营。转化微信流量的能力非常强。完胜京东、蘑菇街；</li></ul><ul><li>利用「拼团」倒逼供给侧改造。传统电商如阿里巴巴，是将线下交易搬至线上，提供商品、平台、物流、支付，打造线上交易闭环生态，本质是供给侧的线下到线上的转移，属于被动型购物。拼多多的拼团模式更多是从需求侧发起，前期重点做爆款 SKU（也正因为这样，拼多多店铺存在感很弱）。通过大规模的订单实现对供给侧的改造，是主动型购物，效率得到根本的改善。和目前的 KOL 直播购物逻辑类似；</li></ul><ul><li>拼多多的游戏，以微信、拼多多App，做养成类、裂变类游戏。这些内容能给用户带来社交货币和实惠，能给平台带来活跃用户和新增流量。</li></ul><h3 id="拼多多做电子面单系统的逻辑"><a href="#拼多多做电子面单系统的逻辑" class="headerlink" title="拼多多做电子面单系统的逻辑"></a>拼多多做电子面单系统的逻辑</h3><p>现状是拼多多 2 年时间已建成第二大电子面单系统（第 1 是菜鸟电子面单）。为什么拼多多能做电子面单，因为平台订单足够大，在快递公司上游，有决策权。拼多多为什么要去做：</p><ul><li>掌握物流成本议价权。减少商品流通成本；</li></ul><ul><li>在做之前，拼多多是支持菜鸟电子面单的。这样的话，菜鸟甚至知道拼多多日均单量规模（就和现在快手、抖音一样，菜鸟其实也知道），是不能容忍的。</li></ul><h3 id="为什么淘宝没有拦住拼多多？"><a href="#为什么淘宝没有拦住拼多多？" class="headerlink" title="为什么淘宝没有拦住拼多多？"></a>为什么淘宝没有拦住拼多多？</h3><ul><li>拼多多在微信上，做社交流量转化，做得非常高；</li></ul><ul><li>拼多多团队确实是很厉害的团队，目标感和执行力非常强悍。</li></ul>]]></content>
     
@@ -391,25 +410,6 @@
     
     
     <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如果一个人老成一把刀（六首）</title>
-    <link href="http://example.com/2020/09/25/%E5%A6%82%E6%9E%9C%E4%B8%80%E4%B8%AA%E4%BA%BA%E8%80%81%E6%88%90%E4%B8%80%E6%8A%8A%E5%88%80%EF%BC%88%E5%85%AD%E9%A6%96%EF%BC%89/"/>
-    <id>http://example.com/2020/09/25/%E5%A6%82%E6%9E%9C%E4%B8%80%E4%B8%AA%E4%BA%BA%E8%80%81%E6%88%90%E4%B8%80%E6%8A%8A%E5%88%80%EF%BC%88%E5%85%AD%E9%A6%96%EF%BC%89/</id>
-    <published>2020-09-25T13:10:10.000Z</published>
-    <updated>2020-12-13T09:45:42.676Z</updated>
-    
-    <content type="html"><![CDATA[<p>张洪波的六首诗。</p><a id="more"></a><p><strong>空袭后听音乐的叙利亚老人</strong><br>也许乐曲中会有一滴泪<br>湮没疯狂世界<br>收拾残局</p><p><strong>退场</strong><br>灯光忆旧。人已退场<br>不退场就无法进行下一个节目<br>一个角色，苦练多年<br>就为在一次次掌声中退场<br>解除粉墨，恢复原样<br>所有加冕都不如在灯光下看清了自己</p><p><strong>一棵老树</strong><br>一棵老树站在高处<br>它还没有老糊涂<br>还清楚<br>叶子不断坠落地面<br>一棵老树站在高处<br>许多枝丫也断了<br>它拄着拐杖<br>向更高处站立<br>一棵老树苍老而且高大<br>但它一辈子也没有达到<br>那个预想高度</p><p><strong>测量血糖的下午</strong><br>等着那一针 一滴血 一个数值<br>等着被消毒 我静默<br>坐在病床上 未知让人心烦<br>我吃过很多苦 为什么血液里还潜伏这么多糖</p><p><strong>交给时间</strong><br>正如把花交给时间<br>直至败为污泥<br>把人交给时间<br>最后，露了底</p><p><strong>如果一个人老成一把刀</strong><br>如果一个人老成一把刀<br>尽管不是宝刀<br>也要继续磨炼自己<br>不能钝不能生銹<br>刀锋最为重要<br>没有刀锋就不能叫刀</p><p>—— 张洪波</p><p><img src="https://cdn.brambling.cn/uxcaff/poetry.jpeg"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;张洪波的六首诗。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
     
   </entry>
   
