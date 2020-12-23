@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-23T03:51:32.972Z</updated>
+  <updated>2020-12-23T03:55:40.604Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2020/12/23/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%93:2020:51/"/>
     <id>http://example.com/2020/12/23/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%93:2020:51/</id>
     <published>2020-12-23T03:44:04.850Z</published>
-    <updated>2020-12-23T03:51:32.972Z</updated>
+    <updated>2020-12-23T03:55:40.604Z</updated>
     
-    <content type="html"><![CDATA[<p>极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。</p><a id="more"></a><p>所以，还是继续写一篇。</p><h3 id="每周数据"><a href="#每周数据" class="headerlink" title="每周数据"></a>每周数据</h3><ul><li>目标：番茄数 84， 专注时间 35 小时。</li><li>实际：番茄数 93，专注时间 38 小时 25 分钟。</li></ul><p><img src="https://cdn.brambling.cn/uxcaff/WX20201223-114451.png" alt="image-20201223113546639"></p><p>按照数据统计，本周环比上周，专注时间增加了 4 个半小时。可以统计的效果已经显现。</p><h3 id="每周总结"><a href="#每周总结" class="headerlink" title="每周总结"></a>每周总结</h3><p>这周主要完成的几件事情：</p><ol><li>本周完成了 4 篇文章写作；</li><li>周六参加了有赞大数据技术沙龙；</li><li>完成「体验碎片」转型构思。</li><li>锻炼 2 次的计划未完成。</li></ol><p>下周计划</p><ol><li>计划整理完遗留的的所有事情，开始继续 Python 数据挖掘的学习；</li><li>有赞大数据技术沙龙的体验说明</li></ol><p>另外，这种流水账式终结。这样的记录毫无意义。权当是测试 Blog 样式吧。</p>]]></content>
+    <content type="html"><![CDATA[<p>极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。</p><a id="more"></a><p>所以，还是继续写一篇。</p><h3 id="每周数据"><a href="#每周数据" class="headerlink" title="每周数据"></a>每周数据</h3><ul><li>目标：番茄数 84， 专注时间 35 小时。</li><li>实际：番茄数 93，专注时间 38 小时 25 分钟。</li></ul><p><img src="https://cdn.brambling.cn/uxcaff/WX20201223-115435.png" alt="image-20201223113546639"></p><p>按照数据统计，本周环比上周，专注时间增加了 4 个半小时。可以统计的效果已经显现。</p><h3 id="每周总结"><a href="#每周总结" class="headerlink" title="每周总结"></a>每周总结</h3><p>这周主要完成的几件事情：</p><ol><li>本周完成了 4 篇文章写作；</li><li>周六参加了有赞大数据技术沙龙；</li><li>完成「体验碎片」转型构思。</li><li>锻炼 2 次的计划未完成。</li></ol><p>下周计划</p><ol><li>计划整理完遗留的的所有事情，开始继续 Python 数据挖掘的学习；</li><li>有赞大数据技术沙龙的体验说明</li></ol><p>另外，这种流水账式终结。这样的记录毫无意义。权当是测试 Blog 样式吧。</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。&lt;/p&gt;</summary>
@@ -32,6 +32,25 @@
     
     
     <category term="Life" scheme="http://example.com/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试UI设计师问题清单</title>
+    <link href="http://example.com/2020/12/22/%E9%9D%A2%E8%AF%95UI%E8%AE%BE%E8%AE%A1%E5%B8%88%E9%97%AE%E9%A2%98%E6%B8%85%E5%8D%95/"/>
+    <id>http://example.com/2020/12/22/%E9%9D%A2%E8%AF%95UI%E8%AE%BE%E8%AE%A1%E5%B8%88%E9%97%AE%E9%A2%98%E6%B8%85%E5%8D%95/</id>
+    <published>2020-12-22T04:02:37.606Z</published>
+    <updated>2020-12-23T09:03:33.684Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近面试了近 10 位 UI 设计师。记录下自己的面试方式。当然，面试流程会随着对 UI 设计师 这个岗位的理解逐渐调整。</p><a id="more"></a><p>首先申明下，我不是专职设计师。对于设计工具，之前会使用 PS 和 Sketch，现在流行的 Figma 只能算是简单了解，没有花太多时间。不过，曾经行业看重的 iOS 、Android  MD 设计规范以前花了很多时间研究（比如：搜素、导航、手势交互等等）。然后对于交互设计领域也有一些心得。在业余也曾输出过两个 App 项目 UI 视觉稿。</p><p>总结就是，对于 UI 领域，算是半吊子水平。所以面试分工是这样：具体设计细节会有设计师主管帮忙搞定，我负责设计技能（大概了解契合度）、协作、认知是否匹配。</p><p>设计技能上，首先会看候选人的工具。这点我觉得对于设计师、产品经理、开发工程师同样重要。能体现对于工具、协作流程的观点和追求、以及个人品位。前不久 @纯银 说：</p><blockquote><p>判断一个人的 “互联网化” 程度，不是看他每天在互联网上花多少时间，而是看他的信息获取渠道的质量，以及使用互联网服务的广度和深度。</p></blockquote><p>这点也可以用在设计师上。具体表现在：</p><ul><li>主力设计工具用哪些？</li><li>内部协作工具用什么？</li><li>获取设计行业资讯、学习渠道的方式和渠道有哪些？</li><li>是否有 Dribbble、站酷账号，日常输出方式有哪些？</li></ul><p>一位好的设计师，这部分的回答应该不会差。</p><p>接下来会根据设计作品，了解具体设计技能和设计方法。我一般会根据具体设计作品询问：</p><p><strong>技能方面</strong></p><ul><li> 作品上有 PC 和 App，这两个端在设计思路上，有什么不同？</li><li>如何判断设计的页面布局是优秀的？</li><li>拿到 xxx 部分需求，你自己的设计流程是怎样的？</li><li>如何看待 xxx 需求和其他 App（通常是一家大厂 App）的区别，为什么你没有这样设计。你觉得别人的设计合理吗？</li><li>xxx 产品是否有设计规范，这些规范制定原则是怎在考虑？ </li></ul><p><strong>协作方面</strong></p><ul><li>你和交互设计师的分工是怎样的？</li><li>设计师和团队的协作流程是怎样的。是否上线后跟踪（据我观察，上线后跟踪业务数据、上线效果，坚持做到的设计师很少）？</li><li>团队怎么评估一位设计师的优秀与否？</li><li>工作到现在，你碰到的好同事，有什么特征？</li></ul><p><strong>认知方面</strong></p><ul><li>对设计细节是否在乎？那作品 xxx 需求部分的设计细节。是否有考虑？</li><li>其他 App（通常是一家大厂 App）的是 xxx 设计（比如：搜索框架上了搜索按钮设计）。从设计的角度如何看待这种设计趋势？</li><li>UI 设计和公司业绩，关联度表面上没那么高，在某些现实情况下影响个人价值。你怎么看？</li></ul><p>这些问题了解清楚，基本上对设计师的能力有了大概判断，接下来就是常规关于优秀人才的判断了——自我驱动、责任心之类，这些不再赘述。值得一提的是，根据目前经验来看，遇见缺乏「主动性」设计师概率比其他岗位更大。这可能是这个岗位“拿到需求再干活儿”的属性有关。</p><p>好了，目前先说这些。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近面试了近 10 位 UI 设计师。记录下自己的面试方式。当然，面试流程会随着对 UI 设计师 这个岗位的理解逐渐调整。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Design" scheme="http://example.com/tags/Design/"/>
     
   </entry>
   
@@ -177,9 +196,9 @@
     <link href="http://example.com/2020/12/14/%E4%B8%8D%E5%86%8D%E5%86%99%E3%80%8C%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%E3%80%8D%E7%B3%BB%E5%88%97/"/>
     <id>http://example.com/2020/12/14/%E4%B8%8D%E5%86%8D%E5%86%99%E3%80%8C%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%E3%80%8D%E7%B3%BB%E5%88%97/</id>
     <published>2020-12-14T02:54:18.489Z</published>
-    <updated>2020-12-20T05:36:38.478Z</updated>
+    <updated>2020-12-23T09:08:52.634Z</updated>
     
-    <content type="html"><![CDATA[<p>进入冬天，秃枝枯树，一派萧疏。衣物都包裹了好几层。</p><a id="more"></a><p>「体验碎片」系列是在夏天开始，写了 6 期，在冬天收尾，挺好。这个系列的初衷是：</p><blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p><p>内容涉及：商业模式和产品设计讨论，以及对部分大众产品的功能期待，最后会推荐不错的文章。</p></blockquote><p>所以在「体验碎片」系列中，有了“体验亮点”，“体验槽点”，“产品期待”，后续又加了“推荐”。</p><p>原本是准备一直坚持下去，但是最近准备换个玩法。是的，不再写「体验碎片」系列，而是内容扩大一点点儿。主要原因是：</p><ul><li><p>目前的「体验碎片」系列，太偏设计，体验亮点/槽点说了很多的设计，这些当然有用。但目前的兴趣点是商业逻辑、个人认知、技术、数据、文学。这更重要；</p></li><li><p>每期的“体验槽点”，好像是垃圾堆里找食物。除了吐槽，也没办法改变。先解决好能掌控的槽点更重要。其次，我觉得这样的吐槽对性格塑造也不是什么好事。</p></li></ul><p>在看了半年 Newsletter 后，我觉得“那种形式的写作”可能更广阔。像阮一峰《科技爱好者周刊》、《Λ-Reading》、《竹本一世》、《灵感买家俱乐部》、《Weekly Spot》、《Interconnected》、《The Information》。感谢这些刊物启发。</p><p>所以，一些内容会去掉，一些内容会进来。</p><p>在博客上，会把每周总结和这个系列也会结合起来。</p><p>至于“那种形式的写作”，会在另一个系列说明。</p><p>把自己作为方法，期待这些演变。</p>]]></content>
+    <content type="html"><![CDATA[<p>进入冬天，秃枝枯树，一派萧疏。衣物都包裹了好几层。</p><a id="more"></a><p>「体验碎片」系列是在夏天开始，写了 6 期，在冬天收尾，挺好。这个系列的初衷是：</p><blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p><p>内容涉及：商业模式和产品设计讨论，以及对部分大众产品的功能期待，最后会推荐不错的文章。</p></blockquote><p>所以在「体验碎片」系列中，有了“体验亮点”，“体验槽点”，“产品期待”，后续又加了“推荐”。</p><p>原本是准备一直坚持下去，但是最近准备换个玩法。是的，不再写「体验碎片」系列，而是内容扩大一点点儿。主要原因是：</p><ul><li>目前的「体验碎片」系列，太偏设计，体验亮点/槽点说了很多的设计，这些当然有用。但目前的兴趣点是商业逻辑、个人认知、技术、数据、文学。这更重要；</li></ul><ul><li>每期的“体验槽点”，好像是垃圾堆里找食物。除了吐槽，也没办法改变。先解决好能掌控的槽点更重要。其次，我觉得这样的吐槽对性格塑造也不是什么好事。</li></ul><p>在看了半年 Newsletter 后，我觉得“那种形式的写作”可能更广阔。像阮一峰《科技爱好者周刊》、《Λ-Reading》、《竹本一世》、《灵感买家俱乐部》、《Weekly Spot》、《Interconnected》、《The Information》。感谢这些刊物启发。</p><p>所以，一些内容会去掉，一些内容会进来。</p><p>在博客上，会把每周总结和这个系列也会结合起来。</p><p>至于“那种形式的写作”，会在另一个系列说明。</p><p>把自己作为方法，期待这些演变。</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;进入冬天，秃枝枯树，一派萧疏。衣物都包裹了好几层。&lt;/p&gt;</summary>
@@ -389,27 +408,6 @@
     
     
     <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>体验碎片（第 4 期）</title>
-    <link href="http://example.com/2020/09/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%204%20%E6%9C%9F%EF%BC%89/"/>
-    <id>http://example.com/2020/09/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%204%20%E6%9C%9F%EF%BC%89/</id>
-    <published>2020-09-25T13:10:10.000Z</published>
-    <updated>2020-12-09T02:29:38.333Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><h4 id="1-高德应用的家人地图"><a href="#1-高德应用的家人地图" class="headerlink" title="1. 高德应用的家人地图"></a>1. 高德应用的家人地图</h4><p>家人地图试图解决的问题：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600270958968-418a823c-988f-48e6-9f2b-472e493ed204.png#align=left&display=inline&height=799&margin=%5Bobject%20Object%5D&name=image.png&originHeight=3191&originWidth=1242&size=2918691&status=done&style=none&width=311" alt="image.png"><br><em>家人地图介绍</em><br>个人想法：</p><ul><li>好处：共享家人安全，确实不错；这类场景打车软件也可以做；</li><li>重点：第一，个人隐私在平台是否可以得到保障，这类功能，需要说明的是对隐私环节处理；第二，功能对于家人定义和界定，功能是否会被用到其他场景，如果被用到其他犯罪场景，平台是否能识别，是否有治理方案。</li></ul><h4 id="2-iOS-14-更新后银行-App-更新内容"><a href="#2-iOS-14-更新后银行-App-更新内容" class="headerlink" title="2. iOS 14 更新后银行 App 更新内容"></a>2. iOS 14 更新后银行 App 更新内容</h4><p>在 iOS 14 推送前后两天，我一直在关注一些应用变化。因为我一直相信，第一时间应对变化的对策，是最能看出一个人/团队水准。</p><p>巧合的是，我看到了两款非常鲜明对比。招商银行在iOS 14 推送当天，完成系统适配。而建设银行也推送了一版更新，但是我也不清楚一款银行 App 做这些意图是什么。如下图。</p><p>在第 1 期，我吐槽过的 U 盾，实际上就是建设银行产品。实际上，无论 App 体验、线下体验，招商银行都远胜建行。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600848885077-e1c929c4-b926-42a5-92dc-bc84afc87bdb.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1218&originWidth=1772&size=952379&status=done&style=none&width=443" alt="image.png"><br><em>招商银行更新截图</em></p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600848898124-38007964-72ea-403a-a8fc-050ffd3c27c2.png#align=left&display=inline&height=246&margin=%5Bobject%20Object%5D&name=image.png&originHeight=982&originWidth=2362&size=880704&status=done&style=none&width=591" alt="image.png"><br><em>建设银行更新截图</em></p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><h4 id="1-马桶上的大小按钮"><a href="#1-马桶上的大小按钮" class="headerlink" title="1. 马桶上的大小按钮"></a>1. 马桶上的大小按钮</h4><p>如图，马桶上大小按钮作用，我不确定有多少人在正确使用。我统计了下身边数据，几乎没有正确使用这两个按钮。</p><p>正确使用方式是：大按钮水比较多，冲水量更大；小按钮水是只有一半，冲水量较小。设计初衷是用在不同场景，同时也节约水资源。</p><p>所以，你使用对了吗？</p><p><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/613759/1600268041727-d7547ec6-f0aa-4302-8c97-e0fe67c6220c.jpeg#align=left&display=inline&height=255&margin=%5Bobject%20Object%5D&name=a456e67e63253da9deb41050391d4a37_720w.jpg&originHeight=255&originWidth=480&size=14255&status=done&style=none&width=480" alt="a456e67e63253da9deb41050391d4a37_720w.jpg"><br><em>马桶按钮</em></p><h4 id="2-“粉丝收割”文案"><a href="#2-“粉丝收割”文案" class="headerlink" title="2. “粉丝收割”文案"></a>2. “粉丝收割”文案</h4><p>在淘宝商家后台看到如下“粉丝收割”文案。近两年，一些做流量的商业手法，特别多这类词语出现，比如生财有术中各种案例、可能是最懂流量的一些公司 Slogan 等等。</p><p>这些文案让人极其反感。一是几乎看不到对消费者任何尊重，二是抱有这类操作手法的模式，绝大多数对用户都没有产生真正价值，无非是赚规则、政策、信息差的钱。</p><p>这是要引起注意，特别是产品经理。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1600847173158-4538b49c-9318-4b15-8974-94a6d53a7332.png#align=left&display=inline&height=240&margin=%5Bobject%20Object%5D&name=IMG_3332.PNG&originHeight=240&originWidth=435&size=34659&status=done&style=none&width=435" alt="IMG_3332.PNG"><br><em>淘宝卖家中心截图</em></p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><h4 id="1-支付宝做好一款记账工具"><a href="#1-支付宝做好一款记账工具" class="headerlink" title="1. 支付宝做好一款记账工具"></a>1. 支付宝做好一款记账工具</h4><p>记账工具估计有数百万用户量，支付宝应用内有相对简单记账功能。但是用起来非常粗糙。支付宝完全可以做到顺便把记账工具这块市场全部吃掉。</p><p>好吧，看在提升日活跃的份上，期望后续出这么一款工具，类似 MoneyWiz App 是最好不过了。</p><h4 id="2-一款强大的阅读器"><a href="#2-一款强大的阅读器" class="headerlink" title="2. 一款强大的阅读器"></a>2. 一款强大的阅读器</h4><p>如果一款阅读工具有：</p><ul><li>超全书库；</li><li>水墨屏；</li><li>两个窗口，一个主窗口，显示当前正在阅读的书页，一个辅助窗口，显示当前读者就当前书页之内容最可能查询任何相关信息，比如生词，专有名词，维基词条，地图，图片，图解，当前图书其他相关部分（比如注释和引用）；</li><li>辅助窗口内容随翻页而自动产生，产生算法除考虑该页内容外，也考虑读者的阅读和操作历史，辅助内容按查询可能性排序。类似于一个及时注释和延伸内容。</li></ul><p>这款产品对内容要求比较高，期望以后有这类产品出现。</p><h3 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h3><ul><li><a href="">《以自由看待教育》</a></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    
-    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
     
   </entry>
   
