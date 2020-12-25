@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-23T13:17:49.532Z</updated>
+  <updated>2020-12-25T08:36:47.748Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据可视化：sns.regplot 和 sns.distplot</title>
+    <link href="http://example.com/2020/12/25/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Asns.regplot%20%E5%92%8C%20sns.distplot/"/>
+    <id>http://example.com/2020/12/25/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Asns.regplot%20%E5%92%8C%20sns.distplot/</id>
+    <published>2020-12-25T08:33:02.893Z</published>
+    <updated>2020-12-25T08:36:47.748Z</updated>
+    
+    <content type="html"><![CDATA[<p>sns.regplot 和 sns.distplot 这两个图形的使用场景。</p><a id="more"></a><p>sns.regplot 用来比较两个变量的关系，是否符合线性回归。一般用来比较特征变量和标签变量上。sns.distplot 是直方图和核密度图（sns.kdeplot）的结合。用来看单个连续型变量的分布。</p><p>顺便说下直方图和条形图区别：</p><ul><li>直方图：先分箱，然后计算每个分箱频数的数据分布。直方图一般用于数字特征（连续型）；</li><li>条形图一般用于类别特征，条形图有间距，直方图没有。</li></ul><p>先用小费数据集画出图形。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604987097200-eeb58af9-fb83-473d-94ed-bdff9573b153.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=347&size=15197&status=done&style=none&width=347" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">14</span>, <span class="number">4</span>))  <span class="comment"># 指定绘图对象宽度和高度</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;total_bill&#x27;</span>, y=<span class="string">&#x27;tip&#x27;</span>, data=tips, ax=ax, </span><br><span class="line">            scatter_kws=&#123;<span class="string">&#x27;marker&#x27;</span>:<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27;s&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.3</span>&#125;,</span><br><span class="line">            line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;g&#x27;</span>&#125;);</span><br><span class="line">plt.xlabel(<span class="string">&#x27;total_bill&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;tip&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;total_bill&#x27;</span>, y=<span class="string">&#x27;size&#x27;</span>, data=tips, ax=ax, </span><br><span class="line">            scatter_kws=&#123;<span class="string">&#x27;marker&#x27;</span>:<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27;s&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.3</span>&#125;,</span><br><span class="line">            line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;k&#x27;</span>&#125;);</span><br><span class="line">plt.xlabel(<span class="string">&#x27;total_bill&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line">sns.distplot(tips[<span class="string">&#x27;total_bill&#x27;</span>].dropna())</span><br><span class="line">plt.xlabel(<span class="string">&#x27;total_bill&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604987117509-d892cdbd-4a82-4a32-9bd3-c1f4727567ac.png#align=left&display=inline&height=265&margin=%5Bobject%20Object%5D&name=output_2_0.png&originHeight=265&originWidth=829&size=31780&status=done&style=none&width=829" alt="output_2_0.png"></p><p>图一是两个连续型变量比较。total_bill 直接拟合成一条直线，tip 是散点图。但就这个例子图形来看，这两个数据集有一定相关性，但相关性不强。</p><p>图二是一个连续型变量和一个分类变量关系比较。按照例子看基本是不相关的。</p><p>图三是直方图 + 核密度曲线。用来看单个变量的分布情况。</p><p>sns.regplot 和 sns.distplot 可以同时用，同时查看特征分布以及特征和变量关系。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;sns.regplot 和 sns.distplot 这两个图形的使用场景。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+GitHub添加自定义网页</title>
+    <link href="http://example.com/2020/12/25/Hexo+GitHub%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5/"/>
+    <id>http://example.com/2020/12/25/Hexo+GitHub%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5/</id>
+    <published>2020-12-25T07:09:47.413Z</published>
+    <updated>2020-12-25T07:10:41.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在写文章时，需要用到 Jupyter Notebook 文件格式。一些文章内容希望引用下，转成 markdown 格式比较繁琐，表格图表比较多。于是想到把 Jupyter Notebook 格式转成 html，直接跳过 Hexo 生成。</p><a id="more"></a><p>Hexo 系列的博客文章是 Hexo 渲染的静态网页。所以 Hexo 都呈现出一种高度的统一化与规范化。不过 Hexo 提供了跳过渲染功能，使得可以直接在博客中放入自定义网页。</p><p>比如在博客中放入图片、自定义 404.html、自定义 About 页面等。</p><p>html 页面完成后，在 Hexo\source 目录下创建一个文件夹（文件夹名称任意）。部署完成后，将 html 文件放置于此文件夹，并重命名为 index.html 。</p><p>跳过渲染直接在编辑器打开 Hexo\source\，找到创建的文件夹中的 index.html 文件，在开头添加如下代码即可</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">---</span></span><br><span class="line"><span class="selector-tag">layout</span>: <span class="selector-tag">false</span></span><br><span class="line"><span class="selector-tag">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>添加该指令后，执行 hexo g 命令时便会跳过该 index.html 文件,index.html 不受当前 hexo 主题影响，完全是一个独立的网页，如果网页引用了 css 或 js，css 和 js 需使用外链或者将 css js 文件放入index.html同目录下引用。如果有图片，也需要放在同目录下。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近在写文章时，需要用到 Jupyter Notebook 文件格式。一些文章内容希望引用下，转成 markdown 格式比较繁琐，表格图表比较多。于是想到把 Jupyter Notebook 格式转成 html，直接跳过 Hexo 生成。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>公众号开启赞赏</title>
+    <link href="http://example.com/2020/12/24/%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%90%AF%E8%B5%9E%E8%B5%8F/"/>
+    <id>http://example.com/2020/12/24/%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%90%AF%E8%B5%9E%E8%B5%8F/</id>
+    <published>2020-12-24T05:45:37.488Z</published>
+    <updated>2020-12-25T03:40:02.862Z</updated>
+    
+    <content type="html"><![CDATA[<p>让订阅号有个小改变。准备开启公众号赞赏了。</p><a id="more"></a><p>现在的情况是：</p><p>关注者不多，因为本质上，内容还不够好，不够精炼。希望随着时间推移，思考和实践积累，能够有些起色。</p><p>内容呢，属于垂直行业，阅读量也很低。即使这样，这个订阅号也一直在慢慢调整，去掉了文章底部二维码，微调了 LOGO。未来也许还会有。反正想到一些好玩的就过来尝试下。</p><p>好在数据的事情没那么在意。因为初衷还是为记录经验和认知，同时也锻炼输出能力、清晰表达观点的能力。</p><p>如果，有一些内容读者认为不错，那算是额外馈赠。毕竟“好内容”确实是很高的赞扬。</p><p>说到好的内容，还是方可成那句话：</p><blockquote><p>越来越多人懂得健康饮食：少吃垃圾食品，少摄入糖分，多吃蔬菜水果和五谷杂粮；其实，我们也应该用心打造自己的媒体食谱——摄入均衡、充分的信息营养，摒弃低质的信源。读什么，你就是什么。</p></blockquote><p>回到「赞赏」这个点，其实后续很多篇文章中，它其实是可有可无，视而不见的红色鲜艳按钮。但正向反馈总是激励人心的。</p><p>后台时不时能听到读者的赞美，也算是平凡时日、不可多得的惊喜。每次看到后，都会正襟危坐，然后回复：</p><p>“谢谢，期待一起进步。”</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;让订阅号有个小改变。准备开启公众号赞赏了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="写作" scheme="http://example.com/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>由有赞数据中台，想起的业务-组织发展</title>
@@ -347,67 +404,6 @@
     <category term="Notes" scheme="http://example.com/tags/Notes/"/>
     
     <category term="Business" scheme="http://example.com/tags/Business/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何避免低效阅读</title>
-    <link href="http://example.com/2020/10/30/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BD%8E%E6%95%88%E9%98%85%E8%AF%BB/"/>
-    <id>http://example.com/2020/10/30/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E4%BD%8E%E6%95%88%E9%98%85%E8%AF%BB/</id>
-    <published>2020-10-30T13:10:10.000Z</published>
-    <updated>2020-12-08T08:26:32.743Z</updated>
-    
-    <content type="html"><![CDATA[<p>先说网上这么一段：</p><a id="more"></a><blockquote><p>–  我对之前读的书都没有什么印象。是不是白读了？<br>–  不是的，你不要焦虑。你读过的书，走过的路。他们就像吃饭一样。它们存在你的血液里，举手投足，为人处事，都会体现。</p></blockquote><p>以前也深以为然，但是几年体会下来。我的判断是这样：如果是读非虚拟性读物，或者一些报告，一定要做笔记。除非是虚拟类读物，或者一些散文。不然基本是浪费时间（忽略娱乐性质）。</p><p>上面的那个回答，是一种敷衍。</p><p>好了，说回到低效阅读这件事上。低效阅读体现在  3 个关键词上，分别是：<strong>碎片化阅读、精准推荐、热点推送。</strong></p><h4 id="碎片化阅读"><a href="#碎片化阅读" class="headerlink" title="碎片化阅读"></a>碎片化阅读</h4><p>订阅号阅读是碎片化阅读的重灾区。不是说碎片化时间不能阅读，它的低效体现在：</p><ol><li>妄图通过碎片化阅读获得大量知识。可以回想一下，每天花了多少时间在碎片化阅读（订阅号阅读、点赞、收藏；新闻资讯类App；行业资讯等），又收获了多少。可以自己算算投入产出比；</li><li>碎片化时间来不及深度思考。压根不能作为学习、读书的主要状态。</li></ol><h4 id="精准推荐"><a href="#精准推荐" class="headerlink" title="精准推荐"></a>精准推荐</h4><p>现在算法已经作为“内容”产品必不可少的一部分。</p><blockquote><p>TikTok不仅仅在美国非常流行，它在印度和中东的流行程度也同样令人难以置信，而且这些国家的文化和语言对于中国字节跳动产品团队来说都是完全陌生的。想象一下，一个非常聪明的算法能够把另一个陌生市场和文化当作一个黑盒子。那个国家的人们喜欢什么？不，更好的提问方式是，每个国家的每个人都喜欢什么？而字节跳动不需要弄明白这些，算法会处理这个问题。</p><p>算法什么都知道。</p><p>—— Eugene Wei《TikTok与分院帽》</p></blockquote><p>算法除了不择手段方式拿到隐私数据外，还会营造信息茧房。这是它阴暗的一面。</p><p>阅读益处之一就是拓展视野，精准推荐显然是相悖而驰。</p><h4 id="热点推送"><a href="#热点推送" class="headerlink" title="热点推送"></a>热点推送</h4><p>热点推送除了分散个人注意力之外，还会带来焦虑。这点其实很多人都知道，但是又怕错过重大事件、信息。其实大可不必。没有什么信息是一定要知道的，如果对你非常重要，你早晚也会知道。</p><h4 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h4><p>接下来聊下具体的实践方案。</p><blockquote><p>越来越多人懂得健康饮食：少吃垃圾食品，少摄入糖分，多吃蔬菜水果和五谷杂粮；其实，我们也应该用心打造自己的媒体食谱——摄入均衡、充分的信息营养，摒弃低质的信源。读什么，你就是什么。</p><p>—— 方可成</p></blockquote><p>所以：</p><ul><li>主动订阅信息源，屏蔽一切推送。信息源可以分类：速读/深度思考；可以使用 RSS 工具；</li><li>如开篇所说，主动做记录、整理。知识具有框架性，零散的只是信息；</li><li>对碎片化阅读树立正确价值观念，不该指望在这段时间获得太多。碎片时间可以作为阅读的一个环节，比如：发现好内容、整理小知识点。</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;先说网上这么一段：&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>体验碎片（第 5 期）</title>
-    <link href="http://example.com/2020/10/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%205%20%E6%9C%9F%EF%BC%89/"/>
-    <id>http://example.com/2020/10/25/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87%EF%BC%88%E7%AC%AC%205%20%E6%9C%9F%EF%BC%89/</id>
-    <published>2020-10-25T13:10:10.000Z</published>
-    <updated>2020-12-09T02:40:06.205Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。</p></blockquote><a id="more"></a><h3 id="体验亮点"><a href="#体验亮点" class="headerlink" title="体验亮点"></a>体验亮点</h3><h4 id="1-「微信读书」支持全局（书籍标题-书籍内容）搜素"><a href="#1-「微信读书」支持全局（书籍标题-书籍内容）搜素" class="headerlink" title="1. 「微信读书」支持全局（书籍标题 + 书籍内容）搜素"></a>1. 「微信读书」支持全局（书籍标题 + 书籍内容）搜素</h4><p>「微信读书」App 和「得到」App一样，可以做到全局搜素书籍标题和书籍内容，比如搜索“卡方检验”，会出来所有书籍中关于“卡方检验”的关键字内容。</p><p>起初是「得到」上线了该功能，最近不经意间发现「微信读书」也有了，总之是非常方便了。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602726719681-60b98865-fc95-464a-bdae-f4767b20d13e.png#align=left&display=inline&height=753&margin=%5Bobject%20Object%5D&name=image.png&originHeight=3007&originWidth=1642&size=2128486&status=done&style=none&width=411" alt="image.png"></p><h4 id="2-猫咪瓶盖让三得利关注度暴涨"><a href="#2-猫咪瓶盖让三得利关注度暴涨" class="headerlink" title="2. 猫咪瓶盖让三得利关注度暴涨"></a>2. 猫咪瓶盖让三得利关注度暴涨</h4><p>这是看到网上的<a href="https://mp.weixin.qq.com/s?__biz=MzA3ODEzMjg5Mg==&mid=2651716260&idx=1&sn=1182bceccded9bab8e339ec34810a2f6&chksm=84be3957b3c9b041a49428db09075dc5c493461035e4a84d3c56fae13c04d06312ffcfbec028#rd">一篇资讯</a>，觉得很有意思。带来了一些思考点。先介绍下这个设计细节。</p><p>2019年的猫之日，三得利公司借势发布了一款猫咪形状瓶盖，在常规矿泉水圆形瓶盖的基础上加上两只“猫耳朵”。</p><blockquote><p>当年10月，三得利又一次性推出8款升级版“猫咪瓶盖”，让瓶盖兼具药盒、存钱罐、按摩器等多种功能。引起了网友们的热烈讨论，三得利官方推特中，当条推文点赞数达到21.6万，而三得利日常推文的点赞数只在400左右。可以说，这一次“瓶盖创意”，让三得利品牌的关注度暴涨500倍！</p></blockquote><p>设计当然出彩。但这里我在想的是。这些案例中，有一些只能作为营销活动存在，有一些可以作为真正的产品线存在。</p><p>比如拿文章中的具体案例来说，「存钱罐瓶盖」个人判断是可以作为一个营销活动而传播，但是有必要作为一个固定产品线吗？我觉得是没必须要的，需求场景太弱。</p><p>如果做活动策划，那应该考虑的关键词是：品牌、短期产品数据、用户口碑。如果是当成一款固定产品线来考虑，要考虑的就是：使用场景、市场大小、成本。</p><p>由于没有做过这种消费品类公司。想得比较浅显。不确定具体公司中这类情况的决策依据是什么。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603604641122-4b97d7e7-078c-4522-a37d-8b23e2dbbb82.png#align=left&display=inline&height=540&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1080&originWidth=1080&size=1826818&status=done&style=none&width=540" alt="image.png"></p><h3 id="体验槽点"><a href="#体验槽点" class="headerlink" title="体验槽点"></a>体验槽点</h3><h4 id="1-共享单车的变速器"><a href="#1-共享单车的变速器" class="headerlink" title="1. 共享单车的变速器"></a>1. 共享单车的变速器</h4><p>在家楼下骑共享单车，发现还有加了变速器的共享单车。尝试骑了下，体验确实是不错。但是想了想，站在公司运营的角度，其实是没有必要给单车加上变速器的。在骑行单价没有变高的情况下，增加少数场景下使用的功能，无疑是加重成本负担。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602748078095-df53180b-f52d-42fc-8c1f-3b1f10f0734f.png#align=left&display=inline&height=500&margin=%5Bobject%20Object%5D&name=D0F8B6FB-FA37-4350-89DD-2962F27A99CD.png&originHeight=2000&originWidth=1500&size=2819532&status=done&style=none&width=375" alt="D0F8B6FB-FA37-4350-89DD-2962F27A99CD.png"></p><h4 id="2-某些内容资讯网站"><a href="#2-某些内容资讯网站" class="headerlink" title="2. 某些内容资讯网站"></a>2. 某些内容资讯网站</h4><p>有一些电商内容卖课网站日活跃几万个 UV，靠代理电商工具、电商培训课程赚钱。搞流量的方式是：</p><ol><li>通过百度搜索找到电商热门关键词</li><li>导出关键词，找到小县城的宝妈资源，让宝妈根据关键词拼凑文章，一篇文章3.00-5.00元</li><li>坚持 1 年以上（创始人期间还不断和我强调要坚持，打持久战）</li></ol><p>这样人工的方式，目标群体能通过关键词进入网站；百度爬虫也喜欢这种内容。</p><p>这些内容垃圾充满整个网站。并且还在宣扬所谓的“坚持”“长期主义”，这是典型的聪明和态度用错了地方。</p><p>另外我发现，「生财有术」中很多来钱的方式，和这个性质差不多。</p><h3 id="产品期待"><a href="#产品期待" class="headerlink" title="产品期待"></a>产品期待</h3><h4 id="1-期望微信订阅号可以把内容一键生成博客"><a href="#1-期望微信订阅号可以把内容一键生成博客" class="headerlink" title="1. 期望微信订阅号可以把内容一键生成博客"></a>1. 期望微信订阅号可以把内容一键生成博客</h4><p>这个需求的出发点是：很多订阅号作者的文章是有体系的，结构化的知识。但是手机上订阅号的分类目录并没有网页上直观；另外，越是优秀的订阅号写作者，内容的半衰期越长，内容越好，需要做笔记、记录等。在电脑上会更方便。</p><p>我个人是非常希望有这种功能，不知道读者有没有这种需求。</p><h4 id="2-「轻芒杂志」App-订阅一切"><a href="#2-「轻芒杂志」App-订阅一切" class="headerlink" title="2. 「轻芒杂志」App 订阅一切"></a>2. 「轻芒杂志」App 订阅一切</h4><p>「轻芒杂志」App 最近终于上线了，记得在体验碎片（第 2 期）有说过一个产品的期望，那时候写的是：</p><blockquote><p>期望一款产品拥有：</p><ul><li>聚合播客、博客、主流资讯网站、B站、主流网文网站、知乎专栏、微信订阅号（有的话就超出预期）。视频类；</li><li>信息及时；</li><li>不会有内容周期限制，根据个人喜好保存；</li><li>附带笔记应用部分功能（分类、划线、编辑、收藏等）；</li><li>Web 端/客户端体验。</li></ul></blockquote><p>所以，「轻芒杂志」出现了，填补了「即刻」App （订阅信息版本）的空缺。如今还想有的功能：</p><ul><li>Web/ 电脑客户端的体验（据说网页版轻芒团队有在计划）</li><li>语言翻译相关（加分项）</li></ul><p>总之，未来可期，期望的产品总会有人在做。如果你意识到目前接触信息的重要性，想主动订阅而不是被推送，可以体验看看。</p><h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><ul><li><a href="https://mp.weixin.qq.com/s/GEJjJVSv6fAxtfyJE0GIeQ">《对话陆奇：做一件长期有价值的事，不被人理解是必然的》</a></li><li><a href="https://mp.weixin.qq.com/s/jeeG0YD_LIAl287p7UGJ8Q">《陆奇如何解构一家企业？》</a></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;一方面是持续保持对产品体验敏感度，另外希望可以作为零碎信息整理，为系统知识构建提供内容。所以会不定期发布「体验碎片」。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    
-    <category term="体验碎片" scheme="http://example.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拼多多平台商家情况分析（2020年）</title>
-    <link href="http://example.com/2020/10/16/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%95%86%E5%AE%B6%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90%EF%BC%882020%E5%B9%B4%EF%BC%89/"/>
-    <id>http://example.com/2020/10/16/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%95%86%E5%AE%B6%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90%EF%BC%882020%E5%B9%B4%EF%BC%89/</id>
-    <published>2020-10-16T13:10:10.000Z</published>
-    <updated>2020-12-08T08:23:20.578Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="商家量和基本属性"><a href="#商家量和基本属性" class="headerlink" title="商家量和基本属性"></a>商家量和基本属性</h4><p>拼多多官方并没有公布过商家数量，倒是最近在一篇报告中有描述：</p><a id="more"></a><blockquote><p>中国农业大学智慧电商研究院发布的《2020中国农村电商人才现状与发展报告》数据显示，拼多多在不到五年时间里，以裂变等方式获得6.28亿年度活跃消费者，并吸引510万活跃商户。</p></blockquote><p>但是这篇报告并没有说明“活跃商户”的定义。根据网上平台的商家量数据对比，以及拼多多平台的商家订单量作为对比，日活跃商家（或者日成交订单商家），估计 200 万不到。</p><p>另外，因为拼多多一直施行“0佣金”和“0平台服务年费”的政策。相较其他线上渠道针对每笔订单收取 5% 左右的交易佣金，2019年，拼多多仅“0佣金”政策，就帮助商家节省了500亿元左右的资金成本，此外商家也不需要缴纳任何平台年费。由于这个规则，拼多多平台上的多店铺商家，以及店群经营模式商家，远高于淘宝平台。</p><p>通过目前已知的数据来看，拼多多平台商家数量增长，更多是同商户的多店铺增长。并且平台暂时不可能对拼多多商家有收费计划，重点仍旧放在扩大商家用户规模。所以，这种情况目前还是会一直存在。</p><h4 id="经营模式"><a href="#经营模式" class="headerlink" title="经营模式"></a>经营模式</h4><p><strong>拼多多商家运营模式分类：单品爆款商家、全品类品牌商家、多子类目店群商家。</strong></p><p>拼多多商家单品爆款的商家占比非常高，包括服饰类目。基于淘宝服饰类目店铺的分析，上新量高的店主风和网红风店铺未形成，对于商品管理的需求还在萌芽阶段。而且商家客单低，订单量大，主流商家的日均订单几乎是淘宝的两倍。</p><p><strong>单品爆款商家</strong>通常是淘宝等其它平台一些老卖家，对于流量玩法非常清晰，通过直通车迅速打造类目 TOP。这类用户店铺内通常只有 3 个商品以下，无商品管理需求。仅需数据分析、成本利润等。</p><p><strong>全品类品牌商家</strong>通常是天猫/JD品牌商家，在其它平台销量和品牌知名度都取的较好成绩。这类商家通常店铺内商品数量较多（有类目差异），有商品管理、数据分析需求。其它需求均可通过商家后台或 ERP 系统实现。</p><p><strong>多叶子类目店群商家</strong>（占比90%以上）是拼多多独有的商家形态。店铺数多，流量分散，订单分散；这类商家需要商品搬家、多店铺打单、成本利润等。</p><p>另外，相较于其他平台，拼多多商家更在意客服回复速度、发货速度。很简单，因为平台方针对这几个指标和惩罚机制。商品活动报名也会有权重倾斜。</p><p>以上，是拼多多商家在当前情况的一些速记。</p>]]></content>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;商家量和基本属性&quot;&gt;&lt;a href=&quot;#商家量和基本属性&quot; class=&quot;headerlink&quot; title=&quot;商家量和基本属性&quot;&gt;&lt;/a&gt;商家量和基本属性&lt;/h4&gt;&lt;p&gt;拼多多官方并没有公布过商家数量，倒是最近在一篇报告中有描述：&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
-    
-    <category term="拼多多" scheme="http://example.com/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/"/>
     
   </entry>
   
