@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-27T11:12:28.016Z</updated>
+  <updated>2020-12-27T11:19:35.388Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="http://example.com/2020/12/27/%E8%87%B4%E7%96%AF%E5%AD%90%E4%BB%AC--Apple/"/>
     <id>http://example.com/2020/12/27/%E8%87%B4%E7%96%AF%E5%AD%90%E4%BB%AC--Apple/</id>
     <published>2020-12-27T11:12:15.330Z</published>
-    <updated>2020-12-27T11:12:28.016Z</updated>
+    <updated>2020-12-27T11:19:35.388Z</updated>
     
-    <content type="html"><![CDATA[<p>Steve jobs 重回 Apple 的一则广告语。</p><a id="more"></a><p>致疯子们</p><p>The misfits<br>那些格格不入者</p><p>The rebels<br>那些叛逆者</p><p>The troublemakers<br>那些麻烦制造者</p><p>The round pegs in the square holes<br>那些方孔里的圆钉</p><p>The ones who see things differently<br>那些另眼看世界者</p><p>They’re not fond of rules<br>他们不喜成规</p><p>And they have no respect for the status quo<br>他们不敬现状</p><p>You can quote them, disagree with them, glorify or vilify them<br>你可以引用他们、否定他们、夸奖他们、诟病他们</p><p>About the only thing you can’t do is ignore them<br>但是你无法忽略他们</p><p>Because they change things<br>因为他们改变事物</p><p>They push the human race forward<br>因为他们推进人类向前</p><p>And while some may see them as the crazy ones, we see genius<br>或许有人把他们当成疯子，我们视他们为天才</p><p>Because the people who are crazy enough to think they can change the world, are the ones who do.<br>因为人只有疯到认为自己可以改变世界，才是最终改变世界的人。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Steve jobs 重回 Apple 的一则广告语。&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>Steve jobs 重回 Apple 的<a href="https://www.bilibili.com/s/video/BV1sE411D7Dz">一则广告</a>。</p><a id="more"></a><p>致疯子们</p><p>The misfits<br>那些格格不入者</p><p>The rebels<br>那些叛逆者</p><p>The troublemakers<br>那些麻烦制造者</p><p>The round pegs in the square holes<br>那些方孔里的圆钉</p><p>The ones who see things differently<br>那些另眼看世界者</p><p>They’re not fond of rules<br>他们不喜成规</p><p>And they have no respect for the status quo<br>他们不敬现状</p><p>You can quote them, disagree with them, glorify or vilify them<br>你可以引用他们、否定他们、夸奖他们、诟病他们</p><p>About the only thing you can’t do is ignore them<br>但是你无法忽略他们</p><p>Because they change things<br>因为他们改变事物</p><p>They push the human race forward<br>因为他们推进人类向前</p><p>And while some may see them as the crazy ones, we see genius<br>或许有人把他们当成疯子，我们视他们为天才</p><p>Because the people who are crazy enough to think they can change the world, are the ones who do.<br>因为人只有疯到认为自己可以改变世界，才是最终改变世界的人。</p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;Steve jobs 重回 Apple 的&lt;a href=&quot;https://www.bilibili.com/s/video/BV1sE411D7Dz&quot;&gt;一则广告&lt;/a&gt;。&lt;/p&gt;</summary>
     
     
-    <category term="诗歌" scheme="http://example.com/tags/%E8%AF%97%E6%AD%8C/"/>
+    
+    
+    <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
     
   </entry>
   
