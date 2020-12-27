@@ -105,7 +105,7 @@
 <p>顺便说下直方图和条形图区别：</p>
 <ul>
 <li>直方图：先分箱，然后计算每个分箱频数的数据分布。直方图一般用于数字特征（连续型）；</li>
-<li>条形图一般用于类别特征，条形图有间距，直方图没有。</li>
+<li>条形图：一般用于类别特征，条形图有间距，直方图没有。</li>
 </ul>
 <p>先用小费数据集画出图形。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
@@ -128,7 +128,12 @@
             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a>
             </div>
         
-        <nav class="post-nav"><a class="next" href="/2020/12/25/Hexo+GitHub%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5/">
+        <nav class="post-nav"><a class="prev" href="/2020/12/27/%E8%87%B4%E7%96%AF%E5%AD%90%E4%BB%AC--Apple/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">致疯子们 -- Apple</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/12/25/Hexo+GitHub%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5/">
         <span class="next-text nav-default">Hexo+GitHub添加自定义网页</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
