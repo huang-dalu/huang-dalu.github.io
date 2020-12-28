@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="判断数据正态分布的 2 个方法"/><meta name="keywords" content="Python, 数据分析, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/12/28/判断数据正态分布的 2 个方法/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>判断数据正态分布的 2 个方法 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">判断数据正态分布的 2 个方法
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-12-28
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q-Q%E5%9B%BE"><span class="toc-text">Q-Q图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE"><span class="toc-text">直方图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>说明判断数据正态分布的 2 个方法，当然也不止 2 种，只是比较常用。</p>
+<a id="more"></a>
+
+<h3 id="Q-Q图"><a href="#Q-Q图" class="headerlink" title="Q-Q图"></a>Q-Q图</h3><p>Q-Q图（分位数-分位数图）是两个分位数彼此相对的图。分位数是某些值低于该分位数的分数。</p>
+<p>例如，中位数是一个分位数，其中 50％ 的数据低于该点，而 50％ 的数据位于该点之上。Q-Q图的目的是找出两组数据是否来自同一分布。Q-Q图上绘制了 45 度角；如果两个数据集来自同一分布，则这些点将落在该参考线上。</p>
+<p><strong>Q-Q图的 2 个作用：</strong></p>
+<ol>
+<li>数据集和正态分布做对比，观察数据是否符合正态分布；</li>
+<li>两个数据集对比，观察两个数据集是否分布一致。</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828171528-44c4652b-bf4d-400d-a13d-bf6cc70ac115.png#align=left&display=inline&height=411&margin=%5Bobject%20Object%5D&name=image.png&originHeight=411&originWidth=476&size=15252&status=done&style=none&width=476" alt="image.png"></p>
+<p><strong>举例：</strong>7.19、6.31、5.89、4.5、3.77、4.25、5.19、5.79、6.79。以上值是否来自正态分布？<br><strong>解法：</strong></p>
+<ol>
+<li>从最小到最大排序。3.77、4.25、4.50、5.19、5.89、5.79、6.31、6.79、7.19</li>
+<li>绘制正态分布曲线。将曲线分成n + 1个段。我们有 9 个值，因此将曲线分为 10 个大小相等的区域。对于此示例，每个线段占面积的 10％（因为100％/ 10 = 10％）。</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828580368-fc61d994-2506-4625-8ccf-adbbcd5ec8e4.png#align=left&display=inline&height=237&margin=%5Bobject%20Object%5D&name=image.png&originHeight=237&originWidth=346&size=33433&status=done&style=none&width=346" alt="image.png"></p>
+<ol start="3">
+<li>在第 3 步中找到每个分段的 z 值（截止点）。这些分段是 _area_，因此请参考 z 表（标准正态概率）以获取每个分段的 z 值。在 z 值是：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>分位</strong></th>
+<th align="center"><strong>z值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10％</td>
+<td align="center">-1.28</td>
+</tr>
+<tr>
+<td align="center">20％</td>
+<td align="center">-0.84</td>
+</tr>
+<tr>
+<td align="center">30%</td>
+<td align="center">-0.52</td>
+</tr>
+<tr>
+<td align="center">40%</td>
+<td align="center">-0.25</td>
+</tr>
+<tr>
+<td align="center">50%</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">60%</td>
+<td align="center">0.25</td>
+</tr>
+<tr>
+<td align="center">70%</td>
+<td align="center">0.52</td>
+</tr>
+<tr>
+<td align="center">80%</td>
+<td align="center">0.84</td>
+</tr>
+<tr>
+<td align="center">90%</td>
+<td align="center">1.28</td>
+</tr>
+<tr>
+<td align="center">100%</td>
+<td align="center">3.0</td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828613856-7b202d41-eea6-42a5-8e4a-39d23f248976.png#align=left&display=inline&height=237&margin=%5Bobject%20Object%5D&name=image.png&originHeight=237&originWidth=346&size=31881&status=done&style=none&width=346" alt="image.png"></p>
+<ol start="4">
+<li>针对正态分布截止点（步骤 3 ）绘制数据集值（步骤 1 ）。绘制表格：</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828641949-822e7917-2ca4-4053-9d3d-fdd9ee32661a.png#align=left&display=inline&height=338&margin=%5Bobject%20Object%5D&name=image.png&originHeight=338&originWidth=523&size=14051&status=done&style=none&width=523" alt="image.png"></p>
+<p>Q-Q图上的（几乎）直线表示数据符合正态分布。</p>
+<h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><p>使用直方图来观察数据集符合正态分布相对容易理解，只需要观察数据集是否是正态分布的钟型形状，两头低，中间高。越标准与正态分布越吻合。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603089692569-f433353b-da04-448e-9a7a-02375525144b.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=image.png&originHeight=159&originWidth=343&size=14989&status=done&style=none&width=343" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直方图</span></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">sns.distplot(tips[<span class="string">&#x27;total_bill&#x27;</span>],fit=stats.norm)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Q-Q图</span></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">res = stats.probplot(tips[<span class="string">&#x27;total_bill&#x27;</span>], plot=plt)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603089713759-95b2cf22-990e-4797-87e4-0f3ec6cc3c2e.png#align=left&display=inline&height=334&margin=%5Bobject%20Object%5D&name=image.png&originHeight=334&originWidth=602&size=33091&status=done&style=none&width=602" alt="image.png"></p>
+<p>观察可以得出，total_bill数据集大概是符合正态分布的。</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.statisticshowto.com/q-q-plots/"><em>https://www.statisticshowto.com/q-q-plots/</em></a></li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Python/">Python</a>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/12/28/%E5%87%A0%E9%A6%96%E5%B0%8F%E8%AF%97/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">几首小诗</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/12/28/Anaconda%20%E5%AE%89%E8%A3%85%E9%83%A8%E5%88%86%E4%B8%89%E6%96%B9%E5%8C%85%E6%B5%81%E7%A8%8B/">
+        <span class="next-text nav-default">Anaconda 安装部分三方包流程</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
