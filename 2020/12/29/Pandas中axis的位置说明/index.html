@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="如何开一个高效的会议"/><meta name="keywords" content="Notes, Management, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2019/05/28/如何开一个高效的会议/"/>
+<meta name="description" content="Pandas中axis的位置说明"/><meta name="keywords" content="Python, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/12/29/Pandas中axis的位置说明/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>如何开一个高效的会议 - UX Caff</title>
+    <title>Pandas中axis的位置说明 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -89,54 +89,47 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">如何开一个高效的会议
+      <h1 class="post-title">Pandas中axis的位置说明
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2019-05-28
+          2020-12-29
         </span></div>
     </header>
 
-    <div class="post-content"><blockquote>
-<p>众所周知，早在九十年前，孙文先生就提出了“集会者，实为民权发达之第一步”的命题，并且强调习练、演试罗伯特议事规则之类集会方法论的重要性。——《罗伯特议事规则》</p>
-</blockquote>
+    <div class="post-content"><p> 先看一个演示。</p>
 <a id="more"></a>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 
-<p>其实单独写一篇文章来讨论开会，已经足以证明其重要性。</p>
-<p>开会作为集体行为，不仅自己要花时间，对与会人的精力和时间也是极大消耗。所以我结合过往经验，说下如何开一个高效的会议。</p>
-<p>首先在开会前。需要提前处理好以下 3 点：</p>
-<ol>
-<li>明确会议目标，这是最重要的。会议目标往往是同步信息、提出问题。不要试图在会议上群体讨论，群体决议得到结果，这样做只能会议发起者的无能（在互联网行业，见到最多的通常是老板或者产品经理）；</li>
-<li>提前通知与会人相关信息：会议背景、讨论内容（附带相关资料）、与会相关人员、会议时间以及开会需要的时间。尽量避免临时拉一群人通知并且马上开会，陈述内容例如：“某某某，来一下会议室，我们碰一下”。特别是重要的、需要准备的议题，这样操作无疑是灾难的；</li>
-<li>提前约好会议室，这是很简单的道理。</li>
-</ol>
-<p>其次，在开会时，需要注意的是：</p>
-<ol>
-<li>会议发起者需要主导会议。主导会议需要干几件事：根据会议目标引导整个会议流程。保证会议讨论内容不要偏离主题；</li>
-<li>确保会议上提出的所有问题，都能明确到具体责任人；</li>
-<li>会议过程问题、结果、关键 Action，需要有简单记录；</li>
-<li>根据会议内容多少、重要性、复杂程度，判断是否需要在会议结束时有会议总结输出到与会人员。建议常规情况下，最好要有；</li>
-<li>会议时间控制。常规会议，不要超过 30 分钟；类如产品需求评审这种会议，建议也不要超过 1 小时。时间越长注意力越分散，事倍功半。</li>
-</ol>
-<p>做好了这些基本上可以开一个高效的会议。另外，如果希望进阶“开一个专业高效的会议”，可以参看《罗伯特议事规则》，一本专门讲开会的书，已经出到了 11 版。这样的书，一定会有内容帮助到你。</p>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609226941755-0c9393d7-afd9-4db5-85ea-308427f352b2.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=347&size=15120&status=done&style=none&width=347" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips = tips.drop([<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;smoker&#x27;</span>,<span class="string">&#x27;day&#x27;</span>,<span class="string">&#x27;time&#x27;</span>],axis=<span class="number">1</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609226958701-7dbedc61-feab-4467-bbdd-135dbe7a8897.png#align=left&display=inline&height=162&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=158&size=7027&status=done&style=none&width=158" alt="image.png"></p>
+<p><code>axis</code> 使用 0 值表示沿着每一列或行标签\索引值向下执行方法；使用 1 值表示沿着每一行或者列标签模向执行对应的方法。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609227050243-fe33bb4c-ab6f-4f62-8cdd-6f4118e7c351.png#align=left&display=inline&height=341&margin=%5Bobject%20Object%5D&name=image.png&originHeight=341&originWidth=652&size=95214&status=done&style=none&width=652" alt="image.png"></p>
+<p>如上图，在 Pandas 中， <code>axis</code> 的位置图示。</p>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/Notes/">Notes</a>
-            <a href="/tags/Management/">Management</a>
+            <a href="/tags/Python/">Python</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2019/06/01/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BC%B0%E4%BA%A7%E5%93%81%E4%B8%8A%E7%BA%BF%E5%90%8E%E7%9A%84%E6%95%88%E6%9E%9C/">
+        <nav class="post-nav"><a class="prev" href="/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BD%9C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%B9%8BPearson/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">如何评估产品上线后的效果</span>
+        <span class="prev-text nav-default">统计学：相关系数介绍</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2019/05/25/%E4%B8%80%E4%BD%8D%E7%8B%82%E7%83%AD%E5%B4%87%E6%8B%9C%E4%BA%9A%E9%87%8C%E5%A3%AB%E5%A4%9A%E5%BE%B7%E7%9A%84%E7%94%B7%E5%A3%AB%E5%9C%A8%E9%85%92%E5%90%A7%E8%AF%95%E5%9B%BE%E5%8B%BE%E6%90%AD%E4%B8%80%E4%BD%8D%E5%A5%B3%E5%A3%AB/">
-        <span class="next-text nav-default">一位狂热崇拜亚里士多德的男士在酒吧试图勾搭一位女士</span>
+    <a class="next" href="/2020/12/29/Python%E5%9F%BA%E7%A1%80%EF%BD%9C%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
+        <span class="next-text nav-default">Python常见的字符串操作</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
