@@ -98,12 +98,11 @@
         </span></div>
     </header>
 
-    <div class="post-content"><p>接触到核密度估计是seaborn库中的 kdeplot （也就是核密度估计图）。它可以比较直观看出样本数据的分布特征。用到查看单个样本数据分布特征，和比较多个样本数据分布是否一致。</p>
-<a id="more"></a>
-
+    <div class="post-content"><p>接触到核密度估计是 seaborn 库中的 kdeplot （也就是核密度估计图）。它可以比较直观看出样本数据的分布特征。用到查看单个样本数据分布特征，和比较多个样本数据分布是否一致。<a id="more"></a></p>
+<p>我目前最常用的还是在同一变量下，比较测试集和训练集数据的分布差异情况。</p>
 <p>了解数据分布的另一种图示方法是使用直方图。但是使用起来有几个缺点。一个原因是绘制直方图需要确定组距，组距的大小就会确定分布特征。而且使用直方图展示的分布曲线并不平滑。</p>
-<p>回到核密度估计，查阅了一些相关理论，理论讲解部分目前懂了，但是数学公式推导还是有些不懂。由于目前只是核密度图来查看数据集分布，所以这部分原理决定还是放一放，留在后续。</p>
-<p>常用的还是seaborn库的 kdeplot，也就是核密度估计图。下面用seaborn库自带的小费数据集演示。</p>
+<p>回到核密度估计，查阅了一些相关理论，理论讲解部分目前懂了，但是数学公式推导细节还是有些不懂。由于目前只是核密度图来查看数据集分布，所以这部分原理决定还是放一放，后续再花时间。</p>
+<p>常用的还是 seaborn 库的 kdeplot，也就是核密度估计图。下面用 seaborn 库自带的小费数据集演示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 
 
@@ -117,9 +116,8 @@
 <p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641604139-fb51ce59-a977-40c5-91df-ab330e7836f6.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=output_2_0.png&originHeight=261&originWidth=601&size=19762&status=done&style=none&width=601" alt="output_2_0.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.kdeplot(tips[<span class="string">&#x27;total_bill&#x27;</span>], color=<span class="string">&quot;Red&quot;</span>, shade=<span class="literal">True</span>)</span><br><span class="line">ax = sns.kdeplot(tips[<span class="string">&#x27;tip&#x27;</span>], color=<span class="string">&quot;Blue&quot;</span>, shade=<span class="literal">True</span>)</span><br><span class="line">ax = ax.legend([<span class="string">&quot;total_bill&quot;</span>,<span class="string">&quot;tip&quot;</span>])</span><br></pre></td></tr></table></figure>
 
-
 <p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641610796-fe142201-9b34-4f36-94b5-623468070693.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=output_3_0.png&originHeight=248&originWidth=378&size=10435&status=done&style=none&width=378" alt="output_3_0.png"><br>拿小费数据集为例。图一单个看 total_bill 和 tip，两个数据集分布基本一致，都是略微右偏。</p>
-<p>另外。提一个问题：来看图二，放在一起对比就会明显。如果假设一个是测试集数据，另外一个为训练集数据。这类情况是否需要对数据处理进行处理？</p>
+<p>另外。提一个问题：来看图二，放在一起对比就会明显。如果假设一个是测试集数据，另外一个为训练集数据。这类情况是否需要对数据处理进行处理？显然是需要的，因为测试集和训练集分布差距大，会导致模型泛化能力差。这部分根据具体情况看，如果特征足够多，常见的操作是删除差距较大的特征。</p>
 
       </div>
       

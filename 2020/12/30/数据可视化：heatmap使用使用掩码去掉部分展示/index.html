@@ -119,7 +119,7 @@
 
 <p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609304528995-843dc5f9-b763-4977-b55d-93bf6b16a391.png#align=left&display=inline&height=402&margin=%5Bobject%20Object%5D&name=output_4_0.png&originHeight=402&originWidth=478&size=23258&status=done&style=none&width=478" alt="output_4_0.png"></p>
 <p>其中，mask[np.triu_indices_from(mask)] = True 将 <code>mask</code> 的对角线及以上设置为 <code>True</code>。这部分就是对应要被遮掉的部分，不清楚可以把<code>mask</code> 打印出来看看。</p>
-<p>还有一个关键点是 sns.heatmap() 的 <code>mask</code> 参数：布尔数组或者 DataFrame 数据，可选参数。如果为空值，数据将不会显示在mask为 True 的单元格中。 具有缺失值的单元格将自动被屏蔽。所以，将 <code>mask</code> 设置为 <code>True</code> 是为了有一个掩码可以去掉右上角的数据。</p>
+<p>还有一个关键点是 sns.heatmap() 的 <code>mask</code> 参数：布尔数组或者 DataFrame 数据，可选参数。如果为空值，数据将不会显示在 <code>mask</code> 为 <code>True</code>  的单元格中。 具有缺失值的单元格将自动被屏蔽。所以，将 <code>mask</code> 设置为 <code>True</code> 是为了有一个掩码可以去掉右上角的数据。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mask = np.zeros_like(corr, dtype=np.<span class="built_in">bool</span>)  <span class="comment"># 构造与corr同维数矩阵为bool型</span></span><br><span class="line">mask[np.triu_indices_from(mask)] = <span class="literal">True</span>  <span class="comment"># 角分线右侧为True</span></span><br><span class="line">mask</span><br></pre></td></tr></table></figure>
 
 
@@ -133,8 +133,13 @@
             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a>
             </div>
         
-        <nav class="post-nav"><a class="next" href="/2020/12/30/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E5%AF%B9%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%80%81%E5%BA%A6/">
-        <span class="next-text nav-default">简单说说对大数据的看法</span>
+        <nav class="post-nav"><a class="prev" href="/2020/12/30/Pandas%E6%95%B0%E6%8D%AE%E9%80%89%E5%8F%96%E7%9A%844%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Pandas数据选取的4种方式</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/12/30/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E5%AF%B9%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%80%81%E5%BA%A6/">
+        <span class="next-text nav-default">简单说说对大数据的态度</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
