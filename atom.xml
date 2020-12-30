@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-29T09:52:55.100Z</updated>
+  <updated>2020-12-30T05:05:23.143Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据可视化：heatmap使用使用掩码去掉部分展示</title>
+    <link href="http://example.com/2020/12/30/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Aheatmap%E4%BD%BF%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8E%A9%E7%A0%81%E5%8E%BB%E6%8E%89%E9%83%A8%E5%88%86%E5%B1%95%E7%A4%BA/"/>
+    <id>http://example.com/2020/12/30/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Aheatmap%E4%BD%BF%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8E%A9%E7%A0%81%E5%8E%BB%E6%8E%89%E9%83%A8%E5%88%86%E5%B1%95%E7%A4%BA/</id>
+    <published>2020-12-30T05:03:49.204Z</published>
+    <updated>2020-12-30T05:05:23.143Z</updated>
+    
+    <content type="html"><![CDATA[<p>去掉热力图的部分内容，这样使得重点更清晰。还是来个小案例演示。<a id="more"></a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609304479785-6609914a-e3d8-4741-9c73-98c11db015bc.png#align=left&display=inline&height=162&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=812&size=27609&status=done&style=none&width=812" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">corr = tips.corr()</span><br><span class="line">corr</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609304501770-2a1afabf-f8a7-4b59-8c2b-2376706a1db7.png#align=left&display=inline&height=238&margin=%5Bobject%20Object%5D&name=image.png&originHeight=238&originWidth=623&size=37907&status=done&style=none&width=623" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">sns.heatmap(corr,square=<span class="literal">True</span>, annot=<span class="literal">True</span>, fmt=<span class="string">&#x27;0.2f&#x27;</span>)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609304520537-dccd6c69-4567-4d57-a9f4-fe6ec5f35862.png#align=left&display=inline&height=406&margin=%5Bobject%20Object%5D&name=image.png&originHeight=406&originWidth=478&size=42509&status=done&style=none&width=478" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))  <span class="comment"># 指定绘图对象宽度和高度</span></span><br><span class="line">mask = np.zeros_like(corr, dtype=np.<span class="built_in">bool</span>)  <span class="comment"># 构造与corr同维数矩阵为bool型矩阵</span></span><br><span class="line">mask[np.triu_indices_from(mask)] = <span class="literal">True</span>  <span class="comment"># 角分线右侧为True</span></span><br><span class="line">g = sns.heatmap(corr, mask=mask,square=<span class="literal">True</span>, annot=<span class="literal">True</span>, fmt=<span class="string">&#x27;0.2f&#x27;</span>)  <span class="comment"># 热力图（看两两相似度）</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609304528995-843dc5f9-b763-4977-b55d-93bf6b16a391.png#align=left&display=inline&height=402&margin=%5Bobject%20Object%5D&name=output_4_0.png&originHeight=402&originWidth=478&size=23258&status=done&style=none&width=478" alt="output_4_0.png"></p><p>其中，mask[np.triu_indices_from(mask)] = True 将 <code>mask</code> 的对角线及以上设置为 <code>True</code>。这部分就是对应要被遮掉的部分，不清楚可以把<code>mask</code> 打印出来看看。</p><p>还有一个关键点是 sns.heatmap() 的 <code>mask</code> 参数：布尔数组或者 DataFrame 数据，可选参数。如果为空值，数据将不会显示在mask为 True 的单元格中。 具有缺失值的单元格将自动被屏蔽。所以，将 <code>mask</code> 设置为 <code>True</code> 是为了有一个掩码可以去掉右上角的数据。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mask = np.zeros_like(corr, dtype=np.<span class="built_in">bool</span>)  <span class="comment"># 构造与corr同维数矩阵为bool型</span></span><br><span class="line">mask[np.triu_indices_from(mask)] = <span class="literal">True</span>  <span class="comment"># 角分线右侧为True</span></span><br><span class="line">mask</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">array([[ True,  True,  True,  True,  True,  True,  True,  True],</span><br><span class="line">       [False,  True,  True,  True,  True,  True,  True,  True],</span><br><span class="line">       [False, False,  True,  True,  True,  True,  True,  True],</span><br><span class="line">       [False, False, False,  True,  True,  True,  True,  True],</span><br><span class="line">       [False, False, False, False,  True,  True,  True,  True],</span><br><span class="line">       [False, False, False, False, False,  True,  True,  True],</span><br><span class="line">       [False, False, False, False, False, False,  True,  True],</span><br><span class="line">       [False, False, False, False, False, False, False,  True]])</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;去掉热力图的部分内容，这样使得重点更清晰。还是来个小案例演示。</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    
+    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单说说对大数据的看法</title>
+    <link href="http://example.com/2020/12/30/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E5%AF%B9%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%80%81%E5%BA%A6/"/>
+    <id>http://example.com/2020/12/30/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E5%AF%B9%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%80%81%E5%BA%A6/</id>
+    <published>2020-12-30T03:29:22.939Z</published>
+    <updated>2020-12-30T04:55:00.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>近期看到纽约大学教授盖瑞·马库斯一个观点，从科学方法角度提醒政府、社会以及科学研究者对别对大数据迷恋，引人深思。<a id="more"></a></p><p>延伸一下，这位教授既做科研，也做企业。最近有本翻译的新书<a href="https://weread.qq.com/web/reader/e483297071df7108e482b8bkc81322c012c81e728d9d180">《如何创造可信的AI》</a>，陆奇作序，可读性高。</p><p>好了，回到主题，盖瑞·马库斯表述的观点大致是这样：</p><p>并非是我们不应该相信大数据，或收集大数据，而是不应该把它当成魔法。虽然几乎所有领域都受益于精心收集的大型数据集，但太多人、甚至是科学家，都过分依赖大数据。从物理学到神经科学，比如最近关于了解科学的讨论看起来有一半涉及大数据以及相关工具，比如“维数约简”、“神经网络”、“机器学习算法”和“信息可视化”等。</p><p>但是，科学从根本上依然围绕宇宙规律的探索，而大数据并不擅长的一件事就是发现定律。它善于检测相关性，数据集越可靠，发现其相关性的可能性就越高，即使是涉及多个变量的复杂数据。但相关性从来都不是一种因果关系，以后也不会是。世界上所有的大数据都不会告诉你，吸烟是否会导致肺癌，你必须做实验，了解致癌物、致癌基因和 DNA 复制等专业词汇的固有含义。仅将世界各个城市烟民和非烟民海量数据库制成表格，记录他们何时、何地抽烟，寿命以及死因的细节，这些数据无论包含多少兆字节，都不足以涵盖生物机制的多重复杂性。</p><p>神经科学某些分支的专家已经持如下态度——“建好大数据，结果自然就明了了。”他们认为一旦拥有足够的数据，神经科学问题就能迎刃而解。然而，这种想法并不正确。如果我们的猜想有理有据，那么可以用大数据测试一下，但它绝不该是我们的第一选择。</p><p>并且在最后说明：<strong>只有我们知道自己在寻找什么的时候，才应该向大数据寻求帮助</strong>。</p><p>作为从业者，说说我的理解。</p><p>大数据从来不是一件事情、任务的起因。所有项目立项核心考虑：用户场景、行业情况、项目资源。数据分析是作为工具，辅助决策。和项目是依附关系，不是因果关系。</p><p>另外，大数据意味着事情已经发生，在商业世界，对已经发生的事精做过多分析会造成徒劳无功。比如说：在线教育、SaaS 行业的用户流失分析。对流失用户精细分析，对召回流失用户可能性不大。大数据可以预测用户流失情况，但这只是提前知晓，要改变流失情况还是需要更多产品运营动作干预。在这个维度下，拥有大数据能力，主要做的是「观察」。</p><p>在一些情况下，数据结论越明显，反而错的越明显。最近在看电商订单情况，就以淘宝待付款订单状态举例。</p><p>下图是淘宝待付款订单，进行订单取消操作的具体选项。流程是：待付款订单 – 取消订单 – 选择取消订单原因（默认「价格有点贵」选项）– 确定取消。这个功能初衷，应该是淘宝/商家都希望通过这些选项，了解消费者取消订单的真实意图。根据原因占比来优化流程。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609299339173-b785e425-bf9b-466f-8d4c-bd10d5660479.png#align=left&display=inline&height=352&margin=%5Bobject%20Object%5D&name=image.png&originHeight=704&originWidth=680&size=127326&status=done&style=none&width=340" alt="image.png"></p><p>但整个流程走下来就能得知，目前设定下，一定是「价格有点贵」占比最高，因为这是默认选项。多数消费者行为应该是直接点击“确定取消”按钮。这里有两点：</p><p>第一，「价格有点贵」这个选项，即使占比最高，我想淘宝的数据分析师也会将这个选项剔除，因为无意义；至于为什么要默认选「价格有点贵」，我想正是因为“价格有点贵”无意义，因为价格的预期，每位消费者都不一样。并且，消费者肯定是希望越低越好。</p><p>第二，如果这个环节优化为：去掉「价格有点贵」选项，并且不默认选中任何选项，会不会更好？得到这个结论就需要从用户体验指标和获取订单取消原因有效率来衡量了。这是另一个话题。</p><p>回到这个案例，占比最高的数据并不能说明问题，还有可能形成错误引导。<strong>数据之所以呈现成这样，是因为产品设计是这样，而不是用户想这样</strong>。</p><p>所以，我理解盖瑞·马库斯说的“只有我们知道自己在寻找什么的时候，才应该向大数据寻求帮助。”是要先有定性判断、想法，再以大数据作为辅助。才能不偏不倚。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;近期看到纽约大学教授盖瑞·马库斯一个观点，从科学方法角度提醒政府、社会以及科学研究者对别对大数据迷恋，引人深思。</summary>
+    
+    
+    
+    
+    <category term="数据分析" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>统计学：相关系数介绍</title>
@@ -365,44 +405,6 @@
     
     
     <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac上使用npm安装报错</title>
-    <link href="http://example.com/2020/12/16/Mac%E4%B8%8A%E4%BD%BF%E7%94%A8%20npm%20%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/"/>
-    <id>http://example.com/2020/12/16/Mac%E4%B8%8A%E4%BD%BF%E7%94%A8%20npm%20%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/</id>
-    <published>2020-12-16T14:40:10.934Z</published>
-    <updated>2020-12-19T02:04:22.855Z</updated>
-    
-    <content type="html"><![CDATA[<p>例如使用 npm 安装 Hexo</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p>报错信息如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: EACCES: permission denied, access <span class="string">&#x27;/usr/local/lib/node_modules</span></span><br></pre></td></tr></table></figure><p>原因: 执行命令行时没有获得管理员权限<br>解决方案：在命令行前面添加 sudo 获取管理员权限，输入管理员密码就行<br>例如原来的是:  <code>npm install -g hexo-cli</code><br>应该改为：<code>sudo npm install -g hexo-cli</code></p><p>再输入密码就行。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;例如使用 npm 安装 Hexo&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo相关报错处理</title>
-    <link href="http://example.com/2020/12/16/Hexo%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/"/>
-    <id>http://example.com/2020/12/16/Hexo%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/</id>
-    <published>2020-12-16T14:39:58.259Z</published>
-    <updated>2020-12-16T14:55:41.603Z</updated>
-    
-    <content type="html"><![CDATA[<p>2 个遇见的报错信息记录。</p><a id="more"></a><h4 id="hexo-d-命令行后出现ERROR-Deployer-not-found-git"><a href="#hexo-d-命令行后出现ERROR-Deployer-not-found-git" class="headerlink" title="hexo d 命令行后出现ERROR Deployer not found: git"></a>hexo d 命令行后出现<code>ERROR Deployer not found: git</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure><p>修改为以下即可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure><h4 id="hexo使用theme出现"><a href="#hexo使用theme出现" class="headerlink" title="hexo使用theme出现"></a>hexo使用theme出现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends ‘_layout.swig‘ %&#125; &#123;% import ‘_macro&#x2F;post.swig‘ as post_template %&#125;</span><br></pre></td></tr></table></figure><p>出现原因是 Hexo 在 5.0 之后把 swig 删除了，所以需要自己手动安装。<br>在博客目录下安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-swig</span><br></pre></td></tr></table></figure><p>安装成功后重新测试即可。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;2 个遇见的报错信息记录。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
     
   </entry>
   
