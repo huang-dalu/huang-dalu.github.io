@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="Pandas中axis的位置说明"/><meta name="keywords" content="Python, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2020/12/29/Pandas中axis的位置说明/"/>
+<meta name="description" content="特征处理：数据标准化之Max-Min标准化"/><meta name="keywords" content="机器学习, 特征处理, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/12/31/特征处理：数据标准化之Max-Min标准化/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>Pandas中axis的位置说明 - UX Caff</title>
+    <title>特征处理：数据标准化之Max-Min标准化 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -89,47 +89,47 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">Pandas中axis的位置说明
+      <h1 class="post-title">特征处理：数据标准化之Max-Min标准化
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2020-12-29
+          2020-12-31
         </span></div>
     </header>
 
-    <div class="post-content"><p> 先看一个演示。</p>
-<a id="more"></a>
-
+    <div class="post-content"><p>数据标准化是处理不同规模和量纲数据的方式，使其缩放到相同的数据区间和范围，以减少规模、特征、分布差异等对模型的影响。比如：员工数量的值是 50 - 2000 人，销售额的值是 1000000 - 5000000 万。单位尺度不同，使用梯度下降算法，就需要很多次迭代。<a id="more"></a></p>
+<p>Max-Min 标准化方法是对原始数据进行线性变换，假设原转换的数据为 x，新数据为 x′，那么 x’=(x-min)/(max-min)，其中 min 和 max 为 x 所在列的最小值和最大值。得到的数据会完全落入 [0, 1] 区间内。</p>
+<p>Python 中的 sklearn 库使用起来比较方便，接下来还是演示下。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609226941755-0c9393d7-afd9-4db5-85ea-308427f352b2.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=347&size=15120&status=done&style=none&width=347" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609396583058-d74568d5-3835-4e85-99d2-03858bb02f54.png#align=left&display=inline&height=158&margin=%5Bobject%20Object%5D&name=image.png&originHeight=158&originWidth=345&size=15083&status=done&style=none&width=345" alt="image.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips = tips.drop([<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;smoker&#x27;</span>,<span class="string">&#x27;day&#x27;</span>,<span class="string">&#x27;time&#x27;</span>],axis=<span class="number">1</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609226958701-7dbedc61-feab-4467-bbdd-135dbe7a8897.png#align=left&display=inline&height=162&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=158&size=7027&status=done&style=none&width=158" alt="image.png"></p>
-<p><code>axis</code> 使用 0 值表示沿着每一列或行标签\索引值向下执行方法；使用 1 值表示沿着每一行或者列标签模向执行对应的方法。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609227050243-fe33bb4c-ab6f-4f62-8cdd-6f4118e7c351.png#align=left&display=inline&height=341&margin=%5Bobject%20Object%5D&name=image.png&originHeight=341&originWidth=652&size=95214&status=done&style=none&width=652" alt="image.png"></p>
-<p>如上图，在 Pandas 中， <code>axis</code> 的位置图示。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609396628401-cde98d3e-7d6c-4afc-a5e1-d92a1d09c2ed.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=image.png&originHeight=159&originWidth=154&size=6936&status=done&style=none&width=154" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">result = scaler.fit_transform(tips)</span><br><span class="line">result[:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[0.29157939, 0.00111111, 0.2       ],</span><br><span class="line">       [0.1522832 , 0.07333333, 0.4       ],</span><br><span class="line">       [0.3757855 , 0.27777778, 0.4       ],</span><br><span class="line">       [0.43171345, 0.25666667, 0.2       ],</span><br><span class="line">       [0.45077503, 0.29      , 0.6       ]])</span><br></pre></td></tr></table></figure>
+
+
+<p>通过这个演示也可以看到，Max-Min标准化只能用在数值型特征上，不适用在分类变量。 </p>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/Python/">Python</a>
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+            <a href="/tags/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86/">特征处理</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BC%9A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%BB%8B%E7%BB%8D/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">统计学：相关系数介绍</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
-    <a class="next" href="/2020/12/29/Python%E5%9F%BA%E7%A1%80%EF%BD%9C%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
-        <span class="next-text nav-default">Python常见的字符串操作</span>
+        <nav class="post-nav"><a class="next" href="/2020/12/30/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9A%E7%94%A8%E7%AE%B1%E7%BA%BF%E5%9B%BE%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%BE%81%E5%BC%82%E5%B8%B8%E5%80%BC/">
+        <span class="next-text nav-default">数据可视化：用箱线图快速查看特征异常值</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>

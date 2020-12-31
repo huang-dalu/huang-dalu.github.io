@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-30T14:36:15.500Z</updated>
+  <updated>2020-12-31T09:48:25.140Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>特征处理：数据标准化之Max-Min标准化</title>
+    <link href="http://example.com/2020/12/31/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/"/>
+    <id>http://example.com/2020/12/31/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/</id>
+    <published>2020-12-31T03:02:48.021Z</published>
+    <updated>2020-12-31T09:48:25.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>数据标准化是处理不同规模和量纲数据的方式，使其缩放到相同的数据区间和范围，以减少规模、特征、分布差异等对模型的影响。比如：员工数量的值是 50 - 2000 人，销售额的值是 1000000 - 5000000 万。单位尺度不同，使用梯度下降算法，就需要很多次迭代。<a id="more"></a></p><p>Max-Min 标准化方法是对原始数据进行线性变换，假设原转换的数据为 x，新数据为 x′，那么 x’=(x-min)/(max-min)，其中 min 和 max 为 x 所在列的最小值和最大值。得到的数据会完全落入 [0, 1] 区间内。</p><p>Python 中的 sklearn 库使用起来比较方便，接下来还是演示下。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609396583058-d74568d5-3835-4e85-99d2-03858bb02f54.png#align=left&display=inline&height=158&margin=%5Bobject%20Object%5D&name=image.png&originHeight=158&originWidth=345&size=15083&status=done&style=none&width=345" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips = tips.drop([<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;smoker&#x27;</span>,<span class="string">&#x27;day&#x27;</span>,<span class="string">&#x27;time&#x27;</span>],axis=<span class="number">1</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609396628401-cde98d3e-7d6c-4afc-a5e1-d92a1d09c2ed.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=image.png&originHeight=159&originWidth=154&size=6936&status=done&style=none&width=154" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">result = scaler.fit_transform(tips)</span><br><span class="line">result[:<span class="number">5</span>]</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[0.29157939, 0.00111111, 0.2       ],</span><br><span class="line">       [0.1522832 , 0.07333333, 0.4       ],</span><br><span class="line">       [0.3757855 , 0.27777778, 0.4       ],</span><br><span class="line">       [0.43171345, 0.25666667, 0.2       ],</span><br><span class="line">       [0.45077503, 0.29      , 0.6       ]])</span><br></pre></td></tr></table></figure><p>通过这个演示也可以看到，Max-Min标准化只能用在数值型特征上，不适用在分类变量。 </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;数据标准化是处理不同规模和量纲数据的方式，使其缩放到相同的数据区间和范围，以减少规模、特征、分布差异等对模型的影响。比如：员工数量的值是 50 - 2000 人，销售额的值是 1000000 - 5000000 万。单位尺度不同，使用梯度下降算法，就需要很多次迭代。</summary>
+    
+    
+    
+    
+    <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="特征处理" scheme="http://example.com/tags/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据可视化：用箱线图快速查看特征异常值</title>
     <link href="http://example.com/2020/12/30/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9A%E7%94%A8%E7%AE%B1%E7%BA%BF%E5%9B%BE%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%BE%81%E5%BC%82%E5%B8%B8%E5%80%BC/"/>
     <id>http://example.com/2020/12/30/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9A%E7%94%A8%E7%AE%B1%E7%BA%BF%E5%9B%BE%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%BE%81%E5%BC%82%E5%B8%B8%E5%80%BC/</id>
     <published>2020-12-30T14:34:33.169Z</published>
-    <updated>2020-12-30T14:36:15.500Z</updated>
+    <updated>2020-12-31T09:49:34.180Z</updated>
     
     <content type="html"><![CDATA[<p>最近看到一个快速查看异常值的简单方法，还是记录一下。<a id="more"></a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train_data_file = <span class="string">&quot;/zhengqi_train.txt&quot;</span></span><br><span class="line">train_data = pd.read_csv(train_data_file, sep=<span class="string">&#x27;\t&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">train_data.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609338796398-070dfe4e-51ad-4c61-969c-ebea10d18c30.png#align=left&display=inline&height=200&margin=%5Bobject%20Object%5D&name=image.png&originHeight=400&originWidth=1930&size=81325&status=done&style=none&width=965" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">18</span>, <span class="number">10</span>))</span><br><span class="line">plt.boxplot(x=train_data.values,labels=train_data.columns)</span><br><span class="line"></span><br><span class="line"><span class="comment"># matplotlib.pyplot.hlines(y, xmin, xmax)表示横线，参数(y的值，横线开始横坐标，横线结束横坐标)</span></span><br><span class="line">plt.hlines([-<span class="number">5</span>, <span class="number">5</span>], <span class="number">0</span>, <span class="number">40</span>, colors=<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609338837908-a20a8190-735b-48de-9adc-1f3ebe01a7c8.png#align=left&display=inline&height=575&margin=%5Bobject%20Object%5D&name=output_2_0.png&originHeight=575&originWidth=1056&size=44716&status=done&style=none&width=1056" alt="output_2_0.png"></p><p>这里是查看异常值，没有预测异常值。只是把所有特征放进来，再加上参考线，方便查看。适合快速出模型。</p>]]></content>
     
@@ -31,9 +52,9 @@
     
     
     
-    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
     
-    <category term="python" scheme="http://example.com/tags/python/"/>
+    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
@@ -98,8 +119,8 @@
   
   <entry>
     <title>统计学：相关系数介绍</title>
-    <link href="http://example.com/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BD%9C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%B9%8BPearson/"/>
-    <id>http://example.com/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BD%9C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%B9%8BPearson/</id>
+    <link href="http://example.com/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BC%9A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://example.com/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BC%9A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%BB%8B%E7%BB%8D/</id>
     <published>2020-12-29T09:50:02.639Z</published>
     <updated>2020-12-29T09:52:55.100Z</updated>
     
@@ -179,12 +200,12 @@
     <link href="http://example.com/2020/12/28/%E5%87%A0%E9%A6%96%E5%B0%8F%E8%AF%97/"/>
     <id>http://example.com/2020/12/28/%E5%87%A0%E9%A6%96%E5%B0%8F%E8%AF%97/</id>
     <published>2020-12-28T09:55:23.112Z</published>
-    <updated>2020-12-28T11:34:12.785Z</updated>
+    <updated>2020-12-31T06:04:15.177Z</updated>
     
-    <content type="html"><![CDATA[<p>年轻人是一定要写诗的。</p><a id="more"></a><p>到近 2 年几乎是没有写了，把之前写的几首存放到这里。</p><hr><p><strong>推手</strong></p><p>被无数人推着走</p><p>沿路都是他们的欲望，更多的是钱权</p><p>我负责浇水、施肥</p><p>然而</p><p>我可不想做浇灌者</p><p>我得是自己梦想的开垦者</p><hr><p><strong>献给监控岗位</strong></p><p>监控才是最无趣的</p><p>因为没有善于发现美的眼睛</p><p>需要拼命寻找人性的恶</p><hr><p><strong>26岁</strong></p><p>有着青年人的面孔，却没有青年人的冲劲</p><p>有着中年人的焦虑，却没有中年人的实力</p><hr><p><strong>致敬美好时代的无病呻吟</strong></p><p>我彻头彻尾的感受到了世界的虚伪 </p><p>因为 </p><p>洗手间居然不是用来洗手的</p><hr><p><strong>可以说这是成熟，也可以说是现实</strong></p><p>一刹那有了留学的梦想躯干</p><p>半天时间还长出了枝桠</p><p>再花了两天时间了解方案</p><p>最终亲自剪了枝桠、砍了躯干</p><p>表面上平静如湖，心里已经浪潮翻转</p><p>20-30岁，第24个梦想</p>]]></content>
+    <content type="html"><![CDATA[<p>年轻人是一定要写诗的。<a id="more"></a></p><p>但近 2 年几乎是没有写了，把之前写的几首存放到这里。</p><p><strong>推手</strong></p><p>被无数人推着走</p><p>沿路都是他们的欲望，更多的是钱权</p><p>我负责浇水、施肥</p><p>然而</p><p>我可不想做浇灌者</p><p>我得是自己梦想的开垦者</p><p><strong>献给监控岗位</strong></p><p>监控才是最无趣的</p><p>因为没有善于发现美的眼睛</p><p>需要拼命寻找人性的恶</p><p><strong>26岁</strong></p><p>有着青年人的面孔，却没有青年人的冲劲</p><p>有着中年人的焦虑，却没有中年人的实力</p><p><strong>致敬美好时代的无病呻吟</strong></p><p>我彻头彻尾的感受到了世界的虚伪 </p><p>因为 </p><p>洗手间居然不是用来洗手的</p><p><strong>可以说这是成熟，也可以说是现实</strong></p><p>一刹那有了留学的梦想躯干</p><p>半天时间还长出了枝桠</p><p>再花了两天时间了解方案</p><p>最终亲自剪了枝桠、砍了躯干</p><p>表面上平静如湖，心里已经浪潮翻转</p><p>20-30岁，第24个梦想</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;年轻人是一定要写诗的。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;年轻人是一定要写诗的。</summary>
     
     
     
@@ -386,25 +407,6 @@
     
     
     <category term="Life" scheme="http://example.com/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试UI设计师问题清单</title>
-    <link href="http://example.com/2020/12/22/%E9%9D%A2%E8%AF%95UI%E8%AE%BE%E8%AE%A1%E5%B8%88%E9%97%AE%E9%A2%98%E6%B8%85%E5%8D%95/"/>
-    <id>http://example.com/2020/12/22/%E9%9D%A2%E8%AF%95UI%E8%AE%BE%E8%AE%A1%E5%B8%88%E9%97%AE%E9%A2%98%E6%B8%85%E5%8D%95/</id>
-    <published>2020-12-22T04:02:37.606Z</published>
-    <updated>2020-12-23T09:03:33.684Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近面试了近 10 位 UI 设计师。记录下自己的面试方式。当然，面试流程会随着对 UI 设计师 这个岗位的理解逐渐调整。</p><a id="more"></a><p>首先申明下，我不是专职设计师。对于设计工具，之前会使用 PS 和 Sketch，现在流行的 Figma 只能算是简单了解，没有花太多时间。不过，曾经行业看重的 iOS 、Android  MD 设计规范以前花了很多时间研究（比如：搜素、导航、手势交互等等）。然后对于交互设计领域也有一些心得。在业余也曾输出过两个 App 项目 UI 视觉稿。</p><p>总结就是，对于 UI 领域，算是半吊子水平。所以面试分工是这样：具体设计细节会有设计师主管帮忙搞定，我负责设计技能（大概了解契合度）、协作、认知是否匹配。</p><p>设计技能上，首先会看候选人的工具。这点我觉得对于设计师、产品经理、开发工程师同样重要。能体现对于工具、协作流程的观点和追求、以及个人品位。前不久 @纯银 说：</p><blockquote><p>判断一个人的 “互联网化” 程度，不是看他每天在互联网上花多少时间，而是看他的信息获取渠道的质量，以及使用互联网服务的广度和深度。</p></blockquote><p>这点也可以用在设计师上。具体表现在：</p><ul><li>主力设计工具用哪些？</li><li>内部协作工具用什么？</li><li>获取设计行业资讯、学习渠道的方式和渠道有哪些？</li><li>是否有 Dribbble、站酷账号，日常输出方式有哪些？</li></ul><p>一位好的设计师，这部分的回答应该不会差。</p><p>接下来会根据设计作品，了解具体设计技能和设计方法。我一般会根据具体设计作品询问：</p><p><strong>技能方面</strong></p><ul><li> 作品上有 PC 和 App，这两个端在设计思路上，有什么不同？</li><li>如何判断设计的页面布局是优秀的？</li><li>拿到 xxx 部分需求，你自己的设计流程是怎样的？</li><li>如何看待 xxx 需求和其他 App（通常是一家大厂 App）的区别，为什么你没有这样设计。你觉得别人的设计合理吗？</li><li>xxx 产品是否有设计规范，这些规范制定原则是怎在考虑？ </li></ul><p><strong>协作方面</strong></p><ul><li>你和交互设计师的分工是怎样的？</li><li>设计师和团队的协作流程是怎样的。是否上线后跟踪（据我观察，上线后跟踪业务数据、上线效果，坚持做到的设计师很少）？</li><li>团队怎么评估一位设计师的优秀与否？</li><li>工作到现在，你碰到的好同事，有什么特征？</li></ul><p><strong>认知方面</strong></p><ul><li>对设计细节是否在乎？那作品 xxx 需求部分的设计细节。是否有考虑？</li><li>其他 App（通常是一家大厂 App）的是 xxx 设计（比如：搜索框架上了搜索按钮设计）。从设计的角度如何看待这种设计趋势？</li><li>UI 设计和公司业绩，关联度表面上没那么高，在某些现实情况下影响个人价值。你怎么看？</li></ul><p>这些问题了解清楚，基本上对设计师的能力有了大概判断，接下来就是常规关于优秀人才的判断了——自我驱动、责任心之类，这些不再赘述。值得一提的是，根据目前经验来看，遇见缺乏「主动性」设计师概率比其他岗位更大。这可能是这个岗位“拿到需求再干活儿”的属性有关。</p><p>好了，目前先说这些。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;最近面试了近 10 位 UI 设计师。记录下自己的面试方式。当然，面试流程会随着对 UI 设计师 这个岗位的理解逐渐调整。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Design" scheme="http://example.com/tags/Design/"/>
     
   </entry>
   
