@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="数据可视化：sns.kdeplot（核密度估计图）查看数据分布"/><meta name="keywords" content="Python, 数据可视化, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2020/12/29/数据可视化：sns.kdeplot（核密度估计图）查看数据分布/"/>
+<meta name="description" content="Pandas：axis的位置说明"/><meta name="keywords" content="Pandas, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/12/29/Pandas：axis的位置说明/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>数据可视化：sns.kdeplot（核密度估计图）查看数据分布 - UX Caff</title>
+    <title>Pandas：axis的位置说明 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -89,7 +89,7 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">数据可视化：sns.kdeplot（核密度估计图）查看数据分布
+      <h1 class="post-title">Pandas：axis的位置说明
         </h1>
 
       <div class="post-meta">
@@ -98,42 +98,36 @@
         </span></div>
     </header>
 
-    <div class="post-content"><p>接触到核密度估计是 seaborn 库中的 kdeplot （也就是核密度估计图）。它可以比较直观看出样本数据的分布特征。用到查看单个样本数据分布特征，和比较多个样本数据分布是否一致。<a id="more"></a></p>
-<p>我目前最常用的还是在同一变量下，比较测试集和训练集数据的分布差异情况。</p>
-<p>了解数据分布的另一种图示方法是使用直方图。但是使用起来有几个缺点。一个原因是绘制直方图需要确定组距，组距的大小就会确定分布特征。而且使用直方图展示的分布曲线并不平滑。</p>
-<p>回到核密度估计，查阅了一些相关理论，理论讲解部分目前懂了，但是数学公式推导细节还是有些不懂。由于目前只是核密度图来查看数据集分布，所以这部分原理决定还是放一放，后续再花时间。</p>
-<p>常用的还是 seaborn 库的 kdeplot，也就是核密度估计图。下面用 seaborn 库自带的小费数据集演示。</p>
+    <div class="post-content"><p> 先看一个演示。<a id="more"></a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641656010-829f760d-8c68-4ad9-8dde-8c70136a7f0d.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=346&size=15176&status=done&style=none&width=346" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">column = tips.columns.tolist()[:<span class="number">2</span>]  <span class="comment"># 列表头</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">4</span>))  <span class="comment"># 指定绘图对象宽度和高度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">2</span>, i + <span class="number">1</span>)  <span class="comment"># 1行2列子图</span></span><br><span class="line">    sns.kdeplot(tips[column[i]],shade=<span class="literal">True</span>)</span><br><span class="line">    plt.xlabel(column[i], fontsize=<span class="number">8</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609226941755-0c9393d7-afd9-4db5-85ea-308427f352b2.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=347&size=15120&status=done&style=none&width=347" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips = tips.drop([<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;smoker&#x27;</span>,<span class="string">&#x27;day&#x27;</span>,<span class="string">&#x27;time&#x27;</span>],axis=<span class="number">1</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641604139-fb51ce59-a977-40c5-91df-ab330e7836f6.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=output_2_0.png&originHeight=261&originWidth=601&size=19762&status=done&style=none&width=601" alt="output_2_0.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.kdeplot(tips[<span class="string">&#x27;total_bill&#x27;</span>], color=<span class="string">&quot;Red&quot;</span>, shade=<span class="literal">True</span>)</span><br><span class="line">ax = sns.kdeplot(tips[<span class="string">&#x27;tip&#x27;</span>], color=<span class="string">&quot;Blue&quot;</span>, shade=<span class="literal">True</span>)</span><br><span class="line">ax = ax.legend([<span class="string">&quot;total_bill&quot;</span>,<span class="string">&quot;tip&quot;</span>])</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641610796-fe142201-9b34-4f36-94b5-623468070693.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=output_3_0.png&originHeight=248&originWidth=378&size=10435&status=done&style=none&width=378" alt="output_3_0.png"><br>拿小费数据集为例。图一单个看 total_bill 和 tip，两个数据集分布基本一致，都是略微右偏。</p>
-<p>另外。提一个问题：来看图二，放在一起对比就会明显。如果假设一个是测试集数据，另外一个为训练集数据。这类情况是否需要对数据处理进行处理？显然是需要的，因为测试集和训练集分布差距大，会导致模型泛化能力差。这部分根据具体情况看，如果特征足够多，常见的操作是删除差距较大的特征。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609226958701-7dbedc61-feab-4467-bbdd-135dbe7a8897.png#align=left&display=inline&height=162&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=158&size=7027&status=done&style=none&width=158" alt="image.png"></p>
+<p><code>axis</code> 使用 0 值表示沿着每一列或行标签\索引值向下执行方法；使用 1 值表示沿着每一行或者列标签模向执行对应的方法。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609227050243-fe33bb4c-ab6f-4f62-8cdd-6f4118e7c351.png#align=left&display=inline&height=341&margin=%5Bobject%20Object%5D&name=image.png&originHeight=341&originWidth=652&size=95214&status=done&style=none&width=652" alt="image.png"></p>
+<p>如上图，在 Pandas 中， <code>axis</code> 的位置图示。</p>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/Python/">Python</a>
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a>
+            <a href="/tags/Pandas/">Pandas</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2020/12/29/Python%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
+        <nav class="post-nav"><a class="prev" href="/2020/12/29/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86%EF%BC%9A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%BB%8B%E7%BB%8D/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Python常见的字符串操作</span>
+        <span class="prev-text nav-default">统计学：相关系数介绍</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2020/12/28/%E5%87%A0%E9%A6%96%E5%B0%8F%E8%AF%97/">
-        <span class="next-text nav-default">几首小诗</span>
+    <a class="next" href="/2020/12/29/Python%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
+        <span class="next-text nav-default">Python常见的字符串操作</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
