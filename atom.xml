@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-05T06:03:07.300Z</updated>
+  <updated>2021-01-06T08:48:30.555Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>特征工程：使用 PCA 进行降维可视化，了解特征分布</title>
+    <link href="http://example.com/2021/01/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%20PCA%20%E8%BF%9B%E8%A1%8C%E9%99%8D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%8C%E4%BA%86%E8%A7%A3%E7%89%B9%E5%BE%81%E5%88%86%E5%B8%83/"/>
+    <id>http://example.com/2021/01/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%20PCA%20%E8%BF%9B%E8%A1%8C%E9%99%8D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%8C%E4%BA%86%E8%A7%A3%E7%89%B9%E5%BE%81%E5%88%86%E5%B8%83/</id>
+    <published>2021-01-06T08:06:04.142Z</published>
+    <updated>2021-01-06T08:48:30.555Z</updated>
+    
+    <content type="html"><![CDATA[<p>降维是数据挖掘流程中，一种对高维度特征数据预处理方法。<a id="more"></a>降维是将高维度的数据保留下最重要的一些特征，去除噪声和不重要的特征，从而实现提升数据处理速度的目的。在实际的生产和应用中，降维在一定的信息损失范围内，可以节省大量的时间成本。另外，除了让算法运行更快。降维还有一种场景，就是将数据可视化，根据数据分布情况进而选择合适算法。</p><p>降维算法主要有：主成分分析(PCA)、奇异值分解(SVD)、因子分析(FA)、独立成分分析(ICA)。本篇文章主要介绍利用 PCA 进行可视化。</p><p>在 sklearn 库，PCA 在 sklearn.decomposition.PCA 类：</p><blockquote><p>class sklearn.decomposition.PCA(n_components=None, copy=True, whiten=False, svd_solver=’auto’, tol=0.0, iterated_power=’auto’, random_state=None)</p></blockquote><p>如果只是对数据进行可视化，其他参数可以忽略，按照默认参数值即可，主要调整 n_components 参数。 n_components 是我们降维后需要的维度，即降维后需要保留的特征数量，降维流程中需要确认的 k 值， 一般输入[0, min(X.shape)]范围中的整数。这是一个需要我们人为设定的参数，数字设定会影响到模型表现。如果留下的特征太多，就达不到降维效果，如果留下特征太少，那新特征向量可能无法容纳原始数据集中的大部分信息。但是，在进行数据可视化观察数据分布时。因为数据往往都是二维状态，即 n_components 取值为 2。</p><h4 id="案例说明"><a href="#案例说明" class="headerlink" title="案例说明"></a>案例说明</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入相关库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris </span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取skearn库鸢尾花数据集，鸢尾花四维数组</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">y = iris.target</span><br><span class="line">X = iris.data </span><br><span class="line"></span><br><span class="line"><span class="comment">#查看原始数据</span></span><br><span class="line">X[<span class="number">0</span>:<span class="number">5</span>] </span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[5.1, 3.5, 1.4, 0.2],</span><br><span class="line">       [4.9, 3. , 1.4, 0.2],</span><br><span class="line">       [4.7, 3.2, 1.3, 0.2],</span><br><span class="line">       [4.6, 3.1, 1.5, 0.2],</span><br><span class="line">       [5. , 3.6, 1.4, 0.2]])</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用PCA，n_components=2</span></span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>) </span><br><span class="line">pca = pca.fit(X)</span><br><span class="line">X_dr = pca.transform(X)</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看降维后的数据</span></span><br><span class="line">X_dr[<span class="number">0</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[-2.68412563,  0.31939725],</span><br><span class="line">       [-2.71414169, -0.17700123],</span><br><span class="line">       [-2.88899057, -0.14494943],</span><br><span class="line">       [-2.74534286, -0.31829898],</span><br><span class="line">       [-2.72871654,  0.32675451]])</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#鸢尾花三种类型可视化</span></span><br><span class="line">colors = [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>] </span><br><span class="line">iris.target_names</span><br><span class="line">plt.figure()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]:</span><br><span class="line">    plt.scatter(X_dr[y == i, <span class="number">0</span>] ,X_dr[y == i, <span class="number">1</span>]</span><br><span class="line">                ,alpha=<span class="number">.7</span></span><br><span class="line">                ,c=colors[i] ,label=iris.target_names[i]) </span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">&#x27;PCA of IRIS dataset&#x27;</span>) </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588755330550-23bbbb18-0273-4897-a062-70abb7d61e43.png#align=left&display=inline&height=264&margin=%5Bobject%20Object%5D&name=image.png&originHeight=264&originWidth=380&size=14582&status=done&style=none&width=380" alt="image.png"></p><p>如图，降维后进行可视化，可以清楚看到鸢尾花数据集 3 种类型分布，观察分布可以得知，鸢尾花数据集使用聚类算法，应该会取得比较好的效果。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;降维是数据挖掘流程中，一种对高维度特征数据预处理方法。</summary>
+    
+    
+    
+    
+    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+    <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="特征工程" scheme="http://example.com/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>闻一多先生的书桌</title>
+    <link href="http://example.com/2021/01/06/%E9%97%BB%E4%B8%80%E5%A4%9A%E5%85%88%E7%94%9F%E7%9A%84%E4%B9%A6%E6%A1%8C/"/>
+    <id>http://example.com/2021/01/06/%E9%97%BB%E4%B8%80%E5%A4%9A%E5%85%88%E7%94%9F%E7%9A%84%E4%B9%A6%E6%A1%8C/</id>
+    <published>2021-01-06T07:03:58.870Z</published>
+    <updated>2021-01-06T07:06:03.448Z</updated>
+    
+    <content type="html"><![CDATA[<p>分享一首闻一多先生的诗词，“毛笔讲火柴烧秃了他的须”也笑弯了我的腰。<a id="more"></a>闻一多的书桌也是如此凌乱嘛。最后还可以理直气壮地“秩序不在我的能力之内”…太鲜活了…</p><p>忽然一切的静物都讲话了，<br>忽然间书桌上怨声腾沸：<br>墨盒呻吟道“我渴得要死！”<br>字典喊雨水渍湿了他的背；</p><p>信笺忙叫道弯痛了他的腰；<br>钢笔说烟灰闭塞了他的嘴，<br>毛笔讲火柴烧秃了他的须，<br>铅笔抱怨牙刷压了他的腿；</p><p>香炉咕喽着“这些野蛮的书<br>早晚定规要把你挤倒了！”<br>大钢表叹息快睡锈了骨头；<br>“风来了！风来了！”稿纸都叫了；</p><p>笔洗说他分明是盛水的，<br>怎么吃得惯臭辣的雪茄灰；<br>桌子怨一年洗不上两回澡，<br>墨水壶说“我两天给你洗一回。”</p><p>“什么主人？谁是我们的主人？”<br>一切的静物都同声骂道，<br>“生活若果是这般的狼狈，<br>倒还不如没有生活的好！”</p><p>主人咬着烟斗迷迷的笑，<br>“一切的众生应该各安其位。<br>我何曾有意的糟蹋你们，<br>秩序不在我的能力之内。”</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;分享一首闻一多先生的诗词，“毛笔讲火柴烧秃了他的须”也笑弯了我的腰。</summary>
+    
+    
+    
+    
+    <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>NumPy：NumPy中dot()函数</title>
@@ -93,11 +135,11 @@
   </entry>
   
   <entry>
-    <title>特征处理：数据标准化之Max-Min标准化</title>
-    <link href="http://example.com/2020/12/31/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/"/>
-    <id>http://example.com/2020/12/31/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/</id>
+    <title>特征工程：数据标准化之Max-Min标准化</title>
+    <link href="http://example.com/2020/12/31/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/"/>
+    <id>http://example.com/2020/12/31/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/</id>
     <published>2020-12-31T03:02:48.021Z</published>
-    <updated>2020-12-31T09:48:25.140Z</updated>
+    <updated>2021-01-06T08:07:52.029Z</updated>
     
     <content type="html"><![CDATA[<p>数据标准化是处理不同规模和量纲数据的方式，使其缩放到相同的数据区间和范围，以减少规模、特征、分布差异等对模型的影响。比如：员工数量的值是 50 - 2000 人，销售额的值是 1000000 - 5000000 万。单位尺度不同，使用梯度下降算法，就需要很多次迭代。<a id="more"></a></p><p>Max-Min 标准化方法是对原始数据进行线性变换，假设原转换的数据为 x，新数据为 x′，那么 x’=(x-min)/(max-min)，其中 min 和 max 为 x 所在列的最小值和最大值。得到的数据会完全落入 [0, 1] 区间内。</p><p>Python 中的 sklearn 库使用起来比较方便，接下来还是演示下。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609396583058-d74568d5-3835-4e85-99d2-03858bb02f54.png#align=left&display=inline&height=158&margin=%5Bobject%20Object%5D&name=image.png&originHeight=158&originWidth=345&size=15083&status=done&style=none&width=345" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips = tips.drop([<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;smoker&#x27;</span>,<span class="string">&#x27;day&#x27;</span>,<span class="string">&#x27;time&#x27;</span>],axis=<span class="number">1</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1609396628401-cde98d3e-7d6c-4afc-a5e1-d92a1d09c2ed.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=image.png&originHeight=159&originWidth=154&size=6936&status=done&style=none&width=154" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line">result = scaler.fit_transform(tips)</span><br><span class="line">result[:<span class="number">5</span>]</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[0.29157939, 0.00111111, 0.2       ],</span><br><span class="line">       [0.1522832 , 0.07333333, 0.4       ],</span><br><span class="line">       [0.3757855 , 0.27777778, 0.4       ],</span><br><span class="line">       [0.43171345, 0.25666667, 0.2       ],</span><br><span class="line">       [0.45077503, 0.29      , 0.6       ]])</span><br></pre></td></tr></table></figure><p>通过这个演示也可以看到，Max-Min标准化只能用在数值型特征上，不适用在分类变量。 </p>]]></content>
     
@@ -109,7 +151,7 @@
     
     <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="特征处理" scheme="http://example.com/tags/%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86/"/>
+    <category term="特征工程" scheme="http://example.com/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
     
   </entry>
   
@@ -367,46 +409,6 @@
     
     
     <category term="组织" scheme="http://example.com/tags/%E7%BB%84%E7%BB%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>致疯子们 -- Apple</title>
-    <link href="http://example.com/2020/12/27/%E8%87%B4%E7%96%AF%E5%AD%90%E4%BB%AC--Apple/"/>
-    <id>http://example.com/2020/12/27/%E8%87%B4%E7%96%AF%E5%AD%90%E4%BB%AC--Apple/</id>
-    <published>2020-12-27T11:12:15.330Z</published>
-    <updated>2020-12-27T11:19:35.388Z</updated>
-    
-    <content type="html"><![CDATA[<p>Steve jobs 重回 Apple 的<a href="https://www.bilibili.com/s/video/BV1sE411D7Dz">一则广告</a>。</p><a id="more"></a><p>致疯子们</p><p>The misfits<br>那些格格不入者</p><p>The rebels<br>那些叛逆者</p><p>The troublemakers<br>那些麻烦制造者</p><p>The round pegs in the square holes<br>那些方孔里的圆钉</p><p>The ones who see things differently<br>那些另眼看世界者</p><p>They’re not fond of rules<br>他们不喜成规</p><p>And they have no respect for the status quo<br>他们不敬现状</p><p>You can quote them, disagree with them, glorify or vilify them<br>你可以引用他们、否定他们、夸奖他们、诟病他们</p><p>About the only thing you can’t do is ignore them<br>但是你无法忽略他们</p><p>Because they change things<br>因为他们改变事物</p><p>They push the human race forward<br>因为他们推进人类向前</p><p>And while some may see them as the crazy ones, we see genius<br>或许有人把他们当成疯子，我们视他们为天才</p><p>Because the people who are crazy enough to think they can change the world, are the ones who do.<br>因为人只有疯到认为自己可以改变世界，才是最终改变世界的人。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Steve jobs 重回 Apple 的&lt;a href=&quot;https://www.bilibili.com/s/video/BV1sE411D7Dz&quot;&gt;一则广告&lt;/a&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据可视化：sns.regplot 和 sns.distplot</title>
-    <link href="http://example.com/2020/12/25/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Asns.regplot%20%E5%92%8C%20sns.distplot/"/>
-    <id>http://example.com/2020/12/25/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Asns.regplot%20%E5%92%8C%20sns.distplot/</id>
-    <published>2020-12-25T08:33:02.893Z</published>
-    <updated>2020-12-28T09:13:42.454Z</updated>
-    
-    <content type="html"><![CDATA[<p>sns.regplot 和 sns.distplot 这两个图形的使用场景。</p><a id="more"></a><p>sns.regplot 用来比较两个变量的关系，是否符合线性回归。一般用来比较特征变量和标签变量上。sns.distplot 是直方图和核密度图（sns.kdeplot）的结合。用来看单个连续型变量的分布。</p><p>顺便说下直方图和条形图区别：</p><ul><li>直方图：先分箱，然后计算每个分箱频数的数据分布。直方图一般用于数字特征（连续型）；</li><li>条形图：一般用于类别特征，条形图有间距，直方图没有。</li></ul><p>先用小费数据集画出图形。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604987097200-eeb58af9-fb83-473d-94ed-bdff9573b153.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=347&size=15197&status=done&style=none&width=347" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">14</span>, <span class="number">4</span>))  <span class="comment"># 指定绘图对象宽度和高度</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;total_bill&#x27;</span>, y=<span class="string">&#x27;tip&#x27;</span>, data=tips, ax=ax, </span><br><span class="line">            scatter_kws=&#123;<span class="string">&#x27;marker&#x27;</span>:<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27;s&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.3</span>&#125;,</span><br><span class="line">            line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;g&#x27;</span>&#125;);</span><br><span class="line">plt.xlabel(<span class="string">&#x27;total_bill&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;tip&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">sns.regplot(x=<span class="string">&#x27;total_bill&#x27;</span>, y=<span class="string">&#x27;size&#x27;</span>, data=tips, ax=ax, </span><br><span class="line">            scatter_kws=&#123;<span class="string">&#x27;marker&#x27;</span>:<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27;s&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;alpha&#x27;</span>:<span class="number">0.3</span>&#125;,</span><br><span class="line">            line_kws=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;k&#x27;</span>&#125;);</span><br><span class="line">plt.xlabel(<span class="string">&#x27;total_bill&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line">sns.distplot(tips[<span class="string">&#x27;total_bill&#x27;</span>].dropna())</span><br><span class="line">plt.xlabel(<span class="string">&#x27;total_bill&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604987117509-d892cdbd-4a82-4a32-9bd3-c1f4727567ac.png#align=left&display=inline&height=265&margin=%5Bobject%20Object%5D&name=output_2_0.png&originHeight=265&originWidth=829&size=31780&status=done&style=none&width=829" alt="output_2_0.png"></p><p>图一是两个连续型变量比较。total_bill 直接拟合成一条直线，tip 是散点图。但就这个例子图形来看，这两个数据集有一定相关性，但相关性不强。</p><p>图二是一个连续型变量和一个分类变量关系比较。按照例子看基本是不相关的。</p><p>图三是直方图 + 核密度曲线。用来看单个变量的分布情况。</p><p>sns.regplot 和 sns.distplot 可以同时用，同时查看特征分布以及特征和变量关系。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;sns.regplot 和 sns.distplot 这两个图形的使用场景。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
