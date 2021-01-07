@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-06T08:48:30.555Z</updated>
+  <updated>2021-01-07T02:51:53.784Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>傅聪与纳兰性德《长相思》</title>
+    <link href="http://example.com/2021/01/07/%E5%82%85%E8%81%AA%E4%B8%8E%E7%BA%B3%E5%85%B0%E6%80%A7%E5%BE%B7%E3%80%8A%E9%95%BF%E7%9B%B8%E6%80%9D%E3%80%8B/"/>
+    <id>http://example.com/2021/01/07/%E5%82%85%E8%81%AA%E4%B8%8E%E7%BA%B3%E5%85%B0%E6%80%A7%E5%BE%B7%E3%80%8A%E9%95%BF%E7%9B%B8%E6%80%9D%E3%80%8B/</id>
+    <published>2021-01-07T02:39:23.389Z</published>
+    <updated>2021-01-07T02:51:53.784Z</updated>
+    
+    <content type="html"><![CDATA[<p>2020年12月28日，傅聪先生因感染新冠在英国逝世。<a id="more"></a></p><p>然后我接连看了追念先生的播客「<a href="https://www.xiaoyuzhoufm.com/episode/5ff2f7d0dee9c1e16d3713a2?s=eyJ1IjogIjVlZTBjNDRhZjNhYTNhY2U0YzYxMmY3OCJ9">当年离家的年轻人：傅聪与冷战时代的音乐家们</a>」和文章<a href="https://qingmang.me/go/?nextUrl=https://mp.weixin.qq.com/s?__biz=MjEwMzA5NTcyMQ==&mid=2653126923&idx=1&sn=1ab2273e6530b337ba73fe19a478fd1d&chksm=4eb267cd79c5eedb6cfcd65d878b019849c5343ce710edc0256941432f1cf346010e3b510921%23rd">《傅聪：故园无此声》</a>。如此关注主要还是因为《傅雷家书》。不过，据说在傅聪面前再提《傅雷家书》，会让他感觉一丝恼怒。你不能在一位 80 岁德高望重智者前，老提他小时候被父亲残酷教育的事情。</p><p>感触良多。一是对于父亲傅雷自尽的解读，知父莫如子：</p><blockquote><p>我父亲一开始就是 martyr（烈士）的典型，这就是他的 karma（命运）。现在回想起来，很多中国知识分子对中国这传统有种特殊的感情。我父亲认为人有自己的选择，有最终的自由去选择死亡……他说过，人必死亡，而在死亡之前，人人平等。</p></blockquote><p>文章中也说：人们往往把傅雷的选择理解为不堪受辱、绝望自杀。但傅聪认为父亲的离去也是一种勇气。这条不归路是他一早就决定的，他并不是受辱自杀，因为他早已超越了「士可杀不可辱」的层次，他清楚预见了结局，「凛然踏上死亡之途」，「带着一种庄严肃穆的心，自己选择这条路」。</p><p>另外是这首《长相思》，傅雷对于傅聪是“故园无此声”，傅聪对于我们也是。</p><blockquote><p>山一程，水一程，身向榆关那畔行，夜深千帐灯。<br>风一更，雪一更，聒碎乡心梦不成，故园无此声。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;2020年12月28日，傅聪先生因感染新冠在英国逝世。</summary>
+    
+    
+    
+    
+    <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+    <category term="Life" scheme="http://example.com/tags/Life/"/>
+    
+  </entry>
   
   <entry>
     <title>特征工程：使用 PCA 进行降维可视化，了解特征分布</title>
@@ -390,25 +411,6 @@
     <category term="Python" scheme="http://example.com/tags/Python/"/>
     
     <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何才算一个好的团建活动</title>
-    <link href="http://example.com/2020/12/28/%E5%A6%82%E4%BD%95%E6%89%8D%E7%AE%97%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E5%9B%A2%E5%BB%BA%E6%B4%BB%E5%8A%A8/"/>
-    <id>http://example.com/2020/12/28/%E5%A6%82%E4%BD%95%E6%89%8D%E7%AE%97%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E5%9B%A2%E5%BB%BA%E6%B4%BB%E5%8A%A8/</id>
-    <published>2020-12-28T03:32:54.387Z</published>
-    <updated>2020-12-29T07:00:13.316Z</updated>
-    
-    <content type="html"><![CDATA[<p>年底了，各个部门团建又开始了，甭管业绩好坏。</p><a id="more"></a><p>对于我这种不热衷团建、惧怕群体活动的人来说，简直是灾难。但是这件事，又不得不做。团建肩负着凝聚团队、活络新人、年终回顾。不过几年下来，我发现没有哪次达到预期效果。</p><p>所以呐，做好一次团建，太考验能力了。耗费心力，这种活动组织我避之不及。</p><p>那，既然逃不掉，就来说说我认为怎样才算是一个好的团建活动。</p><p>先是团建时间，如果可以不占用员工周末、业余时间。就尽量不要占用。这个最重要。我也不想在周末被安排一个又臭又长的活动。己所不欲，勿施于人。如果能拿出工作时间（2 - 3天），做一个好的团建活动概率会大增。</p><p>再就是趣味性，活动需要有趣。如果只是吃饭，干嘛要去那么远呢？最好设置一个主题，一个目标门槛。人越多门槛设置越低。人多的选择，比如说：徒步。总之是需要一个整体目标。不然平时本来熟悉的员工，抱团玩耍；本来内向的员工，愈感孤独。</p><p>有了主题和目标，团队就有目标感，实现过程就会有协作，协作才会有碰撞，碰撞产生火花。在价值上，重要的不是目标，是过程。</p><p>主题的选择，要匹配上想要建造的团队气质。有的团队，团建就是麻将扑克牌；有的团队，会选择话剧、滑雪等。总之，整个和决策者价值观相关。我会更倾向于一种向上精神传递，而不是享乐主义。比如徒步，可以历练意志，让人坚强，而不是麻将。</p><p>最后，有的领导走哪都喜欢带着 PPT。在团建的时候，我建议还是歇歇吧。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;年底了，各个部门团建又开始了，甭管业绩好坏。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="组织" scheme="http://example.com/tags/%E7%BB%84%E7%BB%87/"/>
     
   </entry>
   
