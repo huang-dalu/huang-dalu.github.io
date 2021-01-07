@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="特征工程：主成分分析(PCA)的使用"/><meta name="keywords" content="特征工程, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2021/01/07/特征工程：主成分分析(PCA)的使用/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>特征工程：主成分分析(PCA)的使用 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">特征工程：主成分分析(PCA)的使用
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-01-07
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#PCA-Python%E4%BD%BF%E7%94%A8"><span class="toc-text">PCA Python使用</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>PCA 适用场景和流程说明。<a id="more"></a></p>
+<p>PCA 是一种通过分解特征矩阵来降维的方法。主要适用的应用场景如下：</p>
+<ul>
+<li>非监督式类型的数据集。它是一种非监督式的降维方法，因此适用于不带有标签的数据集；而对于带有标签的数据集则可以采用 LDA；</li>
+</ul>
+<ul>
+<li>根据方差自主控制特征数量。最大的主成分的数量≤特征的数量，这意味着，PCA也可以输出数量完全相同的特征，具体取决于选择特征中解释的方差比例；</li>
+</ul>
+<ul>
+<li>数据量较大的数据集。数据量大包括数据记录多和数据维度多两种情况，PCA 对大型数据集的处理效率较高。</li>
+</ul>
+<p><strong>PCA 的实现流程</strong>：</p>
+<ol>
+<li>按照数据集的 n 维特征矩阵，输入原数据，结构维（m，n），找出原本 n 个特征向量构成的 n 维空间 V；</li>
+<li>决定降维后的特征数量 k；</li>
+<li>通过找一组相互正交的坐标轴，找出 n 个新的特征向量，以及他们构成的新 n 维空间 V；</li>
+<li>找出原始数据在新特征空间 V 中的 n 个新特征向量上对应的值，即“将数据映射到新空间中”；</li>
+<li>选取前 k 个信息量最大的特征，删掉没有被选中的特征，成功将 n 维空间降为 k 维。</li>
+</ol>
+<p>流程中的关键是需要决定降维的特征数量 k，以及找到一组相互正交的坐标轴。这里涉及的数理知识有部分细节我还不太清楚。数理推导建议可以看这部分<a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/1025">如何理解主元分析（PCA）？</a></p>
+<p>从方差过滤中知道，如果一个特征的方差很小，则意味着这个 特征上很可能有大量取值都相同(比如90%都是1，只有10%是0，甚至100%是1)，那这一个特征的取值对样本来说就没有区分度，这种特征就不带有有效信息。也就是说方差越大，特征上带有的信息量越大。因此，在降维中，PCA 使用的信息量衡量指标，就是样本方差。计算公式为：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610011560782-c317ce1d-ca5c-444b-8a36-30d51e02ae2e.png#align=left&display=inline&height=122&margin=%5Bobject%20Object%5D&name=image.png&originHeight=122&originWidth=462&size=7168&status=done&style=none&width=462" alt="image.png"><br>Var表示一个特征的方差，n 代表样本量，<img src="https://cdn.nlark.com/yuque/__latex/05e42209d67fe1eb15a055e9d3b3770e.svg#card=math&code=x_%7Bi%7D&height=14&width=15">代表一个特征中的每个样本取值，<img src="https://cdn.nlark.com/yuque/__latex/76c49f47074cdc0440dd6a64b10d1b78.svg#card=math&code=%5Cwidehat%7Bx%7D&height=16&width=10">代表这一列样本的均值。</p>
+<h4 id="PCA-Python使用"><a href="#PCA-Python使用" class="headerlink" title="PCA Python使用"></a>PCA Python使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pca参数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sklearn</span>.<span class="title">decomposition</span>.<span class="title">PCA</span>(<span class="params">n_components=<span class="literal">None</span>, copy=<span class="literal">True</span>, whiten=<span class="literal">False</span>, svd_solver=<span class="string">&#x27;auto&#x27;</span>, tol=<span class="number">0.0</span>, iterated_power=<span class="string">&#x27;auto&#x27;</span>, random_state=<span class="literal">None</span></span>)</span></span><br></pre></td></tr></table></figure>
+
+
+<p>主要说下 n_components 参数。这个参数可以指定 PCA 降维后期望的特征维度数目。常规来说，要想先看看数据的散点图分布，可以 n_components=2，之前<a target="_blank" rel="noopener" href="https://uxcaff.com/2021/01/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%20PCA%20%E8%BF%9B%E8%A1%8C%E9%99%8D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%8C%E4%BA%86%E8%A7%A3%E7%89%B9%E5%BE%81%E5%88%86%E5%B8%83/">《使用 PCA 降维可视化，了解数据特征分布》</a>有演示。</p>
+<p>这里有 2 种方式，第 1 种是指定主成分的方差和所占的最小比例阈值，让 PCA 类根据样本特征方差来决定降维到的维度数，此时n_components 是一个（0，1]之间的数；并且让参数svd_solver ==’full’。比如说，如果我们希望保留 97% 的信息量，就可以输入n_components = 0.97，PCA会自动选出能够让保留的信息量超过97%的特征数量。第 2 种就是文章开始说的方差衡量指标pca_line.explained_variance_ratio_ ，用来查看降维后每个新特征向量所占信息量占原始数据总信息量的百分比。又叫做可解释方差贡献率。</p>
+<p>代码演示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入相关库</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris </span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.family&#x27;</span>] = [<span class="string">&#x27;Arial Unicode MS&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取skearn库鸢尾花数据集，鸢尾花四维数组</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">y = iris.target</span><br><span class="line">X = iris.data </span><br><span class="line">X[<span class="number">0</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[5.1, 3.5, 1.4, 0.2],</span><br><span class="line">       [4.9, 3. , 1.4, 0.2],</span><br><span class="line">       [4.7, 3.2, 1.3, 0.2],</span><br><span class="line">       [4.6, 3.1, 1.5, 0.2],</span><br><span class="line">       [5. , 3.6, 1.4, 0.2]])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用PCA</span></span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>) </span><br><span class="line">pca = pca.fit(X)</span><br><span class="line">X_dr = pca.transform(X)</span><br><span class="line">X_dr[<span class="number">0</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">array([[-2.68412563,  0.31939725],</span><br><span class="line">       [-2.71414169, -0.17700123],</span><br><span class="line">       [-2.88899057, -0.14494943],</span><br><span class="line">       [-2.74534286, -0.31829898],</span><br><span class="line">       [-2.72871654,  0.32675451]])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">pca_line = PCA().fit(X) </span><br><span class="line">plt.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],np.cumsum(pca_line.explained_variance_ratio_)) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.xticks([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]) </span><br><span class="line">plt.xlabel(<span class="string">&quot;降维后特征数量&quot;</span>) </span><br><span class="line">plt.ylabel(<span class="string">&quot;可解释方差贡献率&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610018353258-8e73ad4b-17b5-4e7e-9811-cdf6a15df9e4.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=output_3_0.png&originHeight=261&originWidth=389&size=11685&status=done&style=none&width=389" alt="output_3_0.png"></p>
+<p>累积可解释方差贡献率曲线是一条以降维后保留的特征个数为横坐标，降维后新特征矩阵捕捉到的可解释方差贡献 率为纵坐标的曲线。图中表示 4 个特征是 100%，2 个特征大概在 98%。                                                        </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保留97%信息量，PCA会自动选出能够让保留的信息量超过97%的特征数量。</span></span><br><span class="line">pca_f = PCA(n_components=<span class="number">0.97</span>,svd_solver=<span class="string">&quot;full&quot;</span>)</span><br><span class="line">pca_f = pca_f.fit(X)</span><br><span class="line">X_f = pca_f.transform(X)</span><br><span class="line">pca_f.explained_variance_ratio_</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array([0.92461872, 0.05306648])</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">特征工程</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2021/01/07/NumPy%EF%BC%9ANumPy%E7%9A%84cumsum()%E5%87%BD%E6%95%B0/">
+        <span class="next-text nav-default">NumPy：NumPy的cumsum()函数</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
