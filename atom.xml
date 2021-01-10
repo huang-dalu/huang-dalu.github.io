@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-07T12:15:50.161Z</updated>
+  <updated>2021-01-10T01:20:27.435Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>海子的《亚洲铜》</title>
+    <link href="http://example.com/2021/01/10/%E4%BA%9A%E6%B4%B2%E9%93%9C/"/>
+    <id>http://example.com/2021/01/10/%E4%BA%9A%E6%B4%B2%E9%93%9C/</id>
+    <published>2021-01-10T01:10:28.831Z</published>
+    <updated>2021-01-10T01:20:27.435Z</updated>
+    
+    <content type="html"><![CDATA[<p>《亚洲铜》是海子的成名作。<a id="more"></a>最喜欢的是“那两只白鸽子，它是屈原遗落在沙滩上的白鞋子”“击鼓之后，我们把在黑暗中跳舞的心脏叫做月亮”。</p><p>之前细细研究过《现代诗歌理论与技巧》，看完之后再来这首诗，觉得，有些人天生就是诗人，学不来的。</p><p>这种细致、敏感、想象力，教不出来。</p><blockquote><p>亚洲铜，亚洲铜<br>祖父死在这里，父亲死在这里，我也将死在这里<br>你是唯一的一块埋人的地方</p><p>亚洲铜，亚洲铜<br>爱怀疑和飞翔的是鸟，淹没一切的是海水<br>你的主人却是青草，住在自己细小的腰上，守住野花的手掌和秘密</p><p>亚洲铜，亚洲铜<br>看见了吗？那两只白鸽子，它是屈原遗落在沙滩上的白鞋子<br>让我们——我们和河流一起，穿上它吧</p><p>亚洲铜，亚洲铜<br>击鼓之后，我们把在黑暗中跳舞的心脏叫做月亮<br>这月亮主要由你构成</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;《亚洲铜》是海子的成名作。</summary>
+    
+    
+    
+    
+    <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>特征工程：主成分分析(PCA)的使用</title>
@@ -386,27 +405,6 @@
     
     
     <category term="诗词" scheme="http://example.com/tags/%E8%AF%97%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>判断数据正态分布的 2 个方法</title>
-    <link href="http://example.com/2020/12/28/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%202%20%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
-    <id>http://example.com/2020/12/28/%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%202%20%E4%B8%AA%E6%96%B9%E6%B3%95/</id>
-    <published>2020-12-28T08:42:15.579Z</published>
-    <updated>2020-12-28T09:12:43.197Z</updated>
-    
-    <content type="html"><![CDATA[<p>说明判断数据正态分布的 2 个方法，当然也不止 2 种，只是比较常用。</p><a id="more"></a><h3 id="Q-Q图"><a href="#Q-Q图" class="headerlink" title="Q-Q图"></a>Q-Q图</h3><p>Q-Q图（分位数-分位数图）是两个分位数彼此相对的图。分位数是某些值低于该分位数的分数。</p><p>例如，中位数是一个分位数，其中 50％ 的数据低于该点，而 50％ 的数据位于该点之上。Q-Q图的目的是找出两组数据是否来自同一分布。Q-Q图上绘制了 45 度角；如果两个数据集来自同一分布，则这些点将落在该参考线上。</p><p><strong>Q-Q图的 2 个作用：</strong></p><ol><li>数据集和正态分布做对比，观察数据是否符合正态分布；</li><li>两个数据集对比，观察两个数据集是否分布一致。</li></ol><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828171528-44c4652b-bf4d-400d-a13d-bf6cc70ac115.png#align=left&display=inline&height=411&margin=%5Bobject%20Object%5D&name=image.png&originHeight=411&originWidth=476&size=15252&status=done&style=none&width=476" alt="image.png"></p><p><strong>举例：</strong>7.19、6.31、5.89、4.5、3.77、4.25、5.19、5.79、6.79。以上值是否来自正态分布？<br><strong>解法：</strong></p><ol><li>从最小到最大排序。3.77、4.25、4.50、5.19、5.89、5.79、6.31、6.79、7.19</li><li>绘制正态分布曲线。将曲线分成n + 1个段。我们有 9 个值，因此将曲线分为 10 个大小相等的区域。对于此示例，每个线段占面积的 10％（因为100％/ 10 = 10％）。</li></ol><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828580368-fc61d994-2506-4625-8ccf-adbbcd5ec8e4.png#align=left&display=inline&height=237&margin=%5Bobject%20Object%5D&name=image.png&originHeight=237&originWidth=346&size=33433&status=done&style=none&width=346" alt="image.png"></p><ol start="3"><li>在第 3 步中找到每个分段的 z 值（截止点）。这些分段是 _area_，因此请参考 z 表（标准正态概率）以获取每个分段的 z 值。在 z 值是：</li></ol><table><thead><tr><th align="center"><strong>分位</strong></th><th align="center"><strong>z值</strong></th></tr></thead><tbody><tr><td align="center">10％</td><td align="center">-1.28</td></tr><tr><td align="center">20％</td><td align="center">-0.84</td></tr><tr><td align="center">30%</td><td align="center">-0.52</td></tr><tr><td align="center">40%</td><td align="center">-0.25</td></tr><tr><td align="center">50%</td><td align="center">0</td></tr><tr><td align="center">60%</td><td align="center">0.25</td></tr><tr><td align="center">70%</td><td align="center">0.52</td></tr><tr><td align="center">80%</td><td align="center">0.84</td></tr><tr><td align="center">90%</td><td align="center">1.28</td></tr><tr><td align="center">100%</td><td align="center">3.0</td></tr></tbody></table><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828613856-7b202d41-eea6-42a5-8e4a-39d23f248976.png#align=left&display=inline&height=237&margin=%5Bobject%20Object%5D&name=image.png&originHeight=237&originWidth=346&size=31881&status=done&style=none&width=346" alt="image.png"></p><ol start="4"><li>针对正态分布截止点（步骤 3 ）绘制数据集值（步骤 1 ）。绘制表格：</li></ol><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602828641949-822e7917-2ca4-4053-9d3d-fdd9ee32661a.png#align=left&display=inline&height=338&margin=%5Bobject%20Object%5D&name=image.png&originHeight=338&originWidth=523&size=14051&status=done&style=none&width=523" alt="image.png"></p><p>Q-Q图上的（几乎）直线表示数据符合正态分布。</p><h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><p>使用直方图来观察数据集符合正态分布相对容易理解，只需要观察数据集是否是正态分布的钟型形状，两头低，中间高。越标准与正态分布越吻合。</p><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603089692569-f433353b-da04-448e-9a7a-02375525144b.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=image.png&originHeight=159&originWidth=343&size=14989&status=done&style=none&width=343" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直方图</span></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">sns.distplot(tips[<span class="string">&#x27;total_bill&#x27;</span>],fit=stats.norm)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Q-Q图</span></span><br><span class="line">ax=plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">res = stats.probplot(tips[<span class="string">&#x27;total_bill&#x27;</span>], plot=plt)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603089713759-95b2cf22-990e-4797-87e4-0f3ec6cc3c2e.png#align=left&display=inline&height=334&margin=%5Bobject%20Object%5D&name=image.png&originHeight=334&originWidth=602&size=33091&status=done&style=none&width=602" alt="image.png"></p><p>观察可以得出，total_bill数据集大概是符合正态分布的。</p><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li><a href="https://www.statisticshowto.com/q-q-plots/"><em>https://www.statisticshowto.com/q-q-plots/</em></a></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;说明判断数据正态分布的 2 个方法，当然也不止 2 种，只是比较常用。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-    <category term="数据分析" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
