@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="统计学：相关系数介绍"/><meta name="keywords" content="统计学, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/05/04/统计知识：相关系数介绍/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>统计学：相关系数介绍 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">统计学：相关系数介绍
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-04
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-%E5%AE%9E%E7%8E%B0"><span class="toc-text">Python 实现</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>介绍相关系数，和Python实现。<a id="more"></a></p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>说到相关系数需要了解的 3 个概念：相关分析、数据期望、协方差。先分别说明这些概念。</p>
+<p><strong>相关分析</strong><br>相关分析是用来说明两个变量之间的关系。这个关系包含：两个变量的方向和强度。</p>
+<ul>
+<li>按变量的多少划分： 单相关、复相关 ；</li>
+<li>按表现形态划分:：直线相关、曲线相关；</li>
+<li>从变动的方向划分：正相关、负相关；</li>
+<li>按相关的程度不同分：完全相关、统计相关、完全无关。</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603873582000-0bfd75df-8500-4785-b302-1ceb2cef0c52.png#align=left&display=inline&height=496&margin=%5Bobject%20Object%5D&name=image.png&originHeight=992&originWidth=984&size=138258&status=done&style=none&width=492" alt="image.png"></p>
+<p><strong>数学期望</strong><br>例子：某城市有 10 万个家庭，没有孩子的家庭有 1000 个，有一个孩子的家庭有 9 万个，有两个孩子的家庭有 6000 个，有 3 个孩子的家庭有 3000 个。则此城市中任一个家庭中孩子的数目是一个随机变量，记为 X。它可取值 0，1，2，3。其中，X 取 0 的概率为 0.01，取 1 的概率为 0.9，取 2 的概率为 0.06，取 3 的概率为 0.03。则它的数学期望：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/svg/613759/1599092036220-b6fa5f70-fc48-4836-9c3f-a3cda9ef000b.svg#align=left&display=inline&height=24&margin=%5Bobject%20Object%5D&originHeight=24&originWidth=502&size=0&status=done&style=none&width=502"></p>
+<p>即此城市一个家庭平均有小孩  1.11 个，当然人不可能用 1.11 个来算，约等于 2 个。</p>
+<p><strong>协方差</strong><br>协方差可以看这篇文章，已经说得比较清楚。<a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/568/">《如何通俗地理解协方差与相关系数？》</a></p>
+<p><strong>相关系数</strong></p>
+<ul>
+<li>Pearson 相关系数：一般用来计算两个连续型变量的相关系数。也是最常用的相关系数。公式这里就不写了，一些统计学的教程都有说明。当两个变量的标准差都不为零时，相关系数才有定义，皮尔逊相关系数适用于：<ol>
+<li>两个变量之间是线性关系，都是连续数据。</li>
+<li>两个变量的总体是正态分布，或接近正态的单峰分布。</li>
+<li>两个变量的观测值是成对的，每对观测值之间相互独立。</li>
+</ol>
+</li>
+<li>Spearman 相关系数：两个变量无论连续还是分类都可以使用。</li>
+<li>kendall 相关系数：一个连续一个分类。最好是定序变量。</li>
+</ul>
+<p>相关系数是公式的不同。主要的 Pearson 相关系数在上面那篇《如何通俗地理解协方差与相关系数？》中也有，这里不多做介绍。</p>
+<p>−1 ≤ 𝐶𝑜𝑟𝑌,𝑋 ≤ 1 代表的含义：</p>
+<ol>
+<li>值： Y 和 X 之间线性关系的强度；</li>
+<li>符号： Y 和 X 之间线性关系的方向。</li>
+</ol>
+<p>关于相关系数 r 的取值说明：</p>
+<ol>
+<li>r 的取值范围为 -1 ≤ r ≤ + 1；</li>
+<li>|r| 越接近 1，表明相关关系越密切；越接近于0，相关关系就越不密切。r = 0，两变量无直线关系；</li>
+<li>r = +1 或 r = -1,表明两变量完全相关；</li>
+<li>r &gt; 0 现象呈正直线关系；r &lt; 0 现象呈负相关；</li>
+<li>在说明两个变量之间线性关系的密切程度时，根据经验可将相关程度分为以下几种情况：当 |r|  ≥  0.8 时，视为高度相关；0.5 ≤ |r| &lt; 0.8 时， 视为中度相关；0.3 ≤ |r| &lt; 5时，视为低度相关； |r| &lt; 0.3 时，说明两个变量之间的相关程度极弱，可视为不相关。但这种说明必须建立在相关系数通过显著性检验的基础之上。</li>
+</ol>
+<h4 id="Python-实现"><a href="#Python-实现" class="headerlink" title="Python 实现"></a>Python 实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拿到titanic数据集</span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">titanic.head()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603873841737-87d6dc17-8129-4cd0-97ac-2da95db898ea.png#align=left&display=inline&height=162&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=818&size=27394&status=done&style=none&width=818" alt="image.png"><br>参数说明：</p>
+<ul>
+<li>method{‘pearson’, ‘kendall’, ‘spearman’} ，默认 Pearson 相关系数；</li>
+<li>min_periods：int类型可选值。观察每对列所需的最小数，样本最少的数据量。仅适用于 Pearson 和Spearman。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">corr = titanic.corr()</span><br><span class="line">corr</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603873908679-37d13fbd-f717-4bcf-a0b6-4709530d73b4.png#align=left&display=inline&height=243&margin=%5Bobject%20Object%5D&name=image.png&originHeight=243&originWidth=624&size=37919&status=done&style=none&width=624" alt="image.png"></p>
+<p><strong>相关系数可视化</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">14</span>,<span class="number">10</span>))</span><br><span class="line">sns.heatmap(corr,linewidths=<span class="number">0.2</span>, cmap=<span class="string">&quot;YlGnBu&quot;</span>,annot=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603873925652-9aa02770-8c26-40bf-a1d8-8672d684a4bd.png#align=left&display=inline&height=579&margin=%5Bobject%20Object%5D&name=output_4_1.png&originHeight=579&originWidth=754&size=41369&status=done&style=none&width=754" alt="output_4_1.png"></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/20/%E5%AE%B6%E5%BA%AD%E8%B4%AD%E4%B9%B0%E4%BF%9D%E9%99%A9%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">家庭购买保险相关问题</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/05/02/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/">
+        <span class="next-text nav-default">特征工程：数据标准化之Max-Min标准化</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

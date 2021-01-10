@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Python常见的字符串操作"/><meta name="keywords" content="Python, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2018/04/30/Python常见的字符串操作/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Python常见的字符串操作 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Python常见的字符串操作
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-30
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8str-split-%E5%88%87%E5%88%86%E6%95%B0%E6%8D%AE"><span class="toc-text">使用str.split() 切分数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86datetime%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="toc-text">将datetime类型转化为字符串类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%90%88%E5%B9%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">字符串的合并操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-str-strip-%E5%8E%BB%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%89%8D%E9%9D%A2%E5%92%8C%E5%90%8E%E9%9D%A2%E6%89%80%E6%9C%89%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">使用 str.strip() 去除字符串前面和后面所有的字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E4%BB%A3%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%9F%90%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%BA%E5%8F%A6%E5%A4%96%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">替代字符串中的某些字符串为另外的字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-%E4%B8%AD%E7%9A%84-i-%EF%BC%8Ci"><span class="toc-text">Python 中的 i++，i+</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>总结下Python一部分字符串操作的基础总结。</p>
+<a id="more"></a>
+
+<p>文章目录如下：</p>
+<ul>
+<li>使用str.split() 切分数据</li>
+<li>将datetime类型转化为字符串类型</li>
+<li>字符串的合并操作</li>
+<li>使用 str.strip() 去除字符串前面和后面所有的字符串</li>
+<li>替代字符串中的某些字符串为另外的字符串</li>
+<li>Python 中的 i++，i+</li>
+</ul>
+<p>下面简单的演示。</p>
+<h4 id="使用str-split-切分数据"><a href="#使用str-split-切分数据" class="headerlink" title="使用str.split() 切分数据"></a>使用str.split() 切分数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line">man = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;data&#x27;</span>:[<span class="string">&#x27;张三|男&#x27;</span>,<span class="string">&#x27;李四|男&#x27;</span>,<span class="string">&#x27;王五|男&#x27;</span>]</span><br><span class="line">&#125;)</span><br><span class="line">man</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1606647338906-e3bce98c-2eff-44f2-83f2-fd779b754ce1.png#align=left&display=inline&height=114&margin=%5Bobject%20Object%5D&name=image.png&originHeight=228&originWidth=150&size=6410&status=done&style=none&width=75" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用str.split() 把数据分成两列</span></span><br><span class="line">man = man[<span class="string">&#x27;data&#x27;</span>].apply(<span class="keyword">lambda</span> x :Series(x.split(<span class="string">&#x27;|&#x27;</span>)))</span><br><span class="line">man</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1606647357289-ce63d5c5-264b-4a9f-8775-b1fde14da559.png#align=left&display=inline&height=109&margin=%5Bobject%20Object%5D&name=image.png&originHeight=218&originWidth=158&size=5938&status=done&style=none&width=79" alt="image.png"></p>
+<h4 id="将datetime类型转化为字符串类型"><a href="#将datetime类型转化为字符串类型" class="headerlink" title="将datetime类型转化为字符串类型"></a>将datetime类型转化为字符串类型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将datetime类型转化为字符串类型</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">stamp = datetime(<span class="number">2019</span>,<span class="number">5</span>,<span class="number">1</span>)</span><br><span class="line">stamp</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.datetime(2019, 5, 1, 0, 0)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str_stamp= <span class="built_in">str</span>(stamp)</span><br><span class="line">str_stamp</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;2019-05-01 00:00:00&#39;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="字符串的合并操作"><a href="#字符串的合并操作" class="headerlink" title="字符串的合并操作"></a>字符串的合并操作</h4><p><strong>使用join()连接字符串数组</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># join()：连接字符串数组。将字符串、元组、列表、Series中的元素以指定的字符(分隔符)连接生成一个新的字符串</span></span><br><span class="line">a=[<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>]</span><br><span class="line">text = <span class="string">&#x27;  &#x27;</span>.join(a)</span><br><span class="line">text</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;1  2  3  4  5&#39;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>使用 + 连接字符串</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用加号</span></span><br><span class="line">x = <span class="string">&#x27;a&#x27;</span> + <span class="string">&#x27;b&#x27;</span></span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;ab&#39;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>使用format()将多个字符串合并，主要用在变量输出上</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">&#x27;i am &#123;1&#125; and &#123;0&#125; years old&#x27;</span>.<span class="built_in">format</span>(<span class="number">30.</span>, <span class="string">&#x27;Tony&#x27;</span>)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;i am Tony and 30.0 years old&#39;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>使用Pandas自带的cat()函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  Series.str.cat(others=None,  # 要合并的另外一个对象,如果为空则将左侧对象组合</span></span><br><span class="line"><span class="comment">#                 sep=None,     # 合并的分隔符，默认为空</span></span><br><span class="line"><span class="comment">#                 na_rep=None)  # 如果遇到NA值的处理方式，默认忽略</span></span><br><span class="line"></span><br><span class="line">EG = pd.Series([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]).<span class="built_in">str</span>.cat(sep=<span class="string">&#x27;;&#x27;</span>)</span><br><span class="line">EG</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;a;b;c&#39;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EG = pd.Series([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]).<span class="built_in">str</span>.cat([<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>], sep=<span class="string">&#x27;@@&#x27;</span>)</span><br><span class="line">EG</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0    a@@A</span><br><span class="line">1    b@@B</span><br><span class="line">2    c@@C</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="使用-str-strip-去除字符串前面和后面所有的字符串"><a href="#使用-str-strip-去除字符串前面和后面所有的字符串" class="headerlink" title="使用 str.strip() 去除字符串前面和后面所有的字符串"></a>使用 str.strip() 去除字符串前面和后面所有的字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># str.strip([chars]);去除字符串前面和后面的所有设置的字符串，默认为空格</span></span><br><span class="line">st = <span class="string">&quot;   hello    &quot;</span></span><br><span class="line">st = st.strip()</span><br><span class="line">print(st + <span class="string">&#x27;word&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helloword</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除字符串&#x27;l, o&#x27;</span></span><br><span class="line">st = st.strip(<span class="string">&#x27;l, o&#x27;</span>)</span><br><span class="line">print(st)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">he</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="替代字符串中的某些字符串为另外的字符串"><a href="#替代字符串中的某些字符串为另外的字符串" class="headerlink" title="替代字符串中的某些字符串为另外的字符串"></a>替代字符串中的某些字符串为另外的字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># str.replace(old, new[, max])</span></span><br><span class="line"><span class="comment"># old -- 将被替换的子字符串。</span></span><br><span class="line"><span class="comment"># new -- 新字符串，用于替换old子字符串。</span></span><br><span class="line"><span class="comment"># max -- 可选字符串, 替换不超过 max 次</span></span><br><span class="line"></span><br><span class="line">st = <span class="string">&quot;hello&quot;</span></span><br><span class="line">st = st.replace(<span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">st</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;healo&#39;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换字符串中的某些子串，可以用正则表达式来匹配被选子串。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># re.sub(pattern, repl, string, count=0, flags=0)</span></span><br><span class="line"><span class="comment"># pattern：表示正则表达式中的模式字符串；</span></span><br><span class="line"><span class="comment"># repl：被替换的字符串（既可以是字符串，也可以是函数）；</span></span><br><span class="line"><span class="comment"># string：要被处理的，要被替换的字符串；</span></span><br><span class="line"><span class="comment"># count：匹配的次数, 默认是全部替换</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">st = <span class="string">&quot;hello 2019&quot;</span></span><br><span class="line">st = re.sub(<span class="string">&quot;([0-9]+)&quot;</span>,<span class="string">&quot;word&quot;</span>,st)</span><br><span class="line">print(st)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello word</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Python-中的-i-，i"><a href="#Python-中的-i-，i" class="headerlink" title="Python 中的 i++，i+"></a>Python 中的 i++，i+</h4><p> 顺便在这篇基础下面总结下 Python 中的 i++，i+ 这类写法和 Java 不一样。在新手入门时会有点疑问，这里列一下。</p>
+<p><strong>i+1</strong></p>
+<p>这种都是一样的写法，没什么问题，很好理解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>i+</strong></p>
+<p>i+ 就是 Python 中的自增写法。相当于其他语言的 ++i。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    i+=<span class="number">5</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>i-</strong></p>
+<p>Python 中的自减写法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    i-=<span class="number">5</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-5</span><br><span class="line">-4</span><br><span class="line">-3</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>++i</strong></p>
+<p>Python 中的 ++i，仅仅是作为判断运算符号,类似数学中的负负得正。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 体现在这个案例中，就是对结果值没影响</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    ++i</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>i++</strong></p>
+<p>Python 中不支持这类写法，所以直接报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    i++</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  File &quot;&lt;ipython-input-21-7faff3d068a4&gt;&quot;, line 2</span><br><span class="line">    i++</span><br><span class="line">       ^</span><br><span class="line">SyntaxError: invalid syntax</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Python/">Python</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/05/01/%E3%80%8A%E4%B8%8A%E7%98%BE%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">《上瘾》读书笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/04/14/Pandas%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%80%89%E5%8F%96%E7%9A%844%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+        <span class="next-text nav-default">Pandas：数据选取的4种方式</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
