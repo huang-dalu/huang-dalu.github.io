@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="线性代数：向量的介绍和运算"/><meta name="keywords" content="线性代数, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/04/01/线性代数：向量的介绍和运算/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>线性代数：向量的介绍和运算 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">线性代数：向量的介绍和运算
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-04-01
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F"><span class="toc-text">线性代数中的向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-text">向量的运算</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>线性代数向量的介绍和运算，只介绍比较常用的内容。<a id="more"></a></p>
+<h4 id="线性代数中的向量"><a href="#线性代数中的向量" class="headerlink" title="线性代数中的向量"></a>线性代数中的向量</h4><p>线性代数中最常用、也最重要的概念，向量（Vector），也可以叫作矢量。它代表一组数字，并且这些数字是有序排列的，并且有方向。常说的单个数字，属于标量（Scalar），它只是一个单独的数字，而且不能表示方向。</p>
+<p>用加粗的小写字母表示一个向量，例如 <img src="https://cdn.nlark.com/yuque/__latex/9dd4e461268c8034f5c8564e155c67a6.svg#card=math&code=x&height=12&width=9">，而 <img src="https://cdn.nlark.com/yuque/__latex/f9a3b8e9e501458e8face47cae8826de.svg#card=math&code=x_%7B1%7D&height=14&width=16">，<img src="https://cdn.nlark.com/yuque/__latex/8f43fce8dbdf3c4f8d0ac91f0de1d43d.svg#card=math&code=x_%7B2%7D&height=14&width=16">，<img src="https://cdn.nlark.com/yuque/__latex/a4f66ba447cf765d4612169b07207e8d.svg#card=math&code=x_%7B3%7D&height=14&width=16">，…，<img src="https://cdn.nlark.com/yuque/__latex/67b68721103b5a16194f4b3e3ec222db.svg#card=math&code=x_%7Bn%7D&height=14&width=18"> 等等，来表示向量中的每个元素，这里面的 <img src="https://cdn.nlark.com/yuque/__latex/7b8b965ad4bca0e41ab51de7b31363a1.svg#card=math&code=n&height=12&width=10"> 就是向量的维。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610345080772-3d9f1e3a-265b-4509-a6c0-4c438e6293cc.png#align=left&display=inline&height=197&margin=%5Bobject%20Object%5D&name=image.png&originHeight=262&originWidth=144&size=18334&status=done&style=none&width=108" alt="image.png"><br>延伸的<strong>特征向量（Feature Vector）</strong>定义：由于一个向量包含了很多个元素，因此我们自然地就可以把它运用在机器学习的领域。因为物体/主体有很多的的属性，转换为能够用数字表达的特征。由于特征有很多维，因此我们可以使用向量来表示某个物体的特征。其中，向量的每个元素就代表一维特征，而元素的值代表了相应特征的值。比如用户画像中，用户特征（年龄、性别、价格敏感度、消费区间等等）。</p>
+<p>需要注意的是，这个<strong>特征向量和矩阵的特征向量（Eigenvector）是两码事</strong>。矩阵的几何意义是坐标的变换。如果一个矩阵存在特征向量和特征值，这个矩阵的特征向量就表示了它在空间中最主要的运动方向。</p>
+<h4 id="向量的运算"><a href="#向量的运算" class="headerlink" title="向量的运算"></a>向量的运算</h4><p>标量和向量之间可以进行运算，把标量和向量中的每个元素进行运算。标量和向量相加或者相乘时，直接把标量和向量中的每个元素相加或者相乘。</p>
+<p>向量和向量之间的加法，首先它们需要维度相同，然后是对应的元素相加。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610346714373-24b44c93-cc5b-450c-b1af-c9d21a79319c.png#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&name=image.png&originHeight=440&originWidth=962&size=108531&status=done&style=none&width=481" alt="image.png"><br>可以这么解释两个向量相加。在下面这张图中，有两个向量 x 和 y，它们的长度分别是 x’和 y’，它们的相加结果是 x+y，这个结果所对应的点相当于 x 向量沿着 y 向量的方向移动 y’，或者是 y 向量沿着 x 向量的方向移动 x’。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610346738854-688429ee-6750-4319-81e3-73b35b3c3c8a.png#align=left&display=inline&height=373&margin=%5Bobject%20Object%5D&name=image.png&originHeight=746&originWidth=1126&size=69716&status=done&style=none&width=563" alt="image.png"></p>
+<p>向量之间的乘法默认是<strong>点乘</strong>，向量 x 和 y 的点乘是这么定义的：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610346862637-e32c5249-3380-420f-8326-b88cb7b612bd.png#align=left&display=inline&height=210&margin=%5Bobject%20Object%5D&name=image.png&originHeight=420&originWidth=960&size=104867&status=done&style=none&width=480" alt="image.png"></p>
+<p>点乘的作用是把相乘的两个向量转换成了标量，它有具体的几何含义。会用点乘来计算向量的长度以及两个向量间的夹角，所以一般情况下会默认向量间的乘法是点乘。至于向量之间的夹角和距离，它们在向量空间模型（Vector Space Model）中发挥了重要的作用。机器学习领域充分利用了向量空间模型，计算不同对象之间的相似程度。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/06/22/%E3%80%8A%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%8B%E7%AC%94%E8%AE%B0/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">《交互设计实用指南》笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/03/26/%E4%B8%93%E5%AE%B6%E7%94%A8%E6%88%B7%E7%9A%84%E2%80%9C%E6%AE%8B%E5%AE%B3%E2%80%9D/">
+        <span class="next-text nav-default">专家用户的“残害”</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

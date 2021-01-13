@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="线性代数：矩阵的介绍和运算"/><meta name="keywords" content="线性代数, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2018/11/01/线性代数：矩阵的介绍和运算/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>线性代数：矩阵的介绍和运算 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">线性代数：矩阵的介绍和运算
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-01
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵的运算</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>矩阵由多个长度相等的向量组成，其中的每列或者每行就是一个向量。<a id="more"></a>因此把向量延伸一下就能得到矩阵（Matrix）。从数据结构的角度看，向量是一维数组，那矩阵就是一个二维数组。如果二维数组里绝大多数元素都是 0 或者不存在的值，那么我们就称这个矩阵很稀疏。</p>
+<p>矩阵还有一种比较好理解的方式，就是用方程组来表达。比如方程组：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/ba16ece859b394627e90eac9e9e47e94.svg#card=math&code=%5Cbegin%7Barray%7D%7Br%7D%20%0Ax_%7B1%7D-2x_%7B2%7D%2Bx_%7B3%7D%3D1%5C%5C%0A%20%202x_%7B2%7D-8x_%7B3%7D%3D8%5C%5C%0A%20%205x_%7B1%7D-5x_%7B3%7D%3D10%0A%5Cend%7Barray%7D%20&height=66&width=137"></p>
+<p>然后把每一个变量的系数写在对齐的一列中，可以写成矩阵：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/4fd618c9324740278fbe66890836b869.svg#card=math&code=%20%5Cbegin%7Bbmatrix%7D%20%20%0A%20%201%20%26%20-2%20%26%201%20%5C%5C%20%20%0A%20%200%20%26%202%20%26%20-8%20%5C%5C%20%20%0A%20%205%20%26%200%20%26%20-5%0A%5Cend%7Bbmatrix%7D%20&height=66&width=112"></p>
+<p>也可以写成矩阵：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/4fc3e4b9949385294c955965f95b2bb1.svg#card=math&code=%20%5Cbegin%7Bbmatrix%7D%20%20%0A%20%201%20%26%20-2%20%26%201%20%26%201%20%5C%5C%20%20%0A%20%200%20%26%202%20%26%20-8%20%26%208%20%5C%5C%20%20%0A%20%205%20%26%200%20%26%20-5%20%26%2010%0A%5Cend%7Bbmatrix%7D%20&height=66&width=146"></p>
+<p>第 1 个矩阵称为方程组的<strong>系数矩阵</strong>，第 2 个矩阵称为方程组的<strong>增广矩阵</strong>。</p>
+<p>矩阵用加粗的斜体大写字母表示，例如 X，而 X12，X22，…，Xnm 等等，表示矩阵中的每个元素，而这里面的 n 和 m 分别表示矩阵的行维数和列维数。</p>
+<h4 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h4><p>和向量一样，矩阵的和标量之间的加法和乘法，需要把标量和矩阵中的每个元素相加或相乘，就能得到结果。</p>
+<p>矩阵和矩阵之间加法，只要保证两个矩阵具有相同的行维度和列维度，就可以把对应的元素两两相加。比如下面：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/6af68e3f126948bb0c64a277f9c31eec.svg#card=math&code=A%3D%20%5Cbegin%7Bbmatrix%7D%20%20%0A%20%201%20%26%20-2%20%26%201%20%26%201%20%5C%5C%20%20%0A%20%200%20%26%202%20%26%20-8%20%26%208%20%5C%5C%20%20%0A%20%205%20%26%200%20%26%20-5%20%26%2010%0A%5Cend%7Bbmatrix%7D%20%0A%0AB%3D%20%5Cbegin%7Bbmatrix%7D%20%20%0A%20%201%20%26%20-2%20%26%201%20%26%200%20%5C%5C%20%20%0A%20%200%20%26%202%20%26%20-8%20%26%208%20%5C%5C%20%20%0A%20%205%20%26%200%20%26%20-5%20%26%201%0A%5Cend%7Bbmatrix%7D%20&height=66&width=358"></p>
+<p>那么：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/0eb421d9b07f8393421a66ab777594de.svg#card=math&code=A%2BB%3D%20%5Cbegin%7Bbmatrix%7D%20%20%0A%20%202%20%26%20-4%20%26%202%20%26%201%20%5C%5C%20%20%0A%20%200%20%26%204%20%26%20-16%20%26%2016%20%5C%5C%20%20%0A%20%2010%20%26%200%20%26%20-10%20%26%2011%0A%5Cend%7Bbmatrix%7D%20&height=66&width=231"></p>
+<p>矩阵的乘法形式：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610464539644-8d7b4ca2-cf3c-4345-a369-9dc594a1f6df.png#align=left&display=inline&height=113&margin=%5Bobject%20Object%5D&name=image.png&originHeight=226&originWidth=380&size=32033&status=done&style=none&width=190" alt="image.png"></p>
+<p>其中，矩阵 Z 为矩阵 X 和 Y 的乘积，X 是形状为 i x k 的矩阵，而 Y 是形状为 k × j 的矩阵。X 的列数 k 必须和 Y 的行数 k 相等，两者才可以进行这样的乘法。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610464593355-f7287c9d-981d-4d87-a377-58090c5faf3f.png#align=left&display=inline&height=138&margin=%5Bobject%20Object%5D&name=image.png&originHeight=552&originWidth=1486&size=257524&status=done&style=none&width=372" alt="image.png"></p>
+<p>还有一个比较常见的运算，是<strong>矩阵的转置</strong>。这个比较常见，写代码的时候我们有遇到，下面直接用 DataFrame 数据演示下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610523124715-5204e44a-99d2-49ae-9b15-d2dfe48f59bf.png#align=left&display=inline&height=160&margin=%5Bobject%20Object%5D&name=image.png&originHeight=160&originWidth=348&size=15157&status=done&style=none&width=348" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tips.describe()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610523153734-ec8e6b2c-598c-4d39-8c28-226718a466ea.png#align=left&display=inline&height=244&margin=%5Bobject%20Object%5D&name=image.png&originHeight=244&originWidth=276&size=16344&status=done&style=none&width=276" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DataFrame 数据格式的转置，和矩阵转置的性质一致。</span></span><br><span class="line">tips.describe().T</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610523199208-f2b21a55-058d-4be1-a623-b422bebb773f.png#align=left&display=inline&height=108&margin=%5Bobject%20Object%5D&name=image.png&originHeight=108&originWidth=482&size=13257&status=done&style=none&width=482" alt="image.png"></p>
+<p>矩阵的转置，也就是上面两个数据集的行列转换方式。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/11/09/%E9%9D%A2%E8%AF%95%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E6%80%BB%E7%BB%93/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">面试产品经理总结</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/">
+        <span class="next-text nav-default">霍桑实验带来的启发</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
