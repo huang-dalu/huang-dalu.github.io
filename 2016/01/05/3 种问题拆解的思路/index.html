@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="流失用户分析框架"/><meta name="keywords" content="User Growth, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2015/05/01/流失用户分析框架/"/>
+<meta name="description" content="3种问题拆解的思路"/><meta name="keywords" content="Thinking, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2016/01/05/3 种问题拆解的思路/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>流失用户分析框架 - UX Caff</title>
+    <title>3种问题拆解的思路 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -89,63 +89,43 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">流失用户分析框架
+      <h1 class="post-title">3种问题拆解的思路
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-05-01
+          2016-01-05
         </span></div>
     </header>
 
-    <div class="post-content"><p>关于流失用户的研究，基本上每个项目都在研究，于是把内容抽象出来，整理成流失用户分析框架。<a id="more"></a></p>
-<p>分析流程分为：<strong>收集信息、指定方案、实施研究、分析数据。</strong></p>
-<p>收集信息包括产品内部信息和外部信息。产品内部信息主要围绕内部流程、产品功能、用户分析。比如：</p>
-<ol>
-<li>产品流失率以及近一段时间内流失率的变化；</li>
-<li>流失用户类型。通过后台数据分析初步确定流失用户主要是新用户还是老用户；</li>
-<li>流失用户特点。通过后台数据判断用户是否有明显的共性；</li>
-<li>流失率的变化是否有规律和明显的时间节点，是否和产品版本更新有关；</li>
-<li>通过产品、客服、第三方平台等各个渠道收集到的用户反馈。</li>
-</ol>
-<p>外部环境，可以用 PEST分析方法。常规上需要了解：</p>
-<ol>
-<li>政策变化。一些外部政策的变化可能会对产品有影响，例如关税新政对跨境电商平台的影响，版权规范政策对音乐、阅读、漫画等平台的影响；</li>
-<li>竞品动态。包括竞品近期的运营活动、新功能上线等动态。</li>
-</ol>
-<p>流失背景、用户情况大概了解后，开始来确定研究目标。根据目前经验来看，主要是 3 个目的。第 1 是预测即将流失的用户情况。第 2 是数据分析，制定策略，防止用户继续流失。第 3 是来挽回已流失的用户，挽回的手段无非是短信 + 电话 + push 通知触达，券 + 节日活动增加挽回动机。确定后，这些目标优先级后，再来开始具体策略。</p>
-<p>核心的数据分析，前提是收集现有数据。如果数据样本较少，会考虑和用研再核对，利用一些用户研究方法（比如：问卷、访谈等）收集定量数据，作为数据分析样本量。分析数据的思考流程主要围绕：</p>
-<ol>
-<li>流失原因。分析主要的流失原因以及各个原因的重要性；</li>
-<li>是否继续流失。是否会有持续的、大规模的用户流失（比较流失用户和现有用户特征）。以及某个流失原因是否会导致现有用户继续流失；</li>
-<li>防止继续流失。优化产品设计和运营方案。建立流失预警模型；</li>
-<li>挽回可能性。在怎样的情景下用户会回流；采取的改善和挽回措施是否会影响现有用户的体验；</li>
-<li>召回渠道、召回信息以及召回后引导。</li>
-</ol>
-<p>具体分阶段的分析如下：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610637326885-4900b149-7fe0-47eb-ae62-31f26f24d3dc.png#align=left&display=inline&height=311&margin=%5Bobject%20Object%5D&name=image.png&originHeight=622&originWidth=1496&size=108352&status=done&style=none&width=748" alt="image.png"></p>
-<p>不同阶段的流失，有不同的流失原因</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610637354983-df5a6701-3e65-4cc8-b918-0cfb7e212786.png#align=left&display=inline&height=351&margin=%5Bobject%20Object%5D&name=image.png&originHeight=702&originWidth=1506&size=140941&status=done&style=none&width=753" alt="image.png"></p>
-<p>总结下，流失用户研究的 2 个大体思路是：</p>
-<ol>
-<li>从定性研究开始，挖掘大致的流失原因，再通过定量研究明确各个原因所占的比例以及严重程度；</li>
-<li>从定量研究开始，确定流失最重要的原因，再通过定性研究深入挖掘几个主要流失原因背后的问题及可能有效的解决方案。</li>
-</ol>
+    <div class="post-content"><p>拆解问题的 3 个方法：<a id="more"></a></p>
+<p><strong>第1 种，用“接触点”来拆解问题。</strong>所谓“接触点”即用户在使用互联网产品中，与产品发生接触的点，这些点可以是由业务角度来看的业务流程各环节（如购物中的搜索-查看搜索结果-查看详情-下单-付款），也可以是以用户视角来看的的接触产品的用户生命周期各阶段。</p>
+<p>方式一，以业务流程为主线，梳理出现问题、需要重点关注的环节。比如：购物中的搜索-查看搜索结果-查看详情-下单-付款。</p>
+<p>方式二<strong>，</strong>用户视角—以用户接触产品的各环节为主线进行分析。认知—理解—尝试—使用—付费（如有）—留存/流失—回流 这是一条从用户接触到使用各环节的链路，经过对各环节的调研分析，基本就可以对产品和用户有个全面的认识了。</p>
+<p><strong>第 2 种，用“因果关系”来拆解。</strong>当我们需要对一个问题进行解释或分析时，可以尝试查找造成这个问题的原因，通过对原因的逐个分析，来找到出现问题的环节，比如：“某商品月成交量低，什么原因呢？”</p>
+<p>第一步：先来分解一些带来成交量的原因，如 月成交量=当月有交易的天数X每天交易次数X每次交易商品数X每商品每次交易件数X每件成交金额；</p>
+<p>第二步：对比该产品历史的各环节数据或其他类似产品，找到数据明显较低的环节，再具体分析原因。</p>
+<p>当然，会月成交量的结果拆分可能有多种方式，比如月成交量=来访用户X转化率X客单价等，如果可以，可以多试试不同的拆分方式，找到有明显漏斗、比较好入手/执行的分析的环节即可。</p>
+<p><strong>第 3 种，通过界定“问题”来拆解问题。</strong>也就是把问题定义清楚。比如：领导：“我们中心打算布局xx类产品，但不知道是不是有前景，你调研分析看看？”</p>
+<p>所遇到的问题就是要分析“前景”，这应该算是个比较大的问题了，也是比较模糊，模糊的点就是“什么叫做有前景？”如果是第一次接触这类问题，可能是无法入手的，但也恰是更需要问题拆解的时候——以“问题”为导向，即定义，拆分“前景”，可以自己先思考，也可以找领导，请他描述他认为的“前景”（或者至少把自己定义的有前景的标准和他确认一下，再开展后续的分析或调研，目的依然是要保障“做正确的事”）。</p>
+<p>在这个例子中，前景被定义为 3 个方面，市场有机会；用户有需求；有利润空间。然后再来量化这 3 个方面的目标（按照同样的思路拆解）。</p>
+<p>这 3 种思路，工作和生活中，都可以运用演练。</p>
+<p>整理来自 @王萌 的<a target="_blank" rel="noopener" href="https://www.zcool.com.cn/article/ZNDQwMjQ0.html">《用户研究视角-3种问题拆解的思路探讨》</a>。</p>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/User-Growth/">User Growth</a>
+            <a href="/tags/Thinking/">Thinking</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2015/06/01/%E7%94%A8%E6%88%B7%E8%AE%BF%E8%B0%88%E7%9A%843%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/">
+        <nav class="post-nav"><a class="prev" href="/2016/01/22/%E9%87%8D%E8%A7%86%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">用户访谈的3个基本问题 From Chuck Liu</span>
+        <span class="prev-text nav-default">重视需求评审</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2015/04/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%E5%90%91%E9%87%8F%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E8%BF%90%E7%AE%97/">
-        <span class="next-text nav-default">线性代数：向量的介绍和运算</span>
+    <a class="next" href="/2015/07/25/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA/">
+        <span class="next-text nav-default">常用的数据分析方法论</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
