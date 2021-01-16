@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="统计学：卡方检验"/><meta name="keywords" content="统计学, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2016/10/04/统计学：卡方检验/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>统计学：卡方检验 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">统计学：卡方检验
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-10-04
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">卡方检验的使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%B8%80%EF%BC%88%E8%A1%8C%E5%88%97%E7%9A%84%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%EF%BC%89"><span class="toc-text">案例一（行列的卡方检验）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%BA%8C%EF%BC%88%E5%9B%9B%E6%A0%BC%E8%A1%A8%E7%9A%84%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%EF%BC%89"><span class="toc-text">案例二（四格表的卡方检验）</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>卡方检验的理论知识<a id="more"></a></p>
+<p>卡发检验定义：卡方检验是假设检验的一种方法。主要是比较两个分类变量的关联性分析。</p>
+<p>卡方值的计算：</p>
+<ol>
+<li>设 A 代表某个类别的观察频数，E 代表基于 _H_计算出的期望频数，A 与 E 之差称为残差；</li>
+<li>残差可以表示某一个类别观察值和理论值的偏离程度，但如果将残差简单相加以表示各类别观察频数与期望频数的差别，则有一定的不足之处。因为残差有正有负，相加后会彼此抵消，总和仍然为 0，为此可以将残差平方后求和；</li>
+<li>残差大小是一个相对的概念，相对于期望频数为 10 时，期望频数为 20 的残差非常大，但相对于期望频数为 1 000 时 20 的残差就很小了。考虑到这一点，又可以将残差平方除以期望频数再求和，以估计观察频数与期望频数的差别。</li>
+</ol>
+<p>所以，其计算公式就变成：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/93ee841fe2f6f60ddf57dffbd78c15d3.svg#card=math&code=x%5E%7B2%7D%3D%5Csum_%7Bi%3D1%7D%5E%7Bk%7D%5Cfrac%7B%7B%28A_i%20-%20E_i%29%5E2%7D%7D%7BE_i%7D%20&height=53&width=150"></p>
+<p>其中，_A__i _为 i 水平的观察频数，_E__i  _为 i 水平的期望频数。</p>
+<p>当观察频数与期望频数完全一致时，χ值为 0；观察频数与期望频数越接近，两者之间的差异越小，χ值越小；反之，观察频数与期望频数差别越大，两者之间的差异越大，χ值越大。</p>
+<p>换言之，大的 χ值表明观察频数远离期望频数，即表明远离假设。小的 χ值表明观察频数接近期望频数，接近假设。因此，χ是观察频数与期望频数之间距离的一种度量指标，也是假设成立与否的度量指标。</p>
+<p>如果 χ值“小”，研究者就倾向于不拒绝 _H_；如果 χ值大，就倾向于拒绝 _H_。至于 χ在每个具体研究中究竟要大到什么程度才能拒绝 _H_，则要借助于卡方分布求出所对应的 P 值来确定。</p>
+<h4 id="卡方检验的使用场景"><a href="#卡方检验的使用场景" class="headerlink" title="卡方检验的使用场景"></a>卡方检验的使用场景</h4><p>卡方检验一般使用在两个及以上的定性（或者说分类变量）上：</p>
+<ul>
+<li>检验某个分类变量各类的出现概率是否等于指定概率。比如：掷硬币时，正反两面出现的概率是否均为 0.5；</li>
+<li>检验某两个分类变量是否相互独立。比如：吸烟(二分类变量：是、否)是否与呼吸道疾病(二分类变量：是、否)有关；</li>
+<li>检验控制某种或某几种分类因素的作用以后，另两个分类变量是否相互独立。比如：控制性别、年龄因素影响以后，吸烟是否和呼吸道疾病有关；</li>
+<li>检验某两种方法的结果是否一致。如采用两种诊断方法对同一批人进行诊断，其诊断结果是否一致；采用两种方法对客户进行价值类别预测，预测结果是否一致。</li>
+</ul>
+<h4 id="案例一（行列的卡方检验）"><a href="#案例一（行列的卡方检验）" class="headerlink" title="案例一（行列的卡方检验）"></a>案例一（行列的卡方检验）</h4><p>问题：掷 50 次硬币，正反两面出现的概率是否均为 0.5，也就是说硬币是否均衡？假设是不均衡的。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>计算表格</strong>（2*2）</th>
+<th align="center"><strong>正面</strong></th>
+<th align="center"><strong>反面</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>理论频次（E）</strong></td>
+<td align="center">25</td>
+<td align="center">25</td>
+</tr>
+<tr>
+<td align="center"><strong>观察频次（A）</strong></td>
+<td align="center">28</td>
+<td align="center">23</td>
+</tr>
+</tbody></table>
+<ol>
+<li>求卡方值：</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/__latex/ff762072cda7b657bc8386fde21034bb.svg#card=math&code=%E5%8D%A1%E6%96%B9%E5%80%BC%20%3D%20%5Cfrac%7B%2828-25%29%5E%7B2%7D%7D%7B25%7D%20%2B%20%5Cfrac%7B%2823-25%29%5E%7B2%7D%7D%7B25%7D%20%3D%200.72&height=42&width=304"></p>
+<ol start="2">
+<li>求自由度：</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/__latex/31d6dc8917b32679f4277f9f49838c86.svg#card=math&code=%28%E8%A1%8C-1%29-%28%E5%88%97-1%29%20%3D%20%282-1%29-%282-1%29%20%3D%201&height=24&width=311"></p>
+<ol start="3">
+<li>95% 置信度，对比 P 值：查表可以得知，卡方值 0.72 小于自由度为 1 的临界值。所以假设不成立，硬币是均衡的。</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1602733922449-a97b28a7-d024-412f-a153-a106d6bf4aa6.png#align=left&display=inline&height=250&margin=%5Bobject%20Object%5D&name=image.png&originHeight=250&originWidth=686&size=81857&status=done&style=none&width=686" alt="image.png"></p>
+<h4 id="案例二（四格表的卡方检验）"><a href="#案例二（四格表的卡方检验）" class="headerlink" title="案例二（四格表的卡方检验）"></a>案例二（四格表的卡方检验）</h4><p>问题：男生女生性别和在线上买菜是否有关系？假设有显著关系。</p>
+<p>【观察数据】</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><strong>男生</strong></th>
+<th align="center"><strong>女生</strong></th>
+<th align="center"><strong>总计</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>线下买菜</strong></td>
+<td align="center">67</td>
+<td align="center">33</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center"><strong>线上买菜</strong></td>
+<td align="center">55</td>
+<td align="center">60</td>
+<td align="center">115</td>
+</tr>
+<tr>
+<td align="center"><strong>总计</strong></td>
+<td align="center">122</td>
+<td align="center">93</td>
+<td align="center">215</td>
+</tr>
+</tbody></table>
+<p>通过【观察数据】算出理论数据。</p>
+<p>【理论数据】</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><strong>男生</strong></th>
+<th align="center"><strong>女生</strong></th>
+<th align="center"><strong>总计</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>线下买菜</strong></td>
+<td align="center">57</td>
+<td align="center">43</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center"><strong>线上买菜</strong></td>
+<td align="center">65</td>
+<td align="center">50</td>
+<td align="center">115</td>
+</tr>
+<tr>
+<td align="center"><strong>总计</strong></td>
+<td align="center">122</td>
+<td align="center">93</td>
+<td align="center">225</td>
+</tr>
+</tbody></table>
+<p>理论数据计算：</p>
+<ol>
+<li>已知男生、女生总计 215 人，线下买菜概率：100 / 215 = 0.47</li>
+<li>那男生线下买菜期望值： 0.46 * 122 = 57</li>
+<li>以此类男生下商买菜、女生线上买菜、女生线下买菜理论值</li>
+</ol>
+<p>计算卡方值判断：</p>
+<ol>
+<li>求卡方值：</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/__latex/090918ecc0a0ed1cc4d9bcb0044187f9.svg#card=math&code=%E5%8D%A1%E6%96%B9%E5%80%BC%20%3D%20%5Cfrac%7B%2867-57%29%5E%7B2%7D%7D%7B57%7D%20%2B%20%5Cfrac%7B%2855-65%29%5E%7B2%7D%7D%7B65%7D%20%2B%20%5Cfrac%7B%2833-43%29%5E%7B2%7D%7D%7B43%7D%20%2B%20%5Cfrac%7B%2860-50%29%5E%7B2%7D%7D%7B50%7D%20%3D1.75%2B1.54%2B2.33%2B2%3D7.62&height=43&width=690"></p>
+<ol start="2">
+<li>求自由度</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/__latex/31d6dc8917b32679f4277f9f49838c86.svg#card=math&code=%28%E8%A1%8C-1%29-%28%E5%88%97-1%29%20%3D%20%282-1%29-%282-1%29%20%3D%201&height=24&width=311"></p>
+<ol start="3">
+<li>95% 置信度，对比 P 值：查表可以得知，卡方值 7.62 大于自由度为 1 的临界值。所以假设不成立，性别和是否线上线下买菜有显著关系。</li>
+</ol>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2016/11/04/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%E5%90%91%E9%87%8F%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E8%BF%90%E7%AE%97/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">线性代数：向量的介绍和运算</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2016/06/21/%E8%85%8A%E9%B8%A1%E4%B8%8E%E7%8C%B4%E5%84%BF/">
+        <span class="next-text nav-default">腊鸡与猴儿</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

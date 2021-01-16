@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Android：监听事件和广播(BroadCast)介绍"/><meta name="keywords" content="Android, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/02/15/Android：监听事件和广播(BroadCast)介绍/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Android：监听事件和广播(BroadCast)介绍 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Android：监听事件和广播(BroadCast)介绍
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-15
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6"><span class="toc-text">几种监听事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD-BroadCast"><span class="toc-text">广播(BroadCast)</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>几种监听事件和广播介绍。先说说几种监听事件。<a id="more"></a></p>
+<h4 id="几种监听事件"><a href="#几种监听事件" class="headerlink" title="几种监听事件"></a>几种监听事件</h4><p><strong>在xml文件中设置</strong><br>第1步：xml文件中设置onClick</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">       android:id=<span class="string">&quot;@+id/send&quot;</span></span><br><span class="line">       android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">       android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">       android:layout_below=<span class="string">&quot;@+id/et_text&quot;</span></span><br><span class="line">       android:text=<span class="string">&quot;@string/send&quot;</span></span><br><span class="line">       android:onClick=<span class="string">&quot;send&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>第二步：activity中写监听方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">send</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">   <span class="comment">//业务代码块</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>匿名内部类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一种方法：</span><br><span class="line"> bt_send.setOnClickListener((<span class="keyword">new</span> View.OnClickListener()&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> &#125;&#125;));</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>内部类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bt_send.setOnClickListener(<span class="keyword">new</span> MyOnclickListener())&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyOnClickListener</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="广播-BroadCast"><a href="#广播-BroadCast" class="headerlink" title="广播(BroadCast)"></a>广播(BroadCast)</h4><p>Android 系统会发送许多系统级别的广播，例如：屏幕关闭、电池电量低等广播。</p>
+<p>Android 分为两个方面：广播发送者和接受者。</p>
+<p>BroadcastReceiver 指的就是广播接受者（广播接收器）</p>
+<p>第一种实现方式：</p>
+<ol>
+<li>在 Activity.xml 布局一个按钮，点击事件（只是举例）；</li>
+<li>在 MainActivity 中发送广播；</li>
+<li>在 Androidmanifest.xml 配置；</li>
+<li>新建 java 类，继承 BroadcastReceiver，写一个收到广播的调用方法。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">send</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//发送广播</span></span><br><span class="line">    Intent intent =<span class="keyword">new</span> Intent();</span><br><span class="line">    intent.setAction(<span class="string">&quot;guangbo&quot;</span>);   <span class="comment">//动作，这里以什么动作发送广播，后续就以什么方式接收广播</span></span><br><span class="line">    intent.putExtra(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;张三&quot;</span>);    <span class="comment">//传参数</span></span><br><span class="line">    sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;receiver android:name=<span class="string">&quot;.MyBroadcastReceiver&quot;</span>&gt;</span><br><span class="line">          &lt;intent-filter&gt;</span><br><span class="line">              &lt;action android:name=&quot;guangbo&quot;&gt;&lt;/action&gt;</span><br><span class="line">          &lt;/intent-filter&gt;</span><br><span class="line">      &lt;/receiver&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBroadcastReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;MyBroadcastReceiver&quot;</span> ;   <span class="comment">//只是打个日志，在logcat里看见例子</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">//当广播接收者收到广播，该方法被调用</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(intent.getAction().equals(<span class="string">&quot;guangbo&quot;</span>))&#123;   <span class="comment">//上面说的接收方式一致即可</span></span><br><span class="line">            String name = intent.getStringExtra(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">            Log.i(TAG,<span class="string">&quot;name:&quot;</span> +name);      <span class="comment">//打个logcat看看</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>第二种实现方式：</p>
+<ol>
+<li>在 Activity.xml 布局一个按钮，点击事件（只是举例）（同上）；</li>
+<li>在 MainActivity 中发送广播，订阅广播，取消广播；</li>
+<li>新建 java 类，继承 BroadcastReceiver，写一个收到广播的调用方法  （同上）。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> BroadcastReceiver receiver;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//广播的订阅</span></span><br><span class="line">        receiver = <span class="keyword">new</span> MyBroadcastReceiver();</span><br><span class="line">        IntentFilter filter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line">        filter.addAction(<span class="string">&quot;guangbo&quot;</span>);    <span class="comment">//设置动作</span></span><br><span class="line">        registerReceiver(receiver,filter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">send</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//发送广播</span></span><br><span class="line">        Intent intent =<span class="keyword">new</span> Intent();</span><br><span class="line">        intent.setAction(<span class="string">&quot;guangbo&quot;</span>);   <span class="comment">//动作</span></span><br><span class="line">        intent.putExtra(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;张三&quot;</span>);    <span class="comment">//传参数</span></span><br><span class="line">        sendBroadcast(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span>    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;     <span class="comment">//当程序崩溃时，不需要发送广播</span></span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//取消广播订阅</span></span><br><span class="line">        unregisterReceiver(receiver);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Android/">Android</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/02/27/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E8%AE%B0%E4%BD%8F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%A1%88%E4%BE%8B%EF%BC%89/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Android：文件存储（记住用户名和密码案例）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/02/10/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/">
+        <span class="next-text nav-default">Android：文件的操作</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

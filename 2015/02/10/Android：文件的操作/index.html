@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Android：文件的操作"/><meta name="keywords" content="Android, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/02/10/Android：文件的操作/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Android：文件的操作 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Android：文件的操作
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-10
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>存储文件，基于linux，目前只关心data文件和sdcard。<a id="more"></a></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610725618698-9b94eb5a-787c-4584-945b-deb44f01fe4c.png#align=left&display=inline&height=658&margin=%5Bobject%20Object%5D&name=image.png&originHeight=658&originWidth=832&size=243802&status=done&style=none&width=832" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610725636584-2ae14414-8a83-40d1-bbae-985b31021781.png#align=left&display=inline&height=152&margin=%5Bobject%20Object%5D&name=image.png&originHeight=303&originWidth=998&size=57581&status=done&style=none&width=499" alt="image.png"></p>
+<p>第一位：代表文件的类型（d：文件夹，－：文件，l：挂载某一个文件）<br>第2-4位：rw－代表的是当前用户的权限<br>第5-7位：当前用户所在组的其他组员的权限<br>第8-10位：其他所有的权限。－－没有任何权限，r－－可读，－w－可写，rw－可读可写</p>
+<p>存在手机内存：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到文件对象</span></span><br><span class="line">File fileDir = context.getFilesDir();</span><br><span class="line"></span><br><span class="line"><span class="comment">//新建文件夹对象，给对象名字所以传入对象和文件名</span></span><br><span class="line">File file = <span class="keyword">new</span> File(fileDir,<span class="string">&quot;xxhuang.text&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//把文件作为参数传给流</span></span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br></pre></td></tr></table></figure>
+
+
+<p>存在sd卡：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//getExternalStorageDirectory()得到sd卡的路径文件对象</span></span><br><span class="line">          File sdCard = Environment.getExternalStorageDirectory();</span><br><span class="line"></span><br><span class="line">          <span class="comment">//加上创建的名字</span></span><br><span class="line">          File file = <span class="keyword">new</span> File(sdCard,<span class="string">&quot;xxhuang.text&quot;</span>);</span><br><span class="line">          </span><br><span class="line">          FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br></pre></td></tr></table></figure>
+
+
+<p>获得sd卡状态（手机是否有sd卡）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Environment.getExternalStorageState();</span><br></pre></td></tr></table></figure>
+
+
+<p>获得手机内存／sd卡内存状态：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Environment.getExternalStorageState()</span><br></pre></td></tr></table></figure>
+
+
+<p>获得手机内存／sd卡总空间和可用空间：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得磁盘状态对象 ,并传入路径</span></span><br><span class="line">       StatFs statFs = <span class="keyword">new</span> StatFs(path.getPath());</span><br><span class="line">       <span class="keyword">long</span> blookSize = statFs.getBlockSizeLong(); <span class="comment">//获得单个磁盘扇区大小</span></span><br><span class="line">       <span class="keyword">long</span> blockCount = statFs.getBlockCountLong();<span class="comment">//获得扇区总数</span></span><br><span class="line">       <span class="keyword">long</span> availableBlock = statFs.getAvailableBlocksLong();<span class="comment">//获得可用扇区数量</span></span><br><span class="line"></span><br><span class="line">       String totalMeory = Formatter.formatFileSize(<span class="keyword">this</span>, blookSize * blockCount);  <span class="comment">//总空间</span></span><br><span class="line">       String avaiableMemory = Formatter.formatFileSize(<span class="keyword">this</span>, blookSize * availableBlock); <span class="comment">//可用空间</span></span><br></pre></td></tr></table></figure>
+
+
+<p>写文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//私有文件</span></span><br><span class="line">writeData(<span class="string">&quot;private.txt&quot;</span>, Context.MODE_PRIVATE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可读文件</span></span><br><span class="line">writeData(<span class="string">&quot;read.txt&quot;</span>,Context.MODE_WORLD_READABLE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可写文件</span></span><br><span class="line">writeData(<span class="string">&quot;write.txt&quot;</span>,Context.MODE_WORLD_WRITEABLE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可读可写文件</span></span><br><span class="line">writeData(<span class="string">&quot;public.txt&quot;</span>,Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeData</span><span class="params">(String fileName , <span class="keyword">int</span> mode)</span> </span>&#123;</span><br><span class="line">       String text = <span class="string">&quot;这是一条文件的内容&quot;</span> + fileName;</span><br><span class="line">       <span class="keyword">try</span>&#123;</span><br><span class="line"></span><br><span class="line">           FileOutputStream fos= openFileOutput(fileName,mode);</span><br><span class="line">           BufferedWriter buffer = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> OutputStreamWriter(fos));</span><br><span class="line">           buffer.write(text);</span><br><span class="line">           buffer.close();</span><br><span class="line"></span><br><span class="line">       &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Android/">Android</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/02/15/Android%EF%BC%9A%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%B9%BF%E6%92%AD(BroadCast)%E4%BB%8B%E7%BB%8D/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Android：监听事件和广播(BroadCast)介绍</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/02/03/Android%EF%BC%9ADOM%E8%A7%A3%E6%9E%90%E5%99%A8/">
+        <span class="next-text nav-default">Android：DOM解析器</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

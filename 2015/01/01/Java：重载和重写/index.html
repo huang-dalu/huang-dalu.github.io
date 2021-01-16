@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Java：重载和重写"/><meta name="keywords" content="Java, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/01/01/Java：重载和重写/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Java：重载和重写 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Java：重载和重写
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-01-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>JAVA 基础知识，重载和重写的介绍。<a id="more"></a></p>
+<ul>
+<li><strong>函数的重载（overrload）</strong><br>概念：在同一个类中，允许存在一个以上的同名函数，只要它们的参数个数或者参数类型不同即可</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">		add(<span class="number">1.2</span>,<span class="number">2.3</span>);</span><br><span class="line">		add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a , <span class="keyword">int</span> b)</span></span>&#123;  </span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> doubule <span class="title">add</span><span class="params">(doubule a ,doubule b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b + c;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line">同名函数的重载，通过参数不同来区分</span><br><span class="line">表现在：参数类型、个数、顺序</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">void</span> <span class="title">funA</span><span class="params">()</span></span>&#123;</span><br><span class="line">       &#125;</span><br><span class="line">      System.out.println(<span class="string">&quot;没有参数的funA函数&quot;</span>)</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">funA</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">     System.out.println(<span class="string">&quot;拥有一个整型参数的funA函数&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">      &#125;</span><br><span class="line">写一个主函数：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String args [])</span></span>&#123;</span><br><span class="line">                      A a = <span class="keyword">new</span> A();</span><br><span class="line">                      a.funA(); </span><br><span class="line">                      a.funA(<span class="number">3</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">主函数中，a第一个调用的是没有参数的funA函数，第二个调用的是拥有一个整型参数的funA参数（传参数时，数据类型需要一致）</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><strong>函数的复写（override）覆盖／重写</strong><br>概念：子类接收父类的5个参数，有4个可以直接使用，还有1个需要修改后使用，这1个修改后使用的过程，就称为函数的复写</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">父类：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;</span><br><span class="line">  System.out.println(<span class="string">&quot;my name is&quot;</span> + name +<span class="string">&quot;,my age is &quot;</span> + age);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">子类：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String grade;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">introduce</span><span class="params">()</span></span>&#123;   <span class="comment">//函数定义一样</span></span><br><span class="line">  System.out.println(<span class="string">&quot;my name is&quot;</span> + name +<span class="string">&quot;,my age is &quot;</span> + age);</span><br><span class="line">  System.out.println(<span class="string">&quot;ma grade is&quot;</span> + grade );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//想让introduce()方法除了能介绍姓名和年龄外，还想介绍班级，于是在子类当中重写，语法特征：</span></span><br><span class="line"><span class="number">1.</span> 在具有父子关系的两个类当中</span><br><span class="line"><span class="number">2.</span> 父类和子类当中各有一个函数，这两个函数的定义（返回值类型、函数名、参数列表）完全相同</span><br><span class="line">满足这两个特征，即称为函数的重写</span><br><span class="line"></span><br><span class="line">主方法：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args [])</span></span>&#123;</span><br><span class="line">   Student s = <span class="keyword">new</span> Student();  <span class="comment">//创建一个子类的对象</span></span><br><span class="line">   s.name = <span class="string">&quot;zhangsan&quot;</span>;</span><br><span class="line">   s.age = <span class="number">21</span>;</span><br><span class="line">   s.grade = <span class="number">6</span>;</span><br><span class="line">   s.introdunce(); </span><br><span class="line"></span><br><span class="line">   Person p = <span class="keyword">new</span> Person();   <span class="comment">// 创建一个父类的对象</span></span><br><span class="line">   p.name = <span class="string">&quot;lisi&quot;</span>;</span><br><span class="line">   p.age = <span class="number">40</span>;</span><br><span class="line">   p.grade = <span class="number">5</span>;</span><br><span class="line">   p.introdunce(); </span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">输出为：</span><br><span class="line">my name is zhangsan</span><br><span class="line">my age is <span class="number">21</span></span><br><span class="line">my grade is <span class="number">6</span></span><br><span class="line"></span><br><span class="line">my name is zhangsan</span><br><span class="line">my age is <span class="number">21</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Java/">Java</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/01/02/Java%EF%BC%9AIO%E6%B5%81%E7%9A%84%E7%90%86%E8%A7%A3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Java：IO流的理解</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

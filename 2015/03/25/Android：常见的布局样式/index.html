@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Android：常见的布局样式"/><meta name="keywords" content="Android, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/03/25/Android：常见的布局样式/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Android：常见的布局样式 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Android：常见的布局样式
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-03-25
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>Android：常见的布局样式：<a id="more"></a></p>
+<ul>
+<li>LinearLayout(线性布局)</li>
+<li>RelativeLayout(相对布局)</li>
+<li>FrameLayout(帧布局)</li>
+<li>TableLayout(表格布局)</li>
+<li>AbsoluteLayout(绝对布局)</li>
+</ul>
+<p>线性布局常用属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android:orientation:   <span class="comment">//设置布局方向</span></span><br><span class="line">android:gravity:   <span class="comment">//控制组件对齐方式</span></span><br><span class="line">layout_weight:   <span class="comment">//控制组件在布局种的相对大小</span></span><br></pre></td></tr></table></figure>
+
+
+<p>表格布局常用属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:collapseColumns:   <span class="comment">//隐藏制定的列</span></span><br><span class="line">android:shrinkColumns:   <span class="comment">//收缩指定的列以适合屏幕，不会挤出屏幕</span></span><br><span class="line">android:stretchColumns:   <span class="comment">//尽量把指定的列填充空白部分</span></span><br><span class="line">android:layout_column:   <span class="comment">//控件放在制定的列</span></span><br><span class="line">android:layout_span:   <span class="comment">//该控件所跨越的列数</span></span><br></pre></td></tr></table></figure>
+
+
+<p>相对布局常用属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">第一类 : 属性值为 <span class="keyword">true</span> 或 <span class="keyword">false</span></span><br><span class="line">　　android:layout_centerHrizontal 水平居中</span><br><span class="line">　　android:layout_centerVertical 垂直居中</span><br><span class="line">　　android:layout_centerInparent 相对于父元素完全居中</span><br><span class="line">　　android:layout_alignParentBottom 贴紧父元素的下边缘</span><br><span class="line">　　android:layout_alignParentLeft 贴紧父元素的左边缘</span><br><span class="line">　　android:layout_alignParentRight 贴紧父元素的右边缘</span><br><span class="line">　　android:layout_alignParentTop 贴紧父元素的上边缘</span><br><span class="line">　　android:layout_alignWithParentIfMissing 若找不到兄弟元素以父元素做参照物</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">第二类：属性值必须为 id 的引用名“ <span class="meta">@id</span>/id-name ”</span><br><span class="line">　　android:layout_below 在某元素的下方</span><br><span class="line">　　android:layout_above 在某元素的上方</span><br><span class="line">　　android:layout_toLeftOf 在某元素的左边</span><br><span class="line">　　android:layout_toRightOf 在某元素的右边</span><br><span class="line">　　android:layout_alignTop 本元素的上边缘和某元素的的上边缘对齐</span><br><span class="line">　　android:layout_alignLeft 本元素的左边缘和某元素的的左边缘对齐</span><br><span class="line">　　android:layout_alignBottom 本元素的下边缘和某元素的的下边缘对齐</span><br><span class="line">　　android:layout_alignRight 本元素的右边缘和某元素的的右边缘对齐</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第三类：属性值为具体的像素值，如 30dip ， 40px</span><br><span class="line">　　android:layout_marginBottom 离某元素底边缘的距离</span><br><span class="line">　　android:layout_marginLeft 离某元素左边缘的距离</span><br><span class="line">　　android:layout_marginRight 离某元素右边缘的距离</span><br><span class="line">　　android:layout_marginTop 离某元素上边缘的距离</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android:layout_below=<span class="string">&quot;@id/la1&quot;</span>/&gt;</span><br><span class="line">                将当前控件放置于id为la1 的控件下方</span><br><span class="line">                         android:layout_alignParentRight=<span class="string">&quot;true&quot;</span></span><br><span class="line">                使当前控件的右端和父控件的右端对齐。这里属性值只能为<span class="keyword">true</span>或<span class="keyword">false</span>，默认<span class="keyword">false</span></span><br><span class="line">                 android:layout_marginLeft=<span class="string">&quot;10dip&quot;</span></span><br><span class="line">                使当前控件左边空出相应的空间</span><br><span class="line">                         android:layout_toLeftOf=<span class="string">&quot;@id/true&quot;</span></span><br><span class="line">                使当前控件置于id为<span class="keyword">true</span>的控件的左边</span><br><span class="line">                         android:layout_alignTop=<span class="string">&quot;@id/ok&quot;</span></span><br><span class="line">                使当前控件与id为ok的控件上端对齐</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Android/">Android</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/03/26/%E4%B8%93%E5%AE%B6%E7%94%A8%E6%88%B7%E7%9A%84%E2%80%9C%E6%AE%8B%E5%AE%B3%E2%80%9D/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">专家用户的“残害”</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/03/05/Android%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%88%B0%20SharedPreference/">
+        <span class="next-text nav-default">Android：数据存储到 SharedPreference</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

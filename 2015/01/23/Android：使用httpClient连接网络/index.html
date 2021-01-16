@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Android：使用httpClient连接网络"/><meta name="keywords" content="Android, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/01/23/Android：使用httpClient连接网络/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Android：使用httpClient连接网络 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Android：使用httpClient连接网络
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-01-23
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>连接网络，使用 httpClient 的一般使用步骤<a id="more"></a>：</p>
+<ol>
+<li>使用DefaultHttpClient类实例化HttpClient对象</li>
+<li>创建HttpGet或HttpPost对象，将要请求的URL通过构造方法传入HttpGet或HttpPost对象</li>
+<li>调用execute方法发送HTTP GET 或HTTP POST请求，并返回HttpResponse对象</li>
+<li>通过HttpResponse接口的getEntity方法返回响应信息，并进行相应处理</li>
+</ol>
+<p>实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NetUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;NetUtils&quot;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 使用post的方式登录</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> userName</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> password</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">loginOfPost</span><span class="params">(String userName, String password)</span> </span>&#123;</span><br><span class="line">		HttpClient client = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 定义一个客户端</span></span><br><span class="line">			client = <span class="keyword">new</span> DefaultHttpClient();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 定义post方法</span></span><br><span class="line">			HttpPost post = <span class="keyword">new</span> HttpPost(<span class="string">&quot;http://10.0.2.2:8080/ServerItheima28/servlet/LoginServlet&quot;</span>);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 定义post请求的参数</span></span><br><span class="line">			List&lt;NameValuePair&gt; parameters = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</span><br><span class="line">			parameters.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">&quot;username&quot;</span>, userName));</span><br><span class="line">			parameters.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">&quot;password&quot;</span>, password));</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 把post请求的参数包装了一层.</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 不写编码名称服务器收数据时乱码. 需要指定字符集为utf-8</span></span><br><span class="line">			UrlEncodedFormEntity entity = <span class="keyword">new</span> UrlEncodedFormEntity(parameters, <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">			<span class="comment">// 设置参数.</span></span><br><span class="line">			post.setEntity(entity);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 设置请求头消息</span></span><br><span class="line"><span class="comment">//			post.addHeader(&quot;Content-Length&quot;, &quot;20&quot;);</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 使用客户端执行post方法</span></span><br><span class="line">			HttpResponse response = client.execute(post);	<span class="comment">// 开始执行post请求, 会返回给我们一个HttpResponse对象</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 使用响应对象, 获得状态码, 处理内容</span></span><br><span class="line">			<span class="keyword">int</span> statusCode = response.getStatusLine().getStatusCode();	<span class="comment">// 获得状态码</span></span><br><span class="line">			<span class="keyword">if</span>(statusCode == <span class="number">200</span>) &#123;</span><br><span class="line">				<span class="comment">// 使用响应对象获得实体, 获得输入流</span></span><br><span class="line">				InputStream is = response.getEntity().getContent();</span><br><span class="line">				String text = getStringFromInputStream(is);  <span class="comment">//自己写一个将流转化为字符串的方法</span></span><br><span class="line">				<span class="keyword">return</span> text;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				Log.i(TAG, <span class="string">&quot;请求失败: &quot;</span> + statusCode);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(client != <span class="keyword">null</span>) &#123;</span><br><span class="line">				client.getConnectionManager().shutdown();	<span class="comment">// 关闭连接和释放资源</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 使用get的方式登录</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> userName</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> password</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 登录的状态</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">loginOfGet</span><span class="params">(String userName, String password)</span> </span>&#123;</span><br><span class="line">		HttpClient client = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 定义一个客户端</span></span><br><span class="line">			client = <span class="keyword">new</span> DefaultHttpClient();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 定义一个get请求方法</span></span><br><span class="line">			String data = <span class="string">&quot;username=&quot;</span> + userName + <span class="string">&quot;&amp;password=&quot;</span> + password;</span><br><span class="line">			HttpGet get = <span class="keyword">new</span> HttpGet(<span class="string">&quot;http://10.0.2.2:8080/ServerItheima28/servlet/LoginServlet?&quot;</span> + data);</span><br><span class="line">			</span><br><span class="line">			<span class="comment">// response 服务器相应对象, 其中包含了状态信息和服务器返回的数据</span></span><br><span class="line">			HttpResponse response = client.execute(get);	<span class="comment">// 开始执行get方法, 请求网络</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">// 获得响应码</span></span><br><span class="line">			<span class="keyword">int</span> statusCode = response.getStatusLine().getStatusCode();</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(statusCode == <span class="number">200</span>) &#123;</span><br><span class="line">				InputStream is = response.getEntity().getContent();</span><br><span class="line">				String text = getStringFromInputStream(is);   <span class="comment">//自己写一个将流转化为字符串的方法</span></span><br><span class="line">				<span class="keyword">return</span> text;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				Log.i(TAG, <span class="string">&quot;请求失败: &quot;</span> + statusCode);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(client != <span class="keyword">null</span>) &#123;</span><br><span class="line">				client.getConnectionManager().shutdown();	<span class="comment">// 关闭连接, 和释放资源</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据流返回一个字符串信息</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> is</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> IOException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getStringFromInputStream</span><span class="params">(InputStream is)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">		<span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		<span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span>((len = is.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">			baos.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">		&#125;</span><br><span class="line">		is.close();</span><br><span class="line">		</span><br><span class="line">		String html = baos.toString();	<span class="comment">// 把流中的数据转换成字符串, 采用的编码是: utf-8</span></span><br><span class="line">		</span><br><span class="line"><span class="comment">//		String html = new String(baos.toByteArray(), &quot;GBK&quot;);</span></span><br><span class="line">		</span><br><span class="line">		baos.close();</span><br><span class="line">		<span class="keyword">return</span> html;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Android/">Android</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/01/25/Android%EF%BC%9Ahandler%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86%E8%80%85/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Android：handler消息处理者</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/01/20/Java%EF%BC%9A%E8%BD%AE%E8%AF%A2%E5%92%8C%E6%8E%A8%E9%80%81%E5%8C%BA%E5%88%AB/">
+        <span class="next-text nav-default">轮询和推送区别</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

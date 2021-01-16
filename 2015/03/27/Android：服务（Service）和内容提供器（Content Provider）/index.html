@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Android：服务（Service）和内容提供器（Content Provider）"/><meta name="keywords" content="Android, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/03/27/Android：服务（Service）和内容提供器（Content Provider）/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Android：服务（Service）和内容提供器（Content Provider） - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Android：服务（Service）和内容提供器（Content Provider）
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-03-27
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%EF%BC%88Service%EF%BC%89"><span class="toc-text">服务（Service）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%8F%90%E4%BE%9B%E5%99%A8%EF%BC%88Content-Provider%EF%BC%89"><span class="toc-text">内容提供器（Content Provider）</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>服务（Service）和内容提供器（Content Provider）的介绍。<a id="more"></a></p>
+<h4 id="服务（Service）"><a href="#服务（Service）" class="headerlink" title="服务（Service）"></a>服务（Service）</h4><p>服务：长期后台运行的没有界面的组件。<br>使用场景：后台连接服务器的逻辑，例如：每隔一段时间，获得最新的天气信息。<br>长期在后台运行的组件，不要在 Activity 开启子线程，应该是创建服务，在服务里开启子线程。</p>
+<p>Android 系统进程管理是按照一定的规则：</p>
+<ol>
+<li>应用程序一旦打开，通常情况下关闭（清空任务栈）后进程不会停止，方便下一次快速启动，带来内存不足的问题；</li>
+<li>Android系统有一套内存清理机制，按照优先级回收系统内存；</li>
+<li>进程分为5个等级的优先级。</li>
+</ol>
+<ul>
+<li>Foreground process（前台进程，用户正在用的应用程序对应的进程）</li>
+<li>Visible process（可见进程，用户仍然可以看到这个进程的界面）</li>
+<li>Service process（服务进程，应用程序有一个服务组件在后台运行）</li>
+<li>Background process（后台进程，应用程序没有服务在进行，并且最小化）</li>
+<li>Empty process（空进程，没有任何运行的Activity，任务栈空了）</li>
+</ul>
+<p>服务的目的：</p>
+<ol>
+<li>长期在后台运行；</li>
+<li>提高进程的优先级，系统不容易回收进程，即便回收了，内存充足的时候，把进程重新创建。</li>
+</ol>
+<p>使用服务的方式：</p>
+<ol>
+<li>开始服务，停止服务<br>onCreate()   //创建时调用<br>onStartCommand() //开始时调用 （如果服务已经开启，不会再调用onCreate() 方法，而是调用onStartCommand()）<br>onDestroy() //销毁时调用<br>服务只会被停止一次</li>
+<li>绑定服务，解绑服务<br>onCreate()   //创建时调用<br>onBind() //在绑定时候调用<br>onunbind() //在解绑的时候调用<br>onDestory() //销毁时调用</li>
+</ol>
+<p>区别：</p>
+<ol>
+<li>start（也就是第一种方式）方式服务，一旦服务开启跟调用者（开启者）没有任何关系了，开启者退出了，服务还在后台长期的运行</li>
+<li>开启者没有办法调用服务里面的办法</li>
+<li>bind的方式开启服务，绑定服务，调用者挂了，服务也会跟着挂掉</li>
+<li>开启者可以调用服务里面的方法</li>
+</ol>
+<p>本地服务：调用者和服务在同一个工程代码里<br>远程服务：调用者和服务在不同的工程代码里面</p>
+<p>每个应用程序都是运行在自己独立的进程里面；进程操作系统分配内存空间的一个单位，进程的数据都是独立的，独立的内存空间。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//服务创建时调用</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//服务启动时调用，服务一旦启动就立刻执行某个动作，就可以将逻辑写在onStartCommand里</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//服务销毁时调用</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="内容提供器（Content-Provider）"><a href="#内容提供器（Content-Provider）" class="headerlink" title="内容提供器（Content Provider）"></a>内容提供器（Content Provider）</h4><p><strong>两种用法</strong></p>
+<ol>
+<li>使用现有的内容提供器来读取和操作相应程序中的数据（使用场景：获取系统自带的的联系人信息，图片库，音频库等）；</li>
+<li>创建自己的内容提供器给 我们程序的数据提供外部访问接口。</li>
+</ol>
+<p>ContentResolver的基本用法<br>增删改查：<br>insert()<br>updata()<br>delete()<br>query()</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610704150085-928725ba-8e97-4cf5-acf9-c892edb9542b.png#align=left&display=inline&height=196&margin=%5Bobject%20Object%5D&name=image.png&originHeight=196&originWidth=763&size=128124&status=done&style=none&width=763" alt="image.png"></p>
+<p>查询完成之后返回的的是Cursor对象，读取思路通过移动游标遍历Cursor所有行，然后取出每一行相应数据</p>
+<p>demo：读取系统联系人</p>
+<ol>
+<li>在模拟器中创建 2 个联系人＋电话号码（用于后面读取数据）；</li>
+<li>在xml文件中添加一个 ListView；</li>
+<li>修改 MainActivity 代码；</li>
+<li>在 AndroidManifest.xml 文件中添加权限。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.READ_CONTACTS&quot;&gt;&lt;&#x2F;uses-permission&gt;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ListView list_view;</span><br><span class="line">    ArrayAdapter&lt;String&gt; adapter;</span><br><span class="line">    List&lt;String&gt; contactsList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        list_view = (ListView)findViewById(R.id.list_view);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//传入的data为contactsList</span></span><br><span class="line">        adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span> ,android.R.layout.simple_list_item_1 , contactsList);</span><br><span class="line">        list_view.setAdapter(adapter);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取listview，设置适配器后，调用readContacts方法</span></span><br><span class="line">        readContacts();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readContacts</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//初始化cursor为空</span></span><br><span class="line">        Cursor cursor = <span class="keyword">null</span>;  </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 为cursor赋值</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//对cursor进行遍历，取出联系人和手机号</span></span><br><span class="line">            <span class="keyword">while</span> (cursor.moveToNext())&#123;</span><br><span class="line">                String displayName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));</span><br><span class="line">                String number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));</span><br><span class="line"></span><br><span class="line">                <span class="comment">//拼接的数据加上换行，添加到listview中</span></span><br><span class="line">                contactsList.add(displayName +<span class="string">&quot;\n&quot;</span> +number);</span><br><span class="line">            &#125;</span><br><span class="line">            adapter.notifyDataSetChanged();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (cursor != <span class="keyword">null</span>)&#123;</span><br><span class="line">                cursor.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Android/">Android</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/04/01/Android%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%EF%BC%88%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E3%80%81SharedPreferences%E3%80%81SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81Content%20Provider%EF%BC%89/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Android：数据存储（文件存储、SharedPreferences、SQLite数据库、Content Provider）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/03/26/%E4%B8%93%E5%AE%B6%E7%94%A8%E6%88%B7%E7%9A%84%E2%80%9C%E6%AE%8B%E5%AE%B3%E2%80%9D/">
+        <span class="next-text nav-default">专家用户的“残害”</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Java：读取文件和写入文件的方法"/><meta name="keywords" content="Java, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2015/01/05/Java：读取文件和写入文件的方法/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Java：读取文件和写入文件的方法 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Java：读取文件和写入文件的方法
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-01-05
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>IO中，读取文件和写入文件的方法。<a id="more"></a></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610756717767-02ccb4e3-3377-4639-9040-60313736532f.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=328&originWidth=763&size=80126&status=done&style=none&width=382" alt="image.png"></p>
+<ul>
+<li><strong>读取文件和写入文件的方法</strong><br>核心类的核心方法：<br>InputStream:<br>int read(byte[ ] b , int off , int len)<br>三个参数：</li>
+<li>第一个参数是一个byte类型的数组，read读取的数据放在这个byte类型的数据中</li>
+<li>第二个参数是是偏移量offset的缩写，读进去来的数据从第几位开始放：比如读取的是10个字节，int off 是0，意思就是把读取的来的字节，从0开始，一个个放进去；如果int off 是5，则byte数组的第五位开始读</li>
+<li>第三个参数是length，意思是read一词读取数据，最多读多少次数据</li>
+<li>返回值是这次调用这个方法总共读取了多少个字节的数据，读取的是10，则返回的就是10</li>
+<li>一般来讲，int off 是0，int len就是数组的长度<br>OutputStream:<br>void write(byte[ ] b , int off , int len )</li>
+<li>第一个参数是一个byte类型的数组，将需求斜入的文件放在这个数组中</li>
+<li>第二个参数是是偏移量offset的缩写，数组中的数据从第几位开始写：比如10个字节，int off 是0，意思就是从0开始写；如果int off 是5，则byte数组的第五位开始写</li>
+<li>第三个参数是length，意思是总共最多写入多少字节的数据</li>
+<li>一般来讲，int off 是0，int len就是数组的长度</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">输入demo：</span><br><span class="line"><span class="comment">//第一步：导入包，因为java io类都在io包中 “*”代表全部导进来的意思</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line"><span class="comment">//声明FileInputStream这个类的引用</span></span><br><span class="line">   FileInputStream fis  = <span class="keyword">null</span>;</span><br><span class="line">   </span><br><span class="line"><span class="comment">//需要try catch 因为读取文件未知，可能发生异常   </span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">   <span class="comment">//生成代表输入流的对象，并传入所需要读取的数据源当前文件夹目录</span></span><br><span class="line">   fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;d:/work/src/from.txt&quot;</span>)</span><br><span class="line">   </span><br><span class="line">  <span class="comment">//new一个数组，因为字节流的传输需要数组</span></span><br><span class="line">   <span class="keyword">byte</span> [] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">100</span>]; <span class="comment">//数组长度设为100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用输入对象的read方法，传入数组名，偏移量，长度，读取即可</span></span><br><span class="line">fis.read(buffer , <span class="number">0</span> ,buffer.length);</span><br><span class="line"></span><br><span class="line"><span class="comment">//把buffer字节数组转化为字符串（不转的话打印出来的是字节码）</span></span><br><span class="line">String s= <span class="keyword">new</span> String(buffer);  <span class="comment">//一个带数组参数的构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用trim方法，去掉字符串的首尾空格（中间的空格去不掉）和空字符</span></span><br><span class="line">s = s.trim();</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历数组</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> , i &lt; buffer.length , i++)&#123;</span><br><span class="line"> </span><br><span class="line">   System.out.println(buffer[i]);</span><br><span class="line">&#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">   System.out.println(e)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//关闭流也可能会出现异常，所以也需要try catch</span></span><br><span class="line">    fis.close;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">   System.out.println(e)</span><br><span class="line">   ｝</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">输出流demo（先要读取到，再写入）：</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">FileInputStream fis  = <span class="keyword">null</span>;</span><br><span class="line">FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;d:/work/src/from.txt&quot;</span>)</span><br><span class="line">    fos = <span class="keyword">new</span> FileOutputStream(d:/work/src/to.txt);</span><br><span class="line">    <span class="keyword">byte</span>[] buffer =<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">100</span>];</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//临时变量 int temp,代表读取字节的长度 </span></span><br><span class="line">    <span class="keyword">int</span> temp = fis.read(buffer , <span class="number">0</span> , buffer.length)</span><br><span class="line">    fos.write(buffer , <span class="number">0</span> , temp);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line"> System.out.println(e);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">finally</span>(Exception e)&#123;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><strong>大文件的读写方法</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">输出流demo（先要读取到，再写入）：</span><br><span class="line"><span class="comment">//大文件字节太多，需要一次读一部分，先把一部分数据放到数组中，写入，让后再读取一部分，也就是需要循环读写</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">FileInputStream fis  = <span class="keyword">null</span>;</span><br><span class="line">FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;d:/work/src/from.txt&quot;</span>)</span><br><span class="line">    fos = <span class="keyword">new</span> FileOutputStream(d:/work/src/to.txt);</span><br><span class="line">    <span class="keyword">byte</span>[] buffer =<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>]; <span class="comment">//以1024为单位，1k ＝ 1024字节  </span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;  <span class="comment">//while循环，布尔值为真，运行一次，读取一次数据，每次读1024个字节</span></span><br><span class="line">    <span class="keyword">int</span> temp = fis.read(buffer , <span class="number">0</span> , buffer.length)</span><br><span class="line">    <span class="keyword">if</span>(temp == -<span class="number">1</span>)&#123;  <span class="comment">//当长度为－1时，跳出循环（读到文件尾部，就是－1了）</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    fos.write(buffer , <span class="number">0</span> , temp); <span class="comment">//读一次写一次</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line"> System.out.println(e);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">finally</span>(Exception e)&#123;</span><br><span class="line"> fis.close;</span><br><span class="line"> fos.close;</span><br><span class="line">    System.out.println(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Java/">Java</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2015/01/07/Android%EF%BC%9AWebView%E7%9A%84%E4%BD%BF%E7%94%A8/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Android：WebView的使用</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/01/02/Java%EF%BC%9AIO%E6%B5%81%E7%9A%84%E7%90%86%E8%A7%A3/">
+        <span class="next-text nav-default">Java：IO流的理解</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
