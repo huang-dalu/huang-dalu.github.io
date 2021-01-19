@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="NumPy：NumPy的cumsum()函数"/><meta name="keywords" content="NumPy, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2019/08/20/NumPy：NumPy的cumsum()函数/"/>
+<meta name="description" content="新媒体运营规则"/><meta name="keywords" content="User Growth, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2018/10/31/新媒体运营规则/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>NumPy：NumPy的cumsum()函数 - UX Caff</title>
+    <title>新媒体运营规则 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -89,54 +89,66 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">NumPy：NumPy的cumsum()函数
+      <h1 class="post-title">新媒体运营规则
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2019-08-20
+          2018-10-31
         </span></div>
     </header>
 
-    <div class="post-content"><p>numpy.cumsum(a, axis=None, dtype=None, out=None)介绍。<a id="more"></a></p>
-<p>主要是axis，按照所给定的轴参数（axis）返回元素的梯形累计和，axis=0，按照列累加。axis=1，按照行累加。axis不给定具体值，就把numpy数组当成一个一维数组。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1609996699881-ed5e97bb-4813-40ac-9ba3-df621d75fc7b.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=image.png&originHeight=159&originWidth=242&size=14523&status=done&style=none&width=242" alt="image.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">1</span>,<span class="number">7</span>).reshape(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array([[1, 2, 3],</span><br><span class="line">       [4, 5, 6]])</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认没有指定轴，所以输出会变成一维数组</span></span><br><span class="line"><span class="comment"># array([1，1+2=3，1+2+3=6，1+2+3+4=10，1+2+3+4+5=15，1+2+3+4+5+6=21]）</span></span><br><span class="line">np.cumsum(a)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array([ 1,  3,  6, 10, 15, 21])</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [1,2,3]</span></span><br><span class="line"><span class="comment"># [1+4=5,2+5=7,3+6=9]</span></span><br><span class="line"><span class="comment"># 按照轴0进行累计求</span></span><br><span class="line">np.cumsum(a,axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array([[1, 2, 3],</span><br><span class="line">       [5, 7, 9]])</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照轴1进行累计求和</span></span><br><span class="line"><span class="comment"># [1,1+2=3,1+2+3=6]</span></span><br><span class="line"><span class="comment"># [4,4+5=9,4+5+6=15]</span></span><br><span class="line">np.cumsum(a,axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array([[ 1,  3,  6],</span><br><span class="line">       [ 4,  9, 15]])</span><br></pre></td></tr></table></figure>
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E8%A7%84%E5%88%99"><span class="toc-text">常规规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%B7%E5%80%BC%E8%A1%A1%E9%87%8F%E7%BB%B4%E5%BA%A6"><span class="toc-text">价值衡量维度</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>团队开始做部分新媒体的事情，主要使用的媒介是QQ群、微信群、微信公众号社区、论坛/社区等。 于是和团队同学一起，开始制定了一些运营规则。下面是常规的一些规则介绍。<a id="more"></a></p>
+<h4 id="常规规则"><a href="#常规规则" class="headerlink" title="常规规则"></a>常规规则</h4><p>框架搭建：明确建群目的、社群主题、目标用户群体；</p>
+<p>基本规则制定：</p>
+<ul>
+<li>群名称：简单易懂，主题明确。例：xx功能群1.0；</li>
+<li>群公告：用于发布平台活动、群活动、群规则、紧急通知等内容；</li>
+<li>管理员头像：可直接使用平台logo或产品logo；</li>
+<li>成员昵称：要求工作人员、用户均需以统一群昵称格式，形成秩序，如城市-销售类目-昵称；</li>
+<li>制定相应群规则：门槛规则是邀请制、任务制、付费制、申请制哪一种；交流规则如群公约、群礼仪；入群规则如群名称、群资料、群公告、自我介绍等全部统一格式；</li>
+</ul>
+<p>制定社群行为规则：</p>
+<ul>
+<li>制定激励规则；</li>
+<li>违规行为的处罚逻辑；</li>
+<li>违规处理手段。</li>
+</ul>
+<p>日常流程：</p>
+<ul>
+<li>每日定时内容推送，引起话题制造讨论；</li>
+<li>快速响应群成员疑问/反馈需求结果；</li>
+<li>强调群规则，及时鼓励或惩罚相关行为；</li>
+<li>及时向群成员通知产品更新发布动向（借助公众号或群公告功能）；</li>
+<li>定期开展并维护线上、线下、节日活动。</li>
+</ul>
+<h4 id="价值衡量维度"><a href="#价值衡量维度" class="headerlink" title="价值衡量维度"></a>价值衡量维度</h4><ul>
+<li>用户新增量：社群周/月/季新增成员数量</li>
+<li>活动参与度：每次群活动PV\UV、每次群活动参与人次、每次活动相关指标（如促销活动，则关键指标是  活动销售额）</li>
+<li>群用户活跃度：社群内成员周/月/季发言人次、发言次数</li>
+<li>转化率和复购率</li>
+<li>需求反馈量：在群内收集到的，经产品肯定的，有价值的需求个数</li>
+</ul>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/NumPy/">NumPy</a>
+            <a href="/tags/User-Growth/">User Growth</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2019/09/10/%E5%A6%82%E4%BD%95%E5%BA%94%E5%AF%B9%E7%94%B5%E5%95%86%E5%A4%A7%E4%BF%83/">
+        <nav class="post-nav"><a class="prev" href="/2018/11/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%92%8C%E8%BF%90%E7%AE%97/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">如何应对电商大促</span>
+        <span class="prev-text nav-default">线性代数：矩阵的介绍和运算</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2019/08/17/NumPy%EF%BC%9ANumPy%E4%B8%ADdot()%E5%87%BD%E6%95%B0/">
-        <span class="next-text nav-default">NumPy：NumPy中dot()函数</span>
+    <a class="next" href="/2018/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/">
+        <span class="next-text nav-default">霍桑实验带来的启发</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
