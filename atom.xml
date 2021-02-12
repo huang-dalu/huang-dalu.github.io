@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-07T03:22:33.406Z</updated>
+  <updated>2021-02-12T11:41:15.599Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务市场和ISV</title>
+    <link href="http://example.com/2021/02/12/%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E5%92%8CISV/"/>
+    <id>http://example.com/2021/02/12/%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E5%92%8CISV/</id>
+    <published>2021-02-12T13:10:10.000Z</published>
+    <updated>2021-02-12T11:41:15.599Z</updated>
+    
+    <content type="html"><![CDATA[<p>对于服务市场而言，ISV 就是服务市场的一个小商品。和 App Store 是一样的。但是运营规则不同。<a id="more"></a>ISV 分为头部和长尾。按照正常逻辑来说，一个生态首先是要靠头部，战略是养更多尾部的话，服务市场的营收才会更好（基本满足二八原则）。</p><p>目前，几乎所有电商服务市场目前都看重头部，什么阶段看重长尾呢？</p><ol><li>头部过于强大，形成垄断。会造成 ISV （需求供给侧）没有活水。缺乏竞争又会影响到市场创新，甚至会导致恶性竞争，比如：小 ISV 看不到希望，疯狂弹广告收割用户；</li><li>商家需求、服务形态发生变化。比如：2020 年淘宝服务市场一直在招募的淘宝小程序开发商。以前 ISV 是给商家做工具，小程序开发是给商家做工具，给到 C 端消费者使用。场景发生变化，又因为垂直商家对应的消费者需求比较多样，比如美妆类/数码类决策购买流程很大不同。所以平台需要更多 ISV 进来，做垂直场景。</li></ol><p>另外，电商服务市场的先发优势非常明显，不比 App Store。原因是：</p><ol><li>iSV 是基于商家规则做产品。商家规则的变动，趋于完善后，几乎不会再改。那这部分需求满足其实很好了，再做很难。比如：淘宝平台的虚拟上下架、橱窗规则，都是 10 年以上的规则，ISV 现在基本玩不出花样；</li><li>服务市场在不断完善，服务市场和 ISV 之间，本质上就是商家数据的交易。一来随着时间越长，开放的接口越来越完善；二来随着平台开始关注数据隐私，对于开放的数据接口，会慎之又慎。没有数据，ISV 犹如做无米之炊，后期自然很难；</li></ol><p>基于以上 2 点，会导致 ISV 产品同质化严重，那相同的产品，在投入相同的情况下，自然是先做的占优。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;对于服务市场而言，ISV 就是服务市场的一个小商品。和 App Store 是一样的。但是运营规则不同。</summary>
+    
+    
+    
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+    <category term="平台" scheme="http://example.com/tags/%E5%B9%B3%E5%8F%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>傅聪与纳兰性德《长相思》</title>
@@ -384,27 +405,6 @@
     
     
     <category term="Design" scheme="http://example.com/tags/Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于拼多多的几个观点</title>
-    <link href="http://example.com/2020/12/09/%E5%85%B3%E4%BA%8E%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%82%E7%82%B9/"/>
-    <id>http://example.com/2020/12/09/%E5%85%B3%E4%BA%8E%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%82%E7%82%B9/</id>
-    <published>2020-12-09T06:49:10.024Z</published>
-    <updated>2020-12-20T14:09:29.984Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于拼多多起来的部分原因，为什么做电子面单，以及为什么淘宝的的围追堵截没有拦住拼多多的几个观点。</p><a id="more"></a><h3 id="拼多多（Costco-Disney模式）起来的部分原因："><a href="#拼多多（Costco-Disney模式）起来的部分原因：" class="headerlink" title="拼多多（Costco + Disney模式）起来的部分原因："></a>拼多多（Costco + Disney模式）起来的部分原因：</h3><ul><li>拼多多通过“<strong>电商+游戏</strong>”等精细化运营。转化微信流量的能力非常强。完胜京东、蘑菇街；</li></ul><ul><li>利用「拼团」倒逼供给侧改造。传统电商如阿里巴巴，是将线下交易搬至线上，提供商品、平台、物流、支付，打造线上交易闭环生态，本质是供给侧的线下到线上的转移，属于被动型购物。拼多多的拼团模式更多是从需求侧发起，前期重点做爆款 SKU（也正因为这样，拼多多店铺存在感很弱）。通过大规模的订单实现对供给侧的改造，是主动型购物，效率得到根本的改善。和目前的 KOL 直播购物逻辑类似；</li></ul><ul><li>拼多多的游戏，以微信、拼多多App，做养成类、裂变类游戏。这些内容能给用户带来社交货币和实惠，能给平台带来活跃用户和新增流量。</li></ul><h3 id="拼多多做电子面单系统的逻辑"><a href="#拼多多做电子面单系统的逻辑" class="headerlink" title="拼多多做电子面单系统的逻辑"></a>拼多多做电子面单系统的逻辑</h3><p>现状是拼多多 2 年时间已建成第二大电子面单系统（第 1 是菜鸟电子面单）。为什么拼多多能做电子面单，因为平台订单足够大，在快递公司上游，有决策权。拼多多为什么要去做：</p><ul><li>掌握物流成本议价权。减少商品流通成本；</li></ul><ul><li>在做之前，拼多多是支持菜鸟电子面单的。这样的话，菜鸟甚至知道拼多多日均单量规模（就和现在快手、抖音一样，菜鸟其实也知道），是不能容忍的。</li></ul><h3 id="为什么淘宝没有拦住拼多多？"><a href="#为什么淘宝没有拦住拼多多？" class="headerlink" title="为什么淘宝没有拦住拼多多？"></a>为什么淘宝没有拦住拼多多？</h3><ul><li>拼多多在微信上，做社交流量转化，做得非常高；</li></ul><ul><li>拼多多团队确实是很厉害的团队，目标感和执行力非常强悍。</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;关于拼多多起来的部分原因，为什么做电子面单，以及为什么淘宝的的围追堵截没有拦住拼多多的几个观点。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
-    
-    <category term="拼多多" scheme="http://example.com/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/"/>
     
   </entry>
   
