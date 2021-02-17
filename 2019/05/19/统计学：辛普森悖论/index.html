@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="3种问题拆解的思路"/><meta name="keywords" content="Thinking, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2016/01/05/3 种问题拆解的思路/"/>
+<meta name="description" content="统计学：辛普森悖论"/><meta name="keywords" content="统计学, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/05/19/统计学：辛普森悖论/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>3种问题拆解的思路 - UX Caff</title>
+    <title>统计学：辛普森悖论 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -97,43 +97,49 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">3种问题拆解的思路
+      <h1 class="post-title">统计学：辛普森悖论
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2016-01-05
+          2019-05-19
         </span></div>
     </header>
 
-    <div class="post-content"><p>拆解问题的 3 个方法：<a id="more"></a></p>
-<p><strong>第1 种，用“接触点”来拆解问题。</strong>所谓“接触点”即用户在使用互联网产品中，与产品发生接触的点，这些点可以是由业务角度来看的业务流程各环节（如购物中的搜索-查看搜索结果-查看详情-下单-付款），也可以是以用户视角来看的的接触产品的用户生命周期各阶段。</p>
-<p>方式一，以业务流程为主线，梳理出现问题、需要重点关注的环节。比如：购物中的搜索-查看搜索结果-查看详情-下单-付款。</p>
-<p>方式二<strong>，</strong>用户视角—以用户接触产品的各环节为主线进行分析。认知—理解—尝试—使用—付费（如有）—留存/流失—回流 这是一条从用户接触到使用各环节的链路，经过对各环节的调研分析，基本就可以对产品和用户有个全面的认识了。</p>
-<p><strong>第 2 种，用“因果关系”来拆解。</strong>当我们需要对一个问题进行解释或分析时，可以尝试查找造成这个问题的原因，通过对原因的逐个分析，来找到出现问题的环节，比如：“某商品月成交量低，什么原因呢？”</p>
-<p>第一步：先来分解一些带来成交量的原因，如 月成交量=当月有交易的天数X每天交易次数X每次交易商品数X每商品每次交易件数X每件成交金额；</p>
-<p>第二步：对比该产品历史的各环节数据或其他类似产品，找到数据明显较低的环节，再具体分析原因。</p>
-<p>当然，会月成交量的结果拆分可能有多种方式，比如月成交量=来访用户X转化率X客单价等，如果可以，可以多试试不同的拆分方式，找到有明显漏斗、比较好入手/执行的分析的环节即可。</p>
-<p><strong>第 3 种，通过界定“问题”来拆解问题。</strong>也就是把问题定义清楚。比如：领导：“我们中心打算布局xx类产品，但不知道是不是有前景，你调研分析看看？”</p>
-<p>所遇到的问题就是要分析“前景”，这应该算是个比较大的问题了，也是比较模糊，模糊的点就是“什么叫做有前景？”如果是第一次接触这类问题，可能是无法入手的，但也恰是更需要问题拆解的时候——以“问题”为导向，即定义，拆分“前景”，可以自己先思考，也可以找领导，请他描述他认为的“前景”（或者至少把自己定义的有前景的标准和他确认一下，再开展后续的分析或调研，目的依然是要保障“做正确的事”）。</p>
-<p>在这个例子中，前景被定义为 3 个方面，市场有机会；用户有需求；有利润空间。然后再来量化这 3 个方面的目标（按照同样的思路拆解）。</p>
-<p>这 3 种思路，工作和生活中，都可以运用演练。</p>
-<p>整理来自 @王萌 的<a target="_blank" rel="noopener" href="https://www.zcool.com.cn/article/ZNDQwMjQ0.html">《用户研究视角-3种问题拆解的思路探讨》</a>。</p>
+    <div class="post-content"><p>辛普森悖论（Simpson’s Paradox）是英国统计学家E.H.辛普森（E.H.Simpson）于 1951 年提出的悖论，即<strong>在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，却可能导致相反的结论</strong>。<a id="more"></a></p>
+<p>下面举例说明。</p>
+<p>假设我从医生处得知自己得了肾结石，该医生向我展示了两种疗法效果的对比数据。疗法 A 和疗法 B 两种治疗方案。效果对比如下：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613447076618-4e2df275-25c8-4648-b30f-165bed49e348.png#align=left&display=inline&height=223&margin=%5Bobject%20Object%5D&name=image.png&originHeight=297&originWidth=871&size=15912&status=done&style=none&width=653" alt="image.png"></p>
+<p>显然，疗法 B 的成功率更高。接下来再细分一下。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613447151935-9aa04505-02eb-492b-add2-a75167e6620b.png#align=left&display=inline&height=206&margin=%5Bobject%20Object%5D&name=image.png&originHeight=274&originWidth=657&size=14498&status=done&style=none&width=493" alt="image.png">  </p>
+<p>据医生解释，肾结石只分为小结石和大结石，没有中等大小的结石。而根据以上数据对比结果，他推荐使用疗法 A，因为无论是治疗小结石还是大结石，疗法 A 的成功率都更高。</p>
+<p>这里的结论就是，疗法 A 的成功率更高，因为第 1 张图忽略了两种疗法对别的绝对值（可以理解为 2 种方案的流量）。</p>
+<p>体现在 A/B Test 中，就是需要注意对流量选择的划分。</p>
+<p>在这个测试里，向 50% 的新访客展示A版本，向另外 50% 的新访客展示 B 版本。若某个访客之前已见过其中某一版本，那么为了避免混淆两个版本的受众，会继续向该访客展示之前的版本。一个月之后，查看结果，发现使用 A 版本的访客中有 10% 的人购买了产品，而使用 B 版本的访客中只有 7% 的人购买了产品。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613447620240-cffdd00f-13b0-42a8-9318-53c991f5a267.png#align=left&display=inline&height=229&margin=%5Bobject%20Object%5D&name=image.png&originHeight=305&originWidth=883&size=16776&status=done&style=none&width=662" alt="image.png"></p>
+<p>鉴于此前版本 A 的表现更佳，这次改变了两种版本的展示比例：80% 的网站新访客会看到版本 A，20% 的网站新访客会看到版本 B。与之前一样，回头访客会继续看到与之前相同的版本。第二个月月末，查看两个版本的总体表现时，发现版本 A 的转化率为 9%，而版本 B 的转化率竟达到 10%。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613447771798-b860b0d6-936b-4449-b004-8615dd6e7874.png#align=left&display=inline&height=285&margin=%5Bobject%20Object%5D&name=image.png&originHeight=380&originWidth=1130&size=24624&status=done&style=none&width=848" alt="image.png"></p>
+<p>这是因为，在第二个月里，版本 A 的用户中有许多新访客，而新访客的转化难度更大，这自然就拉低了版本A的总体表现。</p>
+<p>这个同样说明，在做 A/B Test，流量划分的重要性。</p>
+<p>Reference</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://teahouse.fifty-five.com/zh-hans/simpson-paradox-or-how-to-make-numbers-lie/">人工智能之辛普森悖论：解密撒谎的数据</a></li>
+</ol>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/Thinking/">Thinking</a>
+            <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2016/01/10/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA/">
+        <nav class="post-nav"><a class="prev" href="/2019/05/20/%E5%AE%B6%E5%BA%AD%E8%B4%AD%E4%B9%B0%E4%BF%9D%E9%99%A9%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">常用的数据分析方法论</span>
+        <span class="prev-text nav-default">家庭购买保险相关问题</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2015/12/01/%E9%97%AE%E5%8D%B7%E8%B0%83%E7%A0%94%E9%A2%98%E7%9B%AE%E8%AE%BE%E8%AE%A1%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20From%20%E7%BD%91%E6%98%93/">
-        <span class="next-text nav-default">问卷调研题目设计注意事项From网易</span>
+    <a class="next" href="/2019/05/02/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%A0%87%E5%87%86%E5%8C%96%E4%B9%8BMax-Min%E6%A0%87%E5%87%86%E5%8C%96/">
+        <span class="next-text nav-default">特征工程：数据标准化之Max-Min标准化</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
