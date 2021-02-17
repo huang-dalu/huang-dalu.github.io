@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="数据的距离度量"/><meta name="keywords" content="算法, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2018/10/20/数据的距离度量/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>数据的距离度量 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">数据的距离度量
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-20
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>距离是数据挖掘的核心概念之一。在很多模型运用中（例如近邻算法），往往需要知道两个个体之间的距离是多少。<a id="more"></a>更进一步说，还得能够解决一对个体相对另一对个体是否更相近等问题。这类问题的解决方法，会直接影响分类算法的结果。</p>
+<p>关于距离的计算方式有 5 种，分别是：欧氏距离、曼哈顿距离、余弦距离、闵可夫斯基距离、切比雪夫距离。</p>
+<p><strong>欧式距离</strong><br>**<br>欧式距离是最常用的距离公式，就是真实距离。也叫做欧几里得距离。在图像中画两个点，用直尺测量这两个点之间的距离，得到的结果就是欧氏距离。它其实是两个特征向量长度平方和的平方根。具体公式为：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588000053768-ade5ec7c-e0bd-4dd1-980b-795a829c57fc.png#align=left&display=inline&height=81&margin=%5Bobject%20Object%5D&name=image.png&originHeight=162&originWidth=748&size=16253&status=done&style=none&width=374" alt="image.png"></p>
+<p><strong>曼哈顿距离</strong><br>**<br>曼哈顿距离为两个特征在标准坐标系中绝对轴距之和（没有使用平方距离）。用公式表示就是：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588033051073-956543f0-97e7-4b28-bac2-fca03f7a48f1.png#align=left&display=inline&height=56&margin=%5Bobject%20Object%5D&name=image.png&originHeight=112&originWidth=582&size=11420&status=done&style=none&width=291" alt="image.png"><br><strong>余弦距离</strong></p>
+<p>余弦距离实际上计算的是两个向量的夹角，是在方向上计算两者之间的差异，对绝对数值不敏感。在兴趣相关性比较上，角度关系比距离的绝对值更重要，因此余弦距离可以用于衡量用户对内容兴趣的区分度。比如我们用搜索引擎搜索某个关键词，它还会给你推荐其他的相关搜索，这些推荐的关键词就是采用余弦距离计算得出的。也适用于解决数据异常值和数据稀疏问题。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588033275691-a53b317f-1ba0-4bb9-a204-5d7973c0eb24.png#align=left&display=inline&height=493&margin=%5Bobject%20Object%5D&name=image.png&originHeight=493&originWidth=1280&size=104307&status=done&style=none&width=1280" alt="image.png"></p>
+<p>下图分别是欧式距离、曼哈顿距离、余弦距离示意图。图中两个灰圆与白圆之间的距离是相等的。左图是欧氏距离，因此两个灰圆都落在以白圆为圆心的同一个圆的圆周上。中间这幅图表示的是曼哈顿距离，它指的是从灰圆到白圆所走的横向和纵向距离之和，测量时可以想象棋中车的走法。右图是余弦距离示意图，计算夹角之间的余弦值，忽略特征向量的长度。</p>
+<p><strong>闵可夫斯基距离</strong><br>**<br>闵可夫斯基距离不是一个距离，而是一组距离的定义。对于 n 维空间中的两个点 x(x1,x2,…,xn) 和 y(y1,y2,…,yn) ， x 和 y 两点之间的闵可夫斯基距离为：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588033645389-c42a76ca-ae86-49cf-b4c3-f17b55fecc62.png#align=left&display=inline&height=119&margin=%5Bobject%20Object%5D&name=image.png&originHeight=238&originWidth=516&size=15207&status=done&style=none&width=258" alt="image.png"></p>
+<p>其中 p 代表空间的维数，当 p=1 时，就是曼哈顿距离；当 p=2 时，就是欧氏距离；当 p→∞时，就是切比雪夫距离。切比雪夫距离计算就是这两个点坐标数值差的绝对值的最大值，用数学表示就是：max(|x1-y1|,|x2-y2|)。</p>
+<p>采用哪种距离度量方法对最终结果有很大影响。例如，曼哈顿距离在某些情况下具有更高的稳定性，但是如果数据集中某些特征值很大，用曼哈顿距离的话，这些特征会掩盖其他特征间的邻近关系。余弦距离适用于特征向量很多的情况，但是它丢弃了向量长度所包含的在某些场景下可能会很有用的一些信息。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/10/27/%E9%9C%8D%E6%A1%91%E5%AE%9E%E9%AA%8C%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%90%AF%E5%8F%91/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">霍桑实验带来的启发</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/10/15/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9ASeaborn%E5%BA%93%E5%B8%B8%E7%94%A8%E5%9B%BE%E5%BD%A2/">
+        <span class="next-text nav-default">数据可视化：Seaborn库常用图形</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

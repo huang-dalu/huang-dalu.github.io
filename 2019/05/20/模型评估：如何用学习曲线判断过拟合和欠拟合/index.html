@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="模型评估：如何用学习曲线判断过拟合和欠拟合"/><meta name="keywords" content="模型评估, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/05/20/模型评估：如何用学习曲线判断过拟合和欠拟合/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>模型评估：如何用学习曲线判断过拟合和欠拟合 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">模型评估：如何用学习曲线判断过拟合和欠拟合
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-20
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%A6%E4%B9%A0%E6%9B%B2%E7%BA%BF"><span class="toc-text">1. 什么是学习曲线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="toc-text">2. 什么是过拟合和欠拟合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E8%BF%87%E6%8B%9F%E5%90%88%E8%BF%98%E6%98%AF%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="toc-text">3. 怎么判断过拟合还是欠拟合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E8%BF%87%E6%8B%9F%E5%90%88%E8%BF%98%E6%98%AF%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="toc-text">4. 怎么解决过拟合还是欠拟合</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>如何用学习曲线判断过拟合和欠拟合。<a id="more"></a></p>
+<h4 id="1-什么是学习曲线"><a href="#1-什么是学习曲线" class="headerlink" title="1. 什么是学习曲线"></a>1. 什么是学习曲线</h4><p>学习曲线是模型在训练集和验证集上的得分变化曲线，横坐标表示的是样本数量（x_train的数据量）的大小，纵坐标为训练集和验证集的得分(train_score, test_score)</p>
+<h4 id="2-什么是过拟合和欠拟合"><a href="#2-什么是过拟合和欠拟合" class="headerlink" title="2. 什么是过拟合和欠拟合"></a>2. 什么是过拟合和欠拟合</h4><p>过拟合：过拟合一般是由于模型使用了太多的特征引起的，太过贴近于训练数据的特征了，在训练集上表现非常优秀，但是在新的测试集上却表现平平，不具泛化性。<br>欠拟合：欠拟合一般是指模型没有很好的抓住数据的特征，在训练集和测试集的准确率相差不大，但是都表现的大，使得偏差较大。</p>
+<h4 id="3-怎么判断过拟合还是欠拟合"><a href="#3-怎么判断过拟合还是欠拟合" class="headerlink" title="3. 怎么判断过拟合还是欠拟合"></a>3. 怎么判断过拟合还是欠拟合</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> learning_curve</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> ShuffleSplit</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_learning_curve</span>(<span class="params">estimator, title, X, y, ylim=<span class="literal">None</span>, cv=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                        n_jobs=<span class="number">1</span>, train_sizes=np.linspace(<span class="params"><span class="number">.1</span>, <span class="number">1.0</span>, <span class="number">5</span></span>)</span>):</span></span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.title(title)</span><br><span class="line">    <span class="keyword">if</span> ylim <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        plt.ylim(*ylim)</span><br><span class="line">    plt.xlabel(<span class="string">&quot;Training examples&quot;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&quot;Score&quot;</span>)</span><br><span class="line">    train_sizes, train_scores, test_scores = learning_curve(</span><br><span class="line">        estimator, X, y, cv=cv, n_jobs=n_jobs, train_sizes=train_sizes)</span><br><span class="line">    train_scores_mean = np.mean(train_scores, axis=<span class="number">1</span>)</span><br><span class="line">    train_scores_std = np.std(train_scores, axis=<span class="number">1</span>)</span><br><span class="line">    test_scores_mean = np.mean(test_scores, axis=<span class="number">1</span>)</span><br><span class="line">    test_scores_std = np.std(test_scores, axis=<span class="number">1</span>)</span><br><span class="line">    plt.grid()</span><br><span class="line"> </span><br><span class="line">    plt.fill_between(train_sizes, train_scores_mean - train_scores_std,</span><br><span class="line">                     train_scores_mean + train_scores_std, alpha=<span class="number">0.1</span>,</span><br><span class="line">                     color=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    plt.fill_between(train_sizes, test_scores_mean - test_scores_std,</span><br><span class="line">                     test_scores_mean + test_scores_std, alpha=<span class="number">0.1</span>, color=<span class="string">&quot;g&quot;</span>)</span><br><span class="line">    plt.plot(train_sizes, train_scores_mean, <span class="string">&#x27;o-&#x27;</span>, color=<span class="string">&quot;r&quot;</span>,</span><br><span class="line">             label=<span class="string">&quot;Training score&quot;</span>)</span><br><span class="line">    plt.plot(train_sizes, test_scores_mean, <span class="string">&#x27;o-&#x27;</span>, color=<span class="string">&quot;g&quot;</span>,</span><br><span class="line">             label=<span class="string">&quot;Cross-validation score&quot;</span>)</span><br><span class="line"> </span><br><span class="line">    plt.legend(loc=<span class="string">&quot;best&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> plt</span><br><span class="line"> </span><br><span class="line">digits = load_digits()</span><br><span class="line">X, y = digits.data, digits.target   </span><br><span class="line"> </span><br><span class="line">title = <span class="string">r&quot;Learning Curves (Naive Bayes)&quot;</span></span><br><span class="line">cv = ShuffleSplit(n_splits=<span class="number">100</span>, test_size=<span class="number">0.2</span>, random_state=<span class="number">0</span>)</span><br><span class="line">estimator = GaussianNB()  </span><br><span class="line">plot_learning_curve(estimator, title, X, y, ylim=(<span class="number">0.7</span>, <span class="number">1.01</span>), cv=cv, n_jobs=<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">title = <span class="string">r&quot;Learning Curves (SVM, RBF kernel, $\gamma=0.001$)&quot;</span></span><br><span class="line">cv = ShuffleSplit(n_splits=<span class="number">10</span>, test_size=<span class="number">0.2</span>, random_state=<span class="number">0</span>)</span><br><span class="line">estimator = SVC(gamma=<span class="number">0.001</span>) </span><br><span class="line">plot_learning_curve(estimator, title, X, y, (<span class="number">0.7</span>, <span class="number">1.01</span>), cv=cv, n_jobs=<span class="number">1</span>)</span><br><span class="line"> </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1045823/1602752324543-cc746678-1193-42c0-9358-eb58e1f5582e.png#align=left&display=inline&height=282&margin=%5Bobject%20Object%5D&name=image.png&originHeight=564&originWidth=810&size=114391&status=done&style=none&width=405" alt="image.png"><br>图一<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1045823/1602752349779-ee65fc67-ad4a-406b-98cf-86788ac50d0c.png#align=left&display=inline&height=277&margin=%5Bobject%20Object%5D&name=image.png&originHeight=554&originWidth=822&size=95826&status=done&style=none&width=411" alt="image.png"><br>图二<br>从图一我们可以观察到，当模型欠拟合时，随着训练数据集的增加，交叉验证数据集(cross_vaildation score)的准确性逐渐增大，逐渐和训练数据集的准确性（Training score）靠近，得到一条基本不变的直线，且准确性在0.85左右，从这个关系可以看出来，当发生高偏差时，增加训练样本数量不会对算法准确性有较大的改善。<br>从图二可以观察到，当模型过拟合时，随着训练数据集的增加，交叉验证数据集的准确性（实线）也在增加，逐渐和训练数据集的准确性靠近，但两者之间的间隙比较大。</p>
+<h4 id="4-怎么解决过拟合还是欠拟合"><a href="#4-怎么解决过拟合还是欠拟合" class="headerlink" title="4. 怎么解决过拟合还是欠拟合"></a>4. 怎么解决过拟合还是欠拟合</h4><ul>
+<li>过拟合：可以增加样本量或者降低模型的复杂度，比如减小树的深度、增大分裂节点样本数、增大样本数、减少特征数。</li>
+<li>欠拟合：可以增加模型参数，比如，构建更多的特征，减小正则项。</li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">模型评估</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/20/%E5%AE%B6%E5%BA%AD%E8%B4%AD%E4%B9%B0%E4%BF%9D%E9%99%A9%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">家庭购买保险相关问题</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/05/19/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%82%96%E8%AE%BA/">
+        <span class="next-text nav-default">统计学：辛普森悖论</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

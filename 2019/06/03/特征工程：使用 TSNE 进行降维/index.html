@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="特征工程：使用TSNE进行降维"/><meta name="keywords" content="特征工程, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/06/03/特征工程：使用 TSNE 进行降维/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>特征工程：使用TSNE进行降维 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">特征工程：使用TSNE进行降维
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-06-03
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#TSNE%E4%BB%8B%E7%BB%8D"><span class="toc-text">TSNE介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TSNE%E7%9B%AE%E7%9A%84"><span class="toc-text">TSNE目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TSNE%E4%BD%BF%E7%94%A8"><span class="toc-text">TSNE使用</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h4 id="TSNE介绍"><a href="#TSNE介绍" class="headerlink" title="TSNE介绍"></a>TSNE介绍<a id="more"></a></h4><p>TSNE是一种降维方法，通过将多维度数据，在保持原有数据分布和相似性情况下，转换为二维或者三维数据。</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
+<li>简单说明下就是先选中某点，然后计算该点到所有点的距离，然后将所有点映射到对应分布上。</li>
+<li>详细理论可以查阅：<a target="_blank" rel="noopener" href="http://bindog.github.io/blog/2016/06/04/from-sne-to-tsne-to-largevis/#top">http://bindog.github.io/blog/2016/06/04/from-sne-to-tsne-to-largevis/#top</a></li>
+</ul>
+<h4 id="TSNE目的"><a href="#TSNE目的" class="headerlink" title="TSNE目的"></a>TSNE目的</h4><ul>
+<li>主要是为了对各种高维度数据进行可视化（常用在聚类分析）</li>
+<li>简化机器模型训练和预测</li>
+</ul>
+<h4 id="TSNE使用"><a href="#TSNE使用" class="headerlink" title="TSNE使用"></a>TSNE使用</h4><p>下面使用<code>sklearn.manifold</code> 简单演示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>:[<span class="number">2</span>,<span class="number">2.1</span>,<span class="number">2.5</span>,<span class="number">6</span>],</span><br><span class="line">    <span class="string">&#x27;B&#x27;</span>:[<span class="number">3</span>,<span class="number">10.1</span>,<span class="number">12.5</span>,<span class="number">8</span>],</span><br><span class="line">    <span class="string">&#x27;C&#x27;</span>:[<span class="number">3.5</span>,<span class="number">7.1</span>,<span class="number">6.5</span>,<span class="number">9</span>],</span><br><span class="line">    <span class="string">&#x27;类别&#x27;</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">&#125;)</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603250565677-52f92332-c759-40d6-8264-20a74da4c78d.png#align=left&display=inline&height=134&margin=%5Bobject%20Object%5D&name=image.png&originHeight=134&originWidth=153&size=5000&status=done&style=none&width=153" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.manifold <span class="keyword">import</span> TSNE</span><br><span class="line"></span><br><span class="line">tsne = TSNE()</span><br><span class="line">tsne.fit_transform(data) <span class="comment">#进行数据降维</span></span><br><span class="line">tsne = pd.DataFrame(tsne.embedding_, index = data.index) <span class="comment">#转换数据格式</span></span><br><span class="line">tsne</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603250529801-9f17b022-d091-4e99-b370-8dbffb5bdd29.png#align=left&display=inline&height=133&margin=%5Bobject%20Object%5D&name=image.png&originHeight=133&originWidth=186&size=7948&status=done&style=none&width=186" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = tsne[data[<span class="string">&#x27;类别&#x27;</span>] == <span class="number">3</span>]</span><br><span class="line">plt.plot(d[<span class="number">0</span>], d[<span class="number">1</span>], <span class="string">&#x27;r.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">d1 = tsne[data[<span class="string">&#x27;类别&#x27;</span>] == <span class="number">1</span>]</span><br><span class="line">plt.plot(d1[<span class="number">0</span>], d1[<span class="number">1</span>], <span class="string">&#x27;go&#x27;</span>)</span><br><span class="line"></span><br><span class="line">d2 = tsne[data[<span class="string">&#x27;类别&#x27;</span>] == <span class="number">2</span>]</span><br><span class="line">plt.plot(d2[<span class="number">0</span>], d2[<span class="number">1</span>], <span class="string">&#x27;b*&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1603250472132-37a9b707-2a31-464e-aa61-c5093b1d827c.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=output_3_0.png&originHeight=248&originWidth=383&size=4351&status=done&style=none&width=383" alt="output_3_0.png"></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">特征工程</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/28/%E5%88%86%E9%94%80%E4%BD%93%E7%B3%BB%E6%96%B9%E6%B3%95%E8%AE%BA/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">分销体系方法论</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/06/01/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E5%88%92%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E9%9B%86/">
+        <span class="next-text nav-default">特征工程：划分训练集和数据集</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

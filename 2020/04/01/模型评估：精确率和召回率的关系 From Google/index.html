@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="模型评估：精确率和召回率的关系 From Google"/><meta name="keywords" content="模型评估, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/04/01/模型评估：精确率和召回率的关系 From Google/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>模型评估：精确率和召回率的关系 From Google - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">模型评估：精确率和召回率的关系 From Google
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-04-01
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E7%A1%AE%E7%8E%87"><span class="toc-text">精确率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AC%E5%9B%9E%E7%8E%87"><span class="toc-text">召回率</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E7%A1%AE%E7%8E%87%E5%92%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%EF%BC%9A%E4%B8%80%E5%9C%BA%E6%8B%94%E6%B2%B3%E6%AF%94%E8%B5%9B"><span class="toc-text">精确率和召回率：一场拔河比赛</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p><em>看了下，Google 的这篇</em><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall?hl=zh-cn"><em>文章</em></a><em>，案例描述比较清晰。但好像需要翻墙打开？</em><a id="more"></a></p>
+<h4 id="精确率"><a href="#精确率" class="headerlink" title="精确率"></a>精确率</h4><p><strong>精确率</strong>指标尝试回答以下问题：</p>
+<blockquote>
+<p>在被识别为正类别的样本中，确实为正类别的比例是多少？</p>
+</blockquote>
+<p>精确率的定义如下：<br>Precision=TP/(TP+FP)<br><strong>注意</strong>：如果模型的预测结果中没有假正例，则模型的精确率为 1.0。<br>接下来试着计算以下模型的准确率，该模型将 100 个肿瘤分为恶性或良性，还是来计算模型的精确率：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613454607195-ba55c1f6-3dca-450d-86fc-de63a4e71743.png#align=left&display=inline&height=196&margin=%5Bobject%20Object%5D&name=image.png&originHeight=261&originWidth=849&size=42334&status=done&style=none&width=637" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>真正例 (TP)：1</strong></th>
+<th align="left"><strong>假正例 (FP)：1</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>假负例 (FN)：8</strong></td>
+<td align="left"><strong>真负例 (TN)：90</strong></td>
+</tr>
+</tbody></table>
+<p>精确率精确率=TP/(TP+FP）=1/(1+1)=0.5<br>该模型的精确率为 0.5，也就是说，该模型在预测恶性肿瘤方面的正确率是 50%。</p>
+<h4 id="召回率"><a href="#召回率" class="headerlink" title="召回率"></a>召回率</h4><p><strong>召回率</strong>尝试回答以下问题：</p>
+<blockquote>
+<p>在所有正类别样本中，被正确识别为正类别的比例是多少？</p>
+</blockquote>
+<p>从数学上讲，召回率的定义如下：<br>召回率召回率=TP/(TP+FN)<br><strong>注意</strong>：如果模型的预测结果中没有假负例，则模型的召回率为 1.0。<br>让我们来计算一下肿瘤分类器的召回率：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>真正例 (TP)：1</strong></th>
+<th align="left"><strong>假正例 (FP)：1</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>假负例 (FN)：8</strong></td>
+<td align="left"><strong>真负例 (TN)：90</strong></td>
+</tr>
+</tbody></table>
+<p>召回率召回率=TP/(TP+FN)=1/(1+8)=0.11<br>该模型的召回率是 0.11，也就是说，该模型能够正确识别出所有恶性肿瘤的百分比是 11%。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h4 id="精确率和召回率：一场拔河比赛"><a href="#精确率和召回率：一场拔河比赛" class="headerlink" title="精确率和召回率：一场拔河比赛"></a>精确率和召回率：一场拔河比赛</h4><p>要全面评估模型的有效性，必须<strong>同时</strong>检查精确率和召回率。遗憾的是，精确率和召回率往往是此消彼长的情况。也就是说，提高精确率通常会降低召回率值，反之亦然。请观察下图来了解这一概念，该图显示了电子邮件分类模型做出的 30 项预测。分类阈值右侧的被归类为“垃圾邮件”，左侧的则被归类为“非垃圾邮件”。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613454405476-7a195f98-77fd-4fcf-9d17-99d7a849a5d6.png#align=left&display=inline&height=156&margin=%5Bobject%20Object%5D&name=image.png&originHeight=312&originWidth=1688&size=48829&status=done&style=none&width=844" alt="image.png"><br>**<br><strong>图 1. 将电子邮件归类为垃圾邮件或非垃圾邮件。</strong><br>我们根据图 1 所示的结果来计算精确率和召回率值：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>真正例 (TP)：8</strong></th>
+<th align="left"><strong>假正例 (FP)：2</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>假负例 (FN)：3</strong></td>
+<td align="left"><strong>真负例 (TN)：17</strong></td>
+</tr>
+</tbody></table>
+<p>精确率指的是<strong>被标记为垃圾邮件的电子邮件</strong>中正确分类的电子邮件所占的百分比，即图 1 中阈值线右侧的绿点所占的百分比：</p>
+<p>Precision=TP/(TP+FP)=8/(8+2)=0.8<br>召回率指的是<strong>实际垃圾邮件</strong>中正确分类的电子邮件所占的百分比，即图 1 中阈值线右侧的绿点所占的百分比：</p>
+<p>Recall=TP/(TP+FN)=8/(8+3)=0.73<br>图 2 显示了提高分类阈值产生的效果。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613454450195-550a8ecd-8efe-45cb-904e-6269eb9c790b.png#align=left&display=inline&height=151&margin=%5Bobject%20Object%5D&name=image.png&originHeight=302&originWidth=1674&size=48356&status=done&style=none&width=837" alt="image.png"></p>
+<p><strong>图 2. 提高分类阈值。</strong><br>假正例数量会减少，但假负例数量会相应地增加。结果，精确率有所提高，而召回率则有所降低：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>真正例 (TP)：7</strong></th>
+<th align="left"><strong>假正例 (FP)：1</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>假负例 (FN)：4</strong></td>
+<td align="left"><strong>真负例 (TN)：18</strong></td>
+</tr>
+</tbody></table>
+<p>Precision=TP/(TP+FP)=7/(7+1)=0.88</p>
+<p>Recall=TP/(TP+FN)=7/(7+4)=0.64<br>相反，图 3 显示了降低分类阈值（从图 1 中的初始位置开始）产生的效果。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613454476665-ad863046-e441-470c-b4cf-d4a17e276759.png#align=left&display=inline&height=157&margin=%5Bobject%20Object%5D&name=image.png&originHeight=314&originWidth=1694&size=48745&status=done&style=none&width=847" alt="image.png"></p>
+<p><strong>图 3. 降低分类阈值。</strong><br>假正例数量会增加，而假负例数量会减少。结果这一次，精确率有所降低，而召回率则有所提高：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>真正例 (TP)：9</strong></th>
+<th align="left"><strong>假正例 (FP)：3</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>假负例 (FN)：2</strong></td>
+<td align="left"><strong>真负例 (TN)：16</strong></td>
+</tr>
+</tbody></table>
+<p>Precision=TP/(TP+FP)=9/(9+3)=0.75</p>
+<p>Recall=TP/(TP+FN)=9/(9+2)=0.82</p>
+<p>所以，需要进一步参考F1分数（F1 Score）。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">模型评估</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/04/25/%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">直播电商一些看法（一）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/12/31/%E7%AE%A1%E7%90%86%E5%AE%A2%E6%9C%8D%E5%9B%A2%E9%98%9F%E7%9A%84%E5%86%85%E5%AE%B9%E6%95%B4%E7%90%86/">
+        <span class="next-text nav-default">管理客服团队的内容整理</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

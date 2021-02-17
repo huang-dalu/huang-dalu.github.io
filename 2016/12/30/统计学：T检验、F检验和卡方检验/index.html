@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content=" 统计学：T检验、F检验、卡方检验"/><meta name="keywords" content="统计学, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2016/12/30/统计学：T检验、F检验和卡方检验/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title> 统计学：T检验、F检验、卡方检验 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title"> 统计学：T检验、F检验、卡方检验
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-12-30
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#T%E6%A3%80%E9%AA%8C"><span class="toc-text">T检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#F%E6%A3%80%E9%AA%8C"><span class="toc-text">F检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="toc-text">卡方检验</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>T检验、F检验、卡方检验是统计学中常见的假设检验，今天记录下这几个假设检验的原理和应用场景。<a id="more"></a></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>检验方法</strong></th>
+<th align="center"><strong>应用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T检验</td>
+<td align="center">比较两个样本均值是否有差异</td>
+</tr>
+<tr>
+<td align="center">F检验</td>
+<td align="center">比较两个及两个以上样本均值是否有差异</td>
+</tr>
+<tr>
+<td align="center">卡方检验</td>
+<td align="center">比较两组或者多组之间的分类型变量是否差异</td>
+</tr>
+</tbody></table>
+<h4 id="T检验"><a href="#T检验" class="headerlink" title="T检验"></a>T检验</h4><p>T检验又称学生T检验，用于统计量服从正态分布，总体方差未知且样本量较小（n&lt;30）的情况下，用来比较两个均值的差异是否显著。可分为配对样本T检验、单样本T检验和两独立样本T检验 3 种类型。</p>
+<p><strong>配对样本T检验</strong><br>用于检验两个配对样本均值的差是否等于零。如比较一个受试者在不同治疗方式后的指标差异，或不能在同一个受试者上开展实验，把接受 A 治疗的人和接受 B 治疗的人配对，通常会基于年龄、性别或其他我们认为重要的变量进行配对，配对的目的是使 A 组和 B 组的人尽可能相同。</p>
+<p><strong>单样本T检验</strong><br>检验单个样本的均值是否与已知的总体均值相等，比如：某大学生的身高是否大于全国平均身高。</p>
+<p><strong>两独立样本T检验</strong><br>检验两独立样本的均值是否相等，如 A/B Test，不同的按钮颜色，对于访问量是否有显著差异。</p>
+<h4 id="F检验"><a href="#F检验" class="headerlink" title="F检验"></a>F检验</h4><p>方差分析就是对试验数据进行分析，检验方差相等的多个因素均值是否相等，来判断各因素对试验指标的影响是否显著。其原理是从差异的源头入手，一类是组内随机差异造成的，一类是不同组的组间差异造成的。可拆解为总平方和SST = 组内残差平方和 SSE（不可解释的差异） + 组间因素平方和 SSTR（可解释的差异），F统计量是组间均方与组内均方的比值。其计算公式如下：</p>
+<p>组间因素平均平方和 MSTR，K-1 代表自由度，K 代表有多少组：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/3262a59ba234c42d82d2c146d87d73ae.svg#card=math&code=MSTR%3D%5Cfrac%7BSSTR%7D%7Bk-1%7D&height=41&width=127"></p>
+<p>组内残差平均平方和 MSE，n 代表观测值的个数：</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/206f9d9dcfaec3826e6c09315128f42d.svg#card=math&code=%5Cbegin%7Barray%7D%7Bc%7D%20%0A%20%20MSE%3D%5Cfrac%7BSSE%7D%7Bn-k%7D%20%5C%5C%0A%20%20F%3D%5Cfrac%7BMSTR%7D%7BMSE%7D%20%5Csim%20F%28k-1%2Cn-k%29%0A%5Cend%7Barray%7D&height=59&width=217"></p>
+<p>根据求得的F统计量，查F表，如果大于临界值则拒绝原假设，就意味着差异的主要来源是由于组与组的不同而造成的，即组间具有显著性的差异。相反，如果F值小于临界值则接受原假设，说明组内的均方 MSE 比较大，差异的主要来源并不是组与组的不同，而是组内随机变化的结果，组间无显著性差异。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h4><p>卡方检验主要是统计样本的实际观测值与理论推断值之间的偏离程度，来判断变量之间是否有相关关系。适用于比较两组或者多组之间的分类型变量之间是否有显著的差异。卡方值计算公式如下：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1612270832840-1866b218-0ae4-4b05-b39e-6476863501bc.png#align=left&display=inline&height=88&margin=%5Bobject%20Object%5D&originHeight=176&originWidth=484&size=0&status=done&style=none&width=242"></p>
+<p>根据自由度（（行-1）*（列-1）），结合我们定义的置信水平，查卡方分布临界表，卡方值大于临界值，则拒绝原假设，可判断有显著差异。详细案例介绍大家可参考这篇文章<a target="_blank" rel="noopener" href="https://uxcaff.com/2016/10/04/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">《卡方检验的理解》</a>。另外更正一下，这篇文章中最后的自由度的乘号写成了减号。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2017/01/25/%E5%87%A0%E9%A6%96%E5%B0%8F%E8%AF%97/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">几首小诗</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2016/12/15/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%8B%9F%E5%90%88%E4%BC%98%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F--R%E5%B9%B3%E6%96%B9/">
+        <span class="next-text nav-default">特征工程：线性回归拟合优度的度量--R平方</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

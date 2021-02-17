@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="特征工程：划分训练集和数据集"/><meta name="keywords" content="特征工程, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/06/01/特征工程：划分训练集和数据集/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>特征工程：划分训练集和数据集 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">特征工程：划分训练集和数据集
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-06-01
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%AF%E9%9A%8F%E6%9C%BA%E9%87%87%E6%A0%B7%EF%BC%9Atrain-test-split"><span class="toc-text">纯随机采样：train_test_split()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E9%87%87%E6%A0%B7%EF%BC%9AStratifiedShuffleSplit"><span class="toc-text">分层采样：StratifiedShuffleSplit()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="toc-text">案例</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>学习预测函数的参数，并在相同数据集上进行测试是一种错误的做法: 因为仅给出测试用例标签的模型将会获得极高的分数，但对于尚未出现过的数据它则无法预测出任何有用的信息。<a id="more"></a> 这种情况称为过拟合。为了避免这种情况，在进行（监督）机器学习实验时，一般会将数据集划分为训练集和测试集，训练集训练数据，测试集查看训练结果。</p>
+<p>按照划分方式不同，分为纯随机采样和分层采样。</p>
+<h3 id="纯随机采样：train-test-split"><a href="#纯随机采样：train-test-split" class="headerlink" title="纯随机采样：train_test_split()"></a>纯随机采样：train_test_split()</h3><h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取鸢尾花数据集</span></span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">print(iris.DESCR)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">.. _iris_dataset:</span><br><span class="line"></span><br><span class="line">Iris plants dataset</span><br><span class="line">--------------------</span><br><span class="line"></span><br><span class="line">**Data Set Characteristics:**</span><br><span class="line"></span><br><span class="line">    :Number of Instances: 150 (50 in each of three classes)</span><br><span class="line">    :Number of Attributes: 4 numeric, predictive attributes and the class</span><br><span class="line">    :Attribute Information:</span><br><span class="line">        - sepal length in cm</span><br><span class="line">        - sepal width in cm</span><br><span class="line">        - petal length in cm</span><br><span class="line">        - petal width in cm</span><br><span class="line">        - class:</span><br><span class="line">                - Iris-Setosa</span><br><span class="line">                - Iris-Versicolour</span><br><span class="line">                - Iris-Virginica</span><br><span class="line">                </span><br><span class="line">    :Summary Statistics:</span><br><span class="line"></span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">                    Min  Max   Mean    SD   Class Correlation</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    sepal length:   4.3  7.9   5.84   0.83    0.7826</span><br><span class="line">    sepal width:    2.0  4.4   3.05   0.43   -0.4194</span><br><span class="line">    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)</span><br><span class="line">    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">    :Missing Attribute Values: None</span><br><span class="line">    :Class Distribution: 33.3% for each of 3 classes.</span><br><span class="line">    :Creator: R.A. Fisher</span><br><span class="line">    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)</span><br><span class="line">    :Date: July, 1988</span><br><span class="line"></span><br><span class="line">The famous Iris database, first used by Sir R.A. Fisher. The dataset is taken</span><br><span class="line">from Fisher&#39;s paper. Note that it&#39;s the same as in R, but not as in the UCI</span><br><span class="line">Machine Learning Repository, which has two wrong data points.</span><br><span class="line"></span><br><span class="line">This is perhaps the best known database to be found in the</span><br><span class="line">pattern recognition literature.  Fisher&#39;s paper is a classic in the field and</span><br><span class="line">is referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The</span><br><span class="line">data set contains 3 classes of 50 instances each, where each class refers to a</span><br><span class="line">type of iris plant.  One class is linearly separable from the other 2; the</span><br><span class="line">latter are NOT linearly separable from each other.</span><br><span class="line"></span><br><span class="line">.. topic:: References</span><br><span class="line"></span><br><span class="line">   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic problems&quot;</span><br><span class="line">     Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to</span><br><span class="line">     Mathematical Statistics&quot; (John Wiley, NY, 1950).</span><br><span class="line">   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.</span><br><span class="line">     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.</span><br><span class="line">   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System</span><br><span class="line">     Structure and Classification Rule for Recognition in Partially Exposed</span><br><span class="line">     Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine</span><br><span class="line">     Intelligence, Vol. PAMI-2, No. 1, 67-71.</span><br><span class="line">   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions</span><br><span class="line">     on Information Theory, May 1972, 431-433.</span><br><span class="line">   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II</span><br><span class="line">     conceptual clustering system finds 3 classes in the data.</span><br><span class="line">   - Many, many more ...</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(iris.data.shape, iris.target.shape)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(150, 4) (150,)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 划分数据集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=<span class="number">0.4</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">print(X_train.data.shape,y_train.shape )</span><br><span class="line">print(<span class="string">&quot;------------&quot;</span>)</span><br><span class="line">print(X_test.data.shape,y_test.shape )</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(90, 4) (90,)</span><br><span class="line">------------</span><br><span class="line">(60, 4) (60,)</span><br></pre></td></tr></table></figure>
+
+
+<p>X_train,X_test, y_train, y_test =train_test_split(train_data,train_target,test_size=0.4, random_state=0)</p>
+<p>参数解释：</p>
+<ul>
+<li><code>train_data</code>：划分的样本特征集（例如：鸢尾花数据集的 4 种特征）</li>
+<li><code>train_target</code>：划分的样本结果（例如：鸢尾花数据集对应的 4 种种类）</li>
+<li><code>test_size</code>：样本划分的占比（例如：上述案例，test_size=0.4 代表测试集占比 40%），如果是整数的话就是样本的数量</li>
+<li><code>random_state</code>：可以为整数、RandomState实例或None，默认为None。在进行重复测试时，保证得到一组一样的随机数。例如：random_state=0，每次数据内容划分都会不一样。random_state=1，其他参数一样的情况下你得到的随机数组也是一样。若为None，每次生成的数据都是随机，可能不一样</li>
+</ul>
+<h3 id="分层采样：StratifiedShuffleSplit"><a href="#分层采样：StratifiedShuffleSplit" class="headerlink" title="分层采样：StratifiedShuffleSplit()"></a>分层采样：StratifiedShuffleSplit()</h3><p>如果所拥有的数据集是不平衡的，例如：男女比例、地区比例。这种情况最好使用分层交叉验证来确保训练集和测试集都包含每个类样本分层情况。例如某个样本数据集下男生 40 人，女生 60 人，在抽样对应的训练集的时候，也会按照这个比例来进行划分。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  sklearn.model_selection <span class="keyword">import</span> StratifiedShuffleSplit</span><br><span class="line">StratifiedShuffleSplit(n_splits=<span class="number">10</span>,test_size=<span class="literal">None</span>,train_size=<span class="literal">None</span>, random_state=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>参数解释：</p>
+<ul>
+<li><code>n_splits</code>：将训练数据分成 train/test 对的组数，可根据需要进行设置，默认为 10</li>
+<li><code>test_size</code>：test_size和train_size： 是用来设置train/test对中train和test所占的比例。例如：train_size=0.8 test_size=0.2</li>
+<li><code>random_state</code>：随机种子</li>
+</ul>
+<h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  sklearn.model_selection <span class="keyword">import</span> StratifiedShuffleSplit</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">X = np.array([[<span class="number">10</span>, <span class="number">20</span>], [<span class="number">30</span>, <span class="number">40</span>], [<span class="number">50</span>, <span class="number">60</span>], [<span class="number">70</span>, <span class="number">80</span>], [<span class="number">90</span>,<span class="number">100</span>]])</span><br><span class="line">Y = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">ss = StratifiedShuffleSplit(n_splits=<span class="number">5</span>, test_size=<span class="number">0.5</span>, random_state=<span class="number">1</span>) </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> ss.split(X, Y):</span><br><span class="line">    print(train_index, test_index)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[2 0] [4 1 3]</span><br><span class="line">[2 0] [1 4 3]</span><br><span class="line">[4 2] [3 0 1]</span><br><span class="line">[2 0] [4 1 3]</span><br><span class="line">[2 4] [1 0 3]</span><br></pre></td></tr></table></figure>
+
+
+<p>说明：</p>
+<ol>
+<li>结果分为训练集和测试集。<code>test_size=0.5</code>：测试集和训练集划分各占 50%，因为数据是 5 组，这里是直接划分为训练集 2 组，测试集 3 组</li>
+<li>关于分层抽样：这 5 组的结果，肯定是包含三个“0”, 两个“1”同样按照上述划分方式划分。</li>
+</ol>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">特征工程</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/06/03/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%20TSNE%20%E8%BF%9B%E8%A1%8C%E9%99%8D%E7%BB%B4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">特征工程：使用TSNE进行降维</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/06/01/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D/">
+        <span class="next-text nav-default">算法：朴素贝叶斯算法介绍</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

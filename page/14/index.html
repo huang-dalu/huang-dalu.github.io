@@ -97,179 +97,163 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/03/26/%E4%B8%93%E5%AE%B6%E7%94%A8%E6%88%B7%E7%9A%84%E2%80%9C%E6%AE%8B%E5%AE%B3%E2%80%9D/">专家用户的“残害”</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/06/21/%E8%85%8A%E9%B8%A1%E4%B8%8E%E7%8C%B4%E5%84%BF/">腊鸡与猴儿</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-03-26
+          2016-06-21
         </span></div>
     </header>
 
-    <div class="post-content"><p>找到一篇 2015 年简书刚上线时，写在简书上的一篇文章。文风可把自己逗笑了。下面是原文。</p>
+    <div class="post-content"><p>“嘿，伙计，别上蹿下跳，我们来个正经的！”腊鸡拽着绳子呵斥道。 绳末端拴着只猴儿。腊鸡是个耍猴人。 “不是我动起来他们就会丢钱吗？” </p>
           <div class="read-more">
-            <a href="/2015/03/26/%E4%B8%93%E5%AE%B6%E7%94%A8%E6%88%B7%E7%9A%84%E2%80%9C%E6%AE%8B%E5%AE%B3%E2%80%9D/" class="read-more-link">Read more..</a>
+            <a href="/2016/06/21/%E8%85%8A%E9%B8%A1%E4%B8%8E%E7%8C%B4%E5%84%BF/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/03/25/Android%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B8%83%E5%B1%80%E6%A0%B7%E5%BC%8F/">Android：常见的布局样式</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/05/25/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E8%87%AA%E6%9F%A5%E8%A1%A8/">交互设计自查表</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-03-25
+          2016-05-25
         </span></div>
     </header>
 
-    <div class="post-content"><p>Android：常见的布局样式：
+    <div class="post-content"><p>清理文档发现了之前有编辑过、有参考过交互设计自查表，觉得这部分内容不错。需要的同学根据表格内容，结合自己的业务，修改修改就可以用起来了。</p>
           <div class="read-more">
-            <a href="/2015/03/25/Android%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B8%83%E5%B1%80%E6%A0%B7%E5%BC%8F/" class="read-more-link">Read more..</a>
+            <a href="/2016/05/25/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E8%87%AA%E6%9F%A5%E8%A1%A8/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/03/05/Android%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%88%B0%20SharedPreference/">Android：数据存储到 SharedPreference</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/03/01/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/">统计学：假设检验的基本步骤</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-03-05
+          2016-03-01
         </span></div>
     </header>
 
-    <div class="post-content"><p>Android主要提供了3种方法用于得到 SharedPreferences 对象：</p>
-<ol>
-<li>Context类中的 getSharedPreferences() 方法</li>
-<li>Activity类中的getPreference() 方法</li>
-<li>PreferenceManager类中的 getDefaultSharePreference() 方法</li>
-</ol>
-<p><strong>Context类中的 getSharedPreferences() 方法</strong><br>两个参数：<br>第1个用于指定SharedPreference 文件的名称，如果指定的文件不存在则会创建一个。第2个参数用于指定操作模式，两种模式可选择：</p>
-<ul>
-<li>MODE_PRIVATE : 默认操作模式，和直接传入 0 效果相同；</li>
-<li>MODE_MULTI_PROCESS : 一般用于多个进程中对同一个 SharedPreference 文件进行读写的情况。</li>
-</ul>
-<p><strong>Activity类中的getPreference() 方法</strong><br>只接收一个操作模式，因为使用这个方法时会自动将当前Activity的类名作为 SharedPreference 的文件名。</p>
-<p><strong>PreferenceManager类中的 getDefaultSharePreference() 方法</strong><br>静态方法，接收一个Context参数，并自动使用当前应用程序的包名作为前缀来命名 SharedPreFerences 文件。</p>
-<p>得到 SharedPreferences 对象后，开始向 SharedPreferences 文件中存储数据了，主要分3步：</p>
-<ol>
-<li>调用 SharedPreference 对象的 edit() 方法来获取一个 SharedPreference.Editor 对象；</li>
-<li>向 SharedPreference.Editor 对象中添加数据，比如添加一个boolean型数据就使用putBoolean 方法，添加一个字符串则使用putString() 方法；</li>
-<li>调用 commit9() 方法将添加的数据提交，完成数据存储。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Button bt_get;</span><br><span class="line">    <span class="keyword">private</span> Button save;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        bt_get = (Button)findViewById(R.id.bt_get);</span><br><span class="line">        save = (Button)findViewById(R.id.save);</span><br><span class="line"></span><br><span class="line">        save.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//通过getSharedPreferences（）方法指定SharedPreferences文件名为data，并得到SharePreferences.Editor对象</span></span><br><span class="line">                SharedPreferences.Editor editor = getSharedPreferences(<span class="string">&quot;data&quot;</span> , MODE_PRIVATE).edit();</span><br><span class="line"></span><br><span class="line">                <span class="comment">//添加三条不同类型数据</span></span><br><span class="line">                editor.putString(<span class="string">&quot;name&quot;</span> , <span class="string">&quot;huanglong&quot;</span>);</span><br><span class="line">                editor.putBoolean(<span class="string">&quot;married&quot;</span>, <span class="keyword">false</span>);</span><br><span class="line">                editor.putInt(<span class="string">&quot;age&quot;</span>, <span class="number">13</span>);</span><br><span class="line">                editor.commit(); <span class="comment">//提交</span></span><br><span class="line"></span><br><span class="line">                bt_get.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">//获取前面存储的数据</span></span><br><span class="line">                        SharedPreferences btget = getSharedPreferences(<span class="string">&quot;data&quot;</span> , MODE_PRIVATE);</span><br><span class="line">                        String name = btget.getString(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">                        <span class="keyword">int</span> age = btget.getInt(<span class="string">&quot;age&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                        Boolean married = btget.getBoolean(<span class="string">&quot;married&quot;</span> , <span class="keyword">false</span>);</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">//打印出来  </span></span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;name is&quot;</span> +name);</span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;age is&quot;</span> +age);</span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;married&quot;</span> +married);</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/03/01/Android%EF%BC%9A%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%92%8C%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/">Android：获取网络的GET请求和POST请求方式和文件存储介绍</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-03-01
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>获取网络的GET请求和POST请求方式和文件存储介绍。
+    <div class="post-content"><p>假设检验属于推断统计的一种（另一种是参数检验），就是利用样本对总体进行推断。
           <div class="read-more">
-            <a href="/2015/03/01/Android%EF%BC%9A%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%92%8C%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/" class="read-more-link">Read more..</a>
+            <a href="/2016/03/01/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/02/27/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E8%AE%B0%E4%BD%8F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%A1%88%E4%BE%8B%EF%BC%89/">Android：文件存储（记住用户名和密码案例）</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/02/01/%E3%80%8A%E8%82%A1%E5%B8%82%E7%A8%B3%E8%B5%9A%E3%80%8B%E7%9A%84%E7%A5%9E%E5%A5%87%E5%85%AC%E5%BC%8F/">《股市稳赚》的神奇公式</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-02-27
+          2016-02-01
         </span></div>
     </header>
 
-    <div class="post-content"><p>案例演示：把数据存在手机内存／sd卡。
+    <div class="post-content"><p>《股市稳赚》的神奇公式</p>
+<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>神奇公式来源于《股市稳赚》
           <div class="read-more">
-            <a href="/2015/02/27/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E8%AE%B0%E4%BD%8F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%A1%88%E4%BE%8B%EF%BC%89/" class="read-more-link">Read more..</a>
+            <a href="/2016/02/01/%E3%80%8A%E8%82%A1%E5%B8%82%E7%A8%B3%E8%B5%9A%E3%80%8B%E7%9A%84%E7%A5%9E%E5%A5%87%E5%85%AC%E5%BC%8F/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/02/15/Android%EF%BC%9A%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%B9%BF%E6%92%AD(BroadCast)%E4%BB%8B%E7%BB%8D/">Android：监听事件和广播(BroadCast)介绍</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/01/22/%E9%87%8D%E8%A7%86%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1/">重视需求评审</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-02-15
+          2016-01-22
         </span></div>
     </header>
 
-    <div class="post-content"><p>几种监听事件和广播介绍。先说说几种监听事件。
+    <div class="post-content"><p>需求评审作为产品经理最重要的会议之一，可以展开聊聊。
           <div class="read-more">
-            <a href="/2015/02/15/Android%EF%BC%9A%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%B9%BF%E6%92%AD(BroadCast)%E4%BB%8B%E7%BB%8D/" class="read-more-link">Read more..</a>
+            <a href="/2016/01/22/%E9%87%8D%E8%A7%86%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/02/10/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/">Android：文件的操作</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/01/10/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA/">常用的数据分析方法论</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-02-10
+          2016-01-10
         </span></div>
     </header>
 
-    <div class="post-content"><p>存储文件，基于linux，目前只关心data文件和sdcard。
+    <div class="post-content"><p>常用的数据分析方法论整理。
           <div class="read-more">
-            <a href="/2015/02/10/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/" class="read-more-link">Read more..</a>
+            <a href="/2016/01/10/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/02/03/Android%EF%BC%9ADOM%E8%A7%A3%E6%9E%90%E5%99%A8/">Android：DOM解析器</a>
+      <h1 class="post-title"><a class="post-link" href="/2016/01/05/3%20%E7%A7%8D%E6%8B%86%E8%A7%A3%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%B7%AF/">3种拆解问题的思路</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-02-03
+          2016-01-05
         </span></div>
     </header>
 
-    <div class="post-content"><p>Android 的 XML 文件解析。
+    <div class="post-content"><p>拆解问题的 3 个方法：
           <div class="read-more">
-            <a href="/2015/02/03/Android%EF%BC%9ADOM%E8%A7%A3%E6%9E%90%E5%99%A8/" class="read-more-link">Read more..</a>
+            <a href="/2016/01/05/3%20%E7%A7%8D%E6%8B%86%E8%A7%A3%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%B7%AF/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/02/01/Android%EF%BC%9AEditText%20_TxetView%20%E6%8E%A7%E4%BB%B6/">Android：控件EditText/TxetView</a>
+      <h1 class="post-title"><a class="post-link" href="/2015/12/01/%E9%97%AE%E5%8D%B7%E8%B0%83%E7%A0%94%E9%A2%98%E7%9B%AE%E8%AE%BE%E8%AE%A1%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20From%20%E7%BD%91%E6%98%93/">问卷调研题目设计注意事项From网易</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-02-01
+          2015-12-01
         </span></div>
     </header>
 
-    <div class="post-content"><p>获取EditText控件的值：
+    <div class="post-content"><p>之前保存来自网易的一篇文章，现在没有找到原文链接，见谅。当初看到这篇文章比较实用，按照本文的方式解决了一些实际问题。
           <div class="read-more">
-            <a href="/2015/02/01/Android%EF%BC%9AEditText%20_TxetView%20%E6%8E%A7%E4%BB%B6/" class="read-more-link">Read more..</a>
+            <a href="/2015/12/01/%E9%97%AE%E5%8D%B7%E8%B0%83%E7%A0%94%E9%A2%98%E7%9B%AE%E8%AE%BE%E8%AE%A1%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20From%20%E7%BD%91%E6%98%93/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/30/Android%EF%BC%9AListView%E6%8E%A7%E4%BB%B6/">Android：ListView控件</a>
+      <h1 class="post-title"><a class="post-link" href="/2015/10/18/%E9%97%AE%E5%8D%B7%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BA%A0%E7%BB%93%E7%9A%84%E9%80%89%E9%A1%B9%20From%20%E8%85%BE%E8%AE%AFCDC/">问卷设计之纠结的选项 From 腾讯CDC</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-01-30
+          2015-10-18
         </span></div>
     </header>
 
-    <div class="post-content"><p>ListView显示的3个元素：
+    <div class="post-content"><p>一篇<a target="_blank" rel="noopener" href="https://cdc.tencent.com/2014/04/21/%E9%97%AE%E5%8D%B7%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BA%A0%E7%BB%93%E7%9A%84%E9%80%89%E9%A1%B9/">腾讯CDC的文章</a>。在职业生涯早起有过参考，所以摘录到博客，方便翻阅。
           <div class="read-more">
-            <a href="/2015/01/30/Android%EF%BC%9AListView%E6%8E%A7%E4%BB%B6/" class="read-more-link">Read more..</a>
+            <a href="/2015/10/18/%E9%97%AE%E5%8D%B7%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BA%A0%E7%BB%93%E7%9A%84%E9%80%89%E9%A1%B9%20From%20%E8%85%BE%E8%AE%AFCDC/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/08/15/%E7%94%A8%E6%88%B7%E8%AE%BF%E8%B0%88%E6%B5%81%E7%A8%8B%E5%87%86%E5%A4%87%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20%20From%20%E8%85%BE%E8%AE%AFCDC/">用户访谈流程准备和注意事项From腾讯CDC</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-08-15
+        </span></div>
+    </header>
+
+    <div class="post-content"><p><em>说明：这篇文章是在腾讯CDC Blog 看见的，原文好像没看见了。根据这篇文章，也实际对比了滴滴、网易的调研流程，实际大同小异，所以我所在的团队也可以根据该流程来完成用户访谈。</em>
+          <div class="read-more">
+            <a href="/2015/08/15/%E7%94%A8%E6%88%B7%E8%AE%BF%E8%B0%88%E6%B5%81%E7%A8%8B%E5%87%86%E5%A4%87%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%20%20From%20%E8%85%BE%E8%AE%AFCDC/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <nav class="pagination"><a class="prev" href="/page/13/">

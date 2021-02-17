@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="Pandas：常用 3 个有意思的函数"/><meta name="keywords" content="Pandas, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2018/05/03/Pandas：常用 3 个有意思的函数/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>Pandas：常用 3 个有意思的函数 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Pandas：常用 3 个有意思的函数
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-03
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#zip-%E5%B0%86%E5%85%83%E7%B4%A0%E6%89%93%E5%8C%85%E6%88%90%E5%85%83%E7%A5%96%E7%BB%84%EF%BC%8C%E7%84%B6%E5%90%8E%E8%BF%94%E5%9B%9E%E5%8F%AF%E6%94%AF%E6%8C%81%E9%81%8D%E5%8E%86%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-text">zip() 将元素打包成元祖组，然后返回可支持遍历的对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PandasData%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84cut-%E5%87%BD%E6%95%B0%EF%BC%8C%E5%B0%86%E6%95%B0%E6%8D%AE%E5%88%86%E7%BB%84%E6%89%93%E6%A0%87%E7%AD%BE"><span class="toc-text">PandasData数据类型的cut()函数，将数据分组打标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#enumerate-%E5%87%BD%E6%95%B0%E8%8E%B7%E5%8F%96%E8%BF%AD%E4%BB%A3%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%8F%B7"><span class="toc-text">enumerate()函数获取迭代数据序号</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>3 个有意思的函数分别是zip()、cut()、enumerate()。<a id="more"></a></p>
+<h4 id="zip-将元素打包成元祖组，然后返回可支持遍历的对象"><a href="#zip-将元素打包成元祖组，然后返回可支持遍历的对象" class="headerlink" title="zip() 将元素打包成元祖组，然后返回可支持遍历的对象"></a>zip() 将元素打包成元祖组，然后返回可支持遍历的对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打包为元组的列表</span></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">c = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(a, b):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1, 4)</span><br><span class="line">(2, 5)</span><br><span class="line">(3, 6)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 元素个数与最短的列表一致</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">zip</span>(a,b, c):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1, 4, 4)</span><br><span class="line">(2, 5, 5)</span><br><span class="line">(3, 6, 6)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="PandasData数据类型的cut-函数，将数据分组打标签"><a href="#PandasData数据类型的cut-函数，将数据分组打标签" class="headerlink" title="PandasData数据类型的cut()函数，将数据分组打标签"></a>PandasData数据类型的cut()函数，将数据分组打标签</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>: np.arange(<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line">&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604466208779-d466c9ed-9c93-4f5e-b7ed-f47d8f0e82aa.png#align=left&display=inline&height=295&margin=%5Bobject%20Object%5D&name=image.png&originHeight=295&originWidth=53&size=4307&status=done&style=none&width=53" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分成3组，right=True 情况</span></span><br><span class="line">pd.cut(df[<span class="string">&#x27;A&#x27;</span>], bins=[<span class="number">10</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">30</span>], right=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0    (10, 20]</span><br><span class="line">1    (20, 25]</span><br><span class="line">2    (20, 25]</span><br><span class="line">3    (20, 25]</span><br><span class="line">4    (20, 25]</span><br><span class="line">5    (20, 25]</span><br><span class="line">6    (25, 30]</span><br><span class="line">7    (25, 30]</span><br><span class="line">8    (25, 30]</span><br><span class="line">9    (25, 30]</span><br><span class="line">Name: A, dtype: category</span><br><span class="line">Categories (3, interval[int64]): [(10, 20] &lt; (20, 25] &lt; (25, 30]]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.cut(df[<span class="string">&#x27;A&#x27;</span>], bins=[<span class="number">10</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">30</span>], right=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0    [20, 25)</span><br><span class="line">1    [20, 25)</span><br><span class="line">2    [20, 25)</span><br><span class="line">3    [20, 25)</span><br><span class="line">4    [20, 25)</span><br><span class="line">5    [25, 30)</span><br><span class="line">6    [25, 30)</span><br><span class="line">7    [25, 30)</span><br><span class="line">8    [25, 30)</span><br><span class="line">9    [25, 30)</span><br><span class="line">Name: A, dtype: category</span><br><span class="line">Categories (3, interval[int64]): [[10, 20) &lt; [20, 25) &lt; [25, 30)]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用labels，增加辨识度</span></span><br><span class="line">pd.cut(df[<span class="string">&#x27;A&#x27;</span>], bins=[<span class="number">10</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">30</span>], labels=[<span class="string">&#x27;低劣&#x27;</span>,<span class="string">&#x27;普通&#x27;</span>,<span class="string">&#x27;良好&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0    低劣</span><br><span class="line">1    普通</span><br><span class="line">2    普通</span><br><span class="line">3    普通</span><br><span class="line">4    普通</span><br><span class="line">5    普通</span><br><span class="line">6    良好</span><br><span class="line">7    良好</span><br><span class="line">8    良好</span><br><span class="line">9    良好</span><br><span class="line">Name: A, dtype: category</span><br><span class="line">Categories (3, object): [低劣 &lt; 普通 &lt; 良好]</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="enumerate-函数获取迭代数据序号"><a href="#enumerate-函数获取迭代数据序号" class="headerlink" title="enumerate()函数获取迭代数据序号"></a>enumerate()函数获取迭代数据序号</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># enumerate()函数用于将一个可遍历的数据对象（如列表、元组或字符串组合）组合为一个索引序列，同时列出数据和数据下标，一般用在for循环中</span></span><br><span class="line">seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line">print(<span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下标从 1 开始</span></span><br><span class="line">print(<span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons, start=<span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]</span><br><span class="line">[(1, &#39;Spring&#39;), (2, &#39;Summer&#39;), (3, &#39;Fall&#39;), (4, &#39;Winter&#39;)]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line">     print(i, element)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0 one</span><br><span class="line">1 two</span><br><span class="line">2 three</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Pandas/">Pandas</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/05/05/Pandas%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BD%AC%E6%8D%A2%E6%96%B9%E5%BC%8F/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Pandas：数据类型几种常见的转换方式</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/05/01/%E3%80%8A%E4%B8%8A%E7%98%BE%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+        <span class="next-text nav-default">《上瘾》读书笔记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

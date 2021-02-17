@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="算法：近邻算法介绍"/><meta name="keywords" content="算法, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/01/01/算法：近邻算法介绍/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>算法：近邻算法介绍 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">算法：近邻算法介绍
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-01-01
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>分类算法的一种。<a id="more"></a></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> KNN是通过测量不同特征值之间的距离进行分类。思路是：如果一个样本在特征空间中的 K 个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。其中 K 通常是不大于 20 的整数。KNN算法中，所选择的邻居都是已经正确分类的对象。该方法在定类决策上只依据最邻近的一个或者几个样本的类别来决定待分样本所属的类别。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588038964316-897720b0-d174-497a-a205-41f02d427c76.png#align=left&display=inline&height=171&margin=%5Bobject%20Object%5D&name=1378215-20180805232806939-472376897.png&originHeight=171&originWidth=190&size=36655&status=done&style=none&width=190" alt="1378215-20180805232806939-472376897.png"><br><strong>KNN 算法计算过程</strong></p>
+<ol>
+<li>计算待分类物体与其他物体之间的距离；</li>
+<li>统计距离最近的 K 个邻居，按照距离递增关系进行排序；</li>
+<li>选取距离最小的 K 个点；</li>
+<li>确定前 K 个点所在类别的出现频率；</li>
+<li>返回前K个点中出现频率最高的类别作为测试数据的预测分类。</li>
+</ol>
+<p><strong>K 值的选择</strong><br>**<br>可以看出，在 KNN 算法中，K 值的选择至关重要。K 值较小，容易产生过拟合。如果邻居点是个噪声点，那么未分类物体的分类也会产生误差。K 值较大，容易产生欠拟合。距离过远的点也会对未知物体的分类产生影响。一般来说，K 的取值不超过 20 ，采用交叉验证的思路取 K 值（把 K 值取在较小范围内，然后取准确率最高的那个点作为最终的 K 值）。</p>
+<p><strong>KNN 算法适用场景</strong><br>**<br>KNN 算法可以用作分类，也可以用作回归，数据量不大场景下，也可以作为推荐算法使用。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p><strong>使用KNN算法对手写数字进行识别</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据</span></span><br><span class="line">digits = load_digits()</span><br><span class="line">data = digits.data</span><br><span class="line"><span class="comment"># 数据探索</span></span><br><span class="line">print(data.shape)</span><br><span class="line"><span class="comment"># 查看第一幅图像</span></span><br><span class="line">print(digits.images[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># 第一幅图像代表的数字含义</span></span><br><span class="line">print(digits.target[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># 将第一幅图像显示出来</span></span><br><span class="line">plt.gray()</span><br><span class="line">plt.imshow(digits.images[<span class="number">0</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1797</span>, <span class="number">64</span>)</span><br><span class="line">[[ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">5.</span> <span class="number">13.</span>  <span class="number">9.</span>  <span class="number">1.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span> <span class="number">13.</span> <span class="number">15.</span> <span class="number">10.</span> <span class="number">15.</span>  <span class="number">5.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">3.</span> <span class="number">15.</span>  <span class="number">2.</span>  <span class="number">0.</span> <span class="number">11.</span>  <span class="number">8.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">4.</span> <span class="number">12.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">8.</span>  <span class="number">8.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">5.</span>  <span class="number">8.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">9.</span>  <span class="number">8.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">4.</span> <span class="number">11.</span>  <span class="number">0.</span>  <span class="number">1.</span> <span class="number">12.</span>  <span class="number">7.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">2.</span> <span class="number">14.</span>  <span class="number">5.</span> <span class="number">10.</span> <span class="number">12.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">6.</span> <span class="number">13.</span> <span class="number">10.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1588039944600-8c8a3630-9a6a-4990-a874-b0f72f1222ed.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=%E4%B8%8B%E8%BD%BD.png&originHeight=248&originWidth=245&size=2904&status=done&style=none&width=245" alt="下载.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分割数据，将25%的数据作为测试集，其余作为训练集（你也可以指定其他比例的数据作为训练集）</span></span><br><span class="line">train_x, test_x, train_y, test_y = train_test_split(data, digits.target, test_size=<span class="number">0.25</span>, random_state=<span class="number">33</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 采用Z-Score规范化</span></span><br><span class="line">ss = preprocessing.StandardScaler()</span><br><span class="line">train_ss_x = ss.fit_transform(train_x)</span><br><span class="line">test_ss_x = ss.transform(test_x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建KNN分类器</span></span><br><span class="line">knn = KNeighborsClassifier() </span><br><span class="line">knn.fit(train_ss_x, train_y) </span><br><span class="line">predict_y = knn.predict(test_ss_x) </span><br><span class="line">print(<span class="string">&quot;KNN准确率: %.4lf&quot;</span> % accuracy_score(test_y, predict_y))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 采用Min-Max规范化</span></span><br><span class="line">mm = preprocessing.MinMaxScaler()</span><br><span class="line">train_mm_x = mm.fit_transform(train_x)</span><br><span class="line">test_mm_x = mm.transform(test_x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建CART决策树分类器</span></span><br><span class="line">dtc = DecisionTreeClassifier()</span><br><span class="line">dtc.fit(train_mm_x, train_y) </span><br><span class="line">predict_y = dtc.predict(test_mm_x) </span><br><span class="line">print(<span class="string">&quot;CART决策树准确率: %.4lf&quot;</span> % accuracy_score(test_y, predict_y))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KNN准确率: <span class="number">0.9756</span></span><br><span class="line">CART决策树准确率: <span class="number">0.8511</span></span><br></pre></td></tr></table></figure>
+<p>在案例中，我们拿决策树 CART 算法和 KNN 算法比较，基于目前的分类方案，使用 KNN 算法的结果好与 CART 算法。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/02/01/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%92%E7%89%88%E8%A7%84%E5%88%99%E8%AF%B4%E6%98%8E/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">技术公众号排版规则说明</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/12/31/%E7%AE%A1%E7%90%86%E8%81%8C%E8%83%BD%E5%9E%8B%E5%9B%A2%E9%98%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/">
+        <span class="next-text nav-default">管理职能型团队的一些总结</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
