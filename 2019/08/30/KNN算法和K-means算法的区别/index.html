@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="KNN算法和K-means算法的区别"/><meta name="keywords" content="算法, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/08/30/KNN算法和K-means算法的区别/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>KNN算法和K-means算法的区别 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">KNN算法和K-means算法的区别
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-08-30
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8D%E5%90%8C"><span class="toc-text">算法原理不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB"><span class="toc-text">本质区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E6%9C%89%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B"><span class="toc-text">是否有训练过程</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>KNN 和 K-means 的算法过程都是给定一个点，查找每个样本离他最近的一个过程，看起来是这样，那它们区别是什么呢？<a id="more"></a></p>
+<h4 id="算法原理不同"><a href="#算法原理不同" class="headerlink" title="算法原理不同"></a>算法原理不同</h4><p>K-means是随机抽取k个样本作为最初的质心，将每个样本点分配到离它们最近的质心，生成K个簇，对于每个簇，计算所有被分配到该簇的样本点的平均值作为新的质心，当质心的位置不再发生变化，迭代停止，聚类完成。<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1045823/1605235536420-179de6e6-460f-497c-a002-443c5ce533c9.png#align=left&display=inline&height=360&margin=%5Bobject%20Object%5D&name=image.png&originHeight=720&originWidth=1072&size=448000&status=done&style=none&width=536" alt="image.png"><br>KNN是找到样本点最近的k个邻居（样本），在前k个样本中选择频率最高的类别作为预测类别。如果K=3，那么离绿色点最近的有2个红色三角形和1个蓝色的正方形，这3个点投票，于是绿色的这个待分类点属于红色的三角形。如果K=5，那么离绿色点最近的有2个红色三角形和3个蓝色的正方形，这5个点投票，于是绿色的这个待分类点属于蓝色的正方形。<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1045823/1605235570627-587e4096-2eee-43c2-9622-d1422012a070.png#align=left&display=inline&height=219&margin=%5Bobject%20Object%5D&name=image.png&originHeight=438&originWidth=486&size=38542&status=done&style=none&width=243" alt="image.png"></p>
+<h4 id="本质区别"><a href="#本质区别" class="headerlink" title="本质区别"></a>本质区别</h4><p>K-means属于非监督学习，数据集是无标签，事先不知道数据会分为几类，通过聚类分析将数据聚合成几个群体。<br>KNN属于监督学习，数据集带有标签，类别是已知的，通过对已知分类的数据进行训练和学习，找到这些不同类的特征，再对未分类的数据进行分类。</p>
+<h4 id="是否有训练过程"><a href="#是否有训练过程" class="headerlink" title="是否有训练过程"></a>是否有训练过程</h4><p>K-means有明显的前期训练过程，K-means算法对于不同的初始值，可能会导致不同结果，需要多设置一些不同的初值，对比最后的运算结果，一直到结果趋于稳定结束。</p>
+<p>KNN没有明显的前期训练过程，基于Memory-based learning，数据集事先已有了分类和特征值，待收到新样本后直接进行处理，在训练阶段只是把数据保存下来，训练时间开销为0，等收到测试样本后进行处理。<br>**</p>
+<p>**</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/09/01/AARRR%20%E6%8C%87%E6%A0%87/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">AARRR指标</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/08/20/NumPy%EF%BC%9ANumPy%E7%9A%84cumsum()%E5%87%BD%E6%95%B0/">
+        <span class="next-text nav-default">NumPy：NumPy的cumsum()函数</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

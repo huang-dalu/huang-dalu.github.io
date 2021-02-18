@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="特征选择（feature_selection）的一些方法"/><meta name="keywords" content="特征工程, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/06/20/特征选择（feature_selection）的一些方法/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>特征选择（feature_selection）的一些方法 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">特征选择（feature_selection）的一些方法
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-06-20
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Filter%E8%BF%87%E6%BB%A4%E6%B3%95"><span class="toc-text">Filter过滤法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E8%BF%87%E6%BB%A4"><span class="toc-text">方差过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%80%A7%E8%BF%87%E6%BB%A4"><span class="toc-text">相关性过滤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Embedded%E5%B5%8C%E5%85%A5%E6%B3%95"><span class="toc-text">Embedded嵌入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wrapper%E5%8C%85%E8%A3%85%E6%B3%95"><span class="toc-text">Wrapper包装法</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限而已，由此可以看出特征选择的重要性。<a id="more"></a>特征选择的本质就是对一个给定特征子集的优良性通过一个特定的评价标准进行衡量，通过特征选择，原始特征集合中的冗余特征和不相关特征被除去。而有用特征得以保留。</p>
+<p>下面说几种用到的方法。</p>
+<h3 id="Filter过滤法"><a href="#Filter过滤法" class="headerlink" title="Filter过滤法"></a>Filter过滤法</h3><h4 id="方差过滤"><a href="#方差过滤" class="headerlink" title="方差过滤"></a>方差过滤</h4><p>如果一个特征本身方差很小，那么就表示样本在这个特征上基本没有差异，那么就可以认为这个特征作用不大，所以需要通过方差过滤来消除方差小于某一个阈值的特征，在 sklearn 中我们使用 VarianceThreshold 类来选择特征。其中VarianceThreshold 中的参数表示 threshold 表示方差的阈值，表示舍弃所有方差小于 threshold 的特征，如果不填写，默认为 0。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> VarianceThreshold</span><br><span class="line"></span><br><span class="line"><span class="comment"># 舍弃方差小于0.5的特征</span></span><br><span class="line">var=VarianceThreshold(threshold=<span class="number">0.5</span>) </span><br><span class="line">df=var.fit_transform([[<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>]])</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<h4 id="相关性过滤"><a href="#相关性过滤" class="headerlink" title="相关性过滤"></a>相关性过滤</h4><p>特征与标签有相关性，才能为模型提供大量信息。如果特征与标签无关，可能会给模型带来噪音。常见的相关性过滤为一下三种。</p>
+<p><strong>卡方过滤（针对离散型变量）</strong><br>卡方检验就是统计<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%B7%E6%9C%AC/5712132">样本</a>的实际观测值与理论推断值之间的偏离程度，实际观测值与理论推断值之间的偏离程度决定卡方值的大小，如果卡方值越大，二者偏差程度越大；反之，二者偏差越小；若两个值完全相等时，卡方值就为0，表明理论值完全符合。</p>
+<p>卡方检验类 feature_selection.chi2 计算每个非负特征和标签之间的卡方统计量，并依照卡方统计量由高到低为特征排名。再结合 feature_selection.SelectKBest 这个可以输入”评分标准“来选出前K个分数最高的特征的类，可以借此除去最可能独立于标签，和分类目的无关的特征。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择K-10个最好的特征，返回选择特征后的数据</span></span><br><span class="line">X_fschi = SelectKBest(chi2, k=<span class="number">10</span>).fit_transform(X_fsvar, y)</span><br></pre></td></tr></table></figure>
+
+<p><strong>F检验（离散型和回归型变量均适合）</strong><br>F检验，又称方差齐性检验，是用来捕捉每个特征与标签之间的线性关系的过率方法。F检验在数据服从正态分布的适合是非常稳定的，因此，如果使用F检验过滤，我们会先将数据转化为服从正太分布的方式。F检验的本质是寻找两组数据之间的线性关系，其原假设是”数据不存在显著的线性关系“。它返回F值和 p 值两个统计量。和卡方过滤一样，我们希望选取 p值小于 0.05 或 0.01 的特征，这些特征与标签时显著线性相关的，而 p 值大于 0.05 或 0.01 的特征则被我们认为是和标签没有显著线性关系的特征，应该被删除。</p>
+<p><strong>互信息法</strong><br>互信息法是用来捕捉每个特征与标签之间的任意关系（包括线性和非线性关系）的过滤方法。互信息法不返回 p 值或 F 值类似的统计量，它返回每个特征与目标之间的互信息量的估计，这个估计量在 [0,1] 之间取值，为 0 则表示两个变量独立，为 1 则表示两个变量完全相关。</p>
+<h3 id="Embedded嵌入法"><a href="#Embedded嵌入法" class="headerlink" title="Embedded嵌入法"></a>Embedded嵌入法</h3><p>嵌入法是一种让算法自己决定使用哪些特征的方法，即特征选择和算法训练同时进行。在使用嵌入法时，我们先使用某些机器学习的算法和模型进行训练，得到各个特征的权值系数，根据权值系数从大到小选择特征。这些权值系数往往代表了特征对于模型的某种贡献或某种重要性，比如决策树和树的集成模型中 feature importances 属性，可以列出各个特征对树的建立的贡献，我们就可以基于这种贡献的评估，找出对模型建立最有用的特征。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectFromModel</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier <span class="keyword">as</span> RFC</span><br><span class="line">RFC_ = RFC(n_estimators =<span class="number">10</span>,random_state=<span class="number">0</span>)</span><br><span class="line">X_embedded = SelectFromModel(RFC_,threshold=<span class="number">0.005</span>).fit_transform(X,y)</span><br></pre></td></tr></table></figure>
+<h3 id="Wrapper包装法"><a href="#Wrapper包装法" class="headerlink" title="Wrapper包装法"></a>Wrapper包装法</h3><p>包装法通过不断排除特征或者不断选择特征，并对训练得到的模型效果进行打分，通过预测效果评分来决定特征的去留。包装法在 feature_selection 中使用 RFE 类来操作，下面是 RFE 的参数。</p>
+<p>class sklearn.feature_selection.RFE (estimator, n_features_to_select=None, step=1, verbose=0)</p>
+<p>参数说明：</p>
+<ul>
+<li><code>estimator</code> 是需要填写的实例化后的评估器；</li>
+<li><code>n_features_to_select</code> 是想要选择的特征个数；</li>
+<li><code>step</code> 表示每次迭代中希望移除的特征个数。</li>
+</ul>
+<p>RFE类有两个很重要的属性，support_ 返回所有的特征的是否最后被选中的布尔矩阵_，<em>以及</em> _ranking 返回特征的按数次迭代中综合重要性的排名。类 feature_selection.RFECV 会在交叉验证循环中执行RFE以找到最佳数量的特征，增加参数cv。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> RFE</span><br><span class="line">RFC_ = RFC(n_estimators =<span class="number">10</span>,random_state=<span class="number">0</span>)</span><br><span class="line">selector = RFE(RFC_, n_features_to_select=<span class="number">340</span>, step=<span class="number">50</span>).fit(X, y)</span><br><span class="line">selector.support_.<span class="built_in">sum</span>()</span><br><span class="line">selector.ranking_</span><br><span class="line">X_wrapper = selector.transform(X)</span><br><span class="line">cross_val_score(RFC_,X_wrapper,y,cv=<span class="number">5</span>).mean()</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">特征工程</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/28/%E5%88%86%E9%94%80%E4%BD%93%E7%B3%BB%E6%96%B9%E6%B3%95%E8%AE%BA/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">分销体系方法论</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/06/03/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%20TSNE%20%E8%BF%9B%E8%A1%8C%E9%99%8D%E7%BB%B4/">
+        <span class="next-text nav-default">特征工程：使用TSNE进行降维</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

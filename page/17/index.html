@@ -97,18 +97,147 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/27/Android%EF%BC%9ASQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8/">Android：SQLite数据库存储</a>
+      <h1 class="post-title"><a class="post-link" href="/2015/03/05/Android%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%88%B0%20SharedPreference/">Android：数据存储到 SharedPreference</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-01-27
+          2015-03-05
         </span></div>
     </header>
 
-    <div class="post-content"><p>SQLite是个抽象类，使用时需要创建一个自己的帮助类去继承它。
+    <div class="post-content"><p>Android主要提供了3种方法用于得到 SharedPreferences 对象：</p>
+<ol>
+<li>Context类中的 getSharedPreferences() 方法</li>
+<li>Activity类中的getPreference() 方法</li>
+<li>PreferenceManager类中的 getDefaultSharePreference() 方法</li>
+</ol>
+<p><strong>Context类中的 getSharedPreferences() 方法</strong><br>两个参数：<br>第1个用于指定SharedPreference 文件的名称，如果指定的文件不存在则会创建一个。第2个参数用于指定操作模式，两种模式可选择：</p>
+<ul>
+<li>MODE_PRIVATE : 默认操作模式，和直接传入 0 效果相同；</li>
+<li>MODE_MULTI_PROCESS : 一般用于多个进程中对同一个 SharedPreference 文件进行读写的情况。</li>
+</ul>
+<p><strong>Activity类中的getPreference() 方法</strong><br>只接收一个操作模式，因为使用这个方法时会自动将当前Activity的类名作为 SharedPreference 的文件名。</p>
+<p><strong>PreferenceManager类中的 getDefaultSharePreference() 方法</strong><br>静态方法，接收一个Context参数，并自动使用当前应用程序的包名作为前缀来命名 SharedPreFerences 文件。</p>
+<p>得到 SharedPreferences 对象后，开始向 SharedPreferences 文件中存储数据了，主要分3步：</p>
+<ol>
+<li>调用 SharedPreference 对象的 edit() 方法来获取一个 SharedPreference.Editor 对象；</li>
+<li>向 SharedPreference.Editor 对象中添加数据，比如添加一个boolean型数据就使用putBoolean 方法，添加一个字符串则使用putString() 方法；</li>
+<li>调用 commit9() 方法将添加的数据提交，完成数据存储。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Button bt_get;</span><br><span class="line">    <span class="keyword">private</span> Button save;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        bt_get = (Button)findViewById(R.id.bt_get);</span><br><span class="line">        save = (Button)findViewById(R.id.save);</span><br><span class="line"></span><br><span class="line">        save.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//通过getSharedPreferences（）方法指定SharedPreferences文件名为data，并得到SharePreferences.Editor对象</span></span><br><span class="line">                SharedPreferences.Editor editor = getSharedPreferences(<span class="string">&quot;data&quot;</span> , MODE_PRIVATE).edit();</span><br><span class="line"></span><br><span class="line">                <span class="comment">//添加三条不同类型数据</span></span><br><span class="line">                editor.putString(<span class="string">&quot;name&quot;</span> , <span class="string">&quot;huanglong&quot;</span>);</span><br><span class="line">                editor.putBoolean(<span class="string">&quot;married&quot;</span>, <span class="keyword">false</span>);</span><br><span class="line">                editor.putInt(<span class="string">&quot;age&quot;</span>, <span class="number">13</span>);</span><br><span class="line">                editor.commit(); <span class="comment">//提交</span></span><br><span class="line"></span><br><span class="line">                bt_get.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">//获取前面存储的数据</span></span><br><span class="line">                        SharedPreferences btget = getSharedPreferences(<span class="string">&quot;data&quot;</span> , MODE_PRIVATE);</span><br><span class="line">                        String name = btget.getString(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">                        <span class="keyword">int</span> age = btget.getInt(<span class="string">&quot;age&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                        Boolean married = btget.getBoolean(<span class="string">&quot;married&quot;</span> , <span class="keyword">false</span>);</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">//打印出来  </span></span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;name is&quot;</span> +name);</span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;age is&quot;</span> +age);</span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;married&quot;</span> +married);</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/03/01/Android%EF%BC%9A%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%92%8C%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/">Android：获取网络的GET请求和POST请求方式和文件存储介绍</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-03-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>获取网络的GET请求和POST请求方式和文件存储介绍。
           <div class="read-more">
-            <a href="/2015/01/27/Android%EF%BC%9ASQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8/" class="read-more-link">Read more..</a>
+            <a href="/2015/03/01/Android%EF%BC%9A%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%92%8C%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/02/27/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E8%AE%B0%E4%BD%8F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%A1%88%E4%BE%8B%EF%BC%89/">Android：文件存储（记住用户名和密码案例）</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-27
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>案例演示：把数据存在手机内存／sd卡。
+          <div class="read-more">
+            <a href="/2015/02/27/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E8%AE%B0%E4%BD%8F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%A1%88%E4%BE%8B%EF%BC%89/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/02/15/Android%EF%BC%9A%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%B9%BF%E6%92%AD(BroadCast)%E4%BB%8B%E7%BB%8D/">Android：监听事件和广播(BroadCast)介绍</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-15
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>几种监听事件和广播介绍。先说说几种监听事件。
+          <div class="read-more">
+            <a href="/2015/02/15/Android%EF%BC%9A%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%B9%BF%E6%92%AD(BroadCast)%E4%BB%8B%E7%BB%8D/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/02/10/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/">Android：文件的操作</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-10
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>存储文件，基于linux，目前只关心data文件和sdcard。
+          <div class="read-more">
+            <a href="/2015/02/10/Android%EF%BC%9A%E6%96%87%E4%BB%B6%E7%9A%84%E6%93%8D%E4%BD%9C/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/02/03/Android%EF%BC%9ADOM%E8%A7%A3%E6%9E%90%E5%99%A8/">Android：DOM解析器</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-03
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>Android 的 XML 文件解析。
+          <div class="read-more">
+            <a href="/2015/02/03/Android%EF%BC%9ADOM%E8%A7%A3%E6%9E%90%E5%99%A8/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/02/01/Android%EF%BC%9AEditText%20_TxetView%20%E6%8E%A7%E4%BB%B6/">Android：控件EditText/TxetView</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-02-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>获取EditText控件的值：
+          <div class="read-more">
+            <a href="/2015/02/01/Android%EF%BC%9AEditText%20_TxetView%20%E6%8E%A7%E4%BB%B6/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/01/30/Android%EF%BC%9AListView%E6%8E%A7%E4%BB%B6/">Android：ListView控件</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-01-30
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>ListView显示的3个元素：
+          <div class="read-more">
+            <a href="/2015/01/30/Android%EF%BC%9AListView%E6%8E%A7%E4%BB%B6/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <article class="post">
@@ -129,198 +258,18 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/25/Android%EF%BC%9Ahandler%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86%E8%80%85/">Android：handler消息处理者</a>
+      <h1 class="post-title"><a class="post-link" href="/2015/01/27/Android%EF%BC%9ASQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8/">Android：SQLite数据库存储</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2015-01-25
+          2015-01-27
         </span></div>
     </header>
 
-    <div class="post-content"><p>handler:消息处理者
+    <div class="post-content"><p>SQLite是个抽象类，使用时需要创建一个自己的帮助类去继承它。
           <div class="read-more">
-            <a href="/2015/01/25/Android%EF%BC%9Ahandler%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86%E8%80%85/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/23/Android%EF%BC%9A%E4%BD%BF%E7%94%A8httpClient%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C/">Android：使用httpClient连接网络</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-23
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>连接网络，使用 httpClient 的一般使用步骤
-          <div class="read-more">
-            <a href="/2015/01/23/Android%EF%BC%9A%E4%BD%BF%E7%94%A8httpClient%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/20/Java%EF%BC%9A%E8%BD%AE%E8%AF%A2%E5%92%8C%E6%8E%A8%E9%80%81%E5%8C%BA%E5%88%AB/">轮询和推送区别</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-20
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>轮询(Polling)是指不管服务器端有没有更新，客户端(通常是指浏览器)都定时的发送请求进行查询，轮询的结果可能是服务器端有新的更新过来，也可能什么也没有，只是返回个空的信息。
-          <div class="read-more">
-            <a href="/2015/01/20/Java%EF%BC%9A%E8%BD%AE%E8%AF%A2%E5%92%8C%E6%8E%A8%E9%80%81%E5%8C%BA%E5%88%AB/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/10/Android%EF%BC%9ASQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/">Android：SQLite数据库存储介绍</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-10
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>SQLite数据库存储介绍。
-          <div class="read-more">
-            <a href="/2015/01/10/Android%EF%BC%9ASQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/07/Android%EF%BC%9AWebView%E7%9A%84%E4%BD%BF%E7%94%A8/">Android：WebView的使用</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-07
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>在 Android 中打开网页。
-          <div class="read-more">
-            <a href="/2015/01/07/Android%EF%BC%9AWebView%E7%9A%84%E4%BD%BF%E7%94%A8/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/05/Java%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8C%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/">Java：读取文件和写入文件的方法</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-05
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>IO中，读取文件和写入文件的方法。
-          <div class="read-more">
-            <a href="/2015/01/05/Java%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8C%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/03/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%E5%B0%8F%E7%BB%83%E4%B9%A0%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E6%9E%9C%E6%B1%81%E9%A5%AE%E6%96%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%EF%BC%9F/">竞品分析小练习：设计一个果汁饮料，如何进行竞品分析？</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-03
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>问题：设计一个果汁饮料，竞品有哪些，如何进行竞品分析？<br>设计一个果汁饮料，竞品有哪些，如何进行竞品分析？<br>精简问题：如何对果汁饮料（产品）进行竞品分析？<br>问题拆分：</p>
-<ol>
-<li>竞品分析目的是什么？</li>
-<li>怎样才算竞品？（寻找竞品范围界定）</li>
-<li>分析内容是什么？（需要根据目标来定）</li>
-<li>分析，得出结论</li>
-</ol>
-<p>比较研究法：两个或两个以上事物的对比，以找出它们之间相似性与差异性的一种方法。</p>
-<ol>
-<li>竞品分析目的是什么？</li>
-<li>设定分析目标 —— 竞争对手</li>
-<li>将同类功能模块或外观细节编组作表</li>
-<li>根据比较结果作进一步分析，得出结论</li>
-</ol>
-<p>回答：</p>
-<p>问题 1：竞品分析的目的是什么？<br>问题拆分：<br>（1）我们产品（功能）的定位是？<br>（2）和竞品对比后我要得到的是？</p>
-<p>回答（1）<br>假定我们需要设计果汁饮料的定位是：20-40 在减肥过程中的一款功能性饮料（也就是主打女性市场的减肥饮料），也就是说我们这次竞品分析的目的是从 0 到 1 做一款减肥饮料（单个分析道理一样）</p>
-<p>回答（2）<br>竞品分析后，我需要有如下结论：</p>
-<ul>
-<li>饮料的颜色是（ UI）？</li>
-<li>饮料的口感是（交互）？</li>
-<li>饮料的含量是（功能模块）？</li>
-<li>产品的包装是？渠道？（运营推广策略）</li>
-<li>减肥饮料的市场趋势是？业界现状是？</li>
-<li>竞争对手的优缺点是？核心优势是？（SWOT）？</li>
-<li>竞争对手的的产品定位，发展规划和策略是（纵向研究竞争对手的功能侧重点，产品迭代方向）？</li>
-<li>整个行业趋势是向上还是向下？（市场数据）</li>
-<li>目标用户研究。心理、年龄、消费习惯等等（用户研究）</li>
-</ul>
-<p><em>参考：</em><br><em>1.战略层（产品定位、用户需求)</em><br><em>2.范围层（主要功能）</em><br><em>3.结构层（信息架构）</em><br><em>4.框架层（交互设计）</em><br><em>5.表现层（视觉设计）</em><br><em>—— 来自《用户体验要素》</em></p>
-<p>问题 2：怎样才算竞品？找竞品（寻找竞品范围界定）<br>回答：<br>根据需要的结论倒推需要研究哪些维度，再找出那些维度里市场反应不错的产品。</p>
-<p>颜色</p>
-<ul>
-<li>我们能做出多少种颜色的饮料？</li>
-<li>市场上总共有多少种颜色的饮料？</li>
-<li>减肥类同行业大概有多少种颜色的饮料？</li>
-<li>用户喜欢什么颜色的饮料</li>
-</ul>
-<p>口感</p>
-<ul>
-<li>市场上总共有多少种口感的饮料？</li>
-<li>减肥类同行业大概有多少种口感的饮料？</li>
-<li>用户会喜欢什么样的口感？</li>
-</ul>
-<p>饮料的含量是（功能模块）？</p>
-<ul>
-<li>我们能怎么做？</li>
-<li>竞品的主要成分（功能模块）是？</li>
-</ul>
-<p>包装、渠道</p>
-<ul>
-<li>市面的流行包装是？</li>
-<li>柱状物能走哪些包装？</li>
-<li>用户喜好？</li>
-<li>竞品的各类渠道？主打哪些地方？一线／二线城市，城镇，小区（分发市场和合作商）</li>
-</ul>
-<p>查看行业报告，行业数据</p>
-<p>回答 3：<br>分析内容，将以上的收集的信息，按照表格排列，分析，得出一些可以定量的数据。</p>
-<p>回答 4：<br>根据分析目的，得出分析结论：<br>举例：</p>
-<ul>
-<li>饮料的颜色是（UI）？——黄色</li>
-<li>饮料的口感是（交互）？——微甜</li>
-<li>饮料的含量是（功能模块）？——xxxx</li>
-<li>产品的包装是？渠道？（运营推广策略）——主打一线城市</li>
-<li>减肥饮料的市场趋势是？业界现状是？——市场还未饱和，xxx</li>
-<li>竞争对手的优缺点是？核心优势是？（SWOT）？——xxxx</li>
-<li>竞争对手的的产品定位，发展规划和策略是（纵向研究竞争对手的功能侧重点，产品迭代方向）？——A主打中高端白领，B主打xxxx</li>
-<li>整个行业趋势是向上还是向下？（市场数据）——折线图</li>
-<li>目标用户研究。心理、年龄、消费习惯等等（用户研究）——20岁，白领xxxx</li>
-</ul>
-<p>最后的最后，如果行业已经有了不可撼动的标杆，是不是可以想想，往减肥的方向深挖。中药？为什么减肥？不正常饮食？（当然这可以算在用户研究范畴）</p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/01/02/Java%EF%BC%9AIO%E6%B5%81%E7%9A%84%E7%90%86%E8%A7%A3/">Java：IO流的理解</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-01-02
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>IO流的理解。
-          <div class="read-more">
-            <a href="/2015/01/02/Java%EF%BC%9AIO%E6%B5%81%E7%9A%84%E7%90%86%E8%A7%A3/" class="read-more-link">Read more..</a>
+            <a href="/2015/01/27/Android%EF%BC%9ASQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <nav class="pagination"><a class="prev" href="/page/16/">

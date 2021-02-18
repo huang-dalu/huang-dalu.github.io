@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="偏差和方差的理解"/><meta name="keywords" content="模型评估, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2018/08/20/偏差和方差的理解/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>偏差和方差的理解 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">偏差和方差的理解
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-20
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%8F%E5%B7%AE%E5%92%8C%E6%96%B9%E5%B7%AE%E7%90%86%E8%A7%A3"><span class="toc-text">偏差和方差理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E9%AB%98%E5%81%8F%E5%B7%AE%E5%92%8C%E9%AB%98%E6%96%B9%E5%B7%AE"><span class="toc-text">如何解决高偏差和高方差?</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h4 id="偏差和方差理解"><a href="#偏差和方差理解" class="headerlink" title="偏差和方差理解"></a>偏差和方差理解</h4><p>机器学习中泛化误差可以分解为三个部分，偏差(Variance)、方差(bias)和噪音(noise)，在提升算法的性能过程中，我们主要专注偏差和方差，因为噪声属于不可约减的误差。<a id="more"></a>了解导致偏差(bias)和方差(Variance)的不同误差源有助于我们改进数据的拟合过程，从而产生更准确的模型。</p>
+<p><strong>1、公式及概念理解：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>符号</strong></th>
+<th align="center"><strong>定义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">x</td>
+<td align="center">测试样本</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">数据集</td>
+</tr>
+<tr>
+<td align="center">yD</td>
+<td align="center">X在数据集中的标记</td>
+</tr>
+<tr>
+<td align="center">y</td>
+<td align="center">x的真实标记</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center">训练集D学的的模型</td>
+</tr>
+<tr>
+<td align="center">f(x;D)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">训练集学得的模型对x的预测</td>
+</tr>
+</tbody></table>
+<p>模型f对x的期望预测为：<br> <img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607057442110-6a7bf396-f684-4df8-9850-eb2d363d7179.png#align=left&display=inline&height=62&margin=%5Bobject%20Object%5D&originHeight=82&originWidth=314&status=done&style=none&width=236"><br><strong>偏差</strong>：度量了学习算法的期望预测与真实结果的偏离程度，刻画了学习算法本身的拟合能力，偏差越大，越偏离真实数据。</p>
+<p> <img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607057442206-108831f6-0b43-4044-9959-f2dfdda4664c.png#align=left&display=inline&height=68&margin=%5Bobject%20Object%5D&originHeight=90&originWidth=362&status=done&style=none&width=272">
+    </p>
+<p><strong>方差</strong>：方差度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响，简单来讲就是预测值的变化范围，和真实值无关，也就是他们的离散程度。方差越大，离散程度越大，数据的分布越分散。<br> <img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607057442327-ec9a365c-cd08-498c-86b9-4a782c696214.png#align=left&display=inline&height=62&margin=%5Bobject%20Object%5D&originHeight=82&originWidth=542&status=done&style=none&width=407"><br><strong>噪声：</strong>噪声则表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度。<br> <img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607057442463-436c0830-969c-4497-bf52-02425dc03904.png#align=left&display=inline&height=60&margin=%5Bobject%20Object%5D&originHeight=80&originWidth=346&status=done&style=none&width=260"><br><strong>2、图形理解</strong></p>
+<p> <img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607057442745-196e9b52-1ec3-4010-ac9d-3b22a9d5419f.png#align=left&display=inline&height=421&margin=%5Bobject%20Object%5D&originHeight=1198&originWidth=1238&status=done&style=none&width=435"><br>假设靶心分布的红色区域是正确值，蓝色点是训练集训练出来的模型对样本的预测值：</p>
+<ul>
+<li>左一图片蓝色点分布集中且均在红色区域内，代表的是低方差、低偏差类型；</li>
+<li>右一图片蓝色点比较分散，方差大，靠近靶心，偏差小，代表的是高方差、低偏差类型，方差大的模型，往往是从训练集里学了太多东西，所以导致在测试集的表现时好时坏，预测值的数据分布就离散了，方差也就大了，属于过拟合；</li>
+<li>左一图片蓝色点分布集中，偏离红色靶心区域，代表的是低方差、高偏差类型，偏差大的模型，它通常不怎么从训练集里学习到东西，导致模型过于简单，自然在预测测试集的时候，效果不好，属于欠拟合；</li>
+<li>右一图片蓝色点分布分散，偏离红色靶心区域，代表的是高方差、高偏差类型。</li>
+</ul>
+<h4 id="如何解决高偏差和高方差"><a href="#如何解决高偏差和高方差" class="headerlink" title="如何解决高偏差和高方差?"></a>如何解决高偏差和高方差?</h4><p><strong>高偏差：</strong>增加更多的特征，提升模型复杂度；减少正则化程度；<br>**高方差:**增加训练样本数据；减少特征数量；增加正则化程度。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">模型评估</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/09/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%A6%81%E5%B7%A5%E4%BD%9C/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">为什么我们要工作</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/08/08/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9A%E7%94%A8%E7%AE%B1%E7%BA%BF%E5%9B%BE%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%BE%81%E5%BC%82%E5%B8%B8%E5%80%BC/">
+        <span class="next-text nav-default">数据可视化：用箱线图快速查看特征异常值</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

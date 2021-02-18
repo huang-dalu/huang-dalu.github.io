@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="集成学习Bagging和Boosting简述"/><meta name="keywords" content="算法, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/04/10/集成学习Bagging和Boosting简述/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>集成学习Bagging和Boosting简述 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">集成学习Bagging和Boosting简述
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-04-10
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#AdaBoost%E4%B8%8E-GBDT-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">AdaBoost与 GBDT 的区别</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>集成学习是时下非常火爆的一款机器学习方法，是将多个弱分类器按照某种方式组合起来，形成一个强分类器，以此来获得比单个模型更好的回归和分类表现，其常用的方法有 Bagging 和 Boosting。<a id="more"></a></p>
+<p><strong>Bagging</strong><br>把数据集通过有放回的抽样方式，一次性建立多个平行独立的弱评估器。针对分类问题，按照少数服从多数原则进行投票，针对回归问题，求多个测试结果的平均值。其代表模型为随机森林。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607253938550-963c3428-e5ab-4442-a066-c0c88af7c61c.png#align=left&display=inline&height=282&margin=%5Bobject%20Object%5D&originHeight=282&originWidth=864&size=0&status=done&style=none&width=864"></p>
+<p><strong>Boosting</strong><br>Bagging是以自适应的方法按顺序一一学习这些弱学习器，即每个新学习器都依赖于前面的模型，并按照某种确定性的策略将它们组合起来 ，其核心思想是结合弱评估器的力量一次次对难以评估的样本进行预测，从而构成一个强评估器。其代表算法为 AdaBoos t和 GBDT (梯度提升)</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1607253938528-e6662e84-b5ae-4320-a154-38c136796f12.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&originHeight=274&originWidth=850&size=0&status=done&style=none&width=850"></p>
+<h4 id="AdaBoost与-GBDT-的区别"><a href="#AdaBoost与-GBDT-的区别" class="headerlink" title="AdaBoost与 GBDT 的区别"></a>AdaBoost与 GBDT 的区别</h4><p><strong>AdaBoost</strong><br>第一颗树建模完成后，对模型进行评估，然后将模型预测错误的样本反馈给我们的数据集，第一次迭代就算完成。在第二次有放回抽样时，被给予前面错误预测的数据更高权重，简单来说就是前面被判断错误得样本更有可能被我们抽中。</p>
+<p><strong>GBDT</strong><br>第一颗树建模完成后，把其残差（真实值和预测值之间的差值）结果作为下一次预测依据，依次类推，直到残差小于某个接近 0 的阀值或回归树数目达到某一阀值。其核心思想是每轮通过拟合残差来降低损失函数。</p>
+<p>**Boosting与Bagging的区别： **</p>
+<ul>
+<li>评估器：Bagging 的基分类器训练是独立的，而 Boosting 的训练集是依赖于之前的模型；</li>
+<li>作用：Bagging 的作用是减少方差，提升模型的整体稳定性，而 Boosting 在于减少偏差，提高模型整体的精确度；</li>
+<li>抽样数据集：Bagging 是有放回抽样，Boosting 也是有放回抽样，但是会确认数据的权重。</li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/04/15/%E4%B8%BA%E6%8F%90%E5%8D%87%E7%BD%91%E7%82%B9%E4%B8%9A%E5%8A%A1%E5%91%98%E6%95%88%E7%8E%87%EF%BC%8C%E6%88%91%E4%BB%AC%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">为提升网点业务员效率，我们做的事情</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/03/01/%E7%AE%97%E6%B3%95%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95/">
+        <span class="next-text nav-default">算法：决策树算法</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

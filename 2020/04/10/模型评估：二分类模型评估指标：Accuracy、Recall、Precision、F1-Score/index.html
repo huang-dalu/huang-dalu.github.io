@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="模型评估：二分类模型评估指标：Accuracy、Recall、Precision、F1-Score"/><meta name="keywords" content="模型评估, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/04/10/模型评估：二分类模型评估指标：Accuracy、Recall、Precision、F1-Score/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>模型评估：二分类模型评估指标：Accuracy、Recall、Precision、F1-Score - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">模型评估：二分类模型评估指标：Accuracy、Recall、Precision、F1-Score
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-04-10
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="toc-text">四个概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accuracy%EF%BC%88%E5%87%86%E7%A1%AE%E7%8E%87%EF%BC%89"><span class="toc-text">Accuracy（准确率）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Precision%EF%BC%88%E7%B2%BE%E7%A1%AE%E7%8E%87%EF%BC%89"><span class="toc-text">Precision（精确率）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Recall%EF%BC%88%E5%8F%AC%E5%9B%9E%E7%8E%87%EF%BC%89"><span class="toc-text">Recall（召回率）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F1-Score"><span class="toc-text">F1-Score</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>模型评估的几个指标。<a id="more"></a></p>
+<h3 id="四个概念"><a href="#四个概念" class="headerlink" title="四个概念"></a>四个概念</h3><p>先看四个概念定义：</p>
+<ul>
+<li>TP，True Positive：<strong>真正例</strong>是指模型将正类别样本正确地预测为正类别；</li>
+<li>FP，False Positive：<strong>假正例</strong>是指模型将负类别样本错误地预测为正类别；</li>
+<li>TN，True Negative：<strong>真负例</strong>是指模型将负类别样本正确地预测为负类别；</li>
+<li>FN，False Negative：<strong>假负例</strong>是指模型将正类别样本错误地预测为负类别。</li>
+</ul>
+<p><strong>谷歌机器学习课程案例：</strong><br>关于肿瘤恶性和良性判断：</p>
+<ol>
+<li>肿瘤为恶性：定义为正类别</li>
+<li>肿瘤为良性：定义为负类别</li>
+</ol>
+<p>接下来试着计算以下模型的准确率，该模型将 100 个肿瘤分为恶性或良性：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598526383570-b1bcd88c-bf8d-4aad-a3d4-ffe51bda11c2.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=image.png&originHeight=261&originWidth=849&size=42334&status=done&style=none&width=849" alt="image.png"></p>
+<h3 id="Accuracy（准确率）"><a href="#Accuracy（准确率）" class="headerlink" title="Accuracy（准确率）"></a>Accuracy（准确率）</h3><p>准确率是一个用于评估分类模型的指标。通俗来说，<strong>准确率</strong>是指我们的模型预测正确的结果所占的比例。<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598526435777-3229fbb5-f475-476c-bffd-c08c1f17fae5.png#align=left&display=inline&height=66&margin=%5Bobject%20Object%5D&name=image.png&originHeight=66&originWidth=532&size=9276&status=done&style=none&width=532" alt="image.png"><br>准确率为 0.91，即 91%（总共 100 个样本中有 91 个预测正确）。</p>
+<ul>
+<li>在 100 个肿瘤样本中，91 个为良性（90 个 TN 和 1 个 FP），9 个为恶性（1 个 TP 和 8 个 FN）。</li>
+<li>在 91 个良性肿瘤中，该模型将 90 个正确识别为良性。这很好。不过，在 9 个恶性肿瘤中，该模型仅将 1 个正确识别为恶性。</li>
+</ul>
+<p>虽然 91% 的准确率可能乍一看还不错，但如果另一个肿瘤分类器模型总是预测良性，那么这个模型使用我们的样本进行预测也会实现相同的准确率（100 个中有 91 个预测正确）。换言之，我们的模型与那些没有预测能力来区分恶性肿瘤和良性肿瘤的模型差不多。</p>
+<p>所以，当数据集的分类不平衡情况下，不能单一使用 Accuracy（准确率）这个指标。</p>
+<h3 id="Precision（精确率）"><a href="#Precision（精确率）" class="headerlink" title="Precision（精确率）"></a>Precision（精确率）</h3><p><strong>精确率</strong>指标尝试回答以下问题：在被识别为正类别的样本中，确实为正类别的比例是多少？<br>精确率的定义如下：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598527101522-3228fab5-4870-4730-91b4-248636834569.png#align=left&display=inline&height=64&margin=%5Bobject%20Object%5D&name=image.png&originHeight=64&originWidth=207&size=3810&status=done&style=none&width=207" alt="image.png"><br>接下来计算一下案例中肿瘤的精确率：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598527249784-4b42ac3c-738e-4d31-a751-acf7b8746fbb.png#align=left&display=inline&height=68&margin=%5Bobject%20Object%5D&name=image.png&originHeight=68&originWidth=849&size=8951&status=done&style=none&width=849" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598527281195-efdb12f6-b4cd-4468-a958-a12a0a80cfbd.png#align=left&display=inline&height=59&margin=%5Bobject%20Object%5D&name=image.png&originHeight=59&originWidth=300&size=4838&status=done&style=none&width=300" alt="image.png"><br>该模型的精确率为 0.5，也就是说，该模型在预测恶性肿瘤方面的正确率是 50%。如果模型的预测结果中没有假正例，则模型的精确率为 1.0。</p>
+<h3 id="Recall（召回率）"><a href="#Recall（召回率）" class="headerlink" title="Recall（召回率）"></a>Recall（召回率）</h3><p><strong>召回率</strong>尝试回答以下问题：在所有正类别样本中，被正确识别为正类别的比例是多少？<br>召回率的公式如下：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598527586174-5ab1d943-3466-40c6-baf7-a62e2b87763d.png#align=left&display=inline&height=65&margin=%5Bobject%20Object%5D&name=image.png&originHeight=65&originWidth=178&size=3364&status=done&style=none&width=178" alt="image.png"><br>来计算一下肿瘤分类器的召回率：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598527662687-21ccbd88-b6ed-42af-859c-7b8e6133734f.png#align=left&display=inline&height=54&margin=%5Bobject%20Object%5D&name=image.png&originHeight=54&originWidth=317&size=4774&status=done&style=none&width=317" alt="image.png"><br>该模型的召回率是 0.11，也就是说，该模型能够正确识别出所有恶性肿瘤的百分比是 11%。</p>
+<h3 id="F1-Score"><a href="#F1-Score" class="headerlink" title="F1-Score"></a>F1-Score</h3><p>F1分数（F1 Score），是统计学中用来衡量二分类模型精确度的一种指标。它同时兼顾了分类模型的精确率和召回率。F1分数可以看作是模型精确率和召回率的一种加权平均，它的最大值是1，最小值是0。1代表模型的输出最好，0 代表模型的输出结果最差。</p>
+<p>F1 Score 公式如下：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1598528856111-328fbc24-f683-4dd0-907d-f20c1f56a3a2.png#align=left&display=inline&height=85&margin=%5Bobject%20Object%5D&name=image.png&originHeight=85&originWidth=377&size=5834&status=done&style=none&width=377" alt="image.png"></p>
+<p>在二分类模型评估中，为了平衡这几个指标，通常只评估 F1 Score，只选择 F1 Score 最高的模型。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/">模型评估</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/04/25/%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">直播电商一些看法（一）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/04/01/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%EF%BC%9A%E7%B2%BE%E7%A1%AE%E7%8E%87%E5%92%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%20From%20Google/">
+        <span class="next-text nav-default">模型评估：精确率和召回率的关系 From Google</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

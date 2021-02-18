@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="算法：随机森林算法"/><meta name="keywords" content="算法, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2019/08/01/算法：随机森林算法/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>算法：随机森林算法 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">算法：随机森林算法
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-08-01
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>随机森林算法。<a id="more"></a></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>随机森林是一种集成算法。它的基本单元是决策树。通俗的说，当我们需要根据输入向量对新对象进行分类时，决策树算法依靠的是单个决策树结果，而随机森林是将输入向量放在森林中的每棵树上。每棵树都有一个分类结果，随机森林算法会选择投票最多的类别（在森林中的所有树木上）。</p>
+<p><strong>随机森林算法流程</strong></p>
+<ol>
+<li>从数据集中随机选择 k 个特征，共 m 个特征(k &lt;= m)。然后根据 k 个特征建立决策树；</li>
+<li>重复 n 次，k 个特性经过不同随机组合建立 n 棵决策树；</li>
+<li>对每个决策树都传递随机变量来预测结果。存储所有预测的结果，从 n 棵决策树中得到 n 种结果；</li>
+<li>将得到高票数的预测目标作为随机森林算法的最终预测结果（scikit-learn 库的实现是取每个分类器预测概率的平均，而不是让每个分类器对类别进行投票）。</li>
+</ol>
+<p>和 CART 算法一样，除了做分类预测，随机森林算法也可以用来做回归预测。</p>
+<p>注意在随机森林算法流程中，对训练集的选择，是随机有放回地进行抽样。因为如果不进行随机抽样，每棵树的训练集都一样，那么最终训练出的树分类结果也是完全一样的。这样的话就没必要用到随机森林。而如果不是“有放回”地抽样，会造成每棵树的训练集数量不一致，以及训练结果“过于片面”。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>使用 sklearn 库自带的红酒数据集，分别使用决策树和随机森林进行分类预测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier </span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_wine</span><br><span class="line"></span><br><span class="line">wine = load_wine()</span><br><span class="line">print(wine.DESCR)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">.. _wine_dataset:</span><br><span class="line"></span><br><span class="line">Wine recognition dataset</span><br><span class="line">------------------------</span><br><span class="line"></span><br><span class="line">**Data Set Characteristics:**</span><br><span class="line"></span><br><span class="line">    :Number of Instances: 178 (50 in each of three classes)</span><br><span class="line">    :Number of Attributes: 13 numeric, predictive attributes and the class</span><br><span class="line">    :Attribute Information:</span><br><span class="line"> 		- Alcohol</span><br><span class="line"> 		- Malic acid</span><br><span class="line"> 		- Ash</span><br><span class="line">		- Alcalinity of ash  </span><br><span class="line"> 		- Magnesium</span><br><span class="line">		- Total phenols</span><br><span class="line"> 		- Flavanoids</span><br><span class="line"> 		- Nonflavanoid phenols</span><br><span class="line"> 		- Proanthocyanins</span><br><span class="line">		- Color intensity</span><br><span class="line"> 		- Hue</span><br><span class="line"> 		- OD280&#x2F;OD315 of diluted wines</span><br><span class="line"> 		- Proline</span><br><span class="line"></span><br><span class="line">    - class:</span><br><span class="line">            - class_0</span><br><span class="line">            - class_1</span><br><span class="line">            - class_2</span><br><span class="line">		</span><br><span class="line">    :Summary Statistics:</span><br><span class="line">    </span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">                                   Min   Max   Mean     SD</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    Alcohol:                      11.0  14.8    13.0   0.8</span><br><span class="line">    Malic Acid:                   0.74  5.80    2.34  1.12</span><br><span class="line">    Ash:                          1.36  3.23    2.36  0.27</span><br><span class="line">    Alcalinity of Ash:            10.6  30.0    19.5   3.3</span><br><span class="line">    Magnesium:                    70.0 162.0    99.7  14.3</span><br><span class="line">    Total Phenols:                0.98  3.88    2.29  0.63</span><br><span class="line">    Flavanoids:                   0.34  5.08    2.03  1.00</span><br><span class="line">    Nonflavanoid Phenols:         0.13  0.66    0.36  0.12</span><br><span class="line">    Proanthocyanins:              0.41  3.58    1.59  0.57</span><br><span class="line">    Colour Intensity:              1.3  13.0     5.1   2.3</span><br><span class="line">    Hue:                          0.48  1.71    0.96  0.23</span><br><span class="line">    OD280&#x2F;OD315 of diluted wines: 1.27  4.00    2.61  0.71</span><br><span class="line">    Proline:                       278  1680     746   315</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">    :Missing Attribute Values: None</span><br><span class="line">    :Class Distribution: class_0 (59), class_1 (71), class_2 (48)</span><br><span class="line">    :Creator: R.A. Fisher</span><br><span class="line">    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)</span><br><span class="line">    :Date: July, 1988</span><br><span class="line"></span><br><span class="line">This is a copy of UCI ML Wine recognition datasets.</span><br><span class="line">https:&#x2F;&#x2F;archive.ics.uci.edu&#x2F;ml&#x2F;machine-learning-databases&#x2F;wine&#x2F;wine.data</span><br><span class="line"></span><br><span class="line">The data is the results of a chemical analysis of wines grown in the same</span><br><span class="line">region in Italy by three different cultivators. There are thirteen different</span><br><span class="line">measurements taken for different constituents found in the three types of</span><br><span class="line">wine.</span><br><span class="line"></span><br><span class="line">Original Owners: </span><br><span class="line"></span><br><span class="line">Forina, M. et al, PARVUS - </span><br><span class="line">An Extendible Package for Data Exploration, Classification and Correlation. </span><br><span class="line">Institute of Pharmaceutical and Food Analysis and Technologies,</span><br><span class="line">Via Brigata Salerno, 16147 Genoa, Italy.</span><br><span class="line"></span><br><span class="line">Citation:</span><br><span class="line"></span><br><span class="line">Lichman, M. (2013). UCI Machine Learning Repository</span><br><span class="line">[https:&#x2F;&#x2F;archive.ics.uci.edu&#x2F;ml]. Irvine, CA: University of California,</span><br><span class="line">School of Information and Computer Science. </span><br><span class="line"></span><br><span class="line">.. topic:: References</span><br><span class="line"></span><br><span class="line">  (1) S. Aeberhard, D. Coomans and O. de Vel, </span><br><span class="line">  Comparison of Classifiers in High Dimensional Settings, </span><br><span class="line">  Tech. Rep. no. 92-02, (1992), Dept. of Computer Science and Dept. of  </span><br><span class="line">  Mathematics and Statistics, James Cook University of North Queensland. </span><br><span class="line">  (Also submitted to Technometrics). </span><br><span class="line"></span><br><span class="line">  The data was used with many others for comparing various </span><br><span class="line">  classifiers. The classes are separable, though only RDA </span><br><span class="line">  has achieved 100% correct classification. </span><br><span class="line">  (RDA : 100%, QDA 99.4%, LDA 98.9%, 1NN 96.1% (z-transformed data)) </span><br><span class="line">  (All results using the leave-one-out technique) </span><br><span class="line"></span><br><span class="line">  (2) S. Aeberhard, D. Coomans and O. de Vel, </span><br><span class="line">  &quot;THE CLASSIFICATION PERFORMANCE OF RDA&quot; </span><br><span class="line">  Tech. Rep. no. 92-01, (1992), Dept. of Computer Science and Dept. of </span><br><span class="line">  Mathematics and Statistics, James Cook University of North Queensland. </span><br><span class="line">  (Also submitted to Journal of Chemometrics).</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(wine.data)</span><br><span class="line">print(wine.target)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[[1.423e+01 1.710e+00 2.430e+00 ... 1.040e+00 3.920e+00 1.065e+03]</span><br><span class="line"> [1.320e+01 1.780e+00 2.140e+00 ... 1.050e+00 3.400e+00 1.050e+03]</span><br><span class="line"> [1.316e+01 2.360e+00 2.670e+00 ... 1.030e+00 3.170e+00 1.185e+03]</span><br><span class="line"> ...</span><br><span class="line"> [1.327e+01 4.280e+00 2.260e+00 ... 5.900e-01 1.560e+00 8.350e+02]</span><br><span class="line"> [1.317e+01 2.590e+00 2.370e+00 ... 6.000e-01 1.620e+00 8.400e+02]</span><br><span class="line"> [1.413e+01 4.100e+00 2.740e+00 ... 6.100e-01 1.600e+00 5.600e+02]]</span><br><span class="line">[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</span><br><span class="line"> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span><br><span class="line"> 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span><br><span class="line"> 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</span><br><span class="line"> 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">Xtrain, Xtest, Ytrain, Ytest = train_test_split(wine.data,wine.target,test_size=<span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">clf = DecisionTreeClassifier(random_state=<span class="number">0</span>) </span><br><span class="line">rfc = RandomForestClassifier(random_state=<span class="number">0</span>,n_estimators=<span class="number">20</span>) </span><br><span class="line"></span><br><span class="line">clf = clf.fit(Xtrain,Ytrain)</span><br><span class="line">rfc = rfc.fit(Xtrain,Ytrain)</span><br><span class="line"></span><br><span class="line">score_c = clf.score(Xtest,Ytest) </span><br><span class="line">score_r = rfc.score(Xtest,Ytest)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Single Tree:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(score_c) ,<span class="string">&quot;Random Forest:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(score_r))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Single Tree:0.8703703703703703 Random Forest:0.9259259259259259</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>具体参数说明</strong><br>**</p>
+<ul>
+<li> n_estimators：随机森林里树的数量，也就是基评估器的数量。通常数量越大，效果越好，但是计算时间也会随之增加。另外，当树的数量超过一个临界值之后，算法的效果并不会很显著地变好；</li>
+</ul>
+<ul>
+<li><p>max_features：是分割节点时考虑的特征的随机子集的大小。 这个值越低，方差减小得越多，但是偏差的增大也越多。 根据经验，回归问题中使用max_features = n_features， 分类问题使用 max_features = sqrt（n_features（其中n_features是特征的个数）是比较好的默认值。 max_depth = None和min_samples_split = 2结合通常会有不错的效果（即生成完全的树）。 这些（默认）值通常不是最佳的，同时还可能消耗大量的内存，最佳参数值应由交叉验证获得；</p>
+<p>  ​                                                            </p>
+</li>
+<li><p>random_state：控制生成森林的模式。当random_state固定时，随机森林中生成是一组固定的树，但每棵树都不一样。并且可以证明，当这种随机性越大的时候，袋装法的效果一般会越来越好。但这种做法的局限性是很强的，当我们需要成千上万棵树的时候，数据不一定能够提供成千上万的特征来让我们构筑尽量多尽量不同的树。因此，除了random_state，我们还需要其他的随机性；</p>
+</li>
+</ul>
+<ul>
+<li>bootstrap：bootstrap 参数默认 True，代表采用这种有放回的随机抽样技术。要让基分类器尽量都不一样，一种很容易理解的方法是使用不同的训练集来进行训练，而袋装法正是通过有放回的。                                                                随机抽样技术来形成不同的训练数据，bootstrap就是用来控制抽样技术的参数。</li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/08/10/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90(PCA)%E7%9A%84%E4%BD%BF%E7%94%A8/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">特征工程：主成分分析(PCA)的使用</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/07/28/%E5%88%86%E9%94%80%E4%BD%93%E7%B3%BB%E6%96%B9%E6%B3%95%E8%AE%BA/">
+        <span class="next-text nav-default">分销体系方法论</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
