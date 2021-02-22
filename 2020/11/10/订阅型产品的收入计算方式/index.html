@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="referrer" content="same-origin">
+<meta name="referrer" content="no-referrer">
+
+<meta name="description" content="订阅型产品的收入计算方式"/><meta name="keywords" content="User Growth, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2020/11/10/订阅型产品的收入计算方式/"/>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script>
+  window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
+</script>
+
+    <title>订阅型产品的收入计算方式 - UX Caff</title>
+  <meta name="generator" content="Hexo 5.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">UX Caff</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="" class="logo">UX Caff</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">订阅型产品的收入计算方式
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-11-10
+        </span><span class="post-count">
+            wordcount
+            
+          </span>
+        <span class="post-count">
+            reading time
+            
+          </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>主要说说按时间周期订阅型产品收入计算方式。<a id="more"></a></p>
+<p>周期型订阅，就是用户可以按照产品时间周期进行付费。是一种常见付费模式。下图是芒果TV按周期付费价格。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613812241933-46aa154f-e6a8-4c55-be8e-a0cbfe28c1b1.png#align=left&display=inline&height=178&margin=%5Bobject%20Object%5D&name=image.png&originHeight=237&originWidth=747&size=48977&status=done&style=none&width=560" alt="image.png"></p>
+<p>除了按周期付费的模式，还有：</p>
+<ul>
+<li>买断式付费。指一次性收费，永久使用，Apple Store 中很多应用就是这种收费模式；</li>
+<li>按周期付费 + 单品付费。指先基础性按周期收费，特殊服务/内容额外再次付费。比如说芒果TV按周期付费后，再看最新电影需要再次付费 10.00；</li>
+<li>多版本按周期付费。指多个版本收费。低版本可以向高版本升级，高版本不能降级。比如说 VIP -&gt; SVIP 两个版本之间升级。</li>
+</ul>
+<p>上面是常见的几种付费方式。付费方式不同，决定了计算收入不同。这里先举例说明下收入和销售额区别（文中指标都不涉及到税，只是项目业务方视角）：</p>
+<ul>
+<li>第一季度销售额：第一季度产品整体销售额。比如：芒果TV该季度卖了 10 个月度会员，那么销售额 = 10 * 6.00</li>
+<li>第一季度收入：有多少销售额，落在该季度。比如：芒果TV第一季度卖了 3 个月度会员，5 个季度会员，10 个年度会员。那么第一季度收入计算应该为：</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/__latex/6a36de68a2746509392440806880dcb7.svg#card=math&code=%E7%AC%AC%E4%B8%80%E5%AD%A3%E5%BA%A6%E6%94%B6%E5%85%A5%3D3%2A6.00%2B5%2A27.00%2B%5Cfrac%7B178.00%7D%7B12%7D%20%2A3%2A10&height=37&width=384"></p>
+<p>也就是说，计算收入需要考虑到时间周期。接下来再以芒果TV的周期定价为例，说明收入指标的计算。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613962848653-6142fe97-92f6-493f-95fc-28838659c02d.png#align=left&display=inline&height=233&margin=%5Bobject%20Object%5D&name=image.png&originHeight=233&originWidth=1625&size=66874&status=done&style=none&width=1625" alt="image.png"></p>
+<p>上图这个表，具体数值是根据芒果TV价格（6.00/月、27.00/季度、45.00/半年、178.00/年）计算得来。包含了用户数、订单数、财务指标三种指标类型。其中「首次付费新订」、「到期后回归」、「到期前续费」、「付费预计到期」数字，和订单周期分布都为虚构数值。</p>
+<p>先来说明指标定义：</p>
+<ul>
+<li>销售额 = 月度销售额 + 季度销售额 + 半年度销售额 + 年度销售额</li>
+<li>客单价 = 总销售额 / 总付费订单</li>
+<li>每月净增长用户数 = 首次付费新订 + 到期后回归 + 到期前续费 - 付费预计到期</li>
+<li>月末付费用户数：就是产品每月最后一天的付费用户数</li>
+<li>收入 = 月末付费用户数 * 月客单价 </li>
+<li>到期后回归：当月订单中为上一笔订单过期后再订购的付费订单</li>
+<li>到期前续费：指上一笔付费订单在当月到期且在到期前产生了再次付费的订单</li>
+<li>月客单价：指总销售额，落到每个月的钱。这个下面公式避免了价格的浮动情况（比如：5折的折扣活动，造成价格浮动过大）。之前<a target="_blank" rel="noopener" href="https://uxcaff.com/2020/11/03/LTV%E6%8C%87%E6%A0%87%E7%9A%84%E7%90%86%E8%A7%A3/">《LTV指标的理解》</a>有介绍。</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/__latex/22dd3c04374e20d3bdaf1e8293a13d21.svg#card=math&code=%E6%9C%88%E5%AE%A2%E5%8D%95%E4%BB%B7%3D%5Cfrac%7B%E6%80%BB%E9%94%80%E5%94%AE%E9%A2%9D%7D%7B%E6%9C%88%E5%BA%A6%E8%AE%A2%E5%8D%95%20%2B%20%E5%AD%A3%E5%BA%A6%E8%AE%A2%E5%8D%95%2A3%20%2B%20%E5%8D%8A%E5%B9%B4%E5%BA%A6%E8%AE%A2%E5%8D%95%2A6%20%2B%20%E5%B9%B4%E5%BA%A6%E8%AE%A2%E5%8D%95%2A12%7D%20&height=57&width=501"></p>
+<ul>
+<li>付费预计到期：落在当月到期的付费用户，下面按照 2020 年 6 月 - 2020 年 12 月时间周期举例：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>月份</strong></th>
+<th align="center"><strong>付费预计到期</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2020 年 6 月</td>
+<td align="center">2020 年 5 月月度订单</td>
+</tr>
+<tr>
+<td align="center">2020 年 7 月</td>
+<td align="center">2020 年 6 月月度订单</td>
+</tr>
+<tr>
+<td align="center">2020 年 8 月</td>
+<td align="center">2020 年 7 月月度订单 + 2020年6月季度订单</td>
+</tr>
+<tr>
+<td align="center">2020 年 9 月</td>
+<td align="center">2020 年 8 月月度订单 + 2020年7月季度订单</td>
+</tr>
+<tr>
+<td align="center">2020 年 10 月</td>
+<td align="center">2020 年 9 月月度订单 + 2020年8月季度订单</td>
+</tr>
+<tr>
+<td align="center">2020 年 11 月</td>
+<td align="center">2020 年 10 月月度订单 + 2020年9月季度订单 + 2020年 6 月半年度订单</td>
+</tr>
+<tr>
+<td align="center">2020 年 12月</td>
+<td align="center">2020 年 11 月月度订单 + 2020年10月季度订单 + 2020年 7 月半年度订单</td>
+</tr>
+</tbody></table>
+<p>以上是这个表格核心字段定义，按照这个定义，可以清楚计算/预测产品付费用户数、订单分布、新增/流失订单、客单价等等。但其实这整套规则还有细节需要注意。</p>
+<p>第 1 点，是 收入 = 月末付费用户数 * 月客单价这个公式。这里「月末付费用户数」，说明这套规则约定是：1 个月的前 15 天和后 15 天，用户的订购量、订购周期分布相同。如果由于业务特性不满足，那结果误差就会大。</p>
+<p>第 2 点，这套规则默认是 <strong>1 笔订单 = 1 个付费用户。</strong>体现在「到期前续费」这个指标上。这个指标说的是上一笔付费订单在当月到期且在到期前产生了再次付费的订单。但是，假设 1 个用户，在到期前，在当月付费多笔订单呢？比如：A 用户还有 7 天到期，在当月 10 号订购了一个月，在 20 号，又订购了 3 个月。那 A 用户在当月就产生了 2 笔订单。所以，在用「到期前续费」这个指标前，需要提前拉数据看一下这类用户多不多，是否会造成误差过大。实际工作中，如果产品有订购时间限制，比如说用户最多只能订购 13 个月。那用户到期前重复多次订购的情况应该会减少。</p>
+<p>「到期前续费」还有一种定义可以用，就是：付费用户到期前续费率。但是同样，需要拉数据观察用户提前续费的时间段。</p>
+<p>第 3 点，「到期后回归」和「首次付费新订」界限需要注明。比如到期后 60 天及以内算在「到期后回归」，60 天以外算在「首次付费新订」。</p>
+<p>由此可见，这个公式使用，还有诸多前提，按照经验，这套规则适用于成熟期产品。这张表的应用场景：</p>
+<ol>
+<li>预测产品年度付费用户数、销售额、收入情况；</li>
+<li>了解产品新用户、流失用户、复购用户情况。制定对应策略；</li>
+<li>了解订单分布周期。制定对应策略。比如：优酷VIP会员就取消了“季度周期”，那就是更倾向于用户订购长周期。</li>
+</ol>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/User-Growth/">User Growth</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/11/19/%E6%B7%98%E5%AE%9D%E4%B8%AD%E5%B7%AE%E8%AF%84%E4%BA%A7%E5%93%81%E9%80%BB%E8%BE%91%E8%B0%83%E6%95%B4%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">淘宝中差评产品逻辑调整的一点想法</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/11/03/LTV%E6%8C%87%E6%A0%87%E7%9A%84%E7%90%86%E8%A7%A3/">
+        <span class="next-text nav-default">LTV指标的理解</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/huang-dalu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://www.douban.com/people/108055759" class="iconfont icon-douban" title="douban"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss" target="_blank"></a>
+    </div><div class="copyright"><span class="division">&nbsp;</span><span class="copyright-year">Since 2020 - 2021
+      <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">huangdalu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="./lib/valine/av-min.js?v=3.0.4"></script>
+<script src='./lib/valine/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: "XtxvAXPwOzM9noIc3eyxi3AS-gzGzoHsz",
+        app_key: "yEVQszyxb4bwLuAGU5VHnPR8",
+        placeholder: "说点什么吧...",
+        avatar: 'mm',
+        visitor: 'ture'
+    });
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
