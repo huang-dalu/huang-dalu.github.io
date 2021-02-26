@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-24T13:24:36.267Z</updated>
+  <updated>2021-02-26T08:33:20.789Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>不要追逐「大词」</title>
+    <link href="http://example.com/2021/02/26/%E4%B8%8D%E8%A6%81%E8%BF%BD%E9%80%90%E3%80%8C%E5%A4%A7%E8%AF%8D%E3%80%8D/"/>
+    <id>http://example.com/2021/02/26/%E4%B8%8D%E8%A6%81%E8%BF%BD%E9%80%90%E3%80%8C%E5%A4%A7%E8%AF%8D%E3%80%8D/</id>
+    <published>2021-02-26T08:32:00.724Z</published>
+    <updated>2021-02-26T08:33:20.789Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前说过，我要尽量避免一些大词。这也是个教训。因为这些大词以前追逐过。比如：金融体系、管理体系、世界观。这些词，总有人说出一二三。而且每个人的说法还不同…<a id="more"></a></p><p>为什么不再去执着拆解这些词。第 1 个原因是这些大词，本质还是别人的理解和认知。都带有主观感受。比如我之前听商业领袖讲「世界观」，和金融教授讲的，完全是两回事。所以，执着于词的理论理解，没有意义。</p><p>第 2 ，词义随着人群普及。也会发生变化。比如「内卷」这个词，刚火时我也不懂。现在渐渐看文章懂了。不是我变聪明了，是「内卷」随着流行，词义越来越简单了…</p><p>很多虚无的追逐，可能是和我们创造的、虚无的大词有关系。如果没有这类词，也许我们的生活会更好。举个例子：如果你问，如何才能成为「美好生活家」？我也不知道怎么回答。但是如果你问，如何做好一碗炒饭？如何整理好自己的衣物？如何早睡早起？我有自信给一个准确回答。所以，我的想法就是落到实处：你要做什么？你想怎么做？也许才是解决问题之道。</p><p>之前听堵库老六前辈的<a href="https://www.xiaoyuzhoufm.com/episode/5eea0604418a84a046f724a2?s=eyJ1IjogIjVlZTBjNDRhZjNhYTNhY2U0YzYxMmY3OCJ9">播客</a>，大概意思是：如果你问我如何建立自己的思想体系。我不好回答你。如果你问我怎样做一本书，我可以回答。其实做书和建立思想体系，是一回事儿。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;之前说过，我要尽量避免一些大词。这也是个教训。因为这些大词以前追逐过。比如：金融体系、管理体系、世界观。这些词，总有人说出一二三。而且每个人的说法还不同…</summary>
+    
+    
+    
+    
+    <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
+    
+  </entry>
   
   <entry>
     <title>搭建团队的预备事项</title>
@@ -78,7 +97,7 @@
     <link href="http://example.com/2021/02/12/%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E4%B8%8EISV/"/>
     <id>http://example.com/2021/02/12/%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E4%B8%8EISV/</id>
     <published>2021-02-12T13:10:10.000Z</published>
-    <updated>2021-02-25T13:38:42.544Z</updated>
+    <updated>2021-02-25T13:40:23.973Z</updated>
     
     <content type="html"><![CDATA[<p>对于服务市场而言，ISV 就是服务市场的一个小商品。和 App Store 是一样的。但是运营规则不同。<a id="more"></a>ISV 分为头部和长尾。按照正常逻辑来说，一个生态首先是要靠头部，战略是养更多尾部的话，服务市场的营收才会更好（基本满足二八原则）。</p><p>目前，几乎所有电商服务市场目前都看重头部，什么阶段看重长尾呢？</p><ul><li>头部过于强大，形成垄断。会造成 ISV （需求供给侧）没有活水。缺乏竞争又会影响到市场创新，甚至会导致恶性竞争，比如：小 ISV 看不到希望，疯狂弹广告收割用户；</li><li>商家需求、服务形态发生变化。比如：2020 年淘宝服务市场一直在招募的淘宝小程序开发商。以前 ISV 是给商家做工具，小程序开发是给商家做工具，给到 C 端消费者使用。场景发生变化，又因为垂直商家对应的消费者需求比较多样，比如美妆类/数码类决策购买流程很大不同。所以平台需要更多 ISV 进来，做垂直场景。</li></ul><p>另外，电商服务市场的先发优势非常明显，不比 App Store。原因是：</p><ul><li>ISV 是基于商家规则做产品。商家规则的变动，趋于完善后，几乎不会再改。那这部分需求满足其实很好了，再做很难。比如：淘宝平台的虚拟上下架、橱窗规则，都是 10 年以上的规则，ISV 现在基本玩不出花样；</li><li>服务市场在不断完善，服务市场和 ISV 之间，本质上就是商家数据的交易。一来随着时间越长，开放的接口越来越完善；二来随着平台开始关注数据隐私，对于开放的数据接口，会慎之又慎。没有数据，ISV 犹如做无米之炊，后期自然很难；</li></ul><p>基于以上 2 点，会导致 ISV 产品同质化严重，那相同的产品，在投入相同的情况下，自然是先做的占优。</p>]]></content>
     
@@ -381,25 +400,6 @@
     
     
     <summary type="html">&lt;p&gt;2 个遇见的报错信息记录。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo添加RSS订阅</title>
-    <link href="http://example.com/2020/12/16/Hexo%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/"/>
-    <id>http://example.com/2020/12/16/Hexo%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/</id>
-    <published>2020-12-16T14:33:17.643Z</published>
-    <updated>2020-12-16T14:54:06.187Z</updated>
-    
-    <content type="html"><![CDATA[<p>RSS 的使用必不可少。下面说下安装步骤。</p><a id="more"></a><ol><li><p>在博客目录下安装插件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed</span><br></pre></td></tr></table></figure></li><li><p>在主目录 Blog 下的配置文件_config.yml文件添加以下内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">#RSS订阅</span></span><br><span class="line">plugin:</span><br><span class="line">- hexo-generator-feed</span><br><span class="line"><span class="comment">#Feed Atom</span></span><br><span class="line">feed:</span><br><span class="line"><span class="built_in">type</span>: atom</span><br><span class="line">path: atom.xml</span><br><span class="line"><span class="built_in">limit</span>: 20</span><br></pre></td></tr></table></figure></li><li><p>theme配置文件_config.yml，修改相应配置为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rss: /atom.xml</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;RSS 的使用必不可少。下面说下安装步骤。&lt;/p&gt;</summary>
     
     
     
