@@ -109,7 +109,7 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#T%E6%A3%80%E9%AA%8C"><span class="toc-text">T检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#F%E6%A3%80%E9%AA%8C"><span class="toc-text">F检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="toc-text">卡方检验</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#T%E6%A3%80%E9%AA%8C"><span class="toc-text">T检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#F%E6%A3%80%E9%AA%8C"><span class="toc-text">F检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C"><span class="toc-text">卡方检验</span></a></li></ol>
     </div>
   </div><div class="post-content"><p>T检验、F检验、卡方检验是统计学中常见的假设检验，今天记录下这几个假设检验的原理和应用场景。<a id="more"></a></p>
 <table>
@@ -142,7 +142,7 @@
 <p>组内残差平均平方和 MSE，n 代表观测值的个数：</p>
 <p><img src="https://cdn.nlark.com/yuque/__latex/206f9d9dcfaec3826e6c09315128f42d.svg#card=math&code=%5Cbegin%7Barray%7D%7Bc%7D%20%0A%20%20MSE%3D%5Cfrac%7BSSE%7D%7Bn-k%7D%20%5C%5C%0A%20%20F%3D%5Cfrac%7BMSTR%7D%7BMSE%7D%20%5Csim%20F%28k-1%2Cn-k%29%0A%5Cend%7Barray%7D&height=59&width=217"></p>
 <p>根据求得的F统计量，查F表，如果大于临界值则拒绝原假设，就意味着差异的主要来源是由于组与组的不同而造成的，即组间具有显著性的差异。相反，如果F值小于临界值则接受原假设，说明组内的均方 MSE 比较大，差异的主要来源并不是组与组的不同，而是组内随机变化的结果，组间无显著性差异。</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h4><p>卡方检验主要是统计样本的实际观测值与理论推断值之间的偏离程度，来判断变量之间是否有相关关系。适用于比较两组或者多组之间的分类型变量之间是否有显著的差异。卡方值计算公式如下：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1612270832840-1866b218-0ae4-4b05-b39e-6476863501bc.png#align=left&display=inline&height=88&margin=%5Bobject%20Object%5D&originHeight=176&originWidth=484&size=0&status=done&style=none&width=242"></p>
+<h4 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h4><p>卡方检验主要是统计样本的实际观测值与理论推断值之间的偏离程度，来判断变量之间是否有相关关系。适用于比较两组或者多组之间的分类型变量之间是否有显著的差异。卡方值计算公式如下：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1612270832840-1866b218-0ae4-4b05-b39e-6476863501bc.png#align=left&display=inline&height=88&margin=%5Bobject%20Object%5D&originHeight=176&originWidth=484&size=0&status=done&style=none&width=242"></p>
 <p>根据自由度（（行-1）*（列-1）），结合我们定义的置信水平，查卡方分布临界表，卡方值大于临界值，则拒绝原假设，可判断有显著差异。详细案例介绍大家可参考这篇文章<a target="_blank" rel="noopener" href="https://uxcaff.com/2016/10/04/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">《卡方检验的理解》</a>。另外更正一下，这篇文章中最后的自由度的乘号写成了减号。</p>
 
       </div>
