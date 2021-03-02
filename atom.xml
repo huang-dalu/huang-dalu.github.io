@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-02T00:32:34.703Z</updated>
+  <updated>2021-03-02T09:44:08.630Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,21 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>电商工具基础知识</title>
-    <link href="http://example.com/2021/03/02/%E7%94%B5%E5%95%86%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>http://example.com/2021/03/02/%E7%94%B5%E5%95%86%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
-    <published>2021-03-02T00:21:36.995Z</published>
-    <updated>2021-03-02T00:32:34.703Z</updated>
+    <title>数据分析师的价值</title>
+    <link href="http://example.com/2021/03/02/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E7%9A%84%E4%BB%B7%E5%80%BC/"/>
+    <id>http://example.com/2021/03/02/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E7%9A%84%E4%BB%B7%E5%80%BC/</id>
+    <published>2021-03-02T09:39:37.015Z</published>
+    <updated>2021-03-02T09:44:08.630Z</updated>
     
-    <content type="html"><![CDATA[<p>最近在给没有接触过电商的同学做电商工具的介绍培训，文稿结合视频介绍录制。这里把文稿稍微理了下，分享出来。<a id="more"></a></p><p>商家日常经营场景中，为了提效增收，多多少少都有使用一些官方工具和第三方工具。接下来先介绍一下官方工具第三方工具市场。</p><table><thead><tr><th align="center"><strong>平台</strong></th><th align="center"><strong>官方工具</strong></th><th align="center"><strong>服务市场</strong></th></tr></thead><tbody><tr><td align="center">淘宝</td><td align="center">千牛、生意参谋、单品宝等</td><td align="center"><a href="https://fuwu.taobao.com/">https://fuwu.taobao.com/</a></td></tr><tr><td align="center">拼多多</td><td align="center">拼多多商家版</td><td align="center"><a href="https://fuwu.pinduoduo.com/service-market/">https://fuwu.pinduoduo.com/service-market/</a></td></tr><tr><td align="center">京东</td><td align="center">京麦</td><td align="center"><a href="https://fw.jd.com/main/">https://fw.jd.com/main/</a></td></tr><tr><td align="center">快手</td><td align="center">快手小店</td><td align="center"><a href="https://fuwu.kwaixiaodian.com/">https://fuwu.kwaixiaodian.com/</a></td></tr><tr><td align="center">抖音</td><td align="center">抖店</td><td align="center"><a href="https://fuwu.jinritemai.com/">https://fuwu.jinritemai.com/</a></td></tr></tbody></table><p>接下来以电商团队的角色维度，以淘宝平台为例。来介绍一些常用的基础工具。</p><h4 id="运营人员"><a href="#运营人员" class="headerlink" title="运营人员"></a>运营人员</h4><p>淘宝运营的工作要求该岗位员工具备营销、产品、客服、供应链等比较全面全方位的知识体系。运营可以说是一个网店团队的核心人物，负责发展战略的制定和协调。</p><ul><li>商品管理：超级店长、欢乐逛、爱用商品、旺店商品等</li><li>营销管理：美折、跟单宝</li><li>客户管理：多卖CRM</li><li>数据运营：生意参谋、会计师</li></ul><h4 id="推广人员"><a href="#推广人员" class="headerlink" title="推广人员"></a>推广人员</h4><p>网站的推广方式有SEO、SEM等，店铺和单品指平台型电商比如淘宝天猫、京东POP等，可以通过直通车、钻展、京东快车等方式推广</p><ul><li>直通车推广、钻展推广：超级快车</li><li>站内推广、站外推广：标题优化；淘宝客；网易互客</li></ul><h4 id="设计人员"><a href="#设计人员" class="headerlink" title="设计人员"></a>设计人员</h4><p>负责整个店铺设计。一般需要精通 PS/CSS/HTML/JavaScript</p><ul><li>商品详情页装修、店铺装修。图片处理、LOGO制作：稿定设计</li></ul><h4 id="客服人员"><a href="#客服人员" class="headerlink" title="客服人员"></a>客服人员</h4><p>负责售前接待、售后问题处理、差评处理、投诉处理。</p><ul><li>售前接待：阿里店小蜜；快麦小智</li><li>售后处理（退款订单、差评）：评分好助手、班牛、快麦工单</li></ul><h4 id="仓储人员"><a href="#仓储人员" class="headerlink" title="仓储人员"></a>仓储人员</h4><p>仓储是指通过仓库对物资及其相关设施设备进行物品的入库、储存、出库的活动。它随着物资储存的产生而产生，又随着生产力的发展而发展。仓储是商品流通的重要环节之一，也是物流活动的重要支柱。</p><ul><li>订单处理：旺店交易、爱用交易</li><li>打单发货：快递助手、我打、ERP软件</li></ul><h4 id="跨境店铺"><a href="#跨境店铺" class="headerlink" title="跨境店铺"></a>跨境店铺</h4><p>将国内商品，通过shopee、速卖通、亚马逊、wish、lazada 等平台，买到国外。</p><ul><li>跨境店铺管理：<a href="https://www.dianxiaomi.com/index.htm">店小秘</a></li></ul><p>其他平台的工具，按照对应类目划分，大同小异。可以去服务市场里查看。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;最近在给没有接触过电商的同学做电商工具的介绍培训，文稿结合视频介绍录制。这里把文稿稍微理了下，分享出来。</summary>
+    <content type="html"><![CDATA[<p>最近听到一期播客，牛油果烤面包的<a href="https://www.xiaoyuzhoufm.com/episode/6037f1e384056b20cdf9fe5a?s=eyJ1IjogIjVlZTBjNDRhZjNhYTNhY2U0YzYxMmY3OCJ9">《互联网公司的数据分析》</a>，说如果企业考虑裁员，优先会考虑裁掉数据分析师。想了想，我比较认可。下面说说我的理由。<a id="more"></a></p><p>如果只是 1-2 名数据团队，并且归属到业务组。向业务主管汇报（产品/运营/市场主管）。日常 SQL 取数，整理 Excel 报表，做常规分析。项目发起、决策、流程把控都属于业务角色。这种情况，对于数据分析师来说，既没有技术能力沉淀（业务部门也不考核，也不会要求技术能力有多厉害），也不能主导业务决策，甚至很少参与（推广资源在运营手里，产品主导权在产品手里）。裁员肯定优先裁数据分析师…</p><p>实际情况里，没多少数据（或数据思维）的公司，自然也没太多可做的东西。能力强的数据分析师，也不会去这类公司。所以这里还有一点，站在公司角度，需要做什么事情，就招什么水平，很正常。问题出在「数据分析师」这个Title 被概括了。细分应该是「Excel 分析师」或「策略分析师」或 「Python建模分析师」之类。不然就和只会切图的前端工程师一样。都是这个 Title，其实并不一样。</p><p>说到数据分析师的价值。得先说数据应用。数据应用的前提。一方面是要有一定规模的数据。巧妇难为无米之炊，如果仅几千个数据总量，也没有必要用到 A/B Test。另一方面是要有数据经营的意识。最后才谈数据的具体应用。</p><p>数据应用体系层级，在<a href="https://weread.qq.com/web/reader/a863290071c94f51a8680c9kc81322c012c81e728d9d180">《用户画像：方法论与工程化解决方案》</a>这本书有提及，大意是：</p><ul><li>第 1 层。基础平台搭建。需要做到数据平台建设、数据仓库建设、统一 SDK；</li><li>第 2 层。报表与可视化。应用到可配置数据报表以及报表的可视化展现；</li><li>第 3 层，产品运营与分析。可以让业务同学自助提取数据，以及做好报表分析工具；</li><li>第 4 层，精细化运营工具。应用到用户行为分析、用户画像、数据挖掘、个性化推荐；</li><li>第 5 层，战略决策。把数据结论用作战略决策论据。</li></ul><p>这是数据的价值。再聊到数据分析师的价值。之前看到 Google 有 EOI 的说法，按照这个说法可以覆盖数据分析的任务范围。划分方式：</p><ul><li><p>对核心任务来讲，数据分析是助力（Empower），帮助公司更好的盈利，提高盈利效率；</p></li><li><p>对战略任务来说是优化（Optimize），如何能够辅助战略型任务找到方向和盈利点；</p></li><li><p>对于风险任务，则是创新（Innovate），努力验证创新项目的重要性 。数据负责人需要对公司业务及发展趋势有着清晰的认识，合理分配数据分析资源、制定数据分析目标方向。</p></li></ul><p>EOI 是以项目阶段的形态来分，它能帮数据分析师厘清项目重点。但 EOI 解决不了文章开头数据分析师的尴尬情况。最终，我自己的解是：</p><ul><li>往数据挖掘、数据技术相关方向发展。这个方向空间大，可以钻研得更深。既能提高决策质量，也能提高技术能力；</li><li>加入数据中台团队，而不是零星的散落在业务团队。数据中台团队有横向/纵向发展路线，空间也更大；</li><li>业务方向发展，最终也许会成为策略分析、策略产品；</li></ul><p>当然还有另外的商业数据分析之类，那些已经更倚重业务/行业了，这里不讨论。</p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;最近听到一期播客，牛油果烤面包的&lt;a href=&quot;https://www.xiaoyuzhoufm.com/episode/6037f1e384056b20cdf9fe5a?s=eyJ1IjogIjVlZTBjNDRhZjNhYTNhY2U0YzYxMmY3OCJ9&quot;&gt;《互联网公司的数据分析》&lt;/a&gt;，说如果企业考虑裁员，优先会考虑裁掉数据分析师。想了想，我比较认可。下面说说我的理由。</summary>
     
     
-    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+    
+    <category term="User Growth" scheme="http://example.com/tags/User-Growth/"/>
     
   </entry>
   
