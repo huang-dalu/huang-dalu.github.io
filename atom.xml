@@ -36,6 +36,25 @@
   </entry>
   
   <entry>
+    <title>电商工具基础知识</title>
+    <link href="http://example.com/2021/03/03/%E7%94%B5%E5%95%86%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://example.com/2021/03/03/%E7%94%B5%E5%95%86%E5%B7%A5%E5%85%B7%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <published>2021-03-03T13:10:10.000Z</published>
+    <updated>2021-03-05T09:00:18.724Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在给没有接触过电商的同学做电商工具的介绍培训，文稿结合视频介绍录制。这里把文稿稍微理了下，分享出来。<a id="more"></a></p><p>商家日常经营场景中，为了提效增收，多多少少都有使用一些官方工具和第三方工具。接下来先介绍一下官方工具第三方工具市场。</p><table><thead><tr><th align="center"><strong>平台</strong></th><th align="center"><strong>官方工具</strong></th><th align="center"><strong>服务市场</strong></th></tr></thead><tbody><tr><td align="center">淘宝</td><td align="center">千牛、生意参谋、单品宝等</td><td align="center"><a href="https://fuwu.taobao.com/">https://fuwu.taobao.com/</a></td></tr><tr><td align="center">拼多多</td><td align="center">拼多多商家版</td><td align="center"><a href="https://fuwu.pinduoduo.com/service-market/">https://fuwu.pinduoduo.com/service-market/</a></td></tr><tr><td align="center">1688</td><td align="center">卖家工作台</td><td align="center"><a href="https://fuwu.1688.com/">https://fuwu.1688.com/</a></td></tr><tr><td align="center">京东</td><td align="center">京麦</td><td align="center"><a href="https://fw.jd.com/main/">https://fw.jd.com/main/</a></td></tr><tr><td align="center">快手</td><td align="center">快手小店</td><td align="center"><a href="https://fuwu.kwaixiaodian.com/">https://fuwu.kwaixiaodian.com/</a></td></tr><tr><td align="center">抖音</td><td align="center">抖店</td><td align="center"><a href="https://fuwu.jinritemai.com/">https://fuwu.jinritemai.com/</a></td></tr></tbody></table><p>接下来以电商团队的角色维度，以淘宝平台为例。来介绍一些常用的基础工具。</p><h4 id="运营人员"><a href="#运营人员" class="headerlink" title="运营人员"></a>运营人员</h4><p>淘宝运营的工作要求该岗位员工具备营销、产品、客服、供应链等比较全面全方位的知识体系。运营可以说是一个网店团队的核心人物，负责发展战略的制定和协调。</p><ul><li>商品管理：超级店长、欢乐逛、爱用商品、旺店商品等</li><li>营销管理：美折、跟单宝</li><li>客户管理：多卖CRM</li><li>数据运营：生意参谋、快计师</li></ul><h4 id="推广人员"><a href="#推广人员" class="headerlink" title="推广人员"></a>推广人员</h4><p>网站的推广方式有SEO、SEM等，店铺和单品指平台型电商比如淘宝天猫、京东POP等，可以通过直通车、钻展、京东快车等方式推广。</p><ul><li>直通车推广、钻展推广：超级快车</li><li>站内推广、站外推广：标题优化；淘宝客；网易互客</li></ul><h4 id="设计人员"><a href="#设计人员" class="headerlink" title="设计人员"></a>设计人员</h4><p>负责整个店铺设计。一般需要精通 PS/CSS/HTML/JavaScript。</p><ul><li>商品详情页装修、店铺装修。图片处理、LOGO制作：稿定设计</li></ul><h4 id="客服人员"><a href="#客服人员" class="headerlink" title="客服人员"></a>客服人员</h4><p>负责售前接待、售后问题处理、差评处理、投诉处理。</p><ul><li>售前接待：阿里店小蜜；快麦小智</li><li>售后处理（退款订单、差评）：评分好助手、班牛售后、快麦工单</li></ul><h4 id="仓储人员"><a href="#仓储人员" class="headerlink" title="仓储人员"></a>仓储人员</h4><p>仓储是指通过仓库对物资及其相关设施设备进行物品的入库、储存、出库的活动。它随着物资储存的产生而产生，又随着生产力的发展而发展。仓储是商品流通的重要环节之一，也是物流活动的重要支柱。</p><ul><li>订单处理：旺店交易、爱用交易</li><li>打单发货：快递助手、我打、ERP软件</li></ul><h4 id="其他情况"><a href="#其他情况" class="headerlink" title="其他情况"></a>其他情况</h4><p><strong>跨境店铺工具</strong><br>将国内商品，通过shopee、速卖通、亚马逊、wish、lazada 等平台，买到国外。</p><ul><li>跨境店铺管理：<a href="https://www.dianxiaomi.com/index.htm">店小秘</a></li></ul><p><strong>拼多多、快手、抖音店铺工具</strong></p><ul><li>商家会考虑将淘宝、拼多多的商品铺货到新兴平台。最方面的方式是使用商品复制这类软件：妙手、蚂蚁搬家；</li><li>商家自己无须准备货源，直接从1688平台一件代发的经营模式。对应软件有：掌柜卫士。</li></ul><p>其他平台的工具，按照对应类目划分，大同小异。可以去服务市场里查看。</p><h4 id="10-道问题"><a href="#10-道问题" class="headerlink" title="10 道问题"></a>10 道问题</h4><p>1.生意参谋软件，是属于哪个电商平台的软件？（A）</p><p>A. 淘宝  B. 京东  C. 拼多多  D. 抖音</p><p>2.以下哪一款产品，不能在浏览器网页上使用？（D）</p><p>A. 超级店长  B. 美折  C. 欢乐逛  D. 爱用交易</p><p>3.以下哪一款产品，有一键代发功能？（D）</p><p>A. 蚂蚁搬家  B. 班牛售后  C. 跟单宝  D. 掌柜卫士</p><p>4.以下哪一款产品，适合客服使用？（B）</p><p>A. 店小秘  B. 店小蜜  C. 跟单宝  D. 爱用交易</p><p>5.京麦软件，是属于哪个平台的官方软件？（A）</p><p>A. 京东  B. 1688  C. 拼多多  D. 快手</p><p>6.商家在做跨境电商，他可能会用到的软件是以下哪款？（A）</p><p>A. 店小秘  B. 评分好助手  C. 京麦  D. 我打</p><p>7.商家想管理多个平台的客户，他可能会用到的软件是以下哪款？（D）</p><p>A. 店小秘  B. 评分好助手  C. 京麦  D. 网易互客</p><p>8.商家想做一个店铺LOGO，他可能会用到的软件是以下哪款？（B）</p><p>A. 快计师  B. 稿定设计  C. 超级店长  D. 网易互客</p><p>9.电子面单的配置，不可能出现在以下哪个软件（D）</p><p>A. 超级店长  B. ERP软件  C. 我打  D. 美折</p><p>10.以下哪个电商平台，有默认插件和第三方插件的说法（A）</p><p>A. 淘宝  B. 快手  C. 1688  D. 抖音</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近在给没有接触过电商的同学做电商工具的介绍培训，文稿结合视频介绍录制。这里把文稿稍微理了下，分享出来。</summary>
+    
+    
+    
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据分析师的价值</title>
     <link href="http://example.com/2021/03/02/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E7%9A%84%E4%BB%B7%E5%80%BC/"/>
     <id>http://example.com/2021/03/02/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E7%9A%84%E4%BB%B7%E5%80%BC/</id>
@@ -204,9 +223,9 @@
     
     
     
-    <category term="Notes" scheme="http://example.com/tags/Notes/"/>
-    
     <category term="Thinking" scheme="http://example.com/tags/Thinking/"/>
+    
+    <category term="Notes" scheme="http://example.com/tags/Notes/"/>
     
   </entry>
   
@@ -384,27 +403,6 @@
     
     
     <category term="Life" scheme="http://example.com/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拼多多和淘宝的几个细节差异（2020年）</title>
-    <link href="http://example.com/2020/12/20/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%92%8C%E6%B7%98%E5%AE%9D%E7%9A%84%E5%87%A0%E4%B8%AA%E7%BB%86%E8%8A%82%E5%B7%AE%E5%BC%82%EF%BC%882020%E5%B9%B4%EF%BC%89/"/>
-    <id>http://example.com/2020/12/20/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%92%8C%E6%B7%98%E5%AE%9D%E7%9A%84%E5%87%A0%E4%B8%AA%E7%BB%86%E8%8A%82%E5%B7%AE%E5%BC%82%EF%BC%882020%E5%B9%B4%EF%BC%89/</id>
-    <published>2020-12-20T13:08:11.115Z</published>
-    <updated>2020-12-20T13:15:29.770Z</updated>
-    
-    <content type="html"><![CDATA[<p>还是和之前关于拼多多的几篇一样，也是属于仔细研究后速记，并不全面。</p><a id="more"></a><h3 id="开店资质要求不同"><a href="#开店资质要求不同" class="headerlink" title="开店资质要求不同"></a>开店资质要求不同</h3><p>拼多多开店资质、流程，相比淘宝更简单。下图是拼多多目前可以创建的店铺类型。在之前拼多多店铺类型比较少，目前已经赶上淘宝。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1608453580833-d3685a7f-1b00-4de5-8197-fc7553046145.png#align=left&display=inline&height=331&margin=%5Bobject%20Object%5D&name=%E6%8B%BC%E5%A4%9A%E5%A4%9A%E5%BA%97%E9%93%BA%E5%88%86%E7%B1%BB.png&originHeight=441&originWidth=777&size=66077&status=done&style=none&width=583" alt="拼多多店铺分类.png"></p><p>除了企业店铺，极简方式，个人凭借身份证就可以。其实拼多多在这块设计上，一直做得非常好。在 2018 年需要商家快速发展时，商家只需要点击开店链接，一键就可以完成开店（和目前微信小商店个人开店流程一致），从淘宝拉了不少商家。</p><p>类似这种流程，其他平台是直接照搬淘宝，拼多多是自己做了很多创新。</p><h3 id="开店引导填写其他平台店铺链接，以及可以自带第三方平台销量"><a href="#开店引导填写其他平台店铺链接，以及可以自带第三方平台销量" class="headerlink" title="开店引导填写其他平台店铺链接，以及可以自带第三方平台销量"></a>开店引导填写其他平台店铺链接，以及可以自带第三方平台销量</h3><p>在开店时引导填写其他平台店铺链接，这个点没记错的话，应该也是拼多多的创新。这样做第 1 是方便平台统计商家属性，是否多平台、多类目等等； 第 2 是给后续流量倾斜、平台策略提供支撑。比如：如果商家是淘宝服饰类目 TOP 商家。官方对接和服务，立马就需要区别对待。</p><p>以及大概是今年前后时间，拼多多上线了一款工具，将其他平台商品搬到拼多多。这类工具其实已经存在多年。但是拼多多做了一件事，就是搬家到拼多多商品，自带第三方平台销量。这个功能上线后，商家趋之若鹜。从商家角度：我在其他平台的销量，也可以在拼多多上有流量倾斜，为什么不做？</p><p>在淘宝现阶段，这类功能是严禁存在，违规处罚。平台一直防止商品数据、订单数据外流，但是拼多多用尽各种方法，吸引淘宝商家入驻拼多多。用这类工具的商家，把淘宝商品搬到拼多多占比最大。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1608455136029-94fafbd0-5455-4c0c-9d21-ed49373308b5.png#align=left&display=inline&height=491&margin=%5Bobject%20Object%5D&name=image.png&originHeight=491&originWidth=494&size=106898&status=done&style=none&width=494" alt="image.png"></p><h3 id="商家后台工具，允许大量代发经营模式存在"><a href="#商家后台工具，允许大量代发经营模式存在" class="headerlink" title="商家后台工具，允许大量代发经营模式存在"></a>商家后台工具，允许大量代发经营模式存在</h3><p>拼多多后台商家工具，有很多是给店群经营模式、代发经营模式的商家使用。这类场景实现目前分两类：第 1 类是直接爬取各个平台商品源到拼多多，出单后同步数据到对应平台下单。这类模式属于灰产，通过客户端、浏览器插件去爬、改页面数据。第 2 属于正规方式，目前 1688 开放平台开放对应商品数据接口，根据 1688 接口将商品数据发布到拼多多，产生订单后回 1688 下单。下面这张图是 1688 平台的流程。也就是说，淘宝不允许其他平台爬它的商品数据，但是 1688 平台希望各个平台商家来这里采购。</p><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1608456745383-e7d5e8b1-5f39-4310-bb83-dc15f4de7ac3.png#align=left&display=inline&height=199&margin=%5Bobject%20Object%5D&name=1688%E9%93%BA%E8%B4%A7%E5%88%B0%E6%8B%BC%E5%A4%9A%E5%A4%9A.png&originHeight=199&originWidth=743&size=64669&status=done&style=none&width=743" alt="1688铺货到拼多多.png"></p><p>这里和淘宝也不同。淘宝一直是管控工具，只能做网页端（或者淘宝官方提供的端），但是拼多多这边，工具是网页、客户端、浏览器插件，官方都默许可用。考虑到商家数据安全，这部分在后续应该会被取缔。但现阶段存在，帮助平台带来了大量商家。</p><p>这几个细节淘宝拼多多做法不同，看起来也不相干。但这些细节是帮助拼多多积累商家的重要因素。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;还是和之前关于拼多多的几篇一样，也是属于仔细研究后速记，并不全面。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
-    
-    <category term="拼多多" scheme="http://example.com/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/"/>
     
   </entry>
   
