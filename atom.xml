@@ -270,6 +270,25 @@
   </entry>
   
   <entry>
+    <title>电商SaaS工具后续的方向</title>
+    <link href="http://example.com/2020/12/31/2020-12-31-%E7%94%B5%E5%95%86SaaS%E5%B7%A5%E5%85%B7%E5%90%8E%E7%BB%AD%E7%9A%84%E6%96%B9%E5%90%91/"/>
+    <id>http://example.com/2020/12/31/2020-12-31-%E7%94%B5%E5%95%86SaaS%E5%B7%A5%E5%85%B7%E5%90%8E%E7%BB%AD%E7%9A%84%E6%96%B9%E5%90%91/</id>
+    <published>2020-12-31T13:10:10.000Z</published>
+    <updated>2021-03-05T11:52:58.225Z</updated>
+    
+    <content type="html"><![CDATA[<p>电商 SaaS 工具流量很难再有增长。工具本身基本都已经成熟，再想增长只能往客户成功方向走。<a id="more"></a></p><ul><li><p>电商 SaaS 工具流量很难再有增长的判断：在商家数上，主流电商平台很难大幅度增长（淘宝基本不增长，拼多多去年大幅增长后，今天也慢下来了；小平台都是淘宝商品到处搬家，说到底还是淘宝商家；快手、抖音两家是新的增量商家，但其实和服务电商平台商家思路不同）；</p></li><li><p>工具本身基本都已经成熟的判断：最早的淘宝开放平台已经做了 11 年，后面其他电商开放平台都是借鉴淘宝开放平台，电商 SaaS 工具也是如此。SaaS 工具的续费率几年没变化；</p></li><li><p>客户成功的方向：客户成功的意思是不只给一个工具，而是让商家赚钱。具体要做的几个方向分别是帮助商家搞到流量；优化经营链路（人：售前、售中、售后。物：采购、库存、物流）。</p></li></ul><p>客户成功说是一回事，做起来又是一回事。太难。</p><p>还需要围绕客群的不同（需求不同）、流量的不同、提供的服务不同（而导致的商业模式不同）。展开来聊。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;电商 SaaS 工具流量很难再有增长。工具本身基本都已经成熟，再想增长只能往客户成功方向走。</summary>
+    
+    
+    
+    
+    <category term="行业" scheme="http://example.com/tags/%E8%A1%8C%E4%B8%9A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>简单说说对大数据的态度</title>
     <link href="http://example.com/2020/12/30/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E5%AF%B9%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%80%81%E5%BA%A6/"/>
     <id>http://example.com/2020/12/30/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E5%AF%B9%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E6%80%81%E5%BA%A6/</id>
@@ -384,25 +403,6 @@
     
     
     <category term="Management" scheme="http://example.com/tags/Management/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周总结/2020/51</title>
-    <link href="http://example.com/2020/12/23/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%93:2020:51/"/>
-    <id>http://example.com/2020/12/23/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%93:2020:51/</id>
-    <published>2020-12-23T03:44:04.850Z</published>
-    <updated>2020-12-23T03:55:40.604Z</updated>
-    
-    <content type="html"><![CDATA[<p>极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。</p><a id="more"></a><p>所以，还是继续写一篇。</p><h3 id="每周数据"><a href="#每周数据" class="headerlink" title="每周数据"></a>每周数据</h3><ul><li>目标：番茄数 84， 专注时间 35 小时。</li><li>实际：番茄数 93，专注时间 38 小时 25 分钟。</li></ul><p><img src="https://cdn.brambling.cn/uxcaff/WX20201223-115435.png" alt="image-20201223113546639"></p><p>按照数据统计，本周环比上周，专注时间增加了 4 个半小时。可以统计的效果已经显现。</p><h3 id="每周总结"><a href="#每周总结" class="headerlink" title="每周总结"></a>每周总结</h3><p>这周主要完成的几件事情：</p><ol><li>本周完成了 4 篇文章写作；</li><li>周六参加了有赞大数据技术沙龙；</li><li>完成「体验碎片」转型构思。</li><li>锻炼 2 次的计划未完成。</li></ol><p>下周计划</p><ol><li>计划整理完遗留的的所有事情，开始继续 Python 数据挖掘的学习；</li><li>有赞大数据技术沙龙的体验说明</li></ol><p>另外，这种流水账式终结。这样的记录毫无意义。权当是测试 Blog 样式吧。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;极其不情愿的开始这篇周总结回顾。因为本已不打算以这种方式来回顾每周事情。但是由于这周事情太多，还未来得及准备好新的方式。另外，这类总结方式，又让最近的专注效率提升不少。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Life" scheme="http://example.com/tags/Life/"/>
     
   </entry>
   
