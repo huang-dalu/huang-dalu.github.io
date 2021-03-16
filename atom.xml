@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-12T08:46:01.629Z</updated>
+  <updated>2021-03-16T13:27:43.750Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>淘宝开放平台和服务市场</title>
+    <link href="http://example.com/2021/03/16/%E6%B7%98%E5%AE%9D%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA/"/>
+    <id>http://example.com/2021/03/16/%E6%B7%98%E5%AE%9D%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA/</id>
+    <published>2021-03-16T13:26:17.021Z</published>
+    <updated>2021-03-16T13:27:43.750Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天听放翁聊到了<a href="https://m.ximalaya.com/keji/15808812/105930931">大公司的生态</a>，有启发。就顺着一起来聊聊。<a id="more"></a></p><p>放翁说了两个在阿里，他认为做得好的生态/平台。一个是淘宝开放平台 + 服务市场，另外一个是1688诚信通体系（非互联网项目，算销售项目）。诚信通那边不太了解。开放平台 + 服务市场倒是作为局外人了解过。所以主要整理下这块的内容。</p><p>放翁认可开放平台 + 服务市场。他的想法是淘宝开放平台是依托于商家端的开放。商家的多样，需求自然也多样。不同订单体量、不同经营模式、不同类目。对店铺工具的诉求不一样。官方不可能全盘承接这些需求。官方可能去做基础的商品、订单管理工具，以及通用的数据应用（生意参谋）。但是不可能每个商家群体都照顾到。所以商家端的开放就变成必须要做的事。</p><p>另外，商家端的开放，也不会给平台带来风险。在商家层面，商家最终还是要在平台卖货，工具是用来提升经营效率。服务商层面，必须严重依赖平台的接口开放，包括数据的定义、数据的存储。平台的商业价值体现在工具可以帮助商家提高前端营销效率，后端供应链的能力，包括采购、仓储等等。商家利用工具提效。产生店铺GMV，去淘宝投放更多广告。ISV 围绕店铺经营场景做产品和服务，给平台方数据费用。获得软件/服务收入。形成正向循环。</p><p>比尔•盖茨对平台的定义是：当使用平台的用户获得的经济收益超过建立这个平台的公司，“平台”才真正成立。显然，淘宝商家产生的GMV远远大于服务市场，整体 ISV 的收益也大于服务市场本身。所以开放平台 + 服务市场确实是当之无愧。其他电商平台要做开放，首选参考对象一定是淘宝服务市场。</p><p>延伸一下朱啸虎对平台的解释，朱啸虎认为平台的组成部分包括：</p><ul><li><strong>底层软件产品</strong>：平台往往建立在现有的软件产品之上，本身就具备一些独立的价值。例如，iOS和安卓首先是智能手机操作系统，具有独立的功能（电话、文本、网络浏览器等）。这是早在外部开发者进行开发之前就具备的基础功能。服务市场同样也拥有基础能力，包括但不限于：商品管理、订单管理、促销产品、数据产品等等。</li><li><strong>开发框架</strong>：任何平台最基本的要求之一，就是它必须开放平台能力，允许第三方开发者在此基础上为平台上的用户开发软件产品。淘宝开放平台定义了接口标准、数据存储标准。以及前端的QAP框架，淘宝小程序框架。</li><li><strong>匹配</strong>：帮助开发者分发应用，帮助平台用户发现满足他们需求的应用。后者尤其重要，因为平台承载着与用户或者说消费者之间的主要关系。服务市场所做的就是匹配ISV和商家场景。</li><li><strong>经济效益</strong>：最后，平台要能为开发者带来经济收益，帮助他们在平台上开创业务、商业变现，或是通过平台对他们原本的业务有所提升。这些收益可以是直接的（从平台获得收入），也可以是间接的（通过平台提高用户参与度或留存）。在淘宝开放平台中，商家、ISV、平台方都有获利。</li></ul><p>总之，淘宝开放平台 + 服务市场，集合了底层软件产品、基于软件框架的开发能力，以及具有匹配和变现功能的商业生态。满足平台 = 底层软件 + 开发能力 + 商业生态。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天听放翁聊到了&lt;a href=&quot;https://m.ximalaya.com/keji/15808812/105930931&quot;&gt;大公司的生态&lt;/a&gt;，有启发。就顺着一起来聊聊。</summary>
+    
+    
+    
+    
+    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>职场中的“贴标签”</title>
     <link href="http://example.com/2021/03/13/%E8%81%8C%E5%9C%BA%E4%B8%AD%E7%9A%84%E2%80%9C%E8%B4%B4%E6%A0%87%E7%AD%BE%E2%80%9D/"/>
     <id>http://example.com/2021/03/13/%E8%81%8C%E5%9C%BA%E4%B8%AD%E7%9A%84%E2%80%9C%E8%B4%B4%E6%A0%87%E7%AD%BE%E2%80%9D/</id>
     <published>2021-03-13T13:10:10.000Z</published>
-    <updated>2021-03-12T08:46:01.629Z</updated>
+    <updated>2021-03-12T08:52:07.202Z</updated>
     
-    <content type="html"><![CDATA[<p>用户画像就是给人贴标签的商业化。所以贴标签这件事。肯定是有用的，因为更有效率。<a id="more"></a></p><p>实际工作、生活中，也会遇到。比如：这位员工是“小白兔”型职员；这位员工“技术能力好，但是几乎没有业务理解能力”。有的标签是一种便于理解的形象化描述，有的是一句粗浅的结论。只是描述，我觉得无所谓。如果是下结论，那就要斟酌。</p><p>把范围缩小到职场。说下我的观点。主管、HR 以及类似可以评判员工职员的职务。对贴标签这事儿一定要警惕。先分享一个例子。</p><p>周奇墨在《十大单口喜剧专场》里分享了一个有趣的心理学实验。研究者安排了一个白人和一个黑人分别在两组人面前辩论。在第一组人面前，黑人明显辩论得更好，另一组则白人辩得更好。随后请两组人对胜出者进行评价，结果两组对两位获胜的黑人和白人，都有高度相当的评价。</p><p>之后，研究者在观众评价之前先安排了一个托儿，喊了句：“这个黑鬼绝对不会赢！”结果，大家对于黑人胜出者的评价便会明显低于白人胜出者。而当把“黑鬼”一词换成“正方/反方辩手”，对双方胜出者的评价便不会有差别。</p><p>一个带有刻板印象的评价，会像掷入水中的石头，勾起观众们脑海里关于某个群体在其它方面的刻板印象。这种偏见，只需要一个词就能够被激活，人们甚至难以意识到它的存在。</p><p>这就是我为什么在职场，会非常谨慎把一个人说成“不努力”“不合群”这种类似标签。给一个人贴标签很懒。这个标签会简化很多决策，比如加薪晋升之类。甚至，你在这家公司，就会一直有这个标签。就像牛皮癣。</p><p>评判者在做对被评判者影响很大的决策时，请多花一点时间。</p>]]></content>
+    <content type="html"><![CDATA[<p>用户画像就是给人贴标签的商业化。所以贴标签这件事。肯定是有用的，因为更有效率。<a id="more"></a></p><p>实际工作、生活中，也会遇到。比如：这位员工是“小白兔”型职员；这位员工“技术能力好，但是几乎没有业务理解能力”。有的标签是一种便于理解的形象化描述，有的是一句粗浅的结论。只是描述，我觉得无所谓。如果是下结论，那就要斟酌。</p><p>把范围缩小到职场。说下我的观点。主管、HR 以及类似可以评判员工职员的职务。对贴标签这事儿一定要警惕。</p><p>一个例子:</p><p>周奇墨在《十大单口喜剧专场》里分享了一个有趣的心理学实验。研究者安排了一个白人和一个黑人分别在两组人面前辩论。在第一组人面前，黑人明显辩论得更好，另一组则白人辩得更好。随后请两组人对胜出者进行评价，结果两组对两位获胜的黑人和白人，都有高度相当的评价。</p><p>之后，研究者在观众评价之前先安排了一个托儿，喊了句：“这个黑鬼绝对不会赢！”结果，大家对于黑人胜出者的评价便会明显低于白人胜出者。而当把“黑鬼”一词换成“正方/反方辩手”，对双方胜出者的评价便不会有差别。</p><p>一个带有刻板印象的评价，会像掷入水中的石头，勾起观众们脑海里关于某个群体在其它方面的刻板印象。这种偏见，只需要一个词就能够被激活，人们甚至难以意识到它的存在。</p><p>这就是我为什么在职场，会非常谨慎把一个人说成“不努力”“不合群”这种类似标签。给一个人贴标签很懒。这个标签会简化很多决策，比如加薪晋升之类。甚至，你在这家公司，就会一直有这个标签。就像牛皮癣。</p><p>评判者在做对被评判者影响很大的决策时，请多花一点时间。</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;用户画像就是给人贴标签的商业化。所以贴标签这件事。肯定是有用的，因为更有效率。</summary>
@@ -382,27 +401,6 @@
     
     
     <category term="数据分析" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据可视化：sns.kdeplot（核密度估计图）查看数据分布</title>
-    <link href="http://example.com/2020/12/29/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Asns.kdeplot%EF%BC%88%E6%A0%B8%E5%AF%86%E5%BA%A6%E4%BC%B0%E8%AE%A1%E5%9B%BE%EF%BC%89%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83/"/>
-    <id>http://example.com/2020/12/29/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9Asns.kdeplot%EF%BC%88%E6%A0%B8%E5%AF%86%E5%BA%A6%E4%BC%B0%E8%AE%A1%E5%9B%BE%EF%BC%89%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83/</id>
-    <published>2020-12-29T03:30:52.322Z</published>
-    <updated>2020-12-30T05:42:36.093Z</updated>
-    
-    <content type="html"><![CDATA[<p>接触到核密度估计是 seaborn 库中的 kdeplot （也就是核密度估计图）。它可以比较直观看出样本数据的分布特征。用到查看单个样本数据分布特征，和比较多个样本数据分布是否一致。<a id="more"></a></p><p>我目前最常用的还是在同一变量下，比较测试集和训练集数据的分布差异情况。</p><p>了解数据分布的另一种图示方法是使用直方图。但是使用起来有几个缺点。一个原因是绘制直方图需要确定组距，组距的大小就会确定分布特征。而且使用直方图展示的分布曲线并不平滑。</p><p>回到核密度估计，查阅了一些相关理论，理论讲解部分目前懂了，但是数学公式推导细节还是有些不懂。由于目前只是核密度图来查看数据集分布，所以这部分原理决定还是放一放，后续再花时间。</p><p>常用的还是 seaborn 库的 kdeplot，也就是核密度估计图。下面用 seaborn 库自带的小费数据集演示。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series,DataFrame</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拿到小费数据集</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据介绍： total_bill列为消费总金额；tip列为小费金额；sex列为顾客性别；smoker列为顾客是否抽烟；day列为消费的星期；time列为聚餐的时间段；size列为聚餐人数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前5行数据</span></span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641656010-829f760d-8c68-4ad9-8dde-8c70136a7f0d.png#align=left&display=inline&height=164&margin=%5Bobject%20Object%5D&name=image.png&originHeight=164&originWidth=346&size=15176&status=done&style=none&width=346" alt="image.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">column = tips.columns.tolist()[:<span class="number">2</span>]  <span class="comment"># 列表头</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">4</span>))  <span class="comment"># 指定绘图对象宽度和高度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">2</span>, i + <span class="number">1</span>)  <span class="comment"># 1行2列子图</span></span><br><span class="line">    sns.kdeplot(tips[column[i]],shade=<span class="literal">True</span>)</span><br><span class="line">    plt.xlabel(column[i], fontsize=<span class="number">8</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641604139-fb51ce59-a977-40c5-91df-ab330e7836f6.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=output_2_0.png&originHeight=261&originWidth=601&size=19762&status=done&style=none&width=601" alt="output_2_0.png"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ax = sns.kdeplot(tips[<span class="string">&#x27;total_bill&#x27;</span>], color=<span class="string">&quot;Red&quot;</span>, shade=<span class="literal">True</span>)</span><br><span class="line">ax = sns.kdeplot(tips[<span class="string">&#x27;tip&#x27;</span>], color=<span class="string">&quot;Blue&quot;</span>, shade=<span class="literal">True</span>)</span><br><span class="line">ax = ax.legend([<span class="string">&quot;total_bill&quot;</span>,<span class="string">&quot;tip&quot;</span>])</span><br></pre></td></tr></table></figure><p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1604641610796-fe142201-9b34-4f36-94b5-623468070693.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=output_3_0.png&originHeight=248&originWidth=378&size=10435&status=done&style=none&width=378" alt="output_3_0.png"><br>拿小费数据集为例。图一单个看 total_bill 和 tip，两个数据集分布基本一致，都是略微右偏。</p><p>另外。提一个问题：来看图二，放在一起对比就会明显。如果假设一个是测试集数据，另外一个为训练集数据。这类情况是否需要对数据处理进行处理？显然是需要的，因为测试集和训练集分布差距大，会导致模型泛化能力差。这部分根据具体情况看，如果特征足够多，常见的操作是删除差距较大的特征。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;接触到核密度估计是 seaborn 库中的 kdeplot （也就是核密度估计图）。它可以比较直观看出样本数据的分布特征。用到查看单个样本数据分布特征，和比较多个样本数据分布是否一致。</summary>
-    
-    
-    
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-    <category term="数据可视化" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
