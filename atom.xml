@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-24T07:55:52.129Z</updated>
+  <updated>2021-03-28T06:22:08.339Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>看产品经理的月度规划有感</title>
+    <link href="http://example.com/2021/03/27/%E7%9C%8B%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E6%9C%88%E5%BA%A6%E8%A7%84%E5%88%92%E6%9C%89%E6%84%9F/"/>
+    <id>http://example.com/2021/03/27/%E7%9C%8B%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E6%9C%88%E5%BA%A6%E8%A7%84%E5%88%92%E6%9C%89%E6%84%9F/</id>
+    <published>2021-03-27T13:10:10.000Z</published>
+    <updated>2021-03-28T06:22:08.339Z</updated>
+    
+    <content type="html"><![CDATA[<p>我合作了不下 30 位产品经理。看写的月度规划和需求内容。70% 的产品经理规划任务里，就会写需求。“优化”“整合”“新增”xx功能。需求内容 20 个字以内搞定。没有分类，更没有场景。然后，需求延期好像也没什么影响，下个月接着做。时间节点可能也是老板要求、用户要求、客服要求。很少见到判断说因为市场情况、行业情况。<a id="more"></a></p><p>一开始，我会稍微问下需求的目的，答案一般是：A 用户提了、线上问题、模块完善、交互优化。我也就不再问，不拦。每个需求背后确实都可以溯源。慢慢地，感觉也不对。一直这么做，需求源源不断，无穷无尽。企业不倒，需求不灭。做的永远是听起来正确的事。</p><p>后面我想，这不对啊。这样看起来有规划，但又很模糊。规划的内容决策依据不够，又没有时间要求，又没有效果验证。针对这种比较明显的团队，自己私下做了验证，砍掉 30% 的需求，最后发现项目数据纹丝不动，开发还轻松。</p><p>无止境的堆砌，推粪上山。</p><p>后面，我自己排任务，是会想想这些问题：</p><ul><li><p>为什么要做这个需求</p></li><li><p>为什么现在要做这个需求？</p></li><li><p>整个项目产品路线是怎么样的？根据路线划分的阶段是怎样的？那么，每个阶段要做的需求是什么？</p></li><li><p>这个需求，该怎么论证效果？</p></li></ul><p>会考虑几个因素：需求价值、项目价值、时间周期、团队资源。所以，后面我也有了一个习惯，如果没有那么好的产品经理，我就先不招，人少点好。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;我合作了不下 30 位产品经理。看写的月度规划和需求内容。70% 的产品经理规划任务里，就会写需求。“优化”“整合”“新增”xx功能。需求内容 20 个字以内搞定。没有分类，更没有场景。然后，需求延期好像也没什么影响，下个月接着做。时间节点可能也是老板要求、用户要求、客服要求。很少见到判断说因为市场情况、行业情况。</summary>
+    
+    
+    
+    
+    <category term="需求分析" scheme="http://example.com/tags/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>直销和线上推广的不同</title>
+    <link href="http://example.com/2021/03/26/%E7%9B%B4%E9%94%80%E5%92%8C%E7%BA%BF%E4%B8%8A%E6%8E%A8%E5%B9%BF%E7%9A%84%E4%B8%8D%E5%90%8C/"/>
+    <id>http://example.com/2021/03/26/%E7%9B%B4%E9%94%80%E5%92%8C%E7%BA%BF%E4%B8%8A%E6%8E%A8%E5%B9%BF%E7%9A%84%E4%B8%8D%E5%90%8C/</id>
+    <published>2021-03-26T13:10:10.000Z</published>
+    <updated>2021-03-28T06:17:46.193Z</updated>
+    
+    <content type="html"><![CDATA[<p>线上可以非常精确的控制流量标签。比如：新用户、购买 1 次的用户、点过 1 次广告的男性用户。任意的基础数据 + 行为数据 + 偏好数据 衍生组合都可以。<a id="more"></a></p><p>但是直销不一样。在获取线索阶段，对于直销人员来说，线索来源分为 2 类：直销人员自己的线索和团队给的，团队如果能给到精准的目标客户线索当然最好。给不到精准的，肯定是要全网捞。直销人员自己的线索主要是靠自己人脉资源、转介绍之类。</p><p>所以直销的线索，如果有能力和资源做到精准，肯定会做。但再怎么做，也肯定不会像线上做到那么细致。直销的驱动力是提成，不会管产品策略，这个很正常。</p><p>这是线上线下产品很大不同。如果这里不刻意引导线索挖掘。会造成一个后果：销售除了带回订单，也带回了客户分个性化需求（客户越大，带回的个性化需求越大）。做还是不做呢？如果订单没有那么多情况下。团队没有太多选择，很大概率就会做，做多了产品方向就偏了。</p><p>因为流量不精准，导致后的后续个性化需求。这个解法就是；</p><ul><li>在前期尽一切可能，划定好产品策略需要的精准流量；</li><li>产品经理的需求分析、业务判断能力要提升；</li><li>直销人员透传产品策略，明确需要什么类型用户，比如：前期只需要服装类目用户（这部分不抱希望，其实也不符合情理）</li></ul><p>当然直销也有好处，你的用户不是一个个冷冰冰的 UV，产品是不是有价值。就看看直销人员吃了多少闭门羹就知道。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;线上可以非常精确的控制流量标签。比如：新用户、购买 1 次的用户、点过 1 次广告的男性用户。任意的基础数据 + 行为数据 + 偏好数据 衍生组合都可以。</summary>
+    
+    
+    
+    
+    <category term="SaaS" scheme="http://example.com/tags/SaaS/"/>
+    
+  </entry>
   
   <entry>
     <title>SaaS高客单价产品的冷启动</title>
@@ -355,46 +393,6 @@
     
     
     <category term="用户研究" scheme="http://example.com/tags/%E7%94%A8%E6%88%B7%E7%A0%94%E7%A9%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>资讯流到底该左文右图还是左图右文？From vivo UED</title>
-    <link href="http://example.com/2021/02/14/%E8%B5%84%E8%AE%AF%E6%B5%81%E5%88%B0%E5%BA%95%E8%AF%A5%E5%B7%A6%E6%96%87%E5%8F%B3%E5%9B%BE%E8%BF%98%E6%98%AF%E5%B7%A6%E5%9B%BE%E5%8F%B3%E6%96%87%EF%BC%9FFrom%20vivo%20UED/"/>
-    <id>http://example.com/2021/02/14/%E8%B5%84%E8%AE%AF%E6%B5%81%E5%88%B0%E5%BA%95%E8%AF%A5%E5%B7%A6%E6%96%87%E5%8F%B3%E5%9B%BE%E8%BF%98%E6%98%AF%E5%B7%A6%E5%9B%BE%E5%8F%B3%E6%96%87%EF%BC%9FFrom%20vivo%20UED/</id>
-    <published>2021-02-14T13:10:10.000Z</published>
-    <updated>2021-02-14T05:54:38.668Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>本文是 vivo UED 团队的</em><a href="https://mp.weixin.qq.com/s/PBi__-HbYhlNNTrFHaKOiw"><em>一篇文章</em></a><em>。我对这篇文章的感觉是：</em><a id="more"></a></p><p><em>论证方式用的是理论论据，方向是对的，一些细节有待商榷。比如文中提到“然而至文字诞生以来，多数情况下，人类普遍通过文字来获取信息，我们不否定，通常情况下图片的易识别性远优于文字，但是从信息传递的准确性以及丰富性上来说，文字的优势是远大于图片的。”这个观点，我觉得恰恰相反。从信息传递的准确性以及丰富性上来说，图片的优势是远大于文字的。图片关乎色彩、地理、情感、内容。一张图片的信息丰富度远远大于一段文字。</em></p><p><em>一般论证这种交互问题，我的论据角度是：案例、理论、数据。资讯到底该左文右图还是左图右文这个案例，我更倾向于做A/B Test 得到答案。</em></p><p><em>以下是原文：</em></p><p><strong>背景</strong></p><p>经常使用或者关注资讯类产品的同学可能会留意到，在信息流item中，有的标题在左图片在右，而有的是图片在左标题在右，这两种形式看似区别不大，但又似乎存在很大差异。设计师在设计时是如何考虑的？我认为这是一个很有意思的话题，所以今天就和大家聊一聊在资讯流中，<strong>左文右图</strong>和<strong>左图右文</strong>的差异。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/webp/613759/1613194466687-26c1f9a9-d16d-4cad-bf71-ffe4f1a4b993.webp#align=left&display=inline&height=302&margin=%5Bobject%20Object%5D&originHeight=603&originWidth=944&size=0&status=done&style=none&width=472"></p><h3 id="左文右图"><a href="#左文右图" class="headerlink" title="左文右图"></a><strong>左文右图</strong></h3><p>左文右图的样式普遍出现在新闻资讯产品中，其中包括今日头条、腾讯新闻、UC浏览器信息流以及我们的vivo浏览器信息流等等，现在就让我们从资讯平台作为切入点，对左文右图的形式进行分析。</p><p><strong>1.左文右图符合人们长久以来的阅读习惯</strong><br>按照已知经过验证的理论，即F阅读顺序（尼尔森的用户阅读视线模型），用户浏览页面的顺序是从左往右自上而下，因此左上角的信息最早触达用户。然而至文字诞生以来，多数情况下，人类普遍通过文字来获取信息，我们不否定，通常情况下图片的易识别性远优于文字，但是从信息传递的准确性以及丰富性上来说，文字的优势是远大于图片的。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/webp/613759/1613194466657-8272c401-0cb0-4d4f-8eed-a1805e16bad7.webp#align=left&display=inline&height=431&margin=%5Bobject%20Object%5D&originHeight=862&originWidth=694&size=0&status=done&style=none&width=347"></p><p>所以在资讯类产品中我们更倾向于优先通过文字来识别内容，而将图片作为辅助信息，因此根据我们从左往右自上而下阅读习惯，将文字放在左边更有利于用户获取信息。我们通过一个案例来分别了解一下左图右文与左文右图的用户阅读路径是什么样的。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466570-88e009a1-dd25-47ee-82ea-72330d324ae2.png#align=left&display=inline&height=268&margin=%5Bobject%20Object%5D&originHeight=535&originWidth=944&size=0&status=done&style=none&width=472"></p><p>在上面的案例中，左图右文用户的阅读路径偏长，并且常常出现视线的折返</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466587-6d077b19-d81f-4e41-afc3-d065d38483a8.png#align=left&display=inline&height=237&margin=%5Bobject%20Object%5D&originHeight=474&originWidth=944&size=0&status=done&style=none&width=472"></p><p>左文右图用户的阅读路径较短，不会有视线的折反。因此，基于效率和阅读习惯的角度来说，左文右图优势更明显。</p><p>但或许这里就会有人提出疑问 “在资讯类信息流中很大一部分用户都是因为受图片的吸引才会对该则新闻感兴趣的呀” 的确、这是一个普遍场景，但是在前面我们也提到，图片的易识别性是远高于文字的，因此哪怕是将图片放在文字后面，对于图片的“魅力”的影响是在可接受范围内的。</p><p><strong>2.左文右图更有利于为用户提供统一的阅读基准位置</strong><br>在资讯信息流中，为了信息展示的多样性，避免单一的信息流结构使用户感到单调，在样式上除了左文右图的样式，往往还会搭配三图、大图及视频的样式出现，而在这样多种穿插样式的情况下，左文右图能够为用户的双眼提供了一个扫读时候的基准位置，在大量、长时间阅读的过程中，极大地减小了阅读压力</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466635-08b64033-6e24-4e42-9495-c834ca395d0a.png#align=left&display=inline&height=355&margin=%5Bobject%20Object%5D&originHeight=710&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>3.尽可能保持整体信息流图文阅读先后顺序的一致性</strong><br>资讯流中除了左文右图的样式，还会搭配三图、大图及视频的样式出现，因此我们不仅仅要考虑单个信息流样式的阅读体验，更要保持持整体信息流阅读先后顺序的一致性，这能够为用户提供较好的沉浸式体验。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466621-fab939a0-48c7-4548-aead-d247f6b7a933.png#align=left&display=inline&height=683&margin=%5Bobject%20Object%5D&originHeight=1366&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>4.在视觉上更符合格式塔闭合原理</strong><br>左图右文的的形式在标题文字较短的情况下，item右上角就会出现视觉上的缺角，这会破坏页面整体的工整性，而左文右图的形式就很好的避免了这个问题。格式塔原理对闭合的研究中提到，人的大脑无论看见什么东西,都喜欢去将它们想象成为一个整体,如果元素太过杂乱大脑无法将其归类成为一个整体,那么视觉感受就是非常不佳的。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466644-79379915-2eaf-4025-8083-f63ecb494cfc.png#align=left&display=inline&height=351&margin=%5Bobject%20Object%5D&originHeight=701&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>小结：</strong>左文右图基于它在信息获取效率和人们阅读习惯上的优势得到各大新闻资讯类产品的青睐，是较为通用的形式。那是不是就没有“左图右文”什么事了？其实不然，左图右文仍是有其优势的，并且在特定场景下，左图右文的形式的优势会更明显。</p><h3 id="左图右文"><a href="#左图右文" class="headerlink" title="左图右文"></a><strong>左图右文</strong></h3><p><strong>1.图片在左侧，第一时间吸引用户视线</strong><br>在内容形式的吸引力上，视频&gt;图片&gt;文字，并且前面我们提到，图片的易识别性是高于文字的，因此一张高质量的图片往往能够在第一时间触达用户并形成转化。但前提要求是我们能够把控图片的质量，否则效果将适得其反，所以我们说左图右文的样式一般更适合用来承载PGC的内容。例如主打品质时政新闻的资讯产品澎湃新闻以及垂类游戏资讯社区平台篝火营地，其推荐的内容都来自专业团队的输出，对内容图片的质量有较好的掌控力，因此采用了左图有文的形式优先给用户展示图片信息，以提升用户对内容的兴趣。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466660-daf2b22f-6091-43fc-95de-4bba03542dc9.png#align=left&display=inline&height=390&margin=%5Bobject%20Object%5D&originHeight=779&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>2.在带有明确目的阅读场景下，例如查找历史内容、搜索等，左图右文的形式效率更高</strong><br>在用户带有明确目的场景时进行信息阅读时，用户往往对内容已经有了一个大致的预期，所以这个时候如果我们能让用户第一时间识别图片，能够大大的提升用户的操作效率。例如用户在查找一篇曾经看过的文章时，当曾经阅读过那篇文章的封面出现屏幕中时，用户便能立刻作出判断，这会比在众多文字标题中查找更为便捷。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p><strong>左文右图</strong><br>1、通常情况下，我们优先通过文字来获取讯息，因此在一般的信息流中，更青睐采用左文右图的方式，以提升效率<br>2、左文右图能够为用户提供统一的阅读基准位置，在用户长时间浏览时减少阅读压力<br>3、更好的满足格式塔闭合原理，使信息流整体的页面更加工整</p><p><strong>左图右文</strong><br>1、左图右文常被用来承载PGC的内容。在能够确保图片质量的情况下，图片在左侧，更容易引起用户对帖子的兴趣<br>2、在带有明确目的阅读场景下，例如查找历史内容、搜索等，左图右文的形式效率更高<br><strong>#Tips</strong><br>无论是左文右图还是左图右文都各有其优势及适用的场景，但当我们在设计信息流时，我们要注意为用户提供图文阅读顺序一致的体验。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466660-3dd1ecd6-d1f8-4118-8bc8-47119aa73398.png#align=left&display=inline&height=683&margin=%5Bobject%20Object%5D&originHeight=1366&originWidth=944&size=0&status=done&style=none&width=472"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;em&gt;本文是 vivo UED 团队的&lt;/em&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/PBi__-HbYhlNNTrFHaKOiw&quot;&gt;&lt;em&gt;一篇文章&lt;/em&gt;&lt;/a&gt;&lt;em&gt;。我对这篇文章的感觉是：&lt;/em&gt;</summary>
-    
-    
-    
-    
-    <category term="Design" scheme="http://example.com/tags/Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务市场与ISV</title>
-    <link href="http://example.com/2021/02/12/%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E4%B8%8EISV/"/>
-    <id>http://example.com/2021/02/12/%E6%9C%8D%E5%8A%A1%E5%B8%82%E5%9C%BA%E4%B8%8EISV/</id>
-    <published>2021-02-12T13:10:10.000Z</published>
-    <updated>2021-02-25T13:40:23.973Z</updated>
-    
-    <content type="html"><![CDATA[<p>对于服务市场而言，ISV 就是服务市场的一个小商品。和 App Store 是一样的。但是运营规则不同。<a id="more"></a>ISV 分为头部和长尾。按照正常逻辑来说，一个生态首先是要靠头部，战略是养更多尾部的话，服务市场的营收才会更好（基本满足二八原则）。</p><p>目前，几乎所有电商服务市场目前都看重头部，什么阶段看重长尾呢？</p><ul><li>头部过于强大，形成垄断。会造成 ISV （需求供给侧）没有活水。缺乏竞争又会影响到市场创新，甚至会导致恶性竞争，比如：小 ISV 看不到希望，疯狂弹广告收割用户；</li><li>商家需求、服务形态发生变化。比如：2020 年淘宝服务市场一直在招募的淘宝小程序开发商。以前 ISV 是给商家做工具，小程序开发是给商家做工具，给到 C 端消费者使用。场景发生变化，又因为垂直商家对应的消费者需求比较多样，比如美妆类/数码类决策购买流程很大不同。所以平台需要更多 ISV 进来，做垂直场景。</li></ul><p>另外，电商服务市场的先发优势非常明显，不比 App Store。原因是：</p><ul><li>ISV 是基于商家规则做产品。商家规则的变动，趋于完善后，几乎不会再改。那这部分需求满足其实很好了，再做很难。比如：淘宝平台的虚拟上下架、橱窗规则，都是 10 年以上的规则，ISV 现在基本玩不出花样；</li><li>服务市场在不断完善，服务市场和 ISV 之间，本质上就是商家数据的交易。一来随着时间越长，开放的接口越来越完善；二来随着平台开始关注数据隐私，对于开放的数据接口，会慎之又慎。没有数据，ISV 犹如做无米之炊，后期自然很难；</li></ul><p>基于以上 2 点，会导致 ISV 产品同质化严重，那相同的产品，在投入相同的情况下，自然是先做的占优。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;对于服务市场而言，ISV 就是服务市场的一个小商品。和 App Store 是一样的。但是运营规则不同。</summary>
-    
-    
-    
-    
-    <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
-    
-    <category term="平台" scheme="http://example.com/tags/%E5%B9%B3%E5%8F%B0/"/>
     
   </entry>
   
