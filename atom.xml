@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-29T11:28:48.531Z</updated>
+  <updated>2021-03-29T12:59:11.522Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,16 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SaaS线下推广线索流转过程</title>
-    <link href="http://example.com/2021/03/29/SaaS%E7%BA%BF%E4%B8%8B%E6%8E%A8%E5%B9%BF%E7%BA%BF%E7%B4%A2%E6%B5%81%E8%BD%AC%E8%BF%87%E7%A8%8B/"/>
-    <id>http://example.com/2021/03/29/SaaS%E7%BA%BF%E4%B8%8B%E6%8E%A8%E5%B9%BF%E7%BA%BF%E7%B4%A2%E6%B5%81%E8%BD%AC%E8%BF%87%E7%A8%8B/</id>
+    <title>SaaS产品线下推广线索流转过程</title>
+    <link href="http://example.com/2021/03/29/SaaS%E4%BA%A7%E5%93%81%E7%BA%BF%E4%B8%8B%E6%8E%A8%E5%B9%BF%E7%BA%BF%E7%B4%A2%E6%B5%81%E8%BD%AC%E8%BF%87%E7%A8%8B/"/>
+    <id>http://example.com/2021/03/29/SaaS%E4%BA%A7%E5%93%81%E7%BA%BF%E4%B8%8B%E6%8E%A8%E5%B9%BF%E7%BA%BF%E7%B4%A2%E6%B5%81%E8%BD%AC%E8%BF%87%E7%A8%8B/</id>
     <published>2021-03-29T11:25:27.501Z</published>
-    <updated>2021-03-29T11:28:48.531Z</updated>
+    <updated>2021-03-29T12:59:11.522Z</updated>
     
     <content type="html"><![CDATA[<p>记录下需要线下直销推广的产品，常规的线索的流转过程。<a id="more"></a></p><p>第 1 步，每日 Excel 汇总线索。线索来源一般分为：内部产品渠道、外部草根推广、外部付费推广、转介绍等等。在初期比较消耗人力，因为不清楚渠道质量，也没有对应系统。所以只能每日 Excel 汇总。后期可以做数据系统。</p><p>第 2 步，区别线索处理方式。不同的渠道交给不同角色处理。前期最好做好线索的筛选。定义好“大客户”、“小客户”、“客户区域是否覆盖”等等。这个部分比较繁琐的是：线索来源和流程的不同，导致业务架构要频繁调整。比如：在前期，线上客服 + 自然流量 + 线下直销团队都有会线索来源。那这些线索，最好是交给有专门筛选线索的团队。进行初步筛选，再分配。</p><p>但是在后期，线索来源比较稳定。是否需要进行线索筛选，就需要打问号？因为增加线索筛选流程，同样也会增加销售人员对接客户的时间，时间越长，转化越低。</p><p>第 3 步，接下来就是销售跟进、实施跟进。销售和实施的动态。现在公司都会有 CRM 系统可以记录。</p><p>第 4 步，最后就是每天输出数据报表，线上转化数据 + 线下节点数据。同步到团队。</p><p>重要的地方在区别线索处理方式的这一步，要有每一步的节点数据。节点数据比如：是否分配到销售、是否成功联系、首次跟进意向（高意向/无意向等等）、是否签单、是否实施。销售人员这里的备注记录很重要，比如：无意向的原因、是否联系到正确的客户等等。这些原因都有助于调整产品、流量策略。这里常见的问题是：数据不能及时的汇总。这个和线下的复杂情况、销售团队纪律都有关系。但不管怎样。这块的数据尽量要及时。避免周期太长、或者不准。</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;记录下需要线下直销推广的产品，常规的线索的流转过程。</summary>
+    
+    
+    
+    
+    <category term="SaaS" scheme="http://example.com/tags/SaaS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>直销和代理的区别</title>
+    <link href="http://example.com/2021/03/28/%E7%9B%B4%E9%94%80%E5%92%8C%E4%BB%A3%E7%90%86%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://example.com/2021/03/28/%E7%9B%B4%E9%94%80%E5%92%8C%E4%BB%A3%E7%90%86%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2021-03-28T13:10:10.000Z</published>
+    <updated>2021-03-29T12:58:47.235Z</updated>
+    
+    <content type="html"><![CDATA[<p>直销和代理的定义与区别。直销的意思是产品供应商自产自销，比如国内的ERP应用，多半是直销模式。代理的意思是分销代理，一级、二级分销，超过三级就算传销。比如花生日记、淘宝客这类，就属于分销模式。<a id="more"></a></p><p>哪些产品适合直销？我目前想了想（不一定准确，欢迎交流）。产品适不适合直销，其实蕴含了 2 层意思：</p><ol><li>产品本身适合直销进行售卖。我理解是采购决策周期长，售后链路长的产品，都适合直销模式。拿 ERP 举例。产品订购决策动辄以月为周期，而且需要根据客户做一些自定义场景。代理商既没有耐心，也没有能力来做。采购后的实施工作照样繁琐，这部分事情代理商也不会做，都是供应商的实施人员处理。“重”的模式，代理商不适合；</li><li>供应商希望产品以直销方式售卖。如果供应商有足够的现金流，首选是直销。如果交给代理，代理商会吃掉大部分利润，供应商还要付出成本进行渠道管理。</li></ol><p>哪些产品适合代理？对应上面适合直销的因素。适合代理的产品往往决策链路短，一锤子买卖。产品以量取胜。</p><p>再补充 3 种常见的 SaaS 产品售卖组合方式：</p><ul><li>线上售卖 + 代理渠道。比如：常见的电子产品、客单价在 1000.00/年以内的应用；</li><li>线上流量线索 + 直销渠道。比如：ERP、财务、CRM应用；</li><li>直销 + 代理混合。有些CRM、ERP等应用也才取的这类模式。具体情况多是公司有负责华东地区，带去负责华南地区。也就是利用代理去覆盖直销团队暂时还覆盖不到的区域。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;直销和代理的定义与区别。直销的意思是产品供应商自产自销，比如国内的ERP应用，多半是直销模式。代理的意思是分销代理，一级、二级分销，超过三级就算传销。比如花生日记、淘宝客这类，就属于分销模式。</summary>
     
     
     
@@ -374,25 +393,6 @@
     
     
     <category term="用户研究" scheme="http://example.com/tags/%E7%94%A8%E6%88%B7%E7%A0%94%E7%A9%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>资讯流到底该左文右图还是左图右文？From vivo UED</title>
-    <link href="http://example.com/2021/02/14/%E8%B5%84%E8%AE%AF%E6%B5%81%E5%88%B0%E5%BA%95%E8%AF%A5%E5%B7%A6%E6%96%87%E5%8F%B3%E5%9B%BE%E8%BF%98%E6%98%AF%E5%B7%A6%E5%9B%BE%E5%8F%B3%E6%96%87%EF%BC%9FFrom%20vivo%20UED/"/>
-    <id>http://example.com/2021/02/14/%E8%B5%84%E8%AE%AF%E6%B5%81%E5%88%B0%E5%BA%95%E8%AF%A5%E5%B7%A6%E6%96%87%E5%8F%B3%E5%9B%BE%E8%BF%98%E6%98%AF%E5%B7%A6%E5%9B%BE%E5%8F%B3%E6%96%87%EF%BC%9FFrom%20vivo%20UED/</id>
-    <published>2021-02-14T13:10:10.000Z</published>
-    <updated>2021-02-14T05:54:38.668Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>本文是 vivo UED 团队的</em><a href="https://mp.weixin.qq.com/s/PBi__-HbYhlNNTrFHaKOiw"><em>一篇文章</em></a><em>。我对这篇文章的感觉是：</em><a id="more"></a></p><p><em>论证方式用的是理论论据，方向是对的，一些细节有待商榷。比如文中提到“然而至文字诞生以来，多数情况下，人类普遍通过文字来获取信息，我们不否定，通常情况下图片的易识别性远优于文字，但是从信息传递的准确性以及丰富性上来说，文字的优势是远大于图片的。”这个观点，我觉得恰恰相反。从信息传递的准确性以及丰富性上来说，图片的优势是远大于文字的。图片关乎色彩、地理、情感、内容。一张图片的信息丰富度远远大于一段文字。</em></p><p><em>一般论证这种交互问题，我的论据角度是：案例、理论、数据。资讯到底该左文右图还是左图右文这个案例，我更倾向于做A/B Test 得到答案。</em></p><p><em>以下是原文：</em></p><p><strong>背景</strong></p><p>经常使用或者关注资讯类产品的同学可能会留意到，在信息流item中，有的标题在左图片在右，而有的是图片在左标题在右，这两种形式看似区别不大，但又似乎存在很大差异。设计师在设计时是如何考虑的？我认为这是一个很有意思的话题，所以今天就和大家聊一聊在资讯流中，<strong>左文右图</strong>和<strong>左图右文</strong>的差异。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/webp/613759/1613194466687-26c1f9a9-d16d-4cad-bf71-ffe4f1a4b993.webp#align=left&display=inline&height=302&margin=%5Bobject%20Object%5D&originHeight=603&originWidth=944&size=0&status=done&style=none&width=472"></p><h3 id="左文右图"><a href="#左文右图" class="headerlink" title="左文右图"></a><strong>左文右图</strong></h3><p>左文右图的样式普遍出现在新闻资讯产品中，其中包括今日头条、腾讯新闻、UC浏览器信息流以及我们的vivo浏览器信息流等等，现在就让我们从资讯平台作为切入点，对左文右图的形式进行分析。</p><p><strong>1.左文右图符合人们长久以来的阅读习惯</strong><br>按照已知经过验证的理论，即F阅读顺序（尼尔森的用户阅读视线模型），用户浏览页面的顺序是从左往右自上而下，因此左上角的信息最早触达用户。然而至文字诞生以来，多数情况下，人类普遍通过文字来获取信息，我们不否定，通常情况下图片的易识别性远优于文字，但是从信息传递的准确性以及丰富性上来说，文字的优势是远大于图片的。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/webp/613759/1613194466657-8272c401-0cb0-4d4f-8eed-a1805e16bad7.webp#align=left&display=inline&height=431&margin=%5Bobject%20Object%5D&originHeight=862&originWidth=694&size=0&status=done&style=none&width=347"></p><p>所以在资讯类产品中我们更倾向于优先通过文字来识别内容，而将图片作为辅助信息，因此根据我们从左往右自上而下阅读习惯，将文字放在左边更有利于用户获取信息。我们通过一个案例来分别了解一下左图右文与左文右图的用户阅读路径是什么样的。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466570-88e009a1-dd25-47ee-82ea-72330d324ae2.png#align=left&display=inline&height=268&margin=%5Bobject%20Object%5D&originHeight=535&originWidth=944&size=0&status=done&style=none&width=472"></p><p>在上面的案例中，左图右文用户的阅读路径偏长，并且常常出现视线的折返</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466587-6d077b19-d81f-4e41-afc3-d065d38483a8.png#align=left&display=inline&height=237&margin=%5Bobject%20Object%5D&originHeight=474&originWidth=944&size=0&status=done&style=none&width=472"></p><p>左文右图用户的阅读路径较短，不会有视线的折反。因此，基于效率和阅读习惯的角度来说，左文右图优势更明显。</p><p>但或许这里就会有人提出疑问 “在资讯类信息流中很大一部分用户都是因为受图片的吸引才会对该则新闻感兴趣的呀” 的确、这是一个普遍场景，但是在前面我们也提到，图片的易识别性是远高于文字的，因此哪怕是将图片放在文字后面，对于图片的“魅力”的影响是在可接受范围内的。</p><p><strong>2.左文右图更有利于为用户提供统一的阅读基准位置</strong><br>在资讯信息流中，为了信息展示的多样性，避免单一的信息流结构使用户感到单调，在样式上除了左文右图的样式，往往还会搭配三图、大图及视频的样式出现，而在这样多种穿插样式的情况下，左文右图能够为用户的双眼提供了一个扫读时候的基准位置，在大量、长时间阅读的过程中，极大地减小了阅读压力</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466635-08b64033-6e24-4e42-9495-c834ca395d0a.png#align=left&display=inline&height=355&margin=%5Bobject%20Object%5D&originHeight=710&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>3.尽可能保持整体信息流图文阅读先后顺序的一致性</strong><br>资讯流中除了左文右图的样式，还会搭配三图、大图及视频的样式出现，因此我们不仅仅要考虑单个信息流样式的阅读体验，更要保持持整体信息流阅读先后顺序的一致性，这能够为用户提供较好的沉浸式体验。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466621-fab939a0-48c7-4548-aead-d247f6b7a933.png#align=left&display=inline&height=683&margin=%5Bobject%20Object%5D&originHeight=1366&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>4.在视觉上更符合格式塔闭合原理</strong><br>左图右文的的形式在标题文字较短的情况下，item右上角就会出现视觉上的缺角，这会破坏页面整体的工整性，而左文右图的形式就很好的避免了这个问题。格式塔原理对闭合的研究中提到，人的大脑无论看见什么东西,都喜欢去将它们想象成为一个整体,如果元素太过杂乱大脑无法将其归类成为一个整体,那么视觉感受就是非常不佳的。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466644-79379915-2eaf-4025-8083-f63ecb494cfc.png#align=left&display=inline&height=351&margin=%5Bobject%20Object%5D&originHeight=701&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>小结：</strong>左文右图基于它在信息获取效率和人们阅读习惯上的优势得到各大新闻资讯类产品的青睐，是较为通用的形式。那是不是就没有“左图右文”什么事了？其实不然，左图右文仍是有其优势的，并且在特定场景下，左图右文的形式的优势会更明显。</p><h3 id="左图右文"><a href="#左图右文" class="headerlink" title="左图右文"></a><strong>左图右文</strong></h3><p><strong>1.图片在左侧，第一时间吸引用户视线</strong><br>在内容形式的吸引力上，视频&gt;图片&gt;文字，并且前面我们提到，图片的易识别性是高于文字的，因此一张高质量的图片往往能够在第一时间触达用户并形成转化。但前提要求是我们能够把控图片的质量，否则效果将适得其反，所以我们说左图右文的样式一般更适合用来承载PGC的内容。例如主打品质时政新闻的资讯产品澎湃新闻以及垂类游戏资讯社区平台篝火营地，其推荐的内容都来自专业团队的输出，对内容图片的质量有较好的掌控力，因此采用了左图有文的形式优先给用户展示图片信息，以提升用户对内容的兴趣。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466660-daf2b22f-6091-43fc-95de-4bba03542dc9.png#align=left&display=inline&height=390&margin=%5Bobject%20Object%5D&originHeight=779&originWidth=944&size=0&status=done&style=none&width=472"></p><p><strong>2.在带有明确目的阅读场景下，例如查找历史内容、搜索等，左图右文的形式效率更高</strong><br>在用户带有明确目的场景时进行信息阅读时，用户往往对内容已经有了一个大致的预期，所以这个时候如果我们能让用户第一时间识别图片，能够大大的提升用户的操作效率。例如用户在查找一篇曾经看过的文章时，当曾经阅读过那篇文章的封面出现屏幕中时，用户便能立刻作出判断，这会比在众多文字标题中查找更为便捷。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p><strong>左文右图</strong><br>1、通常情况下，我们优先通过文字来获取讯息，因此在一般的信息流中，更青睐采用左文右图的方式，以提升效率<br>2、左文右图能够为用户提供统一的阅读基准位置，在用户长时间浏览时减少阅读压力<br>3、更好的满足格式塔闭合原理，使信息流整体的页面更加工整</p><p><strong>左图右文</strong><br>1、左图右文常被用来承载PGC的内容。在能够确保图片质量的情况下，图片在左侧，更容易引起用户对帖子的兴趣<br>2、在带有明确目的阅读场景下，例如查找历史内容、搜索等，左图右文的形式效率更高<br><strong>#Tips</strong><br>无论是左文右图还是左图右文都各有其优势及适用的场景，但当我们在设计信息流时，我们要注意为用户提供图文阅读顺序一致的体验。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1613194466660-3dd1ecd6-d1f8-4118-8bc8-47119aa73398.png#align=left&display=inline&height=683&margin=%5Bobject%20Object%5D&originHeight=1366&originWidth=944&size=0&status=done&style=none&width=472"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;em&gt;本文是 vivo UED 团队的&lt;/em&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/PBi__-HbYhlNNTrFHaKOiw&quot;&gt;&lt;em&gt;一篇文章&lt;/em&gt;&lt;/a&gt;&lt;em&gt;。我对这篇文章的感觉是：&lt;/em&gt;</summary>
-    
-    
-    
-    
-    <category term="Design" scheme="http://example.com/tags/Design/"/>
     
   </entry>
   
