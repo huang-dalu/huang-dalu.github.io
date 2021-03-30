@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="如何判断页面布局是否合理？"/><meta name="keywords" content="Design, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2017/08/30/如何判断页面布局是否合理/"/>
+<meta name="description" content="电商客服场景描述（二）"/><meta name="keywords" content="电商, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2017/09/01/电商客服场景描述（二）/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>如何判断页面布局是否合理？ - UX Caff</title>
+    <title>电商客服场景描述（二） - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -97,46 +97,93 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">如何判断页面布局是否合理？
+      <h1 class="post-title">电商客服场景描述（二）
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017-08-30
+          2017-09-01
         </span></div>
     </header>
 
-    <div class="post-content"><p>页面布局就是页面呈现方式，合理页面布局的目标应该是在用户有较好体感状态下，完成页面任务。</p>
-<a id="more"></a>
-
-
-<p>首先在常规意义上，将页面类型划分为 3 类：导航页（选择）、消费页（展示）、交互页（编辑）。这 3 种页面对应 3 种目的。</p>
-<p>其次，页面布局整体思考同样包含 3 个方面，分别是视觉层次、视觉流、设计模式和组件。</p>
-<p><img src="https://cdn.brambling.cn/uxcaff/design1.png"></p>
-<p>视觉层次简单理解就是需要划分内容元素重要程度，重要信息突出显示，次要信息弱化处理。 可以从 2 个方面来判断视觉层次是否合理：</p>
-<ul>
-<li>各页面元素相对重要性。也就是重要优先级划分是否清楚；</li>
-<li>各页面元素之间关系 。表示元素之间是否有延续关系、因果关系等。</li>
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%94%AE%E5%89%8D%E5%9C%BA%E6%99%AF"><span class="toc-text">售前场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%94%AE%E4%B8%AD%E5%9C%BA%E6%99%AF"><span class="toc-text">售中场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%94%AE%E5%90%8E%E5%9C%BA%E6%99%AF"><span class="toc-text">售后场景</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>主要是对之前<a target="_blank" rel="noopener" href="https://uxcaff.com/2016/04/01/%E7%94%B5%E5%95%86%E5%AE%A2%E6%9C%8D%E5%9C%BA%E6%99%AF%E6%8F%8F%E8%BF%B0/">电商客服场景描述（一）</a>的一些场景补充。稍微有部分重叠。见谅。</p>
+<h4 id="售前场景"><a href="#售前场景" class="headerlink" title="售前场景"></a>售前场景</h4><ul>
+<li><p>聊天质检。登记聊天接待过程中错误问题信息；</p>
+</li>
+<li><p>询单未付款订单登记。跟进客户是否购买及未购买原因；</p>
+</li>
+<li><p>搜集顾客遭诈骗的案例；</p>
+</li>
+<li><p>会员信息登记。对于购买次数或金额多的客户升级为会员，并进行信息登记；</p>
+</li>
+<li><p>优惠券登记。对客户的优惠券使用登记。</p>
+</li>
 </ul>
-<p>如果满足以上 2 点，视觉层次基本没问题，接下来继续说说视觉流。视觉流是为引导读者视线（给一些暗示的线路将页面上元素串联在一起）。关于如何创造良好的视觉流，在设计上也有一些原则可以参考。例如格式塔原则：相邻性、相似性、连续性、封闭性等（具体需要了解查阅相关资料）。</p>
-<p>剩下就是如何动态显示对应内容。合适的动态显示，也就是需要合适信息选取对应框架模型。例如电商商品分类需要使用 TAB 还是下拉组件等这些判断。</p>
-<p><img src="https://cdn.brambling.cn/uxcaff/design2.png"></p>
-<p>最后综合来看，上面 3 个环节能做好，就可以判断是一个合理的页面布局。</p>
+<h4 id="售中场景"><a href="#售中场景" class="headerlink" title="售中场景"></a>售中场景</h4><ul>
+<li><p>快递地址修改。用于登记修改收货地址的买家订单信息；</p>
+</li>
+<li><p>客户调研统计。搜集客户反馈及产品需改进信息；</p>
+</li>
+<li><p>通过旺旺、电话跟进各店铺下单未付款的客户；</p>
+</li>
+<li><p>预约安装登记。登记需上门安装信息；</p>
+</li>
+<li><p>退换货挽留。对退、换货的买家进行挽留，提升转化率；</p>
+</li>
+<li><p>详情页问题登记。顾客反馈的商品与详情页内容不符的问题反馈登记；</p>
+</li>
+<li><p>补寄发票登记。</p>
+</li>
+</ul>
+<h4 id="售后场景"><a href="#售后场景" class="headerlink" title="售后场景"></a>售后场景</h4><ul>
+<li><p>线下打款。非线上退款，如质量问题赔付、好评返现、投诉补偿、产品退差价，以及其他需要线下打款的信息登记和进度追踪，需要财务或其他指定人员负责审核并操作线下打款，及时反馈打款结果至前线客服；</p>
+</li>
+<li><p>评价有礼活动。客快速记录买家给出好评订单和截图信息，方便对应准确核发礼品或优惠券；</p>
+</li>
+<li><p>赠品信息登记。登记需赠送赠品的订单信息及可查询赠品物流信息的运单号；</p>
+</li>
+<li><p>预收定金退款登记。客户未购买已付定金产品的财务退款；</p>
+</li>
+<li><p>商品定制问题登记。登记客户对商品有制定要求问题信息；</p>
+</li>
+<li><p>重要客户回访。对重要客户进行线上或线下的联系，以助于转化率；</p>
+</li>
+<li><p>客户拜访记录。对现有的客户进行日常的维护；</p>
+</li>
+<li><p>缺货赔付原因调查。核实天猫等平台出现“延迟发货”赔付订单、需要核实赔付原因；</p>
+</li>
+<li><p>新增补发货物。适用于需要补发货物、包装、发送实体奖品、赠品等场景；</p>
+</li>
+<li><p>产品质量问题登记；</p>
+</li>
+<li><p>商品维修问题登记；</p>
+</li>
+<li><p>换货登记；</p>
+</li>
+<li><p>投诉问题登记。</p>
+</li>
+</ul>
+<p>这两篇文章的客服场景描述。基本上涵盖了电商多个类目客场的工作场景。</p>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/Design/">Design</a>
+            <a href="/tags/%E7%94%B5%E5%95%86/">电商</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2017/09/01/%E7%94%B5%E5%95%86%E5%AE%A2%E6%9C%8D%E5%9C%BA%E6%99%AF%E6%8F%8F%E8%BF%B0%EF%BC%88%E4%BA%8C%EF%BC%89/">
+        <nav class="post-nav"><a class="prev" href="/2017/09/25/%E5%A6%82%E6%9E%9C%E4%B8%80%E4%B8%AA%E4%BA%BA%E8%80%81%E6%88%90%E4%B8%80%E6%8A%8A%E5%88%80%EF%BC%88%E5%85%AD%E9%A6%96%EF%BC%89/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">电商客服场景描述（二）</span>
+        <span class="prev-text nav-default">如果一个人老成一把刀（六首）</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2017/08/01/%E3%80%8A%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-        <span class="next-text nav-default">《如何高效学习》读书笔记</span>
+    <a class="next" href="/2017/08/30/%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E6%98%AF%E5%90%A6%E5%90%88%E7%90%86/">
+        <span class="next-text nav-default">如何判断页面布局是否合理？</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
