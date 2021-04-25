@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-04-19T14:50:52.096Z</updated>
+  <updated>2021-04-25T06:05:30.098Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SaaS产品2种销售流程对比</title>
+    <link href="http://example.com/2021/04/24/SaaS%E4%BA%A7%E5%93%812%E7%A7%8D%E9%94%80%E5%94%AE%E6%B5%81%E7%A8%8B%E5%AF%B9%E6%AF%94/"/>
+    <id>http://example.com/2021/04/24/SaaS%E4%BA%A7%E5%93%812%E7%A7%8D%E9%94%80%E5%94%AE%E6%B5%81%E7%A8%8B%E5%AF%B9%E6%AF%94/</id>
+    <published>2021-04-24T13:10:10.000Z</published>
+    <updated>2021-04-25T06:05:30.098Z</updated>
+    
+    <content type="html"><![CDATA[<p>假设一款产品，企业版本 5 万/年，线上版本 6000.00/年（确实发现很多产品会准备一个低客单价版本），两个版本都是需要实施，是否允许试用不确定。目前有 2 种售卖流程。<a id="more"></a></p><p>第 1 种，线索–&gt; 直销跟进签单 –&gt;配置（实施跟进）。这种简单粗暴，直销主导销售流程。产品是否给试用，由销售人员来决策。直销会在前期电话 + 上门拜访，然后根据用户意愿来决定是否试用，以及判断高价值用户等等。<br>但，一般销售并不会愿意给用户试用，因为会担心延长签单周期。如果自己目前在推的产品质量并不是行业 TOP，那就更加了…</p><p>第 2 种，线索 –&gt; 电销–&gt; 意向用户 –&gt; 试用/配置（实施跟进） –&gt; 销售/实施迭代（直销 + 实施跟进）。这种方式，电销的角色在前期主导，并且明确试用，比如试用 1 个月。</p><p>这种方式明确规定所有用户 1 个月试用。以及细化的前期的电销 + 直销的任务，比第 1 种方法的先买再配置 –&gt; 先试用配置再买，符合用户预期。但相应的，实施成本 + 签单周期都会增长。</p><p>一般来说，重实施的产品，是第 1 种方法。可以线上实施，或者实施成本相对较低（比如时间上能在 3 天搞定），会考虑第 2 种方法。为了减少成本，甚至可以考虑是试用前，先变相收用户 1000 块作为配置费用。不过，部分公司申请款项又需要走流程，又繁琐了一点。</p><p>所以，整个售卖流程，会影响的因素包括：销售提成设计、产品实施成本、公司对帐期的容忍（公司现金流）。哪种售卖方式看下来没有好坏，只有适合。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;假设一款产品，企业版本 5 万/年，线上版本 6000.00/年（确实发现很多产品会准备一个低客单价版本），两个版本都是需要实施，是否允许试用不确定。目前有 2 种售卖流程。</summary>
+    
+    
+    
+    
+    <category term="SaaS" scheme="http://example.com/tags/SaaS/"/>
+    
+  </entry>
   
   <entry>
     <title>基础对话的3种类型</title>
@@ -378,25 +397,6 @@
     
     
     <category term="Life" scheme="http://example.com/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创业者如何判断进场时机（技术驱动型）</title>
-    <link href="http://example.com/2021/03/20/%E5%88%9B%E4%B8%9A%E8%80%85%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%BF%9B%E5%9C%BA%E6%97%B6%E6%9C%BA%EF%BC%88%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8%E5%9E%8B%EF%BC%89/"/>
-    <id>http://example.com/2021/03/20/%E5%88%9B%E4%B8%9A%E8%80%85%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%BF%9B%E5%9C%BA%E6%97%B6%E6%9C%BA%EF%BC%88%E6%8A%80%E6%9C%AF%E9%A9%B1%E5%8A%A8%E5%9E%8B%EF%BC%89/</id>
-    <published>2021-03-20T13:10:10.000Z</published>
-    <updated>2021-03-19T05:53:44.978Z</updated>
-    
-    <content type="html"><![CDATA[<p>来自陆奇的<a href="https://mp.weixin.qq.com/s?__biz=MzUyMDQ5NzI5Mg==&mid=2247528971&idx=1&sn=04c963e074efaf6b86e9c220da2a232f">一篇演讲</a>。这部分“创业者如何判断进场时机”分析透彻。可以作为新项目、创业的一个参考。<a id="more"></a></p><p>以下是关于演讲内容的部分整理。</p><p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1616131229387-bee6560c-7c0a-46f7-b68b-8e6ab1ee5d75.png#align=left&display=inline&height=608&margin=%5Bobject%20Object%5D&name=image.png&originHeight=608&originWidth=1080&size=281191&status=done&style=none&width=1080" alt="image.png"></p><p>在美国，有一个创业者叫 Bill Gross，他做了大量数据分析研究创业成功的要素，结论是创业成功的第一因素是时机，也就是什么时候进场。关于这一点，我们可以看到上图图，它描述了任何一个技术驱动的创业公司都会经历的曲线。 早期（上图蓝色部分）是创新者，他们是尝鲜的人，再差的产品他都会用，所以早期有几个用户，信号价值不一定重要。</p><p>第二部分人叫有远见的人（上图左侧红色部分），他们往往是企业高管，对未来有自己的想法，他们希望找到新的技术能力，帮他实现对未来的愿景。他们对价格不敏感，风险承担能力比较大。这波人比较重要。</p><p>第三波是早期采纳者，这波人对技术比较开放，永远愿意用新的技术产品，但是他们一般比较务实，在企业里会扛业绩，他们是否采纳新技术产品的核心判断是：竞争对手用不用，同事用不用。所以这波人是一起过去的。他们是技术产品成功的关键。</p><p>有远见的人和早期采纳者之间存在裂缝（如图），这就是我们常说的”鸿沟“，历史上的企业创新，大部分都死在鸿沟里，所以时机很重要。</p><p>为了判断时机，另一个参考方法是看 Gartner 技术成熟度曲线（上图中蓝色曲线）。每一代新的技术诞生后，整个社会都会特别地关注，媒体也会大量报道，但是一旦开始使用，大家就会发现体验不合格、价格还很贵。于是社会又会进入一个唱衰期，就像今天的人工智能领域一样。但是，唱衰的时候往往也是进场的最好时机。</p><p>乔布斯曾经有一句话，判断方向其实比较容易，判断时机往往很难。以苹果为例，苹果永远不是第一个做手机、手表、平板电脑，但是苹果选择进场都是泡沫破灭、市场已经被教育后的时间点。</p><p>以上，更多是从技术成熟度，市场对技术的接受度来描述进场时机。流量等其他类型可能要另说。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;来自陆奇的&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUyMDQ5NzI5Mg==&amp;mid=2247528971&amp;idx=1&amp;sn=04c963e074efaf6b86e9c220da2a232f&quot;&gt;一篇演讲&lt;/a&gt;。这部分“创业者如何判断进场时机”分析透彻。可以作为新项目、创业的一个参考。</summary>
-    
-    
-    
-    
-    <category term="Business" scheme="http://example.com/tags/Business/"/>
     
   </entry>
   
