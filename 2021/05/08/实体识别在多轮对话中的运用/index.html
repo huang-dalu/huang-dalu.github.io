@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/tags/智能客服/"/>
+<meta name="description" content="实体识别在多轮对话中的运用"/><meta name="keywords" content="算法, 智能客服, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2021/05/08/实体识别在多轮对话中的运用/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,8 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>智能客服 · UX Caff
-  </title>
+    <title>实体识别在多轮对话中的运用 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -96,40 +95,56 @@
 
       <main id="main" class="main">
         <div class="content-wrapper">
-          <div id="content" class="content"><section id="archive" class="archive"><div class="archive-title tag">
-          <h2 class="archive-name">智能客服</h2>
-        </div>
-      <div class="archive-post">
-        <span class="archive-post-time">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">实体识别在多轮对话中的运用
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
           2021-05-08
-          </span>
-        <span class="archive-post-title">
-          <a href="/2021/05/08/%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%E5%9C%A8%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/" class="archive-post-link">
-            实体识别在多轮对话中的运用
-          </a>
-        </span>
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>内容来自于日常和开发同学的讨论整理。<a id="more"></a></p>
+<p>主要归纳整理介绍<strong>命名实体识别</strong>，以及其在多轮对话中的运用。</p>
+<p><strong>命名实体的定义：</strong>命名实体是具有类型的对象词。 比如 “北京市”是一个命名实体，它的类型是 “地名”, 类似的还有 “李三” 是一个“人名”。</p>
+<p><strong>命名实体在多轮对话中的作用：</strong>对用户的输入的问题， 我们可以用下面的方式生成回答：</p>
+<ol>
+<li>首先确定用户这句话是什么意图；</li>
+<li>对于用户的话抽取实体；</li>
+<li>走流程，返回一个答案。</li>
+</ol>
+<p>例如，对于输入“我家宝宝17斤，可以穿多大码纸尿裤？”，</p>
+<ol>
+<li>意图是 “根据体重查尺码”</li>
+<li>实体：体重： 17斤， 品类：纸尿裤</li>
+</ol>
+<p>根据上面这个例子，可以看出，命名实体现了用户的目标。对于用户的输入，如果不抽取实体，后台仅仅知道用户的意图是 “根据体重查尺码”， 显然这个是不足以生成一个回答。 如果抽取实体，可以知道用户想要的是 “根据体重查[纸尿裤]尺码， [体重]是[17斤]”， 这样可以精准的返回 “[17斤] 的宝宝适合 [M码] 的 [纸尿裤]”。</p>
+<p><strong>希望通过意图和实体来表示用户的问题是什么，用户问这个问题具体是想要什么。</strong></p>
+<p><strong>命名实体识别方法概述：</strong>可以把目前碰到的命名实体分为两类：</p>
+<ol>
+<li>不管这个词出现在什么语境里面，都很有可能是实体，比如纸尿裤，拉拉裤。那么可以简单认为只要这个词出现在用户的输入里面，那么这个词就是命名实体。可以称这类实体为垂直的行业相关的实体。对于这类实体，可以简单定义一个包含所有垂直实体字典，用查字典的方式识别</li>
+<li>这类实体的识别需要依据上下文， 比如 28 号， 可以是一个日期，门牌号，人的 id 等，需要根据语境去区分； 再如 101 号，不可能是一个日期。 我们知道日期还有很多其他的很细的复杂的模式，而且出现的规则比较复杂，所以需要用模型从训练数据里面去学习这些规则。 这类实体一般都是可以跨行业共享的，通常称其为普通实体。</li>
+</ol>
+
       </div>
-    <div class="archive-post">
-        <span class="archive-post-time">
-          2021-04-18
-          </span>
-        <span class="archive-post-title">
-          <a href="/2021/04/18/%E5%9F%BA%E7%A1%80%E5%AF%B9%E8%AF%9D%E7%9A%843%E7%A7%8D%E7%B1%BB%E5%9E%8B/" class="archive-post-link">
-            基础对话的3种类型
-          </a>
-        </span>
-      </div>
-    <div class="archive-post">
-        <span class="archive-post-time">
-          2021-04-07
-          </span>
-        <span class="archive-post-title">
-          <a href="/2021/04/07/%E6%B7%98%E5%AE%9D%E5%8D%83%E7%89%9B%E5%AE%A2%E6%9C%8D%E5%88%86%E6%B5%81%E7%9A%84%E9%80%BB%E8%BE%91%EF%BC%88202104%EF%BC%89/" class="archive-post-link">
-            淘宝千牛客服分流的逻辑（202104）
-          </a>
-        </span>
-      </div>
-    </section><nav class="pagination"></nav></div></div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D/">智能客服</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2021/05/06/%E9%94%80%E5%94%AE%E5%B2%97%E4%BD%8D%E7%9A%844%E4%B8%AA%E8%A7%82%E5%AF%9F/">
+        <span class="next-text nav-default">销售岗位的4个观察</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:huangdalu@yeah.net" class="iconfont icon-email" title="email"></a>
