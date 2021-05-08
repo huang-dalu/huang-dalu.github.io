@@ -129,6 +129,39 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2021/05/01/%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E9%A2%86%E5%9F%9F%E4%B8%80%E4%BA%9B%E6%9C%AF%E8%AF%AD/">智能客服领域一些术语</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2021-05-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>Intent：意图，用户通过自然语言表达方式来提出某种问题或达到某种目的。不同的人在意图层面会有极大的共性，同一个人在不同品类的商品购物时，也有类似的共性。机器人要解决用户的需求，首先需要识别用户的意图。例如，买家发送“给我推荐一款纸尿裤”，机器人会针对这句话切词，变成“给\我\推荐\一款\纸尿裤”，然后综合考虑 词特征、交叉特征、上文意图等因素，给出预测的意图。</p>
+<p>实体：意图识别过程中需要进行实体抽取，主要抽取的是文本中的原子信息元素，如人名、组织/机构名、地理位置、事件/日期、字符值、金额值等。实体抽取可分为基于规则的方法抽取和基于模型的方法抽取。</p>
+<p>实体面临的挑战：</p>
+<ul>
+<li>上下文相关：同一个表达在不同的上下文中通常有不同的意义，比如“13”可以是“13 斤”，也可以是“13 厘米”，具体取值跟对话场景相关。</li>
+<li>歧义：自然语言存在多样性，也就是一个意思可以以不同的说法进行表达。例如说“空调”时，可以是电器里面的空调，也可以是某个纸尿裤系列“空调系列纸尿裤”。</li>
+</ul>
+<p>分类</p>
+<ul>
+<li>被动意图：用户触发，机器人进行响应；</li>
+<li>对比意图：属于被动意图，但实体会保留多值；而其他意图的多个实体会随机给出一个；</li>
+<li>主动意图：机器人主动触发，按着设定好的策略引导用户完成某项任务。需要结合被动意图使用。</li>
+</ul>
+<ul>
+<li>Slot：槽位，对意图的补充，意图的属性。如，询问{Time}天气，槽位{Time}代表咨询哪天的天气。</li>
+<li>Dialogue State：对话状态，含 0 时刻到 t 时刻的对话历史、用户目标、意图和槽值对的数据结构。对话管理中的一部分，记录整通对话的各种信息。例如，是一通对话的第几句，第几个意图；或者记录，当前意图有每个槽位是否填充。</li>
+<li>Dialogue Policy：对话策略，依据给定上下文及当前 Query，如何进行下一步操作。</li>
+<li>Session：一通对话，通常一天内的对话由多通对话组成。</li>
+<li>Turn：对话中的每一句都可以称之为一轮。包括用户请求、响应的答案、当前识别的意图ID。</li>
+</ul>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2021/04/24/SaaS%E4%BA%A7%E5%93%812%E7%A7%8D%E9%94%80%E5%94%AE%E6%B5%81%E7%A8%8B%E5%AF%B9%E6%AF%94/">SaaS产品2种销售流程对比</a>
         </h1>
 
@@ -237,22 +270,6 @@
     <div class="post-content"><p>销售人员流失率相对较高，有点像线上产品的新用户留存曲线，前期陡降，慢慢再趋于平缓。前期的陡降，是因为销售的底薪低，如果 1-2 月不出单，压力会很大。二来销售的跨行业转岗更多（对于销售人员自己和用人部门来说，买什么都是一样的），所以在前期还需要兼顾学习产品知识。如果公司的销售培训不完善，或者销售人员自己没耐心。这段时间很难熬过去。
           <div class="read-more">
             <a href="/2021/04/06/%E9%92%88%E5%AF%B9%E9%94%80%E5%94%AE%E5%9B%A2%E9%98%9F%E6%96%B0%E4%BA%BA%E5%92%8C%E9%94%80%E5%94%AE%E7%9B%AE%E6%A0%87%E5%A5%96%E6%83%A9%E7%9A%84%E6%96%B9%E6%B3%95/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2021/04/06/%E6%89%93%E8%BF%87%E4%BB%97%E3%80%81%E6%89%93%E8%BF%87%E8%83%9C%E4%BB%97%E3%80%81%E6%89%93%E8%BF%87%E7%A1%AC%E4%BB%97%EF%BC%8C%E6%89%93%E8%B5%A2%E8%BF%87%E7%A1%AC%E4%BB%97%E7%9A%84%E5%8C%BA%E5%88%AB/">打过仗、打过胜仗、打过硬仗，打赢过硬仗的区别</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2021-04-06
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>王兴说：打过仗、打过胜仗、打过硬仗，打赢过硬仗，这些都是不同的。
-          <div class="read-more">
-            <a href="/2021/04/06/%E6%89%93%E8%BF%87%E4%BB%97%E3%80%81%E6%89%93%E8%BF%87%E8%83%9C%E4%BB%97%E3%80%81%E6%89%93%E8%BF%87%E7%A1%AC%E4%BB%97%EF%BC%8C%E6%89%93%E8%B5%A2%E8%BF%87%E7%A1%AC%E4%BB%97%E7%9A%84%E5%8C%BA%E5%88%AB/" class="read-more-link">Read more..</a>
           </div>
         </div></article>
       <nav class="pagination"><a class="next" href="/page/2/">

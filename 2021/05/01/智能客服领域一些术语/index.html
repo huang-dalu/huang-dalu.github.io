@@ -15,8 +15,8 @@
 <meta name="referrer" content="same-origin">
 <meta name="referrer" content="no-referrer">
 
-<meta name="description" content="SaaS产品2种销售流程对比"/><meta name="keywords" content="SaaS, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="http://example.com/2021/04/24/SaaS产品2种销售流程对比/"/>
+<meta name="description" content="智能客服领域一些术语"/><meta name="keywords" content="智能客服, UX Caff" /><link rel="alternate" href="/atom.xml" title="UX Caff" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2021/05/01/智能客服领域一些术语/"/>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -28,7 +28,7 @@
   window.config = {"toc":true,"fancybox":false,"pjax":false,"latex":true};
 </script>
 
-    <title>SaaS产品2种销售流程对比 - UX Caff</title>
+    <title>智能客服领域一些术语 - UX Caff</title>
   <meta name="generator" content="Hexo 5.2.0"></head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -97,36 +97,50 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">SaaS产品2种销售流程对比
+      <h1 class="post-title">智能客服领域一些术语
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2021-04-24
+          2021-05-01
         </span></div>
     </header>
 
-    <div class="post-content"><p>假设一款产品，企业版本 5 万/年，线上版本 6000.00/年（确实发现很多产品会准备一个低客单价版本），两个版本都是需要实施，是否允许试用不确定。目前有 2 种售卖流程。<a id="more"></a></p>
-<p>第 1 种，线索–&gt; 直销跟进签单 –&gt;配置（实施跟进）。这种简单粗暴，直销主导销售流程。产品是否给试用，由销售人员来决策。直销会在前期电话 + 上门拜访，然后根据用户意愿来决定是否试用，以及判断高价值用户等等。<br>但，一般销售并不会愿意给用户试用，因为会担心延长签单周期。如果自己目前在推的产品质量并不是行业 TOP，那就更加了…</p>
-<p>第 2 种，线索 –&gt; 电销–&gt; 意向用户 –&gt; 试用/配置（实施跟进） –&gt; 销售/实施迭代（直销 + 实施跟进）。这种方式，电销的角色在前期主导，并且明确试用，比如试用 1 个月。</p>
-<p>这种方式明确规定所有用户 1 个月试用。以及细化的前期的电销 + 直销的任务，比第 1 种方法的先买再配置 –&gt; 先试用配置再买，符合用户预期。但相应的，实施成本 + 签单周期都会增长。</p>
-<p>一般来说，重实施的产品，是第 1 种方法。可以线上实施，或者实施成本相对较低（比如时间上能在 3 天搞定），会考虑第 2 种方法。为了减少成本，甚至可以考虑是试用前，先变相收用户 1000 块作为配置费用。不过，部分公司申请款项又需要走流程，又繁琐了一点。</p>
-<p>所以，整个售卖流程，会影响的因素包括：销售提成设计、产品实施成本、公司对帐期的容忍（公司现金流）。哪种售卖方式看下来没有好坏，只有适合。</p>
+    <div class="post-content"><p>Intent：意图，用户通过自然语言表达方式来提出某种问题或达到某种目的。不同的人在意图层面会有极大的共性，同一个人在不同品类的商品购物时，也有类似的共性。机器人要解决用户的需求，首先需要识别用户的意图。例如，买家发送“给我推荐一款纸尿裤”，机器人会针对这句话切词，变成“给\我\推荐\一款\纸尿裤”，然后综合考虑 词特征、交叉特征、上文意图等因素，给出预测的意图。</p>
+<p>实体：意图识别过程中需要进行实体抽取，主要抽取的是文本中的原子信息元素，如人名、组织/机构名、地理位置、事件/日期、字符值、金额值等。实体抽取可分为基于规则的方法抽取和基于模型的方法抽取。</p>
+<p>实体面临的挑战：</p>
+<ul>
+<li>上下文相关：同一个表达在不同的上下文中通常有不同的意义，比如“13”可以是“13 斤”，也可以是“13 厘米”，具体取值跟对话场景相关。</li>
+<li>歧义：自然语言存在多样性，也就是一个意思可以以不同的说法进行表达。例如说“空调”时，可以是电器里面的空调，也可以是某个纸尿裤系列“空调系列纸尿裤”。</li>
+</ul>
+<p>分类</p>
+<ul>
+<li>被动意图：用户触发，机器人进行响应；</li>
+<li>对比意图：属于被动意图，但实体会保留多值；而其他意图的多个实体会随机给出一个；</li>
+<li>主动意图：机器人主动触发，按着设定好的策略引导用户完成某项任务。需要结合被动意图使用。</li>
+</ul>
+<ul>
+<li>Slot：槽位，对意图的补充，意图的属性。如，询问{Time}天气，槽位{Time}代表咨询哪天的天气。</li>
+<li>Dialogue State：对话状态，含 0 时刻到 t 时刻的对话历史、用户目标、意图和槽值对的数据结构。对话管理中的一部分，记录整通对话的各种信息。例如，是一通对话的第几句，第几个意图；或者记录，当前意图有每个槽位是否填充。</li>
+<li>Dialogue Policy：对话策略，依据给定上下文及当前 Query，如何进行下一步操作。</li>
+<li>Session：一通对话，通常一天内的对话由多通对话组成。</li>
+<li>Turn：对话中的每一句都可以称之为一轮。包括用户请求、响应的答案、当前识别的意图ID。</li>
+</ul>
 
       </div>
       
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/SaaS/">SaaS</a>
+            <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D/">智能客服</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2021/05/01/%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E9%A2%86%E5%9F%9F%E4%B8%80%E4%BA%9B%E6%9C%AF%E8%AF%AD/">
+        <nav class="post-nav"><a class="prev" href="/2021/05/06/%E9%94%80%E5%94%AE%E5%B2%97%E4%BD%8D%E7%9A%844%E4%B8%AA%E8%A7%82%E5%AF%9F/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">智能客服领域一些术语</span>
+        <span class="prev-text nav-default">销售岗位的4个观察</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2021/04/18/%E5%9F%BA%E7%A1%80%E5%AF%B9%E8%AF%9D%E7%9A%843%E7%A7%8D%E7%B1%BB%E5%9E%8B/">
-        <span class="next-text nav-default">基础对话的3种类型</span>
+    <a class="next" href="/2021/04/24/SaaS%E4%BA%A7%E5%93%812%E7%A7%8D%E9%94%80%E5%94%AE%E6%B5%81%E7%A8%8B%E5%AF%B9%E6%AF%94/">
+        <span class="next-text nav-default">SaaS产品2种销售流程对比</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
