@@ -97,6 +97,68 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2017/01/05/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%843%E5%A4%A7%E5%88%86%E5%B8%83%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E3%80%81t%E5%88%86%E5%B8%83%E3%80%81F%E5%88%86%E5%B8%83/">统计学：正态分布的3大分布类型——卡方分布、t分布、F分布</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-01-05
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>正态分布的3大分布类型：卡方分布、t分布、F分布。
+          <div class="read-more">
+            <a href="/2017/01/05/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%843%E5%A4%A7%E5%88%86%E5%B8%83%E7%B1%BB%E5%9E%8B%EF%BC%9A%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83%E3%80%81t%E5%88%86%E5%B8%83%E3%80%81F%E5%88%86%E5%B8%83/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2016/12/30/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9AT%E6%A3%80%E9%AA%8C%E3%80%81F%E6%A3%80%E9%AA%8C%E5%92%8C%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/"> 统计学：T检验、F检验、卡方检验</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-12-30
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>T检验、F检验、卡方检验是统计学中常见的假设检验，今天记录下这几个假设检验的原理和应用场景。
+          <div class="read-more">
+            <a href="/2016/12/30/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9AT%E6%A3%80%E9%AA%8C%E3%80%81F%E6%A3%80%E9%AA%8C%E5%92%8C%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2016/12/15/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%8B%9F%E5%90%88%E4%BC%98%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F--R%E5%B9%B3%E6%96%B9/">特征工程：线性回归拟合优度的度量--R平方</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-12-15
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>线性回归 Y = ax + b 的拟合程度，都是用 R 平方来进行判定，所以本篇文章来梳理 R 平方的具体计算方式。</p>
+<p>首先，根据这一回归方程，可以依据自变量 x 的取值来预测因变量 y 的取值。但预测的精度取决于回归直线对观测数据的拟合程度。各个观测点（也就是训练集的数据）越是紧密围绕直线，说明直线对观测数据的拟合程度越好，反之则越差。</p>
+<p>两个变量的相关分析中，我们用相关系数来衡量，Pearson 相关系数就是 R 值。这个在<a target="_blank" rel="noopener" href="https://uxcaff.com/2015/01/15/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%BB%8B%E7%BB%8D/">《统计学：相关系数介绍》</a>有过介绍。</p>
+<p>R 值的作用也很清楚。判断自变量与因变量的关系，以确定该自变量有没有纳入回归方程的必要。如果是一元回归，就是有没有做回归分析的必要。一般情况下，如果 R 低于 ±0.5，则这个自变量不需要纳入回归方程。另外一个就是上面说的，衡量预测的精度。</p>
+<p>再来介绍下 R 平方。 可以理解为 Pearson 系数的平方，但计算方法是通过类似方差分析的方法得到的。R 平方又叫决定系数，反应因变量 Y 的总变异中回归关系所能解释的百分比。如图，如果 R 平方值 0.6326，代表的是总变异中回归关系可解释部分的占比为 63%。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610444913502-301a1bc4-1028-41be-bde8-a119f8d0c325.png#align=left&display=inline&height=151&margin=%5Bobject%20Object%5D&name=image.png&originHeight=302&originWidth=728&size=64352&status=done&style=none&width=364" alt="image.png"></p>
+<p>R 平方的公式如下：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610444847915-8fdaeb31-874e-4c76-bc2b-afcba13f771c.png#align=left&display=inline&height=260&margin=%5Bobject%20Object%5D&name=image.png&originHeight=520&originWidth=466&size=99292&status=done&style=none&width=233" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610444774054-a315897b-ba2f-4ce7-b02d-0dd928ced23f.png#align=left&display=inline&height=156&margin=%5Bobject%20Object%5D&name=image.png&originHeight=312&originWidth=996&size=62485&status=done&style=none&width=498" alt="image.png"></p>
+<p>每个观测点的离差，比较直观的是直接在坐标系上表现，其中，<img src="https://cdn.nlark.com/yuque/__latex/e591bd35dbbd453de3742324145a63c9.svg#card=math&code=%28%5Cwidehat%7By%7D-%5Coverline%7By%7D%29&height=20&width=52">是 SSR。也就是因为自变量 x 的变化，引起的 y 的变化，代表回归关系中可被解释的部分。</p>
+<p><img src="https://cdn.nlark.com/yuque/__latex/5ab5ff00f6719968a1091389ad8c1b7a.svg#card=math&code=y-%5Coverline%7By%7D%20%3D%28y-%5Cwidehat%7By%7D%29%2B%20%28%5Cwidehat%7By%7D-%5Coverline%7By%7D%29&height=20&width=185"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/613759/1610517704281-b0e743dc-ba1c-4974-8659-30339dff5c2f.png#align=left&display=inline&height=151&margin=%5Bobject%20Object%5D&name=image.png&originHeight=302&originWidth=492&size=41494&status=done&style=none&width=246" alt="image.png"><br>图：统计学-贾俊平</p>
+<p>SSR（回归平方和）：样本平均值与预测值的差的平方和，由 x 与 y 的线性关系引起的 y 变化，代表回归关系中可被解释的部分。</p>
+<p>SSE（残差平方和）：样本观测值与预测值的差的平方和，除 x 影响之外的其他因素引起的 y 变化，代表回归关系中不可解释的部分。</p>
+<p>SST（总平方和）：样本观测值与样本平均值的差的平方和，代表总的变异程度。</p>
+<p>从图中和公式可以看出，SST = SSR+ SSE ，总变异来自两个方面的影响，一个是来自因变量X的影响（SSR），一个是来自无法预测的残差干扰（SST），我们想要回归直线拟合的越好，就需要让能被回归可解释的部分（SSR/SST）占比越高，无法被回归解释的部分（SSE/SST）占比越小。</p>
+<p>平方值是取值范围在 0 到 1 之间，当趋势线的 R 平方值等于 1 或接近 1 时，意味着大部分 Y 的总变异可以被回归方程式的 x 变化所解释，模型拟合程度的越高，可靠性越高，反之则可靠性较低。</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2016/12/05/%E7%BB%9F%E8%AE%A1%E5%AD%A6%EF%BC%9A%E8%87%AA%E7%94%B1%E5%BA%A6%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%BB%B4%E5%BA%A6%E7%90%86%E8%A7%A3/">统计学：自由度的两个维度理解</a>
         </h1>
 
@@ -216,54 +278,6 @@
 <p><strong>2.2指数分布</strong><br>指数分布（也称为负指数分布）是描述泊松过程中的事件之间的时间的概率分布，即事件以恒定平均速率连续且独立地发生的过程。</p>
 <p><img src="https://cdn.nlark.com/yuque/0/2020/png/613759/1605951500910-941b816d-35d0-4563-b4ac-66258206c519.png#align=left&display=inline&height=78&margin=%5Bobject%20Object%5D&originHeight=78&originWidth=584&size=0&status=done&style=none&width=584"></p>
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2016/06/21/%E8%85%8A%E9%B8%A1%E4%B8%8E%E7%8C%B4%E5%84%BF/">腊鸡与猴儿</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-06-21
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>“嘿，伙计，别上蹿下跳，我们来个正经的！”腊鸡拽着绳子呵斥道。 绳末端拴着只猴儿。腊鸡是个耍猴人。 “不是我动起来他们就会丢钱吗？” </p>
-          <div class="read-more">
-            <a href="/2016/06/21/%E8%85%8A%E9%B8%A1%E4%B8%8E%E7%8C%B4%E5%84%BF/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2016/05/25/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E8%87%AA%E6%9F%A5%E8%A1%A8/">交互设计自查表</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-05-25
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>清理文档发现了之前有编辑过、有参考过交互设计自查表，觉得这部分内容不错。需要的同学根据表格内容，结合自己的业务，修改修改就可以用起来了。</p>
-          <div class="read-more">
-            <a href="/2016/05/25/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E8%87%AA%E6%9F%A5%E8%A1%A8/" class="read-more-link">Read more..</a>
-          </div>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2016/04/20/%E3%80%8A%E8%AE%BE%E8%AE%A1%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B%E4%B9%8B%E5%85%AD%E4%B8%AA%E8%AE%BE%E8%AE%A1%E8%A6%81%E7%B4%A0/">《设计心理学》之六个设计要素</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-04-20
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>看《设计心理学》，整理了一份比较实用的理论。
-          <div class="read-more">
-            <a href="/2016/04/20/%E3%80%8A%E8%AE%BE%E8%AE%A1%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B%E4%B9%8B%E5%85%AD%E4%B8%AA%E8%AE%BE%E8%AE%A1%E8%A6%81%E7%B4%A0/" class="read-more-link">Read more..</a>
-          </div>
         </div></article>
       <nav class="pagination"><a class="prev" href="/page/19/">
         <i class="iconfont icon-left"></i>
