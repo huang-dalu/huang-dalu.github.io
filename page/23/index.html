@@ -97,6 +97,22 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/05/08/Android%EF%BC%9A%E8%8E%B7%E5%8F%96SD%E5%8D%A1%E6%80%BB%E5%86%85%E5%AD%98%E3%80%81%E5%8F%AF%E7%94%A8%E5%86%85%E5%AD%98%E5%92%8C%E4%BD%8D%E7%BD%AE/">Android：获取SD卡总内存、可用内存和位置</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-05-08
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>一个小案例演示获取手机，sd卡的总内存和可用内存。
+          <div class="read-more">
+            <a href="/2015/05/08/Android%EF%BC%9A%E8%8E%B7%E5%8F%96SD%E5%8D%A1%E6%80%BB%E5%86%85%E5%AD%98%E3%80%81%E5%8F%AF%E7%94%A8%E5%86%85%E5%AD%98%E5%92%8C%E4%BD%8D%E7%BD%AE/" class="read-more-link">Read more..</a>
+          </div>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2015/05/01/Android%EF%BC%9A%E6%8E%A7%E4%BB%B6Dailog%E6%A0%B7%E5%BC%8F/">Android：控件Dailog样式</a>
         </h1>
 
@@ -255,22 +271,6 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Button bt_get;</span><br><span class="line">    <span class="keyword">private</span> Button save;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        bt_get = (Button)findViewById(R.id.bt_get);</span><br><span class="line">        save = (Button)findViewById(R.id.save);</span><br><span class="line"></span><br><span class="line">        save.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//通过getSharedPreferences（）方法指定SharedPreferences文件名为data，并得到SharePreferences.Editor对象</span></span><br><span class="line">                SharedPreferences.Editor editor = getSharedPreferences(<span class="string">&quot;data&quot;</span> , MODE_PRIVATE).edit();</span><br><span class="line"></span><br><span class="line">                <span class="comment">//添加三条不同类型数据</span></span><br><span class="line">                editor.putString(<span class="string">&quot;name&quot;</span> , <span class="string">&quot;huanglong&quot;</span>);</span><br><span class="line">                editor.putBoolean(<span class="string">&quot;married&quot;</span>, <span class="keyword">false</span>);</span><br><span class="line">                editor.putInt(<span class="string">&quot;age&quot;</span>, <span class="number">13</span>);</span><br><span class="line">                editor.commit(); <span class="comment">//提交</span></span><br><span class="line"></span><br><span class="line">                bt_get.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">//获取前面存储的数据</span></span><br><span class="line">                        SharedPreferences btget = getSharedPreferences(<span class="string">&quot;data&quot;</span> , MODE_PRIVATE);</span><br><span class="line">                        String name = btget.getString(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">                        <span class="keyword">int</span> age = btget.getInt(<span class="string">&quot;age&quot;</span>, <span class="number">0</span>);</span><br><span class="line">                        Boolean married = btget.getBoolean(<span class="string">&quot;married&quot;</span> , <span class="keyword">false</span>);</span><br><span class="line">                        </span><br><span class="line">                        <span class="comment">//打印出来  </span></span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;name is&quot;</span> +name);</span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;age is&quot;</span> +age);</span><br><span class="line">                        Log.d(<span class="string">&quot;ManActivity&quot;</span> , <span class="string">&quot;married&quot;</span> +married);</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/03/01/Android%EF%BC%9A%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%92%8C%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/">Android：获取网络的GET请求和POST请求方式和文件存储介绍</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-03-01
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>获取网络的GET请求和POST请求方式和文件存储介绍。
-          <div class="read-more">
-            <a href="/2015/03/01/Android%EF%BC%9A%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%92%8C%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D/" class="read-more-link">Read more..</a>
-          </div>
         </div></article>
       <nav class="pagination"><a class="prev" href="/page/22/">
         <i class="iconfont icon-left"></i>
