@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-23T06:33:54.847Z</updated>
+  <updated>2021-06-03T08:10:32.141Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UX Caff - Issue #1</title>
+    <link href="http://example.com/2021/06/03/UX%20Caff%20-%20Issue%20#1/"/>
+    <id>http://example.com/2021/06/03/UX%20Caff%20-%20Issue%20#1/</id>
+    <published>2021-06-03T08:00:44.374Z</published>
+    <updated>2021-06-03T08:10:32.141Z</updated>
+    
+    <content type="html"><![CDATA[<p>👋 Hi，哈哈哈😂，这一期只能问候自己了，因为目前只有自己订阅了 UX Caff 的 Newsletter。<a id="more"></a></p><p>在这里交代一下写 Newsletter 的原因：</p><ol><li>从很早开始，自己已经在刻意写一些内容。直到 2019 年，开始有意识约束自己，在某个时间点，围绕某个主题进行写作。2年时间观察下来，收获不错。比如在工作上，当对方抛出一个问题，我只需要回顾下之前的文章就好（因为我把工作内容也用文章沉淀了部分）；</li><li>2020/06-2020/12，写了 6 期「<a href="https://uxcaff.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/">体验碎片</a>」（当然时间并没有每周固定）。当时就已经萌生了写Newsletter 的想法，当时说：</li></ol><blockquote><p>在看了半年 Newsletter 后，我觉得“那种形式的写作”可能更广阔。像阮一峰《科技爱好者周刊》、《Λ-Reading》、《竹本一世》、《灵感买家俱乐部》、《Weekly Spot》、《Interconnected》、《The Information》。感谢这些刊物启发。所以，一些内容会去掉，一些内容会进来。至于“那种形式的写作”，会在另一个系列说明。把自己作为方法，期待这些演变。</p></blockquote><p>但其实自己一直在调整，主要是因为自己想要的太多：工作内容也要写、业余兴趣还要兼顾（文学、投资、社会学、哲学等等）、还有工作本身。这太难了。</p><p>所以，一直到最近才开始划分清楚，分工明白。目前是这么打算：</p><ol><li>Newsletter 来承载日常看到还不错的资讯内容。于我自己而言，是把好的内容再深化、描述一遍，加深印象。于读者而言（以后有读者的话）。算是看到了筛选一遍的资讯。如果还有碰撞，那最好不过了。其次记录一些不成文的想法。这是目前能想到的；</li><li>有成文的想法，或者半衰期稍微长一些的信息/知识。我会整理到自己的<a href="https://uxcaff.com/">Blog</a>。因为我自己做了 7 年多互联网产品，主要涉及电商平台、商家工具、SaaS。所以可能会有这些行业内容，还望理解。</li></ol><p>如此一来，自认为还算是有时间，可以维护得过来。但愿可以。至于 Newsletter 的名字为什么叫 UX Caff，则没有多大意义，我有这个域名而已，延续<a href="https://uxcaff.com/2020/12/01/uxcaff.com%20%E5%9F%9F%E5%90%8D%E7%9A%84%E7%94%B1%E6%9D%A5/"> blog 域名</a>的名称。</p><p>好了，基本的内容交代清楚了。然后计划会备份博客，当然，如果有 Newsletter 需求，<a href="https://www.getrevue.co/profile/uxcaff/issues/ux-caff-issue-0-641857">欢迎订阅</a>。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;👋 Hi，哈哈哈😂，这一期只能问候自己了，因为目前只有自己订阅了 UX Caff 的 Newsletter。</summary>
+    
+    
+    
+    
+    <category term="UX Caff Newsletter" scheme="http://example.com/tags/UX-Caff-Newsletter/"/>
+    
+  </entry>
   
   <entry>
     <title>小区的草坪</title>
@@ -69,9 +88,9 @@
     
     
     
-    <category term="直播短视频" scheme="http://example.com/tags/%E7%9B%B4%E6%92%AD%E7%9F%AD%E8%A7%86%E9%A2%91/"/>
-    
     <category term="电商" scheme="http://example.com/tags/%E7%94%B5%E5%95%86/"/>
+    
+    <category term="直播短视频" scheme="http://example.com/tags/%E7%9B%B4%E6%92%AD%E7%9F%AD%E8%A7%86%E9%A2%91/"/>
     
   </entry>
   
@@ -384,25 +403,6 @@
     
     
     <category term="平台" scheme="http://example.com/tags/%E5%B9%B3%E5%8F%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于晋升答辩的一些感想</title>
-    <link href="http://example.com/2021/04/03/%E5%85%B3%E4%BA%8E%E6%99%8B%E5%8D%87%E7%AD%94%E8%BE%A9%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/"/>
-    <id>http://example.com/2021/04/03/%E5%85%B3%E4%BA%8E%E6%99%8B%E5%8D%87%E7%AD%94%E8%BE%A9%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/</id>
-    <published>2021-04-03T13:10:10.000Z</published>
-    <updated>2021-04-01T13:19:07.117Z</updated>
-    
-    <content type="html"><![CDATA[<p>本周参加了 7 位同学的晋升答辩，不同职级、不同角色。一些感想记录如下：<a id="more"></a></p><p>第一，环境塑造人，做的项目会成为自己一部分。字里行间，举手之间都会体现。做 ERP、C端工具、服务，甚至法务、人事，都是不同的气质。所以对于自己来说，一定要选自己喜欢的岗位、业务、项目。如果分不清自己是不是喜欢，就选自己向往的，错了再选。因为从这个角度来说，工作不仅仅是一份工作，它会塑造你。</p><p>第二，A 业务线去年营收超预期，所以今年晋升名额较多。多数人可能会觉得是因为自己，项目数据才是一条上扬的曲线（确实人的心理往往会高估自己）。但事实是，项目有自己的周期，上浮或下跌。你做的是尽量保持他在正确航线上。不然你想想，为什么会有“第二曲线”说法，而没有挽救“第一条曲线”说法…</p><p>所以，对于公司多数普通人（或者 VP 以下）来说，个人和项目确实是一起成长，但是项目的作用力会更大。毕竟，能因人设岗的位置，是稀有品。那么对于普通人，能做的就是拿到一个好项目，上一艘快船。</p><p>第三，语言表达和 PPT 能力，要争取至少在 70 分，可以不在意这些表达输出的能力，但是如果这些东西成为你综合能力提升的瓶颈，显然划不算。</p><p>特别是一些开发工程师（在概率上，开发工程师相对业务人员，更不在意这些）。我知道一位开发工程师平时很努力辛苦，每次凌晨迁数据，技术能力也厉害，但在晋升答辩上惨不忍睹…</p><p>第四，各个岗位都有专业能力 + 通用能力，一般岗位，专业能力决定下限，通用能力决定上限。越是高P的晋升。越和专业能力无关。不看专业能力强不强，只看公司要不要。公司要的是适合。适合的阶段适合的项目你就是，其他就不是。那“适合”更多的是通用能力的考量。比如能不能抗事？为人怎么样？</p><p>第五，个人述职和面试不一样，面试只有自我介绍几分钟，述职一个人对着 PPT 讲 20 - 30 分钟。所以对于述职来说，讲下来大概也就知道这个人的能力水平怎么样。后面的问题无非是确认和巩固面试官之前的认知。</p><p>第六，即使你能力再强，如果你遇到的都是烂问题。多多少少还是会影响你的发光程度。这个自己知道就好。能力越强，同频的人越少，稍微得意一下，继续赶路吧。</p><p>去年还写过<a href="https://uxcaff.com/2020/06/07/%E8%BF%B0%E8%81%8C%E6%8A%A5%E5%91%8A%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE/">一个述职报告的说明</a>。不过我现在看，觉得写的一般，有需要可以辩证地参考下。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;本周参加了 7 位同学的晋升答辩，不同职级、不同角色。一些感想记录如下：</summary>
-    
-    
-    
-    
-    <category term="Management" scheme="http://example.com/tags/Management/"/>
     
   </entry>
   
