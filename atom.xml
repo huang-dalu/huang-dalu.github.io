@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-03T08:10:32.141Z</updated>
+  <updated>2021-06-04T09:43:07.123Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>UX Caff - Issue #1</title>
-    <link href="http://example.com/2021/06/03/UX%20Caff%20-%20Issue%20#1/"/>
-    <id>http://example.com/2021/06/03/UX%20Caff%20-%20Issue%20#1/</id>
+    <link href="http://example.com/2021/06/03/UXCaffIssue1/"/>
+    <id>http://example.com/2021/06/03/UXCaffIssue1/</id>
     <published>2021-06-03T08:00:44.374Z</published>
-    <updated>2021-06-03T08:10:32.141Z</updated>
+    <updated>2021-06-04T09:43:07.123Z</updated>
     
     <content type="html"><![CDATA[<p>👋 Hi，哈哈哈😂，这一期只能问候自己了，因为目前只有自己订阅了 UX Caff 的 Newsletter。<a id="more"></a></p><p>在这里交代一下写 Newsletter 的原因：</p><ol><li>从很早开始，自己已经在刻意写一些内容。直到 2019 年，开始有意识约束自己，在某个时间点，围绕某个主题进行写作。2年时间观察下来，收获不错。比如在工作上，当对方抛出一个问题，我只需要回顾下之前的文章就好（因为我把工作内容也用文章沉淀了部分）；</li><li>2020/06-2020/12，写了 6 期「<a href="https://uxcaff.com/tags/%E4%BD%93%E9%AA%8C%E7%A2%8E%E7%89%87/">体验碎片</a>」（当然时间并没有每周固定）。当时就已经萌生了写Newsletter 的想法，当时说：</li></ol><blockquote><p>在看了半年 Newsletter 后，我觉得“那种形式的写作”可能更广阔。像阮一峰《科技爱好者周刊》、《Λ-Reading》、《竹本一世》、《灵感买家俱乐部》、《Weekly Spot》、《Interconnected》、《The Information》。感谢这些刊物启发。所以，一些内容会去掉，一些内容会进来。至于“那种形式的写作”，会在另一个系列说明。把自己作为方法，期待这些演变。</p></blockquote><p>但其实自己一直在调整，主要是因为自己想要的太多：工作内容也要写、业余兴趣还要兼顾（文学、投资、社会学、哲学等等）、还有工作本身。这太难了。</p><p>所以，一直到最近才开始划分清楚，分工明白。目前是这么打算：</p><ol><li>Newsletter 来承载日常看到还不错的资讯内容。于我自己而言，是把好的内容再深化、描述一遍，加深印象。于读者而言（以后有读者的话）。算是看到了筛选一遍的资讯。如果还有碰撞，那最好不过了。其次记录一些不成文的想法。这是目前能想到的；</li><li>有成文的想法，或者半衰期稍微长一些的信息/知识。我会整理到自己的<a href="https://uxcaff.com/">Blog</a>。因为我自己做了 7 年多互联网产品，主要涉及电商平台、商家工具、SaaS。所以可能会有这些行业内容，还望理解。</li></ol><p>如此一来，自认为还算是有时间，可以维护得过来。但愿可以。至于 Newsletter 的名字为什么叫 UX Caff，则没有多大意义，我有这个域名而已，延续<a href="https://uxcaff.com/2020/12/01/uxcaff.com%20%E5%9F%9F%E5%90%8D%E7%9A%84%E7%94%B1%E6%9D%A5/"> blog 域名</a>的名称。</p><p>好了，基本的内容交代清楚了。然后计划会备份博客，当然，如果有 Newsletter 需求，<a href="https://www.getrevue.co/profile/uxcaff/issues/ux-caff-issue-0-641857">欢迎订阅</a>。</p>]]></content>
     
